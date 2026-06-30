@@ -150,6 +150,22 @@ class PacketV3HardeningTests(unittest.TestCase):
             self.assertIn("corruption", " ".join(explanation["refusal"]["reasons"]).lower())
             self.assertIn("real-world resolution", " ".join(explanation["what_not_to_claim"]).lower())
 
+    def test_packet_explainer_uses_human_issue_label(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            warehouse = _warehouse(Path(tmp))
+
+            from civic_data.packet import build_evidence_packet
+            from civic_data.packet_rag import explain_packet
+
+            packet = build_evidence_packet(
+                "Manhole overflowing near Whitefield",
+                warehouse_root=warehouse,
+            )
+            explanation = explain_packet(packet, question="What does this mean?")
+
+            self.assertIn("sewage/water issue", explanation["what_the_packet_says"])
+            self.assertNotIn("water_sewage", explanation["what_the_packet_says"])
+
     def test_packet_eval_can_emit_release_gate_report(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

@@ -30,7 +30,7 @@ def explain_packet(packet: dict[str, Any], question: str | None = None) -> dict[
     ] or _string_list(packet.get("what_to_cite"))
     place_label = place.get("ward_name") or place.get("normalized_place") or "the reported location"
     issue = packet.get("issue") if isinstance(packet.get("issue"), dict) else {}
-    issue_type = issue.get("type") or packet.get("normalized_issue") or "civic"
+    issue_type = issue.get("display_type") or issue.get("type") or packet.get("normalized_issue") or "civic issue"
     answer = {
         "question": question,
         "what_the_packet_says": _safe(
