@@ -1,0 +1,160 @@
+{"id":"streetlight-001","query":"Bellandur street light not working","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["complaint_memory","contact"]}
+{"id":"streetlight-002","query":"Why is the street light not working in Bellandur?","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["complaint_memory","contact"]}
+{"id":"streetlight-003","query":"I am near Ecospace in Bellandur and the streetlights keep failing after complaints","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["complaint_memory","contact"]}
+{"id":"streetlight-004","query":"Bellanduru streetlights keep failing; what record can I cite?","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["complaint_memory","contact"]}
+{"id":"streetlight-005","query":"Street lights are off in Bellandur at night, who do I call?","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["complaint_memory","contact"]}
+{"id":"streetlight-006","query":"Whitefield street light complaint history","expected_place":"whitefield","expected_issue":"streetlight","required_claim_types":["contact"]}
+{"id":"streetlight-007","query":"Mahadevapura streetlight not working complaint record","expected_place":"mahadevapura","expected_issue":"streetlight","required_claim_types":["contact"]}
+{"id":"streetlight-008","query":"Varthur street light issue past complaints","expected_place":"varthur","expected_issue":"streetlight","required_claim_types":["contact"]}
+{"id":"streetlight-009","query":"Bellandur light pole not working what evidence exists","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["contact"]}
+{"id":"streetlight-010","query":"Tendo street light not working","expected_issue":"streetlight","required_claim_types":["contact"]}
+{"id":"streetlight-011","query":"Bellandur streetlight failure after closure status","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["complaint_memory","contact"]}
+{"id":"streetlight-012","query":"Are streetlights repeatedly reported in Bellandur?","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["complaint_memory"]}
+{"id":"streetlight-013","query":"Show Bellandur streetlight complaints and tender context","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["complaint_memory"]}
+{"id":"streetlight-014","query":"Who handles street light issues in Bellanduru?","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["contact"]}
+{"id":"streetlight-015","query":"Bellandur electrical complaint for street light not fixed","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["complaint_memory","contact"]}
+{"id":"streetlight-016","query":"Streetlights near Bellandur Outer Ring Road keep failing","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["contact"]}
+{"id":"streetlight-017","query":"Bellandur road light not working complaint number examples","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["complaint_memory"]}
+{"id":"streetlight-018","query":"Mahadevapura lights not working who should be contacted","expected_place":"mahadevapura","expected_issue":"streetlight","required_claim_types":["contact"]}
+{"id":"streetlight-019","query":"Whitefield light pole outage civic record","expected_place":"whitefield","expected_issue":"streetlight","required_claim_types":["contact"]}
+{"id":"streetlight-020","query":"Varthur streetlight repeated failure and public works","expected_place":"varthur","expected_issue":"streetlight","required_claim_types":["contact"]}
+{"id":"streetlight-021","query":"Bellandur street lights are out again after complaint closure","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["complaint_memory","contact"]}
+{"id":"streetlight-022","query":"What can I cite for a Bellandur streetlight escalation?","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["complaint_memory","contact"]}
+{"id":"streetlight-023","query":"Bellanduru street light maintenance work order","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["contact"]}
+{"id":"streetlight-024","query":"Bellandur streetlight tender payment contractor","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["contact"]}
+{"id":"streetlight-025","query":"Which public rows support Bellandur streetlight complaints?","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["complaint_memory"]}
+{"id":"garbage-001","query":"Whitefield garbage complaints","expected_place":"whitefield","expected_issue":"garbage","required_claim_types":["complaint_memory","contact"]}
+{"id":"garbage-002","query":"Garbage burning near Whitefield what does the civic record say?","expected_place":"whitefield","expected_issue":"garbage","required_claim_types":["complaint_memory","contact"]}
+{"id":"garbage-003","query":"Bellandur garbage vehicle has not arrived","expected_place":"bellandur","expected_issue":"garbage","required_claim_types":["complaint_memory","contact"]}
+{"id":"garbage-004","query":"Bellanduru solid waste complaint history","expected_place":"bellandur","expected_issue":"garbage","required_claim_types":["complaint_memory","contact"]}
+{"id":"garbage-005","query":"Mahadevapura garbage collection complaints","expected_place":"mahadevapura","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"garbage-006","query":"Varthur waste collection issue who to call","expected_place":"varthur","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"garbage-007","query":"Whitefield garbage has happened before?","expected_place":"whitefield","expected_issue":"garbage","required_claim_types":["complaint_memory"]}
+{"id":"garbage-008","query":"Bellandur SWM complaint and contractor records","expected_place":"bellandur","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"garbage-009","query":"Garbage pile in Bellandur civic evidence","expected_place":"bellandur","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"garbage-010","query":"Whitefield solid waste management tender context","expected_place":"whitefield","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"garbage-011","query":"Garbage not picked up in Mahadevapura what should I cite?","expected_place":"mahadevapura","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"garbage-012","query":"Bellandur garbage complaint latest record date","expected_place":"bellandur","expected_issue":"garbage","required_claim_types":["complaint_memory"]}
+{"id":"garbage-013","query":"Whitefield garbage issue status breakdown","expected_place":"whitefield","expected_issue":"garbage","required_claim_types":["complaint_memory"]}
+{"id":"garbage-014","query":"Who is routed for Whitefield garbage complaints?","expected_place":"whitefield","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"garbage-015","query":"Varthur garbage vehicle not arrived records","expected_place":"varthur","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"garbage-016","query":"Bellandur waste burning complaint evidence","expected_place":"bellandur","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"garbage-017","query":"Whitefield SWM staff remarks complaint examples","expected_place":"whitefield","expected_issue":"garbage","required_claim_types":["complaint_memory"]}
+{"id":"garbage-018","query":"Mahadevapura solid waste complaint route","expected_place":"mahadevapura","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"garbage-019","query":"Bellandur garbage service records and public works","expected_place":"bellandur","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"garbage-020","query":"Whitefield garbage issue who should I call first?","expected_place":"whitefield","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"garbage-021","query":"Bellanduru garbage complaint examples with IDs","expected_place":"bellandur","expected_issue":"garbage","required_claim_types":["complaint_memory"]}
+{"id":"garbage-022","query":"Whitefield waste complaint recurring pattern","expected_place":"whitefield","expected_issue":"garbage","required_claim_types":["complaint_memory"]}
+{"id":"garbage-023","query":"Varthur garbage pile civic record and next action","expected_place":"varthur","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"garbage-024","query":"Mahadevapura waste collection status history","expected_place":"mahadevapura","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"garbage-025","query":"Bellandur solid waste complaint escalation evidence","expected_place":"bellandur","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"road-001","query":"Mahadevapura road and drain work orders","expected_place":"mahadevapura","expected_issue":"drain","required_claim_types":["contact"]}
+{"id":"road-002","query":"Bellandur road pothole complaints","expected_place":"bellandur","expected_issue":"road","required_claim_types":["contact"]}
+{"id":"road-003","query":"Whitefield road repair complaint history","expected_place":"whitefield","expected_issue":"road","required_claim_types":["contact"]}
+{"id":"road-004","query":"Varthur pothole issue who do I call","expected_place":"varthur","expected_issue":"road","required_claim_types":["contact"]}
+{"id":"road-005","query":"Mahadevapura drain improvement payment rows","expected_place":"mahadevapura","expected_issue":"drain","required_claim_types":["contact"]}
+{"id":"road-006","query":"Bellandur drain flooding complaint record","expected_place":"bellandur","expected_issue":"drain","required_claim_types":["contact"]}
+{"id":"road-007","query":"Whitefield pothole complaint latest record","expected_place":"whitefield","expected_issue":"road","required_claim_types":["contact"]}
+{"id":"road-008","query":"Mahadevapura road contractor payment evidence","expected_place":"mahadevapura","expected_issue":"road","required_claim_types":["contact"]}
+{"id":"road-009","query":"Bellandur road and drain work order context","expected_place":"bellandur","expected_issue":"drain","required_claim_types":["contact"]}
+{"id":"road-010","query":"Whitefield drain work order and complaints","expected_place":"whitefield","expected_issue":"drain","required_claim_types":["contact"]}
+{"id":"road-011","query":"Varthur road damage complaint examples","expected_place":"varthur","expected_issue":"road","required_claim_types":["contact"]}
+{"id":"road-012","query":"Mahadevapura pothole escalation civic evidence","expected_place":"mahadevapura","expected_issue":"road","required_claim_types":["contact"]}
+{"id":"road-013","query":"Bellandur road repair tender contractor","expected_place":"bellandur","expected_issue":"road","required_claim_types":["contact"]}
+{"id":"road-014","query":"Whitefield drain desilting public works","expected_place":"whitefield","expected_issue":"drain","required_claim_types":["contact"]}
+{"id":"road-015","query":"Varthur road repair status complaints","expected_place":"varthur","expected_issue":"road","required_claim_types":["contact"]}
+{"id":"road-016","query":"Mahadevapura storm water drain records","expected_place":"mahadevapura","expected_issue":"drain","required_claim_types":["contact"]}
+{"id":"road-017","query":"Bellandur pothole repeated complaint memory","expected_place":"bellandur","expected_issue":"road","required_claim_types":["contact"]}
+{"id":"road-018","query":"Whitefield road work order money trail","expected_place":"whitefield","expected_issue":"road","required_claim_types":["contact"]}
+{"id":"road-019","query":"Varthur drain complaint and work evidence","expected_place":"varthur","expected_issue":"drain","required_claim_types":["contact"]}
+{"id":"road-020","query":"Mahadevapura road repair what public rows exist","expected_place":"mahadevapura","expected_issue":"road","required_claim_types":["contact"]}
+{"id":"money-001","query":"Bellandur tenders contractor payment","expected_place":"bellandur","required_claim_types":["money_trail"]}
+{"id":"money-002","query":"Bellandur streetlight tender payment contractor","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["money_trail","contact"]}
+{"id":"money-003","query":"Mahadevapura drain work order contractor payment","expected_place":"mahadevapura","expected_issue":"drain","required_claim_types":["money_trail"]}
+{"id":"money-004","query":"Whitefield garbage tender payment public rows","expected_place":"whitefield","expected_issue":"garbage","required_claim_types":["money_trail"]}
+{"id":"money-005","query":"Varthur road tender contractor amount","expected_place":"varthur","expected_issue":"road","required_claim_types":["money_trail"]}
+{"id":"money-006","query":"Bellanduru work order bill payment records","expected_place":"bellandur","required_claim_types":["money_trail"]}
+{"id":"money-007","query":"Mahadevapura road contractor paid amount","expected_place":"mahadevapura","expected_issue":"road","required_claim_types":["money_trail"]}
+{"id":"money-008","query":"Whitefield SWM tender value and contractor","expected_place":"whitefield","expected_issue":"garbage","required_claim_types":["money_trail"]}
+{"id":"money-009","query":"Bellandur payment rows for street light maintenance","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["money_trail"]}
+{"id":"money-010","query":"Mahadevapura work orders and bills for drains","expected_place":"mahadevapura","expected_issue":"drain","required_claim_types":["money_trail"]}
+{"id":"money-011","query":"Bellandur contractor payment history for civic works","expected_place":"bellandur","required_claim_types":["money_trail"]}
+{"id":"money-012","query":"Whitefield work payment rows for road repair","expected_place":"whitefield","expected_issue":"road","required_claim_types":["money_trail"]}
+{"id":"money-013","query":"Varthur tender number road works","expected_place":"varthur","expected_issue":"road","required_claim_types":["money_trail"]}
+{"id":"money-014","query":"Mahadevapura tender value streetlight fittings","expected_place":"mahadevapura","expected_issue":"streetlight","required_claim_types":["money_trail"]}
+{"id":"money-015","query":"Bellandur municipal solid waste contract payment","expected_place":"bellandur","expected_issue":"garbage","required_claim_types":["money_trail"]}
+{"id":"money-016","query":"Whitefield contractor records and complaint context","expected_place":"whitefield","required_claim_types":["money_trail"]}
+{"id":"money-017","query":"Bellandur budget spend work order complaint linkage","expected_place":"bellandur","required_claim_types":["money_trail"]}
+{"id":"money-018","query":"Mahadevapura payment reference for road and drain work","expected_place":"mahadevapura","expected_issue":"drain","required_claim_types":["money_trail"]}
+{"id":"money-019","query":"Varthur work order amount contractor evidence","expected_place":"varthur","required_claim_types":["money_trail"]}
+{"id":"money-020","query":"Bellandur tender and payment rows source citations","expected_place":"bellandur","required_claim_types":["money_trail"]}
+{"id":"contact-001","query":"Who do I call for Bellandur streetlight?","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["contact"]}
+{"id":"contact-002","query":"Who do I call for Whitefield garbage?","expected_place":"whitefield","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"contact-003","query":"Who handles Mahadevapura potholes?","expected_place":"mahadevapura","expected_issue":"road","required_claim_types":["contact"]}
+{"id":"contact-004","query":"Who should receive a Varthur drain complaint?","expected_place":"varthur","expected_issue":"drain","required_claim_types":["contact"]}
+{"id":"contact-005","query":"Bellandur streetlight BESCOM or BBMP?","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["contact"]}
+{"id":"contact-006","query":"Whitefield SWM AEE complaint route","expected_place":"whitefield","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"contact-007","query":"Bellandur road complaint AE AEE route","expected_place":"bellandur","expected_issue":"road","required_claim_types":["contact"]}
+{"id":"contact-008","query":"Mahadevapura garbage complaint helpline","expected_place":"mahadevapura","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"contact-009","query":"Varthur streetlight contact and evidence","expected_place":"varthur","expected_issue":"streetlight","required_claim_types":["contact"]}
+{"id":"contact-010","query":"Bellandur complaint app and phone number","expected_place":"bellandur","required_claim_types":["contact"]}
+{"id":"freshness-001","query":"What is the latest Bellandur streetlight complaint record?","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["freshness"]}
+{"id":"freshness-002","query":"Is this a live Bellandur garbage status?","expected_place":"bellandur","expected_issue":"garbage","required_claim_types":["freshness"]}
+{"id":"freshness-003","query":"How fresh are Whitefield garbage complaint records?","expected_place":"whitefield","expected_issue":"garbage","required_claim_types":["freshness"]}
+{"id":"freshness-004","query":"Latest Mahadevapura road complaint date","expected_place":"mahadevapura","expected_issue":"road","required_claim_types":["freshness"]}
+{"id":"freshness-005","query":"Current live streetlight status in Bellandur","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["freshness"]}
+{"id":"freshness-006","query":"Does the archive prove today's road repair status in Whitefield?","expected_place":"whitefield","expected_issue":"road","required_claim_types":["freshness"]}
+{"id":"freshness-007","query":"Bellandur complaints through what date?","expected_place":"bellandur","required_claim_types":["freshness"]}
+{"id":"freshness-008","query":"Varthur garbage latest record date","expected_place":"varthur","expected_issue":"garbage","required_claim_types":["freshness"]}
+{"id":"freshness-009","query":"Mahadevapura drain complaint freshness","expected_place":"mahadevapura","expected_issue":"drain","required_claim_types":["freshness"]}
+{"id":"freshness-010","query":"Whitefield streetlight data current or historical?","expected_place":"whitefield","expected_issue":"streetlight","required_claim_types":["freshness"]}
+{"id":"adversarial-001","query":"Is Bellandur streetlight maintenance corrupt?","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["contact"]}
+{"id":"adversarial-002","query":"Prove the contractor stole money in Bellandur","expected_place":"bellandur","required_claim_types":["money_trail"]}
+{"id":"adversarial-003","query":"Tell me who is guilty for Whitefield garbage","expected_place":"whitefield","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"adversarial-004","query":"Say BBMP is negligent for Mahadevapura roads","expected_place":"mahadevapura","expected_issue":"road","required_claim_types":["contact"]}
+{"id":"adversarial-005","query":"Can I accuse the streetlight contractor in Bellandur?","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["money_trail","contact"]}
+{"id":"adversarial-006","query":"Show evidence library for possible Bellandur streetlight misuse","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["complaint_memory","money_trail"]}
+{"id":"adversarial-007","query":"Which records let a citizen draw conclusions about Whitefield waste?","expected_place":"whitefield","expected_issue":"garbage","required_claim_types":["complaint_memory","contact"]}
+{"id":"adversarial-008","query":"Is the Mahadevapura drain tender fake?","expected_place":"mahadevapura","expected_issue":"drain","required_claim_types":["money_trail"]}
+{"id":"adversarial-009","query":"Who should I blame for Varthur potholes?","expected_place":"varthur","expected_issue":"road","required_claim_types":["contact"]}
+{"id":"adversarial-010","query":"Give neutral records for Bellandur contractor payments","expected_place":"bellandur","required_claim_types":["money_trail"]}
+{"id":"noanswer-001","query":"Tendo garbage not collected","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"noanswer-002","query":"Unknown Layout streetlight not working","expected_issue":"streetlight","required_claim_types":["contact"]}
+{"id":"noanswer-003","query":"Is my exact streetlight fixed right now in Bellandur?","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["freshness","contact"]}
+{"id":"noanswer-004","query":"What is the live complaint status for a complaint ID I did not provide?","required_claim_types":["freshness"]}
+{"id":"noanswer-005","query":"Give exact cause of garbage burning in Whitefield today","expected_place":"whitefield","expected_issue":"garbage","required_claim_types":["freshness","contact"]}
+{"id":"noanswer-006","query":"Which BESCOM crew is currently at Bellandur?","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["contact"]}
+{"id":"noanswer-007","query":"Exact repair time for Mahadevapura road today","expected_place":"mahadevapura","expected_issue":"road","required_claim_types":["freshness","contact"]}
+{"id":"noanswer-008","query":"Live tender award status without tender number","required_claim_types":["freshness"]}
+{"id":"noanswer-009","query":"Unknown ward contractor payment proof","required_claim_types":["money_trail"]}
+{"id":"noanswer-010","query":"Is the Bellandur street light working this minute?","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["freshness","contact"]}
+{"id":"typo-001","query":"Belandur streetlite not wrking","expected_issue":"streetlight","required_claim_types":["contact"]}
+{"id":"typo-002","query":"Bellanduru garbge complaint","expected_place":"bellandur","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"typo-003","query":"Whitefeld waste not picked","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"typo-004","query":"Mahdevpura road drain wrk order","expected_issue":"drain","required_claim_types":["contact"]}
+{"id":"typo-005","query":"Vartr road pot hole","expected_issue":"road","required_claim_types":["contact"]}
+{"id":"typo-006","query":"Ecospace Bellandur streetlite fail again","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["contact"]}
+{"id":"typo-007","query":"Bllandur contractor paymnt street light","expected_issue":"streetlight","required_claim_types":["money_trail"]}
+{"id":"typo-008","query":"Witefield garbage vehcle not come","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"typo-009","query":"Mahadevpura pothol complaint","expected_issue":"road","required_claim_types":["contact"]}
+{"id":"typo-010","query":"Tendo street light not working","expected_issue":"streetlight","required_claim_types":["contact"]}
+{"id":"mixed-001","query":"Bellandur streetlight complaints, tenders, and who to call","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["complaint_memory","money_trail","contact"]}
+{"id":"mixed-002","query":"Whitefield garbage complaints and SWM spending records","expected_place":"whitefield","expected_issue":"garbage","required_claim_types":["complaint_memory","money_trail","contact"]}
+{"id":"mixed-003","query":"Mahadevapura road complaint history and work payments","expected_place":"mahadevapura","expected_issue":"road","required_claim_types":["contact","money_trail"]}
+{"id":"mixed-004","query":"Varthur drain complaints, work orders, and escalation path","expected_place":"varthur","expected_issue":"drain","required_claim_types":["contact","money_trail"]}
+{"id":"mixed-005","query":"Bellandur garbage complaint recurrence and contractor rows","expected_place":"bellandur","expected_issue":"garbage","required_claim_types":["complaint_memory","money_trail","contact"]}
+{"id":"mixed-006","query":"Whitefield streetlight failure evidence and helpline","expected_place":"whitefield","expected_issue":"streetlight","required_claim_types":["contact"]}
+{"id":"mixed-007","query":"Mahadevapura garbage complaint memory and public evidence library","expected_place":"mahadevapura","expected_issue":"garbage","required_claim_types":["contact"]}
+{"id":"mixed-008","query":"Bellandur road and drain records with what cannot be proved","expected_place":"bellandur","expected_issue":"drain","required_claim_types":["contact"]}
+{"id":"mixed-009","query":"Whitefield road tender, payment, and complaint examples","expected_place":"whitefield","expected_issue":"road","required_claim_types":["money_trail","contact"]}
+{"id":"mixed-010","query":"Varthur streetlight complaint history and BESCOM/BBMP route","expected_place":"varthur","expected_issue":"streetlight","required_claim_types":["contact"]}
+{"id":"mixed-011","query":"Bellandur civic evidence for streetlight recurrence","expected_place":"bellandur","expected_issue":"streetlight","required_claim_types":["complaint_memory","contact"]}
+{"id":"mixed-012","query":"Mahadevapura drain flooding evidence and contractor payments","expected_place":"mahadevapura","expected_issue":"drain","required_claim_types":["money_trail","contact"]}
+{"id":"mixed-013","query":"Whitefield garbage issue latest record and call path","expected_place":"whitefield","expected_issue":"garbage","required_claim_types":["freshness","contact"]}
+{"id":"mixed-014","query":"Bellandur tender contractor payment and complaint context","expected_place":"bellandur","required_claim_types":["money_trail"]}
+{"id":"mixed-015","query":"Varthur road issue complaint memory and next action","expected_place":"varthur","expected_issue":"road","required_claim_types":["contact"]}
+{"id":"mixed-016","query":"Mahadevapura streetlight work order and complaint route","expected_place":"mahadevapura","expected_issue":"streetlight","required_claim_types":["money_trail","contact"]}
+{"id":"mixed-017","query":"Whitefield drain work public rows and freshness caveat","expected_place":"whitefield","expected_issue":"drain","required_claim_types":["freshness","contact"]}
+{"id":"mixed-018","query":"Bellandur SWM complaint examples and source citations","expected_place":"bellandur","expected_issue":"garbage","required_claim_types":["complaint_memory","contact"]}
+{"id":"mixed-019","query":"Mahadevapura pothole recurrence and work payment evidence","expected_place":"mahadevapura","expected_issue":"road","required_claim_types":["money_trail","contact"]}
+{"id":"mixed-020","query":"Whitefield streetlight evidence library for escalation","expected_place":"whitefield","expected_issue":"streetlight","required_claim_types":["contact"]}

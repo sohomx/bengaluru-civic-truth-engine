@@ -1,0 +1,587 @@
+{
+  "complaint_summary": {
+    "by_status": [
+      {
+        "count": 5300,
+        "value": "Closed"
+      },
+      {
+        "count": 289,
+        "value": "Non Relevant"
+      },
+      {
+        "count": 276,
+        "value": "Registered"
+      },
+      {
+        "count": 66,
+        "value": "ReOpen"
+      },
+      {
+        "count": 2,
+        "value": "In Progress"
+      },
+      {
+        "count": 2,
+        "value": "Long Term Solution"
+      },
+      {
+        "count": 1,
+        "value": "null"
+      }
+    ],
+    "by_year": [
+      {
+        "count": 3679,
+        "value": "2024"
+      },
+      {
+        "count": 2257,
+        "value": "2025"
+      }
+    ],
+    "total_complaints": 5936
+  },
+  "evidence_policy": "All claims in this report are derived from normalized rows with evidence pointers. Community signals are not included in this Wave 1 report.",
+  "normalized_query": "bellandur",
+  "query": "Bellandur",
+  "record_scope": {
+    "active_year_from": 2024,
+    "active_year_to": 2025,
+    "context_note": "2026 sources are present for ward/governance/budget context, not grievance trends yet.",
+    "freshness_note": "BBMP grievance records available through 2025-06-19. Not a live complaint dashboard.",
+    "grievance_date_max": "2025-06-19",
+    "grievance_date_min": "2020-02-08",
+    "grievance_year_max": 2025,
+    "grievance_year_min": 2020,
+    "label": "Recent: 2024-2025"
+  },
+  "top_issue_categories": [
+    {
+      "category": "Solid Waste (Garbage) Related",
+      "count": 1774,
+      "examples": [
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 206885,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20437653",
+          "grievance_date": "2024-01-01",
+          "issue_subcategory": "Garbage dump",
+          "staff_name": "SWM AEE Mahadevapura sub division/AEE",
+          "staff_remarks": "Attended",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 206548,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20437993",
+          "grievance_date": "2024-01-02",
+          "issue_subcategory": "Garbage vehicle not arrived",
+          "staff_name": "SWM AEE Mahadevapura sub division/AEE",
+          "staff_remarks": "Attended",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 206544,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20437997",
+          "grievance_date": "2024-01-02",
+          "issue_subcategory": "Garbage vehicle not arrived",
+          "staff_name": "SWM AEE Mahadevapura sub division/AEE",
+          "staff_remarks": "Attended",
+          "status": "Closed"
+        }
+      ]
+    },
+    {
+      "category": "Electrical",
+      "count": 873,
+      "examples": [
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 206849,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20437689",
+          "grievance_date": "2024-01-01",
+          "issue_subcategory": "Street Light Not Working",
+          "staff_name": "Sachin Malagi/AE",
+          "staff_remarks": "Attended",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 205618,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20438928",
+          "grievance_date": "2024-01-04",
+          "issue_subcategory": "Street Light Not Working",
+          "staff_name": "Sachin Malagi/AE",
+          "staff_remarks": "Attended",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 205263,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20439283",
+          "grievance_date": "2024-01-05",
+          "issue_subcategory": "Street Light Not Working",
+          "staff_name": "Sachin Malagi/AE",
+          "staff_remarks": "Attended",
+          "status": "Closed"
+        }
+      ]
+    },
+    {
+      "category": "Health Dept",
+      "count": 849,
+      "examples": [
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 197987,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20446560",
+          "grievance_date": "2024-01-26",
+          "issue_subcategory": "Fogging",
+          "staff_name": "Dr. Rakesh Reddy/MOH",
+          "staff_remarks": "resolved",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 197985,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20446562",
+          "grievance_date": "2024-01-26",
+          "issue_subcategory": "Increase in mosquito density",
+          "staff_name": "Dr. Rakesh Reddy/MOH",
+          "staff_remarks": "resolved",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 194367,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20450180",
+          "grievance_date": "2024-02-04",
+          "issue_subcategory": "Increase in mosquito density",
+          "staff_name": "Dr. Rakesh Reddy/MOH",
+          "staff_remarks": "Resolved",
+          "status": "Closed"
+        }
+      ]
+    },
+    {
+      "category": "Road Maintenance(Engg)",
+      "count": 743,
+      "examples": [
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 206975,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20437563",
+          "grievance_date": "2024-01-01",
+          "issue_subcategory": "Potholes",
+          "staff_name": "Markandiaha/AEE",
+          "staff_remarks": "closed",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 206974,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20437564",
+          "grievance_date": "2024-01-01",
+          "issue_subcategory": "Potholes",
+          "staff_name": "Markandiaha/AEE",
+          "staff_remarks": "Work is under progress",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 205637,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20438909",
+          "grievance_date": "2024-01-04",
+          "issue_subcategory": "Debris Removal / Construction Material",
+          "staff_name": "Markandiaha/AEE",
+          "staff_remarks": "Will be removed at the earliest",
+          "status": "Closed"
+        }
+      ]
+    },
+    {
+      "category": "Road Infrastructure",
+      "count": 666,
+      "examples": [
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 205766,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20438780",
+          "grievance_date": "2024-01-04",
+          "issue_subcategory": "Road Infrastructure",
+          "staff_name": "K V Prakash/AEE",
+          "staff_remarks": "The complainant has been resolved",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 205156,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20439390",
+          "grievance_date": "2024-01-06",
+          "issue_subcategory": "Road Infrastructure",
+          "staff_name": "K V Prakash/AEE",
+          "staff_remarks": "The complainant has been resolved",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 203157,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20441389",
+          "grievance_date": "2024-01-11",
+          "issue_subcategory": "Road Infrastructure",
+          "staff_name": "BBMP Whatsapp/Customer Support Representative",
+          "staff_remarks": "\\N",
+          "status": "Non Relevant"
+        }
+      ]
+    },
+    {
+      "category": "veterinary",
+      "count": 292,
+      "examples": [
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 206191,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20438355",
+          "grievance_date": "2024-01-03",
+          "issue_subcategory": "Stray dog related complaints",
+          "staff_name": "Mohan/ADAH",
+          "staff_remarks": "Attended",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 204260,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20440286",
+          "grievance_date": "2024-01-08",
+          "issue_subcategory": "Stray/Rabid dog bite",
+          "staff_name": "Mohan/ADAH",
+          "staff_remarks": "A",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 202480,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20442066",
+          "grievance_date": "2024-01-13",
+          "issue_subcategory": "Animal birth control/neutering of stray dogs",
+          "staff_name": "Mohan/ADAH",
+          "staff_remarks": "A",
+          "status": "Closed"
+        }
+      ]
+    },
+    {
+      "category": "E khata / Khata services",
+      "count": 147,
+      "examples": [
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 38910,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20605731",
+          "grievance_date": "2024-10-29",
+          "issue_subcategory": "Ekhata Other corrections",
+          "staff_name": "Basavachari/RO",
+          "staff_remarks": "Complaint is Resolved",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 4992,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20639651",
+          "grievance_date": "2024-12-23",
+          "issue_subcategory": "new Khata / Ekhata registration / creation",
+          "staff_name": "Basavaraju Maggi/RO",
+          "staff_remarks": "Closed",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 3291,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20641352",
+          "grievance_date": "2024-12-26",
+          "issue_subcategory": "Ekhata missing in online",
+          "staff_name": "Basavaraju Maggi/RO",
+          "staff_remarks": "Closed",
+          "status": "Closed"
+        }
+      ]
+    },
+    {
+      "category": "Forest",
+      "count": 139,
+      "examples": [
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 202211,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20442335",
+          "grievance_date": "2024-01-14",
+          "issue_subcategory": "obstructions Branches / Trees.",
+          "staff_name": "Sudharshan/DYRFO",
+          "staff_remarks": "Team has contacted you, please co-ordinate with bescom and team",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 194058,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20450489",
+          "grievance_date": "2024-02-05",
+          "issue_subcategory": "Issues related Snakes/Birds/Monkeys",
+          "staff_name": "Sudharshan/DYRFO",
+          "staff_remarks": "Contact mahesh for further information",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 190162,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20454386",
+          "grievance_date": "2024-02-15",
+          "issue_subcategory": "Issues related Snakes/Birds/Monkeys",
+          "staff_name": "Sudharshan/DYRFO",
+          "staff_remarks": "For monkey relocation need to taken order from regular forest department, so contact mahesh for further information 98457 14598",
+          "status": "Closed"
+        }
+      ]
+    },
+    {
+      "category": "Storm  Water Drain(SWD)",
+      "count": 120,
+      "examples": [
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 206644,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20437894",
+          "grievance_date": "2024-01-02",
+          "issue_subcategory": "Maintenance of SWD",
+          "staff_name": "Chethan/AE",
+          "staff_remarks": "Attended",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 206137,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20438409",
+          "grievance_date": "2024-01-03",
+          "issue_subcategory": "Maintenance of SWD",
+          "staff_name": "Chethan/AE",
+          "staff_remarks": "Work being done",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 206095,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20438451",
+          "grievance_date": "2024-01-03",
+          "issue_subcategory": "Sewerage water left in SWD",
+          "staff_name": "BBMP Whatsapp/Customer Support Representative",
+          "staff_remarks": "Plz contact bwssb engineer",
+          "status": "Non Relevant"
+        }
+      ]
+    },
+    {
+      "category": "Revenue Department",
+      "count": 98,
+      "examples": [
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 206285,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20438261",
+          "grievance_date": "2024-01-03",
+          "issue_subcategory": "Unable to Generate the receipt after property tax payment.",
+          "staff_name": "Krishnappa/RO",
+          "staff_remarks": "Please submit application with all details to Aro Pulikeshinagar office,",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 199415,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20445132",
+          "grievance_date": "2024-01-22",
+          "issue_subcategory": "Khata Services (Registration, Transfer, Bifurcation and Amalgamation)",
+          "staff_name": "Krishnappa/RO",
+          "staff_remarks": "Sir please follow the sakala online message s..",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/2a3f29ef-a7a1-4fc3-b125-cbcc958a89d1.csv",
+            "row_number": 198229,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20446318",
+          "grievance_date": "2024-01-25",
+          "issue_subcategory": "Khata Services (Registration, Transfer, Bifurcation and Amalgamation)",
+          "staff_name": "Krishnappa/RO",
+          "staff_remarks": "Updated... Please check",
+          "status": "Closed"
+        }
+      ]
+    }
+  ],
+  "ward_context": {
+    "area_match_candidates": [],
+    "new_gba_candidates": [
+      {
+        "assembly_constituency": "Mahadevapura",
+        "corporation": "East",
+        "evidence": {
+          "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+          "row_number": 112,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "gba_wards_delimitation_2025"
+        },
+        "match_score": 0.85,
+        "normalized_name": "bellanduru",
+        "population": 17684,
+        "source_id": "gba_wards_delimitation_2025",
+        "version": "gba_2025",
+        "ward_key": "gba:east:45",
+        "ward_name": "Bellanduru",
+        "ward_number": "45",
+        "zone": ""
+      }
+    ],
+    "old_bbmp_candidates": [
+      {
+        "assembly_constituency": "Mahadevapura",
+        "corporation": "",
+        "evidence": {
+          "raw_file": "original/01d485da-6509-4555-ab4c-036720ad0c51.csv",
+          "row_number": 151,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "bbmp_ward_information"
+        },
+        "match_score": 0.85,
+        "normalized_name": "bellanduru",
+        "population": null,
+        "source_id": "bbmp_ward_information",
+        "version": "old_bbmp",
+        "ward_key": "old:150",
+        "ward_name": "Bellanduru",
+        "ward_number": "150",
+        "zone": "Mahadevapura"
+      }
+    ],
+    "old_new_mappings": []
+  }
+}

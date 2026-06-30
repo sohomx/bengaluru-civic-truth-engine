@@ -1,0 +1,101 @@
+{
+  "generated_at": "2026-06-13T17:14:07Z",
+  "places": [
+    {
+      "lenses": [
+        {
+          "key": "all",
+          "label": "All years",
+          "record_date_max": "2025-06-19",
+          "total_complaints": 13255
+        },
+        {
+          "key": "recent",
+          "label": "Recent: 2024-2025",
+          "record_date_max": "2025-06-19",
+          "total_complaints": 5936
+        },
+        {
+          "key": "y2025",
+          "label": "2025 only",
+          "record_date_max": "2025-06-19",
+          "total_complaints": 2257
+        }
+      ],
+      "name": "Bellandur",
+      "slug": "bellandur"
+    },
+    {
+      "lenses": [
+        {
+          "key": "all",
+          "label": "All years",
+          "record_date_max": "2025-06-19",
+          "total_complaints": 63529
+        },
+        {
+          "key": "recent",
+          "label": "Recent: 2024-2025",
+          "record_date_max": "2025-06-19",
+          "total_complaints": 27610
+        },
+        {
+          "key": "y2025",
+          "label": "2025 only",
+          "record_date_max": "2025-06-19",
+          "total_complaints": 11364
+        }
+      ],
+      "name": "Mahadevapura",
+      "slug": "mahadevapura"
+    },
+    {
+      "lenses": [
+        {
+          "key": "all",
+          "label": "All years",
+          "record_date_max": "2025-06-19",
+          "total_complaints": 7848
+        },
+        {
+          "key": "recent",
+          "label": "Recent: 2024-2025",
+          "record_date_max": "2025-06-19",
+          "total_complaints": 3706
+        },
+        {
+          "key": "y2025",
+          "label": "2025 only",
+          "record_date_max": "2025-06-19",
+          "total_complaints": 1598
+        }
+      ],
+      "name": "Varthur",
+      "slug": "varthur"
+    },
+    {
+      "lenses": [
+        {
+          "key": "all",
+          "label": "All years",
+          "record_date_max": "2025-06-19",
+          "total_complaints": 7848
+        },
+        {
+          "key": "recent",
+          "label": "Recent: 2024-2025",
+          "record_date_max": "2025-06-19",
+          "total_complaints": 3706
+        },
+        {
+          "key": "y2025",
+          "label": "2025 only",
+          "record_date_max": "2025-06-19",
+          "total_complaints": 1598
+        }
+      ],
+      "name": "Whitefield",
+      "slug": "whitefield"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+[project]
+name = "bengaluru-civic-truth-engine"
+version = "0.1.0"
+description = "Provenance-first data tooling for the Bengaluru Civic Truth Engine."
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn>=0.30",
+]
+
+[project.scripts]
+civic-data = "civic_data.cli:main"
+
+[tool.setuptools]
+packages = ["civic_data", "api"]

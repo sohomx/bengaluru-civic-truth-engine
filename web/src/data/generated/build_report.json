@@ -1,0 +1,20 @@
+{
+  "code_version": "0.1.0",
+  "counts": {
+    "known_gaps": 4,
+    "pilot_places": 4,
+    "sources": 114,
+    "truth_payloads": 12
+  },
+  "generated_at": "2026-06-13T17:14:07Z",
+  "known_gaps": [
+    "Bellandur: grievance view is historical and not a live complaint dashboard.",
+    "Mahadevapura: grievance view is historical and not a live complaint dashboard.",
+    "Varthur: grievance view is historical and not a live complaint dashboard.",
+    "Whitefield: grievance view is historical and not a live complaint dashboard."
+  ],
+  "source_snapshot_id": "7225a3693e4d71c7a5fdfdc9b97ef8c9805b014ffcc41b63ef1d181fcc4a3f4e",
+  "warnings": [
+    "Varthur and Whitefield all-year complaint summaries match; verify whether shared ward/source matching explains this."
+  ]
+}

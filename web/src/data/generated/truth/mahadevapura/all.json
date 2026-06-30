@@ -1,0 +1,1331 @@
+{
+  "build_metadata": {
+    "code_version": "0.1.0",
+    "excluded_sources": [
+      "aws_bengaluru_urban_rural",
+      "bangalore_garbage_dumps",
+      "bangalore_parks_and_playgrounds",
+      "bbmp_arterial_and_sub_arterial_roads_list",
+      "bbmp_budget_2023_24",
+      "bbmp_budget_2024_25",
+      "bbmp_budget_2025_26",
+      "bbmp_expenditure_and_receipts",
+      "bbmp_financial_sustainability_strategy",
+      "bbmp_fix_my_street_data",
+      "bbmp_lake_monitoring_system",
+      "bbmp_lakes",
+      "bbmp_parks",
+      "bbmp_potholes_dashboard",
+      "bbmp_registered_contractors_list",
+      "bbmp_road_cutting_fixing_rules",
+      "bbmp_road_history_2_0",
+      "bbmp_road_repair_data",
+      "bbmp_roads_centerline_map",
+      "bbmp_roads_guidelines",
+      "bbmp_solid_waste_management_data",
+      "bbmp_solid_waste_management_plans",
+      "bbmp_swm_fee_circular_2025",
+      "bbmp_swm_infrastructure",
+      "bbmp_tenders",
+      "bbmp_trade_licenses_data_2025",
+      "bbmp_ward_committee_meetings_data",
+      "bbmp_ward_information",
+      "bbmp_ward_wise_public_goods_data",
+      "bbmp_waste_list_of_private_vendors",
+      "bbmp_waste_service_providers_scope_of_services",
+      "bbmp_waste_tools_and_equipment",
+      "bbmp_waste_vehicle_at_ward_level",
+      "bbmp_waste_vehicle_manpower_at_ward_level",
+      "bbmp_waste_vehicle_requirements",
+      "bbmp_work_orders_and_bill_payment",
+      "bbmp_work_orders_and_payments_2024_25",
+      "bbmp_work_orders_and_payments_2025_26",
+      "bbmp_work_orders_by_ward_2013_2022",
+      "bbmp_work_orders_categorised_2018_2023",
+      "bbmp_works_bill_public_view",
+      "bengaluru_bbmp_ward_details",
+      "bengaluru_central_city_corporation_dilapidated_buildings_committee",
+      "bengaluru_central_city_corporation_pothole_filling_updates",
+      "bengaluru_city_corporations_bye_laws_2026",
+      "bengaluru_city_traffic_signal_data",
+      "bengaluru_gis",
+      "bengaluru_hospitals",
+      "bengaluru_indira_canteens",
+      "bengaluru_lakes_data_and_reports",
+      "bengaluru_live_pothole_map",
+      "bengaluru_public_toilets",
+      "bengaluru_rainfall",
+      "bengaluru_road_crashes_data",
+      "bengaluru_road_width_map",
+      "bengaluru_schools",
+      "bengaluru_stormwater_drains_maps",
+      "bengaluru_stormwater_drains_master_plan_2010",
+      "bengaluru_stormwater_drains_remodeling_2006_08",
+      "bengaluru_streetlights",
+      "bengaluru_traffic_police_jurisdictions",
+      "bengaluru_traffic_police_official_website",
+      "bengaluru_traffic_violations_data",
+      "bengaluru_tree_census_data",
+      "bengaluru_urban_annual_rainfall_taluks_hoblis",
+      "bengaluru_urban_public_health_centres",
+      "bengaluru_ward_wise_street_map",
+      "bengaluru_zone_wise_streetlights",
+      "bescom_boundary_maps",
+      "bescom_complaint_tracking",
+      "bescom_high_tension_ht_lines_data",
+      "bescom_low_tension_lt_lines_data",
+      "bescom_official_contact_complaint_channels",
+      "bescom_planned_outages",
+      "bmtc_bus_stops_and_routes_map_by_ward",
+      "bmtc_operation_performance_data",
+      "btp_official_statistics",
+      "bwssb_about_responsibility_page",
+      "bwssb_boundary_maps",
+      "bwssb_crm_complaint_form",
+      "bwssb_data_on_opencity",
+      "bwssb_kaveri_on_wheels",
+      "bwssb_official_website",
+      "bwssb_tariff",
+      "bwssb_water_consumption_december_2025",
+      "dult_transitgis",
+      "fixmystreet_reference_model",
+      "flooding_locations_in_bengaluru_urban",
+      "gba_bbmp_official_website",
+      "gba_corporation_budgets_2026_27",
+      "gba_forest_wing_contacts_2026",
+      "gba_new_corporation_ward_lookup",
+      "gba_ward_wise_reservations_2026",
+      "greater_bengaluru_governance_act_governance_materials",
+      "janaagraha_i_change_my_city",
+      "k_gis_bwssb_water_sewer_line_viewer",
+      "karnataka_apps_listing_for_sahaaya",
+      "karnataka_public_procurement_kppp",
+      "ksrsac_bbmp_know_your_ward_gis",
+      "namma_bengaluru_sahaaya_2_0_app_listing",
+      "nammakasa_coverage",
+      "open_urban_eyesore_github",
+      "opencity_bengaluru_bbmp_gba_datasets_search",
+      "opencity_bengaluru_traffic_police_datasets",
+      "reap_benefit_hbr_rwa_chatbot_coverage",
+      "reddit_follow_up_blr_pothole_project",
+      "reddit_post_live_pothole_map",
+      "rrr_centres_in_bengaluru",
+      "seeclickfix_reference_model",
+      "tenders_for_rajakaluve_improvement_works_2025",
+      "tumi_gtfs_bengaluru",
+      "unofficial_bmtc_gtfs_github"
+    ],
+    "generated_at": "2026-06-13T17:14:07Z",
+    "included_sources": [
+      "bbmp_grievances_data",
+      "gba_wards_delimitation_2025"
+    ],
+    "known_gaps": [
+      "Mahadevapura: grievance view is historical and not a live complaint dashboard."
+    ],
+    "record_date_max": "2025-06-19",
+    "record_date_min": "2020-02-08",
+    "source_snapshot_id": "7225a3693e4d71c7a5fdfdc9b97ef8c9805b014ffcc41b63ef1d181fcc4a3f4e"
+  },
+  "claim_cards": [
+    {
+      "caveat": "Complaint volume reflects available official records, not total ground reality.",
+      "citations": [
+        {
+          "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+          "row_number": 91520,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "bbmp_grievances_data"
+        },
+        {
+          "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+          "row_number": 91488,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "bbmp_grievances_data"
+        },
+        {
+          "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+          "row_number": 91396,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "bbmp_grievances_data"
+        },
+        {
+          "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+          "row_number": 91611,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "bbmp_grievances_data"
+        },
+        {
+          "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+          "row_number": 91600,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "bbmp_grievances_data"
+        }
+      ],
+      "claim": "Official grievance records show 63529 complaints connected to Mahadevapura in this lens.",
+      "claim_level": "official_records_show",
+      "confidence": "high",
+      "time_range": "2020-02-08 to 2025-06-19"
+    },
+    {
+      "caveat": "Ranking is based on source categories and may reflect reporting behavior.",
+      "citations": [
+        {
+          "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+          "row_number": 91520,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "bbmp_grievances_data"
+        },
+        {
+          "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+          "row_number": 91488,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "bbmp_grievances_data"
+        },
+        {
+          "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+          "row_number": 91396,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "bbmp_grievances_data"
+        }
+      ],
+      "claim": "Electrical is the top recurring issue category in the available grievance records.",
+      "claim_level": "available_data_suggests",
+      "confidence": "medium",
+      "time_range": "2020-02-08 to 2025-06-19"
+    }
+  ],
+  "complaint_summary": {
+    "by_status": [
+      {
+        "count": 57626,
+        "value": "Closed"
+      },
+      {
+        "count": 1541,
+        "value": "Registered"
+      },
+      {
+        "count": 1391,
+        "value": "Rejected"
+      },
+      {
+        "count": 1202,
+        "value": "Non Relevant"
+      },
+      {
+        "count": 1193,
+        "value": "Resolved"
+      },
+      {
+        "count": 419,
+        "value": "ReOpen"
+      },
+      {
+        "count": 93,
+        "value": "In Progress"
+      },
+      {
+        "count": 61,
+        "value": "Long Term Solution"
+      },
+      {
+        "count": 3,
+        "value": "null"
+      }
+    ],
+    "by_year": [
+      {
+        "count": 16246,
+        "value": "2024"
+      },
+      {
+        "count": 11364,
+        "value": "2025"
+      },
+      {
+        "count": 10185,
+        "value": "2023"
+      },
+      {
+        "count": 9457,
+        "value": "2022"
+      },
+      {
+        "count": 8841,
+        "value": "2020"
+      },
+      {
+        "count": 7436,
+        "value": "2021"
+      }
+    ],
+    "total_complaints": 63529
+  },
+  "evidence_policy": "All claims in this report are derived from normalized rows with evidence pointers. Community signals are not included in this Wave 1 report.",
+  "normalized_query": "mahadevapura",
+  "query": "Mahadevapura",
+  "record_scope": {
+    "active_year_from": null,
+    "active_year_to": null,
+    "context_note": "2026 sources are present for ward/governance/budget context, not grievance trends yet.",
+    "freshness_note": "BBMP grievance records available through 2025-06-19. Not a live complaint dashboard.",
+    "grievance_date_max": "2025-06-19",
+    "grievance_date_min": "2020-02-08",
+    "grievance_year_max": 2025,
+    "grievance_year_min": 2020,
+    "label": "All years"
+  },
+  "top_issue_categories": [
+    {
+      "category": "Electrical",
+      "count": 21897,
+      "examples": [
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 91520,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20004361",
+          "grievance_date": "2020-02-08",
+          "issue_subcategory": "Street Light Not Working",
+          "staff_name": "Sharath Kumar/AEE",
+          "staff_remarks": "Attended",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 91488,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20004393",
+          "grievance_date": "2020-02-08",
+          "issue_subcategory": "Requirement For New Street Lights",
+          "staff_name": "Sharath Kumar/AEE",
+          "staff_remarks": "Attended",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 91396,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20004485",
+          "grievance_date": "2020-02-08",
+          "issue_subcategory": "Street Light Not Working",
+          "staff_name": "Sharath Kumar/AEE",
+          "staff_remarks": "Attended",
+          "status": "Closed"
+        }
+      ]
+    },
+    {
+      "category": "Solid Waste (Garbage) Related",
+      "count": 16180,
+      "examples": [
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 91611,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20004270",
+          "grievance_date": "2020-02-08",
+          "issue_subcategory": "Garbage vehicle not arrived",
+          "staff_name": "Srinidhi/AEE",
+          "staff_remarks": "Attended",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 91600,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20004281",
+          "grievance_date": "2020-02-08",
+          "issue_subcategory": "Garbage dump",
+          "staff_name": "Srinidhi/AEE",
+          "staff_remarks": "Attended",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 91590,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20004291",
+          "grievance_date": "2020-02-08",
+          "issue_subcategory": "Garbage dump",
+          "staff_name": "SWM AEE Mahadevapura sub division/AEE",
+          "staff_remarks": "attended",
+          "status": "Closed"
+        }
+      ]
+    },
+    {
+      "category": "Road Maintenance(Engg)",
+      "count": 12032,
+      "examples": [
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 91620,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20004261",
+          "grievance_date": "2020-02-08",
+          "issue_subcategory": "Potholes",
+          "staff_name": "Shaik Moyaddin/AE",
+          "staff_remarks": "This road comes under Major road",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 91614,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20004267",
+          "grievance_date": "2020-02-08",
+          "issue_subcategory": "Road side drains",
+          "staff_name": "Vijay Kumar /AEE",
+          "staff_remarks": "Resolved",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 91610,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20004271",
+          "grievance_date": "2020-02-08",
+          "issue_subcategory": "Potholes",
+          "staff_name": "Yadu Krishna/AEE",
+          "staff_remarks": "Attended",
+          "status": "Closed"
+        }
+      ]
+    },
+    {
+      "category": "veterinary",
+      "count": 2986,
+      "examples": [
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 91583,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20004298",
+          "grievance_date": "2020-02-08",
+          "issue_subcategory": "Animal birth control/neutering of stray dogs",
+          "staff_name": "Mohammed Abbas/ADAH",
+          "staff_remarks": "Attended",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 91012,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20004893",
+          "grievance_date": "2020-02-10",
+          "issue_subcategory": "Animal birth control/neutering of stray dogs",
+          "staff_name": "Mohammed Abbas/ADAH",
+          "staff_remarks": "Attended",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 90670,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20005236",
+          "grievance_date": "2020-02-11",
+          "issue_subcategory": "Animal birth control/neutering of stray dogs",
+          "staff_name": "Mohammed Abbas/ADAH",
+          "staff_remarks": "Accepted",
+          "status": "Closed"
+        }
+      ]
+    },
+    {
+      "category": "Health Dept",
+      "count": 2635,
+      "examples": [
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 91470,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20004411",
+          "grievance_date": "2020-02-08",
+          "issue_subcategory": "Unhygienic premises in Hotel etc",
+          "staff_name": "Dr. Rakesh Reddy/MOH",
+          "staff_remarks": "Attend",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 91383,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20004498",
+          "grievance_date": "2020-02-09",
+          "issue_subcategory": "Fogging",
+          "staff_name": "Dr. Rakesh Reddy/MOH",
+          "staff_remarks": "Closed",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 91285,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20004596",
+          "grievance_date": "2020-02-09",
+          "issue_subcategory": "Fogging",
+          "staff_name": "6360640353/MOH",
+          "staff_remarks": "Attend",
+          "status": "Closed"
+        }
+      ]
+    },
+    {
+      "category": "Road Infrastructure",
+      "count": 1814,
+      "examples": [
+        {
+          "evidence": {
+            "raw_file": "original/bada528d-f4f5-4ace-9dd1-8ac459fe350b.csv",
+            "row_number": 16570,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20183352",
+          "grievance_date": "2021-11-03",
+          "issue_subcategory": "Road Infrastructure",
+          "staff_name": "Sri.Ramesh.Y.R/AE",
+          "staff_remarks": "potholes has been fixed",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/bada528d-f4f5-4ace-9dd1-8ac459fe350b.csv",
+            "row_number": 12552,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20187370",
+          "grievance_date": "2021-11-18",
+          "issue_subcategory": "Road Infrastructure",
+          "staff_name": "Sri Manjunath/AEE",
+          "staff_remarks": "Complaint resolved.",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/bada528d-f4f5-4ace-9dd1-8ac459fe350b.csv",
+            "row_number": 10233,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20189689",
+          "grievance_date": "2021-11-24",
+          "issue_subcategory": "Road Infrastructure",
+          "staff_name": "Sri Manjunath/AEE",
+          "staff_remarks": "Complaint resolved.",
+          "status": "Closed"
+        }
+      ]
+    },
+    {
+      "category": "Forest",
+      "count": 1193,
+      "examples": [
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 91284,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20004597",
+          "grievance_date": "2020-02-09",
+          "issue_subcategory": "obstructions Branches / Trees.",
+          "staff_name": "Prakash AD/ACF",
+          "staff_remarks": "approved",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 90817,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20005089",
+          "grievance_date": "2020-02-10",
+          "issue_subcategory": "Issues related Snakes/Birds/Monkeys",
+          "staff_name": "Sudharshan/DYRFO",
+          "staff_remarks": "As on u request ur complaint has been forwarded to bbmp wildlife warden Mr. Mahesh. Plz contact him his mobile number is 9845714598",
+          "status": "Resolved"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 89256,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20006653",
+          "grievance_date": "2020-02-16",
+          "issue_subcategory": "Issues related Snakes/Birds/Monkeys",
+          "staff_name": "Sudharshan/DYRFO",
+          "staff_remarks": "As on ur request inspected the area  and forwarded bbmp volentiers wild life team volentier name as follows Mr Mahesh 9845714598. For further action plz contact him..  Thank u",
+          "status": "Resolved"
+        }
+      ]
+    },
+    {
+      "category": "Storm  Water Drain(SWD)",
+      "count": 1042,
+      "examples": [
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 90613,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20005293",
+          "grievance_date": "2020-02-11",
+          "issue_subcategory": "Maintenance of SWD",
+          "staff_name": "BBMP Whatsapp/Customer Support Representative",
+          "staff_remarks": "This complaint  under  B W S S B",
+          "status": "Rejected"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 78007,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20018029",
+          "grievance_date": "2020-03-20",
+          "issue_subcategory": "Garbage thrown in storm water drain",
+          "staff_name": "Shantha Badagandi/AEE",
+          "staff_remarks": "Pertains to SWM",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 77906,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20018130",
+          "grievance_date": "2020-03-20",
+          "issue_subcategory": "Maintenance of SWD",
+          "staff_name": "Shree Lakshmi/AEE",
+          "staff_remarks": "Resolved",
+          "status": "Closed"
+        }
+      ]
+    },
+    {
+      "category": "Others",
+      "count": 840,
+      "examples": [
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 88894,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20007031",
+          "grievance_date": "2020-02-17",
+          "issue_subcategory": "Others",
+          "staff_name": "BBMP Whatsapp/Customer Support Representative",
+          "staff_remarks": "Rejected",
+          "status": "Rejected"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 88793,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20007132",
+          "grievance_date": "2020-02-18",
+          "issue_subcategory": "Others",
+          "staff_name": "BBMP Whatsapp/Customer Support Representative",
+          "staff_remarks": "COMPLAINT DOESNT  COMES UNDER BBMP",
+          "status": "Rejected"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 88790,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20007135",
+          "grievance_date": "2020-02-18",
+          "issue_subcategory": "Others",
+          "staff_name": "BBMP Whatsapp/Customer Support Representative",
+          "staff_remarks": "Rejected",
+          "status": "Rejected"
+        }
+      ]
+    },
+    {
+      "category": "Revenue Department",
+      "count": 699,
+      "examples": [
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 88998,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20006917",
+          "grievance_date": "2020-02-17",
+          "issue_subcategory": "Khata Services (Registration, Transfer, Bifurcation and Amalgamation)",
+          "staff_name": "Srinivas T/RO",
+          "staff_remarks": "Close",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 88532,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20007394",
+          "grievance_date": "2020-02-19",
+          "issue_subcategory": "Khata Services (Registration, Transfer, Bifurcation and Amalgamation)",
+          "staff_name": "Srinivas T/RO",
+          "staff_remarks": "Close",
+          "status": "Closed"
+        },
+        {
+          "evidence": {
+            "raw_file": "original/58808356-4b0a-4b02-9d70-75993b4dcd1c.csv",
+            "row_number": 88196,
+            "run_id": "2026-06-12T02-02-56Z",
+            "source_id": "bbmp_grievances_data"
+          },
+          "external_complaint_id": "20007746",
+          "grievance_date": "2020-02-20",
+          "issue_subcategory": "Khata Services (Registration, Transfer, Bifurcation and Amalgamation)",
+          "staff_name": "Jyothi Lakshmi S/ARO",
+          "staff_remarks": "Already B Katha Received (We can close the file).",
+          "status": "Resolved"
+        }
+      ]
+    }
+  ],
+  "ward_context": {
+    "area_match_candidates": [
+      {
+        "assembly_constituency": "K.R. Puram",
+        "corporation": "",
+        "evidence": {
+          "raw_file": "original/01d485da-6509-4555-ab4c-036720ad0c51.csv",
+          "row_number": 57,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "bbmp_ward_information"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "a narayanapura",
+        "population": null,
+        "source_id": "bbmp_ward_information",
+        "version": "old_bbmp",
+        "ward_key": "old:56",
+        "ward_name": "A Narayanapura",
+        "ward_number": "56",
+        "zone": "Mahadevapura"
+      },
+      {
+        "assembly_constituency": "Mahadevapura",
+        "corporation": "East",
+        "evidence": {
+          "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+          "row_number": 106,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "gba_wards_delimitation_2025"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "aecs layout",
+        "population": 20742,
+        "source_id": "gba_wards_delimitation_2025",
+        "version": "gba_2025",
+        "ward_key": "gba:east:39",
+        "ward_name": "AECS Layout",
+        "ward_number": "39",
+        "zone": ""
+      },
+      {
+        "assembly_constituency": "Mahadevapura",
+        "corporation": "East",
+        "evidence": {
+          "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+          "row_number": 104,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "gba_wards_delimitation_2025"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "ashwath nagar",
+        "population": 16808,
+        "source_id": "gba_wards_delimitation_2025",
+        "version": "gba_2025",
+        "ward_key": "gba:east:37",
+        "ward_name": "Ashwath Nagar",
+        "ward_number": "37",
+        "zone": ""
+      },
+      {
+        "assembly_constituency": "K.R. Puram",
+        "corporation": "",
+        "evidence": {
+          "raw_file": "original/01d485da-6509-4555-ab4c-036720ad0c51.csv",
+          "row_number": 54,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "bbmp_ward_information"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "basavanapura",
+        "population": null,
+        "source_id": "bbmp_ward_information",
+        "version": "old_bbmp",
+        "ward_key": "old:53",
+        "ward_name": "Basavanapura",
+        "ward_number": "53",
+        "zone": "Mahadevapura"
+      },
+      {
+        "assembly_constituency": "Mahadevapura",
+        "corporation": "East",
+        "evidence": {
+          "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+          "row_number": 92,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "gba_wards_delimitation_2025"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "belathur",
+        "population": 18767,
+        "source_id": "gba_wards_delimitation_2025",
+        "version": "gba_2025",
+        "ward_key": "gba:east:13",
+        "ward_name": "Belathur",
+        "ward_number": "13",
+        "zone": ""
+      },
+      {
+        "assembly_constituency": "Mahadevapura",
+        "corporation": "East",
+        "evidence": {
+          "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+          "row_number": 112,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "gba_wards_delimitation_2025"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "bellanduru",
+        "population": 17684,
+        "source_id": "gba_wards_delimitation_2025",
+        "version": "gba_2025",
+        "ward_key": "gba:east:45",
+        "ward_name": "Bellanduru",
+        "ward_number": "45",
+        "zone": ""
+      },
+      {
+        "assembly_constituency": "Mahadevapura",
+        "corporation": "",
+        "evidence": {
+          "raw_file": "original/01d485da-6509-4555-ab4c-036720ad0c51.csv",
+          "row_number": 151,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "bbmp_ward_information"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "bellanduru",
+        "population": null,
+        "source_id": "bbmp_ward_information",
+        "version": "old_bbmp",
+        "ward_key": "old:150",
+        "ward_name": "Bellanduru",
+        "ward_number": "150",
+        "zone": "Mahadevapura"
+      },
+      {
+        "assembly_constituency": "Mahadevapura",
+        "corporation": "East",
+        "evidence": {
+          "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+          "row_number": 95,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "gba_wards_delimitation_2025"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "byrathi",
+        "population": 13969,
+        "source_id": "gba_wards_delimitation_2025",
+        "version": "gba_2025",
+        "ward_key": "gba:east:2",
+        "ward_name": "Byrathi",
+        "ward_number": "2",
+        "zone": ""
+      },
+      {
+        "assembly_constituency": "Mahadevapura",
+        "corporation": "East",
+        "evidence": {
+          "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+          "row_number": 113,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "gba_wards_delimitation_2025"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "challaghatta",
+        "population": 17460,
+        "source_id": "gba_wards_delimitation_2025",
+        "version": "gba_2025",
+        "ward_key": "gba:east:46",
+        "ward_name": "Challaghatta",
+        "ward_number": "46",
+        "zone": ""
+      },
+      {
+        "assembly_constituency": "Mahadevapura",
+        "corporation": "East",
+        "evidence": {
+          "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+          "row_number": 98,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "gba_wards_delimitation_2025"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "channasandra",
+        "population": 16967,
+        "source_id": "gba_wards_delimitation_2025",
+        "version": "gba_2025",
+        "ward_key": "gba:east:27",
+        "ward_name": "Channasandra",
+        "ward_number": "27",
+        "zone": ""
+      },
+      {
+        "assembly_constituency": "K.R. Puram",
+        "corporation": "",
+        "evidence": {
+          "raw_file": "original/01d485da-6509-4555-ab4c-036720ad0c51.csv",
+          "row_number": 56,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "bbmp_ward_information"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "devasandra",
+        "population": null,
+        "source_id": "bbmp_ward_information",
+        "version": "old_bbmp",
+        "ward_key": "old:55",
+        "ward_name": "Devasandra",
+        "ward_number": "55",
+        "zone": "Mahadevapura"
+      },
+      {
+        "assembly_constituency": "Mahadevapura",
+        "corporation": "East",
+        "evidence": {
+          "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+          "row_number": 111,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "gba_wards_delimitation_2025"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "dodda kannalli",
+        "population": 15304,
+        "source_id": "gba_wards_delimitation_2025",
+        "version": "gba_2025",
+        "ward_key": "gba:east:44",
+        "ward_name": "Dodda Kannalli",
+        "ward_number": "44",
+        "zone": ""
+      },
+      {
+        "assembly_constituency": "Mahadevapura",
+        "corporation": "East",
+        "evidence": {
+          "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+          "row_number": 105,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "gba_wards_delimitation_2025"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "dodda nekkundi",
+        "population": 15141,
+        "source_id": "gba_wards_delimitation_2025",
+        "version": "gba_2025",
+        "ward_key": "gba:east:38",
+        "ward_name": "Dodda Nekkundi",
+        "ward_number": "38",
+        "zone": ""
+      },
+      {
+        "assembly_constituency": "Mahadevapura",
+        "corporation": "",
+        "evidence": {
+          "raw_file": "original/01d485da-6509-4555-ab4c-036720ad0c51.csv",
+          "row_number": 86,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "bbmp_ward_information"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "dodda nekkundi",
+        "population": null,
+        "source_id": "bbmp_ward_information",
+        "version": "old_bbmp",
+        "ward_key": "old:85",
+        "ward_name": "Dodda Nekkundi",
+        "ward_number": "85",
+        "zone": "Mahadevapura"
+      },
+      {
+        "assembly_constituency": "Mahadevapura",
+        "corporation": "East",
+        "evidence": {
+          "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+          "row_number": 102,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "gba_wards_delimitation_2025"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "epip industrial area",
+        "population": 15678,
+        "source_id": "gba_wards_delimitation_2025",
+        "version": "gba_2025",
+        "ward_key": "gba:east:31",
+        "ward_name": "EPIP Industrial Area",
+        "ward_number": "31",
+        "zone": ""
+      },
+      {
+        "assembly_constituency": "Mahadevapura",
+        "corporation": "East",
+        "evidence": {
+          "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+          "row_number": 103,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "gba_wards_delimitation_2025"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "garudachar palya",
+        "population": 21386,
+        "source_id": "gba_wards_delimitation_2025",
+        "version": "gba_2025",
+        "ward_key": "gba:east:32",
+        "ward_name": "Garudachar Palya",
+        "ward_number": "32",
+        "zone": ""
+      },
+      {
+        "assembly_constituency": "Mahadevapura",
+        "corporation": "",
+        "evidence": {
+          "raw_file": "original/01d485da-6509-4555-ab4c-036720ad0c51.csv",
+          "row_number": 83,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "bbmp_ward_information"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "garudachar palya",
+        "population": null,
+        "source_id": "bbmp_ward_information",
+        "version": "old_bbmp",
+        "ward_key": "old:82",
+        "ward_name": "Garudachar palya",
+        "ward_number": "82",
+        "zone": "Mahadevapura"
+      },
+      {
+        "assembly_constituency": "Mahadevapura",
+        "corporation": "East",
+        "evidence": {
+          "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+          "row_number": 109,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "gba_wards_delimitation_2025"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "gunjur",
+        "population": 15447,
+        "source_id": "gba_wards_delimitation_2025",
+        "version": "gba_2025",
+        "ward_key": "gba:east:42",
+        "ward_name": "Gunjur",
+        "ward_number": "42",
+        "zone": ""
+      },
+      {
+        "assembly_constituency": "K.R. Puram",
+        "corporation": "",
+        "evidence": {
+          "raw_file": "original/01d485da-6509-4555-ab4c-036720ad0c51.csv",
+          "row_number": 88,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "bbmp_ward_information"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "hal airport",
+        "population": null,
+        "source_id": "bbmp_ward_information",
+        "version": "old_bbmp",
+        "ward_key": "old:87",
+        "ward_name": "HAL Airport",
+        "ward_number": "87",
+        "zone": "Mahadevapura"
+      },
+      {
+        "assembly_constituency": "Mahadevapura",
+        "corporation": "",
+        "evidence": {
+          "raw_file": "original/01d485da-6509-4555-ab4c-036720ad0c51.csv",
+          "row_number": 85,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "bbmp_ward_information"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "hagadur",
+        "population": null,
+        "source_id": "bbmp_ward_information",
+        "version": "old_bbmp",
+        "ward_key": "old:84",
+        "ward_name": "Hagadur",
+        "ward_number": "84",
+        "zone": "Mahadevapura"
+      },
+      {
+        "assembly_constituency": "Mahadevapura",
+        "corporation": "East",
+        "evidence": {
+          "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+          "row_number": 99,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "gba_wards_delimitation_2025"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "hagaduru",
+        "population": 16351,
+        "source_id": "gba_wards_delimitation_2025",
+        "version": "gba_2025",
+        "ward_key": "gba:east:28",
+        "ward_name": "Hagaduru",
+        "ward_number": "28",
+        "zone": ""
+      },
+      {
+        "assembly_constituency": "Mahadevapura",
+        "corporation": "East",
+        "evidence": {
+          "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+          "row_number": 94,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "gba_wards_delimitation_2025"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "hoodi",
+        "population": 19566,
+        "source_id": "gba_wards_delimitation_2025",
+        "version": "gba_2025",
+        "ward_key": "gba:east:15",
+        "ward_name": "Hoodi",
+        "ward_number": "15",
+        "zone": ""
+      },
+      {
+        "assembly_constituency": "K.R. Puram",
+        "corporation": "",
+        "evidence": {
+          "raw_file": "original/01d485da-6509-4555-ab4c-036720ad0c51.csv",
+          "row_number": 26,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "bbmp_ward_information"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "horamavu",
+        "population": null,
+        "source_id": "bbmp_ward_information",
+        "version": "old_bbmp",
+        "ward_key": "old:25",
+        "ward_name": "Horamavu",
+        "ward_number": "25",
+        "zone": "Mahadevapura"
+      },
+      {
+        "assembly_constituency": "Mahadevapura",
+        "corporation": "",
+        "evidence": {
+          "raw_file": "original/01d485da-6509-4555-ab4c-036720ad0c51.csv",
+          "row_number": 55,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "bbmp_ward_information"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "hudi",
+        "population": null,
+        "source_id": "bbmp_ward_information",
+        "version": "old_bbmp",
+        "ward_key": "old:54",
+        "ward_name": "Hudi",
+        "ward_number": "54",
+        "zone": "Mahadevapura"
+      },
+      {
+        "assembly_constituency": "K.R. Puram",
+        "corporation": "",
+        "evidence": {
+          "raw_file": "original/01d485da-6509-4555-ab4c-036720ad0c51.csv",
+          "row_number": 53,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "bbmp_ward_information"
+        },
+        "match_method": "area_context",
+        "match_score": 0.7,
+        "matched_area_context": "Mahadevapura",
+        "normalized_name": "kr puram",
+        "population": null,
+        "source_id": "bbmp_ward_information",
+        "version": "old_bbmp",
+        "ward_key": "old:52",
+        "ward_name": "KR Puram",
+        "ward_number": "52",
+        "zone": "Mahadevapura"
+      }
+    ],
+    "new_gba_candidates": [
+      {
+        "assembly_constituency": "K.R. Pura",
+        "corporation": "East",
+        "evidence": {
+          "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+          "row_number": 79,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "gba_wards_delimitation_2025"
+        },
+        "match_score": 1.0,
+        "normalized_name": "mahadevapura",
+        "population": 17259,
+        "source_id": "gba_wards_delimitation_2025",
+        "version": "gba_2025",
+        "ward_key": "gba:east:33",
+        "ward_name": "Mahadevapura",
+        "ward_number": "33",
+        "zone": ""
+      }
+    ],
+    "old_bbmp_candidates": [],
+    "old_new_mappings": [
+      {
+        "assembly_constituency": "K.R.Pura",
+        "confidence": 1.0,
+        "evidence": {
+          "raw_file": "original/ebf9c61c-338f-4f11-888a-914493100dc2.csv",
+          "row_number": 16,
+          "run_id": "2026-06-12T02-02-56Z",
+          "source_id": "bbmp_ward_information"
+        },
+        "explanation": "Official source row directly maps old ward fields to new ward fields.",
+        "method": "official_mapping_csv",
+        "new_ward_name": "Mahadevapura",
+        "new_ward_number": "90",
+        "old_ward_name": "",
+        "old_ward_number": "",
+        "parliamentary_constituency": "Bangalore North"
+      }
+    ]
+  }
+}

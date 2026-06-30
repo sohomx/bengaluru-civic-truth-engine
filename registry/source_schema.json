@@ -1,0 +1,93 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "name",
+      "url",
+      "domain",
+      "agency",
+      "publisher",
+      "source_tier",
+      "official_status",
+      "format",
+      "access_method",
+      "parser_type",
+      "update_frequency",
+      "license",
+      "freshness_policy_days",
+      "reliability_score",
+      "pii_risk",
+      "enabled",
+      "fetch_priority",
+      "normalize_priority",
+      "notes"
+    ],
+    "properties": {
+      "id": {"type": "string"},
+      "name": {"type": "string"},
+      "url": {"type": "string"},
+      "aliases": {"type": "array"},
+      "domain": {
+        "type": "string",
+        "enum": [
+          "wards",
+          "grievances",
+          "works_payments_tenders",
+          "roads",
+          "swm",
+          "stormwater_flooding",
+          "streetlights",
+          "water_sewage",
+          "traffic_mobility",
+          "public_facilities",
+          "budgets_governance",
+          "rules",
+          "community_signal",
+          "place_memory"
+        ]
+      },
+      "agency": {"type": "string"},
+      "publisher": {"type": "string"},
+      "source_tier": {"type": "integer"},
+      "official_status": {
+        "type": "string",
+        "enum": [
+          "official",
+          "mirrored_official",
+          "official_reference",
+          "community_signal",
+          "external_reference",
+          "unofficial"
+        ]
+      },
+      "format": {"type": "string"},
+      "access_method": {
+        "type": "string",
+        "enum": [
+          "opencity_ckan",
+          "direct_file",
+          "official_html",
+          "official_portal_scrape_later",
+          "github",
+          "external_reference",
+          "manual_review"
+        ]
+      },
+      "parser_type": {"type": "string"},
+      "update_frequency": {"type": "string"},
+      "license": {"type": "string"},
+      "freshness_policy_days": {"type": "integer"},
+      "reliability_score": {"type": "number"},
+      "pii_risk": {
+        "type": "string",
+        "enum": ["none", "low", "medium", "high", "unknown"]
+      },
+      "enabled": {"type": "boolean"},
+      "fetch_priority": {"type": "integer"},
+      "normalize_priority": {"type": "integer"},
+      "notes": {"type": "string"}
+    }
+  }
+}
