@@ -1,8 +1,14 @@
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass
+from pathlib import Path
+from typing import Any
 
 from civic_data.normalize import normalize_name
+
+
+DEFAULT_LOCALITY_ALIAS_PATH = Path("data/config/locality_aliases.json")
 
 
 @dataclass(frozen=True)
@@ -10,40 +16,64 @@ class LocalityAliasMatch:
     alias: str
     canonical_ward_name: str
     confidence: float
+    basis: str
     caveat: str
+    source_url: str
 
 
-LOCALITY_ALIASES: dict[str, tuple[str, float]] = {
-    "kadubeesanahalli": ("bellanduru", 0.72),
-    "ecospace": ("bellanduru", 0.72),
-    "orr bellandur": ("bellanduru", 0.72),
-    "outer ring road bellandur": ("bellanduru", 0.72),
-    "bellandur outer ring road": ("bellanduru", 0.72),
-    "panathur": ("panathur", 0.8),
-    "kundalahalli": ("kundalahalli", 0.8),
-    "kundalahalli gate": ("kundalahalli", 0.78),
-    "itpl": ("whitefield", 0.68),
-    "varthur": ("varthur", 0.8),
-    "whitefield": ("whitefield", 0.9),
-    "mahadevapura": ("mahadevapura", 0.9),
-}
-
-
-def resolve_locality_alias(query: str) -> LocalityAliasMatch | None:
+def resolve_locality_alias(
+    query: str,
+    *,
+    locality_alias_path: Path | str | None = DEFAULT_LOCALITY_ALIAS_PATH,
+) -> LocalityAliasMatch | None:
     text = f" {normalize_name(query)} "
-    for alias in sorted(LOCALITY_ALIASES, key=len, reverse=True):
-        if f" {alias} " in text:
-            ward_name, confidence = LOCALITY_ALIASES[alias]
-            return LocalityAliasMatch(
-                alias=alias,
-                canonical_ward_name=ward_name,
-                confidence=confidence,
-                caveat=(
-                    "Text-only locality alias match; this is a confidence hint, not filing-critical proof. "
-                    "Confirm with the official lat/lng lookup before filing."
-                ),
-            )
+    for match in sorted(load_locality_aliases(locality_alias_path), key=lambda item: len(item.alias), reverse=True):
+        if f" {match.alias} " in text:
+            return match
     return None
+
+
+def load_locality_aliases(path: Path | str | None = DEFAULT_LOCALITY_ALIAS_PATH) -> list[LocalityAliasMatch]:
+    if path is None:
+        return []
+    alias_path = Path(path)
+    if not alias_path.exists():
+        return []
+    try:
+        parsed = json.loads(alias_path.read_text())
+    except (OSError, json.JSONDecodeError):
+        return []
+    if not isinstance(parsed, list):
+        return []
+    aliases = []
+    for item in parsed:
+        alias = _alias_from_item(item)
+        if alias is not None:
+            aliases.append(alias)
+    return aliases
+
+
+def _alias_from_item(item: Any) -> LocalityAliasMatch | None:
+    if not isinstance(item, dict):
+        return None
+    alias = normalize_name(str(item.get("alias") or ""))
+    ward_name = normalize_name(str(item.get("canonical_ward_name") or ""))
+    if not alias or not ward_name:
+        return None
+    try:
+        confidence = float(item.get("confidence"))
+    except (TypeError, ValueError):
+        return None
+    if not 0 <= confidence <= 1:
+        return None
+    return LocalityAliasMatch(
+        alias=alias,
+        canonical_ward_name=ward_name,
+        confidence=confidence,
+        basis=str(item.get("basis") or ""),
+        caveat=str(item.get("caveat") or "Text-only locality alias match; confirm with the official lookup before filing."),
+        source_url=str(item.get("source_url") or ""),
+    )
 
 
 def place_terms(query: str) -> list[str]:

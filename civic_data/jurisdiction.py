@@ -20,6 +20,7 @@ def resolve_jurisdiction(
     lng: float | None = None,
     warehouse_root: Path | str = Path("data/normalized"),
     xyinfo_client: Callable[[float, float], Any] | None = None,
+    locality_alias_path: Path | str | None = Path("data/config/locality_aliases.json"),
 ) -> dict[str, Any]:
     warehouse = NormalizedWarehouse.open(warehouse_root)
     wards = warehouse.load_wards()
@@ -32,28 +33,36 @@ def resolve_jurisdiction(
                 response=(xyinfo_client or fetch_xyinfo)(lng, lat),
             )
         except (ValueError, OSError, TimeoutError, URLError) as exc:
-            fallback = _offline_jurisdiction(query, wards, mappings)
+            fallback = _offline_jurisdiction(query, wards, mappings, locality_alias_path=locality_alias_path)
             fallback["official_lookup_error"] = str(exc)
             fallback["caveat"] = (
                 "Official xyinfo lookup failed, so this used offline normalized ward data. "
                 "Retry xyinfo before filing-critical routing."
             )
             return fallback
-    return _offline_jurisdiction(query, wards, mappings)
+    return _offline_jurisdiction(query, wards, mappings, locality_alias_path=locality_alias_path)
 
 
-def _offline_jurisdiction(query: str, wards: list[dict[str, Any]], mappings: list[dict[str, Any]]) -> dict[str, Any]:
+def _offline_jurisdiction(
+    query: str,
+    wards: list[dict[str, Any]],
+    mappings: list[dict[str, Any]],
+    *,
+    locality_alias_path: Path | str | None,
+) -> dict[str, Any]:
     match = _match_ward(query, wards, preferred_versions={"gba_2025"})
     if match:
         return _jurisdiction_from_ward(match, source="offline_normalized_wards", confidence=0.95)
 
-    alias = resolve_locality_alias(query)
+    alias = resolve_locality_alias(query, locality_alias_path=locality_alias_path)
     if alias:
         match = _match_ward(alias.canonical_ward_name, wards, preferred_versions={"gba_2025"})
         if match:
             result = _jurisdiction_from_ward(match, source="locality_alias", confidence=alias.confidence)
             result["matched_alias"] = alias.alias
             result["locality_alias_target"] = alias.canonical_ward_name
+            result["locality_alias_basis"] = alias.basis
+            result["source_url"] = alias.source_url or result["source_url"]
             result["caveat"] = alias.caveat
             return result
 

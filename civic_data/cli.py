@@ -11,6 +11,7 @@ from civic_data.normalize import normalize_channels, normalize_grievances, norma
 from civic_data.packet import build_evidence_packet
 from civic_data.packet_builder import dumps_packet, render_packet_markdown
 from civic_data.packet_eval import run_packet_eval
+from civic_data.packet_rag import explain_packet
 from civic_data.profile import profile_archives
 from civic_data.rag import ask_rag, build_rag_index
 from civic_data.registry import load_sources, registry_hash, validate_registry
@@ -54,6 +55,8 @@ def main(argv: list[str] | None = None) -> int:
             return _rag_ask(args)
         if args.command == "rag" and args.rag_command == "index":
             return _rag_index(args)
+        if args.command == "rag" and args.rag_command == "explain-packet":
+            return _rag_explain_packet(args)
         if args.command == "packets" and args.packets_command == "build":
             return _packets_build(args)
         if args.command == "retrieval" and args.retrieval_command == "build":
@@ -154,6 +157,9 @@ def _build_parser() -> argparse.ArgumentParser:
     rag_index.add_argument("--warehouse-root", default=str(DEFAULT_WAREHOUSE_ROOT))
     rag_index.add_argument("--raw-root", default=str(DEFAULT_RAW_ROOT))
     rag_index.add_argument("--output")
+    rag_explain = rag_sub.add_parser("explain-packet")
+    rag_explain.add_argument("--packet", required=True)
+    rag_explain.add_argument("--q")
 
     packets = subparsers.add_parser("packets")
     packets_sub = packets.add_subparsers(dest="packets_command")
@@ -164,6 +170,7 @@ def _build_parser() -> argparse.ArgumentParser:
     packets_build.add_argument("--index")
     packets_build.add_argument("--lat", type=float)
     packets_build.add_argument("--lng", type=float)
+    packets_build.add_argument("--locality-aliases", default="data/config/locality_aliases.json")
     packets_build.add_argument("--format", choices=("json", "md"), default="json")
     packets_build.add_argument("--output")
 
@@ -418,6 +425,13 @@ def _rag_index(args: argparse.Namespace) -> int:
     return 0
 
 
+def _rag_explain_packet(args: argparse.Namespace) -> int:
+    packet = json.loads(Path(args.packet).read_text())
+    payload = explain_packet(packet, question=args.q)
+    print(json.dumps(payload, indent=2, sort_keys=True))
+    return 0
+
+
 def _packets_build(args: argparse.Namespace) -> int:
     payload = build_evidence_packet(
         query=str(args.q),
@@ -426,6 +440,7 @@ def _packets_build(args: argparse.Namespace) -> int:
         index_path=Path(args.index) if args.index else None,
         lat=args.lat,
         lng=args.lng,
+        locality_alias_path=Path(args.locality_aliases) if args.locality_aliases else None,
     )
     text = render_packet_markdown(payload) if args.format == "md" else dumps_packet(payload)
     if args.output:

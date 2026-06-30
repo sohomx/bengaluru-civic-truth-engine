@@ -14,6 +14,7 @@ def build_evidence_packet(
     lat: float | None = None,
     lng: float | None = None,
     xyinfo_client: Callable[[float, float], Any] | None = None,
+    locality_alias_path: Path | str | None = Path("data/config/locality_aliases.json"),
 ) -> dict[str, Any]:
     _ = raw_root, index_path
     return build_packet(
@@ -22,4 +23,5 @@ def build_evidence_packet(
         lat=lat,
         lng=lng,
         xyinfo_client=xyinfo_client,
+        locality_alias_path=locality_alias_path,
     )

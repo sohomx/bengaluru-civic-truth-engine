@@ -1,0 +1,225 @@
+{
+  "action": {
+    "escalation_action": "If there is no response, follow up with the official complaint/reference number and the same evidence packet. Start with: Use BWSSB complaint channels for water, sewage, manholes, billing, or tanker issues.",
+    "evidence_to_attach": [
+      "photo/video if safe",
+      "address or pin",
+      "RR/account number only in the official BWSSB form"
+    ],
+    "legal_or_rti_action": "For a persistent unresolved issue, ask the department for written status, responsible office, and related work/order records for Bellanduru. Use RTI only for official records; do not include private account details outside official workflows.",
+    "message_draft": "Hello, I want to report a water_sewage issue at Bellanduru. This appears recurring or unresolved from the citizen side. Ward/corporation context: 45 Bellanduru / East. I can share: photo/video if safe, address or pin, RR/account number only in the official BWSSB form. Relevant public context, not proof of field resolution: Use the jurisdiction and official filing channel; no row-level work/payment evidence matched yet. I will share account or private details only inside the official form, not in public messages. Please route this to Bengaluru Water Supply and Sewerage Board and share the official complaint/reference number.",
+    "primary_action": "File a BWSSB complaint for Bellanduru; include a photo/video if safe and use account details only inside the official form.",
+    "what_not_to_claim": [
+      "RR/account number outside the official BWSSB form",
+      "private complaint tracking details",
+      "Do not expose account-linked complaint or tracking details.",
+      "No normalized work/payment evidence matched this question.",
+      "Text-only locality alias match; this is a confidence hint, not filing-critical proof. Confirm with the official lat/lng lookup before filing."
+    ],
+    "what_to_send": [
+      "File through: Use BWSSB complaint channels for water, sewage, manholes, billing, or tanker issues.",
+      "Mention ward/corporation context: Bellanduru / East.",
+      "Attach or mention: photo/video if safe, address or pin, RR/account number only in the official BWSSB form."
+    ],
+    "who_to_contact": [
+      "Use BWSSB complaint channels for water, sewage, manholes, billing, or tanker issues.",
+      "BWSSB complaint channel: https://cms.bwssb.gov.in/module/complain/new_complaint",
+      "BWSSB 1916",
+      "BWSSB official call-center email"
+    ]
+  },
+  "answer_type": "structured_civic_case",
+  "audit": {
+    "matcher_versions": {
+      "evidence_matcher": "v2",
+      "issue_router": "v2"
+    },
+    "resolver_source": "locality_alias",
+    "used_rag": false,
+    "used_raw_scan": false
+  },
+  "citations": [
+    {
+      "id": "jurisdiction-1",
+      "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+      "row_number": 112,
+      "run_id": "2026-06-30T08-48-51Z",
+      "source_id": "gba_wards_delimitation_2025"
+    },
+    {
+      "id": "channel-1",
+      "raw_file": "metadata/portal_snapshot.html",
+      "row_number": 1,
+      "run_id": "2026-06-30T08-49-34Z",
+      "source_id": "bwssb_crm_complaint_form"
+    },
+    {
+      "id": "contact-1",
+      "raw_file": "metadata/portal_snapshot.html",
+      "row_number": 1,
+      "run_id": "2026-06-30T08-49-34Z",
+      "source_id": "bwssb_crm_complaint_form"
+    },
+    {
+      "id": "contact-2",
+      "raw_file": "metadata/portal_snapshot.html",
+      "row_number": 1,
+      "run_id": "2026-06-30T08-49-34Z",
+      "source_id": "bwssb_crm_complaint_form"
+    }
+  ],
+  "claims": [
+    {
+      "citation_ids": [
+        "jurisdiction-1"
+      ],
+      "claim_type": "jurisdiction",
+      "text": "Text locality alias kadubeesanahalli points to Bellanduru as a confidence hint."
+    },
+    {
+      "citation_ids": [
+        "channel-1",
+        "contact-1",
+        "contact-2"
+      ],
+      "claim_type": "contact",
+      "text": "Official complaint/contact channel metadata is available."
+    }
+  ],
+  "compatibility_schema_version": 2,
+  "confidence_label": "medium",
+  "coverage_gaps": [
+    "Do not expose account-linked complaint or tracking details.",
+    "No normalized work/payment evidence matched this question.",
+    "Text-only locality alias match; this is a confidence hint, not filing-critical proof. Confirm with the official lat/lng lookup before filing."
+  ],
+  "evidence": [],
+  "evidence_strength": "weak",
+  "evidence_table": [],
+  "freshness": {
+    "basis": "normalized_public_records",
+    "fetched_at_values": [
+      "2026-06-30T08-49-34Z"
+    ]
+  },
+  "input": {
+    "lat": null,
+    "lng": null,
+    "query": "Sewage overflowing near Kadubeesanahalli, who should I contact?"
+  },
+  "issue": {
+    "description": "Sewage overflowing near Kadubeesanahalli, who should I contact?",
+    "matched_terms": [
+      "drain",
+      "manhole",
+      "overflow",
+      "sewage",
+      "sewer",
+      "water"
+    ],
+    "type": "water_sewage",
+    "urgency": "unknown"
+  },
+  "jurisdiction": {
+    "assembly_constituency": "Mahadevapura",
+    "caveat": "Text-only locality alias match; this is a confidence hint, not filing-critical proof. Confirm with the official lat/lng lookup before filing.",
+    "confidence": 0.72,
+    "corporation": "East",
+    "evidence": {
+      "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+      "row_number": 112,
+      "run_id": "2026-06-30T08-48-51Z",
+      "source_id": "gba_wards_delimitation_2025"
+    },
+    "locality_alias_basis": "Common locality near Bellandur/ORR; text-only seed pending authoritative geometry.",
+    "locality_alias_target": "bellanduru",
+    "matched_alias": "kadubeesanahalli",
+    "normalized_ward_name": "bellanduru",
+    "official_endpoint_pattern": "https://gisapi.bbmpgov.in/xyinfo/{lng}/{lat}",
+    "source": "locality_alias",
+    "source_authority": "mirrored_official",
+    "source_id": "gba_wards_delimitation_2025",
+    "source_url": "https://bbmp.gov.in/KnowYourNewCorporation/index.html",
+    "ward_name": "Bellanduru",
+    "ward_number": "45",
+    "ward_regime": "368_or_369",
+    "zone": ""
+  },
+  "legacy_packet_type": "civic_evidence_packet",
+  "limits": [
+    "Do not expose account-linked complaint or tracking details.",
+    "No normalized work/payment evidence matched this question.",
+    "Text-only locality alias match; this is a confidence hint, not filing-critical proof. Confirm with the official lat/lng lookup before filing."
+  ],
+  "normalized_issue": "water_sewage",
+  "normalized_place": "bellanduru",
+  "packet_status": "ready",
+  "packet_type": "civic_action_packet",
+  "place": {
+    "caveat": "Text-only locality alias match; this is a confidence hint, not filing-critical proof. Confirm with the official lat/lng lookup before filing.",
+    "confidence": 0.72,
+    "corporation": "East",
+    "normalized_place": "bellanduru",
+    "source": "locality_alias",
+    "ward_name": "Bellanduru",
+    "ward_number": "45",
+    "zone": ""
+  },
+  "question": "Sewage overflowing near Kadubeesanahalli, who should I contact?",
+  "records_show": [
+    "No normalized record proves the reported water_sewage condition yet."
+  ],
+  "related_works": [
+    "No matching normalized work/payment rows were found."
+  ],
+  "responsibility": {
+    "fallback_agency": null,
+    "ownership_caveat": "Do not expose account-linked complaint or tracking details.",
+    "primary_agency": {
+      "agency_id": "bwssb",
+      "name": "Bengaluru Water Supply and Sewerage Board"
+    }
+  },
+  "responsible_agency": {
+    "agency_id": "bwssb",
+    "name": "Bengaluru Water Supply and Sewerage Board"
+  },
+  "retrieval_trace": {
+    "backend": "normalized_civic_case",
+    "channels_considered": 3,
+    "payments_considered": 0,
+    "used_rag": false,
+    "used_raw_scan": false,
+    "works_considered": 0
+  },
+  "schema_version": 3,
+  "service_request": {
+    "do_not_include": [
+      "RR/account number outside the official BWSSB form",
+      "private complaint tracking details"
+    ],
+    "filing_guidance": "Use BWSSB complaint channels for water, sewage, manholes, billing, or tanker issues.",
+    "open311_like_service_type": "water_or_sewer_service_request",
+    "required_fields": [
+      "photo/video if safe",
+      "address or pin",
+      "RR/account number only in the official BWSSB form"
+    ],
+    "status_policy": "Official closure is a source claim, not verified ground resolution."
+  },
+  "short_answer": "This looks like a water_sewage issue around Bellanduru. Likely owner: Bengaluru Water Supply and Sewerage Board. I did not find matching normalized work/payment rows yet.",
+  "what_to_cite": [
+    "Use the jurisdiction and official filing channel; no row-level work/payment evidence matched yet."
+  ],
+  "what_to_do_next": [
+    "File through: Use BWSSB complaint channels for water, sewage, manholes, billing, or tanker issues.",
+    "Mention ward/corporation context: Bellanduru / East.",
+    "Attach or mention: photo/video if safe, address or pin, RR/account number only in the official BWSSB form."
+  ],
+  "who_to_contact": [
+    "Use BWSSB complaint channels for water, sewage, manholes, billing, or tanker issues.",
+    "BWSSB complaint channel: https://cms.bwssb.gov.in/module/complain/new_complaint",
+    "BWSSB 1916",
+    "BWSSB official call-center email"
+  ]
+}

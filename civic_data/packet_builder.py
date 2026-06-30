@@ -19,6 +19,7 @@ def build_packet(
     lat: float | None = None,
     lng: float | None = None,
     xyinfo_client: Callable[[float, float], Any] | None = None,
+    locality_alias_path: Path | str | None = Path("data/config/locality_aliases.json"),
 ) -> dict[str, Any]:
     q = query.strip()
     if not q:
@@ -27,10 +28,24 @@ def build_packet(
     route = route_issue(q)
     capabilities = warehouse.capabilities()
     if not capabilities.packet_inputs_present:
-        jurisdiction = resolve_jurisdiction(q, lat=lat, lng=lng, warehouse_root=warehouse.root, xyinfo_client=xyinfo_client)
+        jurisdiction = resolve_jurisdiction(
+            q,
+            lat=lat,
+            lng=lng,
+            warehouse_root=warehouse.root,
+            xyinfo_client=xyinfo_client,
+            locality_alias_path=locality_alias_path,
+        )
         return _insufficient_packet(q, route, jurisdiction, lat=lat, lng=lng, missing=capabilities.missing_packet_inputs)
 
-    jurisdiction = resolve_jurisdiction(q, lat=lat, lng=lng, warehouse_root=warehouse.root, xyinfo_client=xyinfo_client)
+    jurisdiction = resolve_jurisdiction(
+        q,
+        lat=lat,
+        lng=lng,
+        warehouse_root=warehouse.root,
+        xyinfo_client=xyinfo_client,
+        locality_alias_path=locality_alias_path,
+    )
     evidence_matches = match_work_records(q, route, jurisdiction, warehouse.load_works(), warehouse.load_payments())
     channel_matches = match_channels(route, warehouse.load_complaint_channels(), "complaint_channel")
     contact_matches = match_channels(route, warehouse.load_contact_channels(), "contact_channel")
@@ -44,6 +59,7 @@ def build_packet(
     ]
     normalized_place = jurisdiction.get("normalized_ward_name") or first_place_guess(q)
     action = _action(route, jurisdiction, contacts, what_to_cite, limits)
+    evidence_strength = _evidence_strength(jurisdiction, rows)
     packet = {
         "schema_version": 3,
         "compatibility_schema_version": 2,
@@ -56,6 +72,7 @@ def build_packet(
         "responsibility": _responsibility(route),
         "service_request": _service_request(route),
         "evidence": action_evidence(evidence_matches),
+        "evidence_strength": evidence_strength,
         "action": action,
         "audit": {
             "used_rag": False,
@@ -108,6 +125,16 @@ def render_packet_markdown(packet: dict[str, Any]) -> str:
         f"Issue: {issue.get('type', 'unknown')}",
         f"Place: {place.get('ward_name') or place.get('normalized_place') or 'unresolved'}",
         f"Likely owner: {_agency_name(responsibility.get('primary_agency'))}",
+        f"Evidence strength: {packet.get('evidence_strength', 'none')}",
+        "",
+        "## Primary action",
+        str(action.get("primary_action") or action.get("message_draft") or ""),
+        "",
+        "## Escalation action",
+        str(action.get("escalation_action") or ""),
+        "",
+        "## Legal or RTI action",
+        str(action.get("legal_or_rti_action") or ""),
         "",
         "## What to send",
         str(action.get("message_draft") or ""),
@@ -163,6 +190,7 @@ def _insufficient_packet(
         "responsibility": _responsibility(route),
         "service_request": _service_request(route),
         "evidence": [],
+        "evidence_strength": _evidence_strength(jurisdiction, []),
         "action": _action(route, jurisdiction, _contact_text([], [], route), [], limits),
         "audit": {
             "used_rag": False,
@@ -251,12 +279,16 @@ def _action(
     limits: list[str],
 ) -> dict[str, Any]:
     evidence = route.get("required_evidence") if isinstance(route.get("required_evidence"), list) else []
+    what_not_to_claim = _what_not_to_claim(route, limits)
     message = _message_draft(route, jurisdiction, evidence, what_to_cite)
     return {
+        "primary_action": _primary_action(route, jurisdiction),
+        "escalation_action": _escalation_action(route, contacts),
+        "legal_or_rti_action": _legal_or_rti_action(route, jurisdiction),
         "who_to_contact": contacts,
         "what_to_send": _what_to_do_next(route, jurisdiction),
         "evidence_to_attach": evidence,
-        "what_not_to_claim": limits,
+        "what_not_to_claim": what_not_to_claim,
         "message_draft": message,
     }
 
@@ -278,9 +310,64 @@ def _message_draft(
     if required_evidence:
         pieces.append("I can share: " + ", ".join(str(item) for item in required_evidence[:4]) + ".")
     if what_to_cite:
-        pieces.append("Relevant public context: " + str(what_to_cite[0]))
+        pieces.append("Relevant public context, not proof of field resolution: " + str(what_to_cite[0]))
+    if route.get("issue_type") in {"water_sewage", "power"}:
+        pieces.append("I will share account or private details only inside the official form, not in public messages.")
     pieces.append(f"Please route this to {agency.get('name') or 'the responsible team'} and share the official complaint/reference number.")
     return " ".join(pieces)
+
+
+def _primary_action(route: dict[str, Any], jurisdiction: dict[str, Any]) -> str:
+    issue_type = route.get("issue_type")
+    place = jurisdiction.get("ward_name") or "the exact location"
+    if issue_type == "water_sewage":
+        return f"File a BWSSB complaint for {place}; include a photo/video if safe and use account details only inside the official form."
+    if issue_type == "power":
+        return f"Contact BESCOM for {place}; treat sparking wires, transformer issues, or shock risk as an electrical safety issue."
+    if issue_type == "garbage":
+        return f"File through BSWML/SWM or the GBA/Sahaaya channel for {place}; include photo, landmark, and recurrence details."
+    if issue_type == "streetlight":
+        return f"File a civic streetlight maintenance complaint for {place}; include pole number, photo, and landmark or pin."
+    if issue_type == "traffic":
+        return f"Use Bengaluru Traffic Police channels for the traffic disruption at {place}; include time, location, and safe photo/video evidence."
+    return f"File through the relevant GBA/BBMP civic channel for {place}; include photo, pin, date/time, and recurrence details."
+
+
+def _escalation_action(route: dict[str, Any], contacts: list[str]) -> str:
+    first_contact = contacts[0] if contacts else str(route.get("filing_guidance") or "the official complaint channel")
+    return (
+        "If there is no response, follow up with the official complaint/reference number and the same evidence packet. "
+        f"Start with: {first_contact}"
+    )
+
+
+def _legal_or_rti_action(route: dict[str, Any], jurisdiction: dict[str, Any]) -> str:
+    ward = jurisdiction.get("ward_name")
+    context = f" for {ward}" if ward else ""
+    return (
+        "For a persistent unresolved issue, ask the department for written status, responsible office, and related work/order records"
+        f"{context}. Use RTI only for official records; do not include private account details outside official workflows."
+    )
+
+
+def _what_not_to_claim(route: dict[str, Any], limits: list[str]) -> list[str]:
+    values = [str(item) for item in route.get("do_not_include", []) if isinstance(item, str)]
+    values.extend(str(item) for item in limits if item)
+    result: list[str] = []
+    for item in values:
+        if item not in result:
+            result.append(item)
+    return result
+
+
+def _evidence_strength(jurisdiction: dict[str, Any], rows: list[dict[str, str]]) -> str:
+    if rows:
+        return "public_row"
+    if jurisdiction.get("source") == "official_xyinfo":
+        return "official_lookup"
+    if jurisdiction.get("source") == "locality_alias":
+        return "weak"
+    return "none"
 
 
 def _limits(route: dict[str, Any], jurisdiction: dict[str, Any], rows: list[dict[str, str]]) -> list[str]:

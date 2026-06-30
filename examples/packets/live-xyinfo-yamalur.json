@@ -1,0 +1,232 @@
+{
+  "action": {
+    "escalation_action": "If there is no response, follow up with the official complaint/reference number and the same evidence packet. Start with: Use GBA/BBMP local corporation channels for streetlight maintenance; use BESCOM if wording indicates outage, wires, transformer, or power-distribution failure.",
+    "evidence_to_attach": [
+      "pole number",
+      "photo",
+      "landmark or pin",
+      "whether multiple lights are affected"
+    ],
+    "legal_or_rti_action": "For a persistent unresolved issue, ask the department for written status, responsible office, and related work/order records for Yamalur. Use RTI only for official records; do not include private account details outside official workflows.",
+    "message_draft": "Hello, I want to report a streetlight issue at Yamalur. This appears recurring or unresolved from the citizen side. Ward/corporation context: 46 Yamalur / East. I can share: pole number, photo, landmark or pin, whether multiple lights are affected. Relevant public context, not proof of field resolution: Use the jurisdiction and official filing channel; no row-level work/payment evidence matched yet. Please route this to Greater Bengaluru Authority / local city corporation and share the official complaint/reference number.",
+    "primary_action": "File a civic streetlight maintenance complaint for Yamalur; include pole number, photo, and landmark or pin.",
+    "what_not_to_claim": [
+      "private phone numbers",
+      "claims that a listed work proves the light is fixed",
+      "Streetlight ownership may split between civic electrical maintenance and BESCOM power distribution.",
+      "No normalized work/payment evidence matched this question.",
+      "Official xyinfo lookup from lat/lng. TLS verification failed in local Python CA store; fetched with endpoint-scoped TLS fallback."
+    ],
+    "what_to_send": [
+      "File through: Use GBA/BBMP local corporation channels for streetlight maintenance; use BESCOM if wording indicates outage, wires, transformer, or power-distribution failure.",
+      "Mention ward/corporation context: Yamalur / East.",
+      "Attach or mention: pole number, photo, landmark or pin, whether multiple lights are affected."
+    ],
+    "who_to_contact": [
+      "Use GBA/BBMP local corporation channels for streetlight maintenance; use BESCOM if wording indicates outage, wires, transformer, or power-distribution failure.",
+      "BESCOM complaint/contact channel: https://bescom.karnataka.gov.in/new-page/Contact%20Us/en",
+      "BESCOM 1912",
+      "BESCOM official WhatsApp channel"
+    ]
+  },
+  "answer_type": "structured_civic_case",
+  "audit": {
+    "matcher_versions": {
+      "evidence_matcher": "v2",
+      "issue_router": "v2"
+    },
+    "resolver_source": "official_xyinfo",
+    "used_rag": false,
+    "used_raw_scan": false
+  },
+  "citations": [
+    {
+      "endpoint": "https://gisapi.bbmpgov.in/xyinfo/77.678/12.9352",
+      "id": "jurisdiction-1",
+      "lat": 12.9352,
+      "lng": 77.678,
+      "source_id": "gba_new_corporation_ward_lookup"
+    },
+    {
+      "id": "channel-1",
+      "raw_file": "original/snapshot.html",
+      "row_number": 1,
+      "run_id": "2026-06-30T08-49-34Z",
+      "source_id": "bescom_official_contact_complaint_channels"
+    },
+    {
+      "id": "contact-1",
+      "raw_file": "original/snapshot.html",
+      "row_number": 1,
+      "run_id": "2026-06-30T08-49-34Z",
+      "source_id": "bescom_official_contact_complaint_channels"
+    },
+    {
+      "id": "contact-2",
+      "raw_file": "original/snapshot.html",
+      "row_number": 1,
+      "run_id": "2026-06-30T08-49-34Z",
+      "source_id": "bescom_official_contact_complaint_channels"
+    }
+  ],
+  "claims": [
+    {
+      "citation_ids": [
+        "jurisdiction-1"
+      ],
+      "claim_type": "jurisdiction",
+      "text": "Official xyinfo lookup matched Yamalur."
+    },
+    {
+      "citation_ids": [
+        "channel-1",
+        "contact-1",
+        "contact-2"
+      ],
+      "claim_type": "contact",
+      "text": "Official complaint/contact channel metadata is available."
+    }
+  ],
+  "compatibility_schema_version": 2,
+  "confidence_label": "high",
+  "coverage_gaps": [
+    "Streetlight ownership may split between civic electrical maintenance and BESCOM power distribution.",
+    "No normalized work/payment evidence matched this question.",
+    "Official xyinfo lookup from lat/lng. TLS verification failed in local Python CA store; fetched with endpoint-scoped TLS fallback."
+  ],
+  "evidence": [],
+  "evidence_strength": "official_lookup",
+  "evidence_table": [],
+  "freshness": {
+    "basis": "normalized_public_records",
+    "fetched_at_values": [
+      "2026-06-30T08-49-34Z"
+    ]
+  },
+  "input": {
+    "lat": 12.9352,
+    "lng": 77.678,
+    "query": "streetlight not working near this pin"
+  },
+  "issue": {
+    "description": "streetlight not working near this pin",
+    "matched_terms": [
+      "electrical",
+      "light",
+      "lights",
+      "street",
+      "streetlight",
+      "streetlights"
+    ],
+    "type": "streetlight",
+    "urgency": "unknown"
+  },
+  "jurisdiction": {
+    "aro_subdivision": "ARO- Bellanduru",
+    "assembly_constituency": "Mahadevapura",
+    "assembly_constituency_number": "174",
+    "caveat": "Official xyinfo lookup from lat/lng. TLS verification failed in local Python CA store; fetched with endpoint-scoped TLS fallback.",
+    "confidence": 1.0,
+    "corporation": "East",
+    "evidence": {
+      "endpoint": "https://gisapi.bbmpgov.in/xyinfo/77.678/12.9352",
+      "lat": 12.9352,
+      "lng": 77.678,
+      "source_id": "gba_new_corporation_ward_lookup"
+    },
+    "normalized_ward_name": "yamalur",
+    "official_endpoint_pattern": "https://gisapi.bbmpgov.in/xyinfo/{lng}/{lat}",
+    "old_ward_name": "Bellanduru",
+    "old_ward_number": "150",
+    "ro_division": "RO- Bellanduru",
+    "source": "official_xyinfo",
+    "source_authority": "official",
+    "source_id": "gba_new_corporation_ward_lookup",
+    "source_url": "https://gisapi.bbmpgov.in/xyinfo/77.678/12.9352",
+    "ward_name": "Yamalur",
+    "ward_number": "46",
+    "ward_regime": "live_gba_xyinfo",
+    "zone": "Mahadevapura"
+  },
+  "legacy_packet_type": "civic_evidence_packet",
+  "limits": [
+    "Streetlight ownership may split between civic electrical maintenance and BESCOM power distribution.",
+    "No normalized work/payment evidence matched this question.",
+    "Official xyinfo lookup from lat/lng. TLS verification failed in local Python CA store; fetched with endpoint-scoped TLS fallback."
+  ],
+  "normalized_issue": "streetlight",
+  "normalized_place": "yamalur",
+  "packet_status": "ready",
+  "packet_type": "civic_action_packet",
+  "place": {
+    "caveat": "Official xyinfo lookup from lat/lng. TLS verification failed in local Python CA store; fetched with endpoint-scoped TLS fallback.",
+    "confidence": 1.0,
+    "corporation": "East",
+    "normalized_place": "yamalur",
+    "source": "official_xyinfo",
+    "ward_name": "Yamalur",
+    "ward_number": "46",
+    "zone": "Mahadevapura"
+  },
+  "question": "streetlight not working near this pin",
+  "records_show": [
+    "No normalized record proves the reported streetlight condition yet."
+  ],
+  "related_works": [
+    "No matching normalized work/payment rows were found."
+  ],
+  "responsibility": {
+    "fallback_agency": {
+      "agency_id": "gba",
+      "name": "Greater Bengaluru Authority / local city corporation"
+    },
+    "ownership_caveat": "Streetlight ownership may split between civic electrical maintenance and BESCOM power distribution.",
+    "primary_agency": {
+      "agency_id": "gba",
+      "name": "Greater Bengaluru Authority / local city corporation"
+    }
+  },
+  "responsible_agency": {
+    "agency_id": "gba",
+    "name": "Greater Bengaluru Authority / local city corporation"
+  },
+  "retrieval_trace": {
+    "backend": "normalized_civic_case",
+    "channels_considered": 3,
+    "payments_considered": 0,
+    "used_rag": false,
+    "used_raw_scan": false,
+    "works_considered": 0
+  },
+  "schema_version": 3,
+  "service_request": {
+    "do_not_include": [
+      "private phone numbers",
+      "claims that a listed work proves the light is fixed"
+    ],
+    "filing_guidance": "Use GBA/BBMP local corporation channels for streetlight maintenance; use BESCOM if wording indicates outage, wires, transformer, or power-distribution failure.",
+    "open311_like_service_type": "streetlight_maintenance",
+    "required_fields": [
+      "pole number",
+      "photo",
+      "landmark or pin",
+      "whether multiple lights are affected"
+    ],
+    "status_policy": "Official closure is a source claim, not verified ground resolution."
+  },
+  "short_answer": "This looks like a streetlight issue around Yamalur. Likely owner: Greater Bengaluru Authority / local city corporation. I did not find matching normalized work/payment rows yet.",
+  "what_to_cite": [
+    "Use the jurisdiction and official filing channel; no row-level work/payment evidence matched yet."
+  ],
+  "what_to_do_next": [
+    "File through: Use GBA/BBMP local corporation channels for streetlight maintenance; use BESCOM if wording indicates outage, wires, transformer, or power-distribution failure.",
+    "Mention ward/corporation context: Yamalur / East.",
+    "Attach or mention: pole number, photo, landmark or pin, whether multiple lights are affected."
+  ],
+  "who_to_contact": [
+    "Use GBA/BBMP local corporation channels for streetlight maintenance; use BESCOM if wording indicates outage, wires, transformer, or power-distribution failure.",
+    "BESCOM complaint/contact channel: https://bescom.karnataka.gov.in/new-page/Contact%20Us/en",
+    "BESCOM 1912",
+    "BESCOM official WhatsApp channel"
+  ]
+}

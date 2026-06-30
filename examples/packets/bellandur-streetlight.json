@@ -1,0 +1,538 @@
+{
+  "action": {
+    "escalation_action": "If there is no response, follow up with the official complaint/reference number and the same evidence packet. Start with: Use GBA/BBMP local corporation channels for streetlight maintenance; use BESCOM if wording indicates outage, wires, transformer, or power-distribution failure.",
+    "evidence_to_attach": [
+      "pole number",
+      "photo",
+      "landmark or pin",
+      "whether multiple lights are affected"
+    ],
+    "legal_or_rti_action": "For a persistent unresolved issue, ask the department for written status, responsible office, and related work/order records for Bellanduru. Use RTI only for official records; do not include private account details outside official workflows.",
+    "message_draft": "Hello, I want to report a streetlight issue at Bellanduru. This appears recurring or unresolved from the citizen side. Ward/corporation context: 45 Bellanduru / East. I can share: pole number, photo, landmark or pin, whether multiple lights are affected. Relevant public context, not proof of field resolution: Providing Energy saving street light system with timer control in Bellanduru Ward No.150; amount 169813 Please route this to Greater Bengaluru Authority / local city corporation and share the official complaint/reference number.",
+    "primary_action": "File a civic streetlight maintenance complaint for Bellanduru; include pole number, photo, and landmark or pin.",
+    "what_not_to_claim": [
+      "private phone numbers",
+      "claims that a listed work proves the light is fixed",
+      "Streetlight ownership may split between civic electrical maintenance and BESCOM power distribution.",
+      "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing."
+    ],
+    "what_to_send": [
+      "File through: Use GBA/BBMP local corporation channels for streetlight maintenance; use BESCOM if wording indicates outage, wires, transformer, or power-distribution failure.",
+      "Mention ward/corporation context: Bellanduru / East.",
+      "Attach or mention: pole number, photo, landmark or pin, whether multiple lights are affected."
+    ],
+    "who_to_contact": [
+      "Use GBA/BBMP local corporation channels for streetlight maintenance; use BESCOM if wording indicates outage, wires, transformer, or power-distribution failure.",
+      "BESCOM complaint/contact channel: https://bescom.karnataka.gov.in/new-page/Contact%20Us/en",
+      "BESCOM 1912",
+      "BESCOM official WhatsApp channel"
+    ]
+  },
+  "answer_type": "structured_civic_case",
+  "audit": {
+    "matcher_versions": {
+      "evidence_matcher": "v2",
+      "issue_router": "v2"
+    },
+    "resolver_source": "offline_normalized_wards",
+    "used_rag": false,
+    "used_raw_scan": false
+  },
+  "citations": [
+    {
+      "id": "jurisdiction-1",
+      "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+      "row_number": 112,
+      "run_id": "2026-06-30T08-48-51Z",
+      "source_id": "gba_wards_delimitation_2025"
+    },
+    {
+      "id": "evidence-1",
+      "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+      "row_number": 265,
+      "run_id": "2026-06-30T08-49-46Z",
+      "source_id": "bbmp_work_orders_and_bill_payment"
+    },
+    {
+      "id": "evidence-2",
+      "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+      "row_number": 3787,
+      "run_id": "2026-06-30T08-49-46Z",
+      "source_id": "bbmp_work_orders_and_bill_payment"
+    },
+    {
+      "id": "evidence-3",
+      "raw_file": "original/7a6907c2-6efd-43d6-99ac-1d10f67b3f85.csv",
+      "row_number": 2102,
+      "run_id": "2026-06-30T08-48-51Z",
+      "source_id": "bbmp_work_orders_and_payments_2025_26"
+    },
+    {
+      "id": "evidence-4",
+      "raw_file": "original/7a6907c2-6efd-43d6-99ac-1d10f67b3f85.csv",
+      "row_number": 2211,
+      "run_id": "2026-06-30T08-48-51Z",
+      "source_id": "bbmp_work_orders_and_payments_2025_26"
+    },
+    {
+      "id": "evidence-5",
+      "raw_file": "original/7a6907c2-6efd-43d6-99ac-1d10f67b3f85.csv",
+      "row_number": 1446,
+      "run_id": "2026-06-30T08-48-51Z",
+      "source_id": "bbmp_work_orders_and_payments_2025_26"
+    },
+    {
+      "id": "evidence-6",
+      "raw_file": "original/3e784947-b321-4cba-bedb-69de53450a83.csv",
+      "row_number": 200,
+      "run_id": "2026-06-30T08-48-51Z",
+      "source_id": "bbmp_work_orders_and_payments_2025_26"
+    },
+    {
+      "id": "evidence-7",
+      "raw_file": "original/3e784947-b321-4cba-bedb-69de53450a83.csv",
+      "row_number": 425,
+      "run_id": "2026-06-30T08-48-51Z",
+      "source_id": "bbmp_work_orders_and_payments_2025_26"
+    },
+    {
+      "id": "evidence-8",
+      "raw_file": "original/3e784947-b321-4cba-bedb-69de53450a83.csv",
+      "row_number": 1042,
+      "run_id": "2026-06-30T08-48-51Z",
+      "source_id": "bbmp_work_orders_and_payments_2025_26"
+    },
+    {
+      "id": "evidence-9",
+      "raw_file": "original/3e784947-b321-4cba-bedb-69de53450a83.csv",
+      "row_number": 1049,
+      "run_id": "2026-06-30T08-48-51Z",
+      "source_id": "bbmp_work_orders_and_payments_2025_26"
+    },
+    {
+      "id": "channel-1",
+      "raw_file": "original/snapshot.html",
+      "row_number": 1,
+      "run_id": "2026-06-30T08-49-34Z",
+      "source_id": "bescom_official_contact_complaint_channels"
+    },
+    {
+      "id": "contact-1",
+      "raw_file": "original/snapshot.html",
+      "row_number": 1,
+      "run_id": "2026-06-30T08-49-34Z",
+      "source_id": "bescom_official_contact_complaint_channels"
+    },
+    {
+      "id": "contact-2",
+      "raw_file": "original/snapshot.html",
+      "row_number": 1,
+      "run_id": "2026-06-30T08-49-34Z",
+      "source_id": "bescom_official_contact_complaint_channels"
+    }
+  ],
+  "claims": [
+    {
+      "citation_ids": [
+        "jurisdiction-1"
+      ],
+      "claim_type": "jurisdiction",
+      "text": "Offline ward data matched Bellanduru."
+    },
+    {
+      "citation_ids": [
+        "evidence-1",
+        "evidence-2",
+        "evidence-3",
+        "evidence-4",
+        "evidence-5",
+        "evidence-6",
+        "evidence-7",
+        "evidence-8",
+        "evidence-9"
+      ],
+      "claim_type": "public_work_or_payment",
+      "text": "Normalized public work/payment rows matched this question."
+    },
+    {
+      "citation_ids": [
+        "channel-1",
+        "contact-1",
+        "contact-2"
+      ],
+      "claim_type": "contact",
+      "text": "Official complaint/contact channel metadata is available."
+    }
+  ],
+  "compatibility_schema_version": 2,
+  "confidence_label": "high",
+  "coverage_gaps": [
+    "Streetlight ownership may split between civic electrical maintenance and BESCOM power distribution.",
+    "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing."
+  ],
+  "evidence": [
+    {
+      "allowed_claims": [
+        "A public work/payment source row exists with these fields."
+      ],
+      "claim": "Providing Energy saving street light system with timer control in Bellanduru Ward No.150",
+      "claim_class": "proof_with_mirror_caveat",
+      "disallowed_claims": [
+        "Does not prove field completion, repair quality, corruption, or contractor fault."
+      ],
+      "entity_type": "work",
+      "evidence_id": "evidence-1",
+      "match_confidence": 0.78,
+      "match_method": "place_text_and_issue_terms",
+      "row_number": 265,
+      "source_id": "bbmp_work_orders_and_bill_payment"
+    },
+    {
+      "allowed_claims": [
+        "A public work/payment source row exists with these fields."
+      ],
+      "claim": "Providing Additional Street lights in Bellandur ward No.150",
+      "claim_class": "proof_with_mirror_caveat",
+      "disallowed_claims": [
+        "Does not prove field completion, repair quality, corruption, or contractor fault."
+      ],
+      "entity_type": "work",
+      "evidence_id": "evidence-2",
+      "match_confidence": 0.78,
+      "match_method": "place_text_and_issue_terms",
+      "row_number": 3787,
+      "source_id": "bbmp_work_orders_and_bill_payment"
+    },
+    {
+      "allowed_claims": [
+        "A public work/payment source row exists with these fields."
+      ],
+      "claim": "054-21-000019 Providing improvements to street lights in important junctions and roads of Varthuru and Bellandur and near by areas hoodi and doddnekundi areas ward no 54 and 85",
+      "claim_class": "proof_with_mirror_caveat",
+      "disallowed_claims": [
+        "Does not prove field completion, repair quality, corruption, or contractor fault."
+      ],
+      "entity_type": "work",
+      "evidence_id": "evidence-3",
+      "match_confidence": 0.78,
+      "match_method": "place_text_and_issue_terms",
+      "row_number": 2102,
+      "source_id": "bbmp_work_orders_and_payments_2025_26"
+    },
+    {
+      "allowed_claims": [
+        "A public work/payment source row exists with these fields."
+      ],
+      "claim": "086-22-000011 Providing street lights in Dark streches and installation of missing street lights in Marathalli, Bellandur ward no-86,150",
+      "claim_class": "proof_with_mirror_caveat",
+      "disallowed_claims": [
+        "Does not prove field completion, repair quality, corruption, or contractor fault."
+      ],
+      "entity_type": "work",
+      "evidence_id": "evidence-4",
+      "match_confidence": 0.78,
+      "match_method": "place_text_and_issue_terms",
+      "row_number": 2211,
+      "source_id": "bbmp_work_orders_and_payments_2025_26"
+    },
+    {
+      "allowed_claims": [
+        "A public work/payment source row exists with these fields."
+      ],
+      "claim": "150-22-000009 Operation and maintenance of street light fittings in ward no 150 of bellanduru of mahadevapura zone (M01)",
+      "claim_class": "proof_with_mirror_caveat",
+      "disallowed_claims": [
+        "Does not prove field completion, repair quality, corruption, or contractor fault."
+      ],
+      "entity_type": "work",
+      "evidence_id": "evidence-5",
+      "match_confidence": 0.78,
+      "match_method": "place_text_and_issue_terms",
+      "row_number": 1446,
+      "source_id": "bbmp_work_orders_and_payments_2025_26"
+    },
+    {
+      "allowed_claims": [
+        "A public work/payment source row exists with these fields."
+      ],
+      "claim": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months",
+      "claim_class": "proof_with_mirror_caveat",
+      "disallowed_claims": [
+        "Does not prove field completion, repair quality, corruption, or contractor fault."
+      ],
+      "entity_type": "work",
+      "evidence_id": "evidence-6",
+      "match_confidence": 0.78,
+      "match_method": "place_text_and_issue_terms",
+      "row_number": 200,
+      "source_id": "bbmp_work_orders_and_payments_2025_26"
+    },
+    {
+      "allowed_claims": [
+        "A public work/payment source row exists with these fields."
+      ],
+      "claim": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months",
+      "claim_class": "proof_with_mirror_caveat",
+      "disallowed_claims": [
+        "Does not prove field completion, repair quality, corruption, or contractor fault."
+      ],
+      "entity_type": "work",
+      "evidence_id": "evidence-7",
+      "match_confidence": 0.78,
+      "match_method": "place_text_and_issue_terms",
+      "row_number": 425,
+      "source_id": "bbmp_work_orders_and_payments_2025_26"
+    },
+    {
+      "allowed_claims": [
+        "A public work/payment source row exists with these fields."
+      ],
+      "claim": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months",
+      "claim_class": "proof_with_mirror_caveat",
+      "disallowed_claims": [
+        "Does not prove field completion, repair quality, corruption, or contractor fault."
+      ],
+      "entity_type": "work",
+      "evidence_id": "evidence-8",
+      "match_confidence": 0.78,
+      "match_method": "place_text_and_issue_terms",
+      "row_number": 1042,
+      "source_id": "bbmp_work_orders_and_payments_2025_26"
+    },
+    {
+      "allowed_claims": [
+        "A public work/payment source row exists with these fields."
+      ],
+      "claim": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months",
+      "claim_class": "proof_with_mirror_caveat",
+      "disallowed_claims": [
+        "Does not prove field completion, repair quality, corruption, or contractor fault."
+      ],
+      "entity_type": "work",
+      "evidence_id": "evidence-9",
+      "match_confidence": 0.78,
+      "match_method": "place_text_and_issue_terms",
+      "row_number": 1049,
+      "source_id": "bbmp_work_orders_and_payments_2025_26"
+    }
+  ],
+  "evidence_strength": "public_row",
+  "evidence_table": [
+    {
+      "claim_class": "proof_with_mirror_caveat",
+      "entity_type": "work",
+      "match_confidence": "0.78",
+      "match_method": "place_text_and_issue_terms",
+      "row_number": "265",
+      "source_id": "bbmp_work_orders_and_bill_payment",
+      "text": "Providing Energy saving street light system with timer control in Bellanduru Ward No.150; amount 169813"
+    },
+    {
+      "claim_class": "proof_with_mirror_caveat",
+      "entity_type": "work",
+      "match_confidence": "0.78",
+      "match_method": "place_text_and_issue_terms",
+      "row_number": "3787",
+      "source_id": "bbmp_work_orders_and_bill_payment",
+      "text": "Providing Additional Street lights in Bellandur ward No.150; amount 161720"
+    },
+    {
+      "claim_class": "proof_with_mirror_caveat",
+      "entity_type": "work",
+      "match_confidence": "0.78",
+      "match_method": "place_text_and_issue_terms",
+      "row_number": "2102",
+      "source_id": "bbmp_work_orders_and_payments_2025_26",
+      "text": "054-21-000019 Providing improvements to street lights in important junctions and roads of Varthuru and Bellandur and near by areas hoodi and doddnekundi areas ward no 54 and 85; amount 3822532"
+    },
+    {
+      "claim_class": "proof_with_mirror_caveat",
+      "entity_type": "work",
+      "match_confidence": "0.78",
+      "match_method": "place_text_and_issue_terms",
+      "row_number": "2211",
+      "source_id": "bbmp_work_orders_and_payments_2025_26",
+      "text": "086-22-000011 Providing street lights in Dark streches and installation of missing street lights in Marathalli, Bellandur ward no-86,150; amount 10695766"
+    },
+    {
+      "claim_class": "proof_with_mirror_caveat",
+      "entity_type": "work",
+      "match_confidence": "0.78",
+      "match_method": "place_text_and_issue_terms",
+      "row_number": "1446",
+      "source_id": "bbmp_work_orders_and_payments_2025_26",
+      "text": "150-22-000009 Operation and maintenance of street light fittings in ward no 150 of bellanduru of mahadevapura zone (M01); amount 1608731"
+    },
+    {
+      "claim_class": "proof_with_mirror_caveat",
+      "entity_type": "work",
+      "match_confidence": "0.78",
+      "match_method": "place_text_and_issue_terms",
+      "row_number": "200",
+      "source_id": "bbmp_work_orders_and_payments_2025_26",
+      "text": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months; amount 709758"
+    },
+    {
+      "claim_class": "proof_with_mirror_caveat",
+      "entity_type": "work",
+      "match_confidence": "0.78",
+      "match_method": "place_text_and_issue_terms",
+      "row_number": "425",
+      "source_id": "bbmp_work_orders_and_payments_2025_26",
+      "text": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months; amount 473173"
+    },
+    {
+      "claim_class": "proof_with_mirror_caveat",
+      "entity_type": "work",
+      "match_confidence": "0.78",
+      "match_method": "place_text_and_issue_terms",
+      "row_number": "1042",
+      "source_id": "bbmp_work_orders_and_payments_2025_26",
+      "text": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months; amount 473175"
+    },
+    {
+      "claim_class": "proof_with_mirror_caveat",
+      "entity_type": "work",
+      "match_confidence": "0.78",
+      "match_method": "place_text_and_issue_terms",
+      "row_number": "1049",
+      "source_id": "bbmp_work_orders_and_payments_2025_26",
+      "text": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months; amount 473156"
+    }
+  ],
+  "freshness": {
+    "basis": "normalized_public_records",
+    "fetched_at_values": [
+      "2026-06-30T08-48-51Z",
+      "2026-06-30T08-49-34Z",
+      "2026-06-30T08-49-46Z"
+    ]
+  },
+  "input": {
+    "lat": null,
+    "lng": null,
+    "query": "Bellandur streetlight not working, what can I cite and who should I contact?"
+  },
+  "issue": {
+    "description": "Bellandur streetlight not working, what can I cite and who should I contact?",
+    "matched_terms": [
+      "electrical",
+      "light",
+      "lights",
+      "street",
+      "streetlight",
+      "streetlights"
+    ],
+    "type": "streetlight",
+    "urgency": "unknown"
+  },
+  "jurisdiction": {
+    "assembly_constituency": "Mahadevapura",
+    "caveat": "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.",
+    "confidence": 0.95,
+    "corporation": "East",
+    "evidence": {
+      "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+      "row_number": 112,
+      "run_id": "2026-06-30T08-48-51Z",
+      "source_id": "gba_wards_delimitation_2025"
+    },
+    "normalized_ward_name": "bellanduru",
+    "official_endpoint_pattern": "https://gisapi.bbmpgov.in/xyinfo/{lng}/{lat}",
+    "source": "offline_normalized_wards",
+    "source_authority": "mirrored_official",
+    "source_id": "gba_wards_delimitation_2025",
+    "source_url": "https://bbmp.gov.in/KnowYourNewCorporation/index.html",
+    "ward_name": "Bellanduru",
+    "ward_number": "45",
+    "ward_regime": "368_or_369",
+    "zone": ""
+  },
+  "legacy_packet_type": "civic_evidence_packet",
+  "limits": [
+    "Streetlight ownership may split between civic electrical maintenance and BESCOM power distribution.",
+    "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing."
+  ],
+  "normalized_issue": "streetlight",
+  "normalized_place": "bellanduru",
+  "packet_status": "ready",
+  "packet_type": "civic_action_packet",
+  "place": {
+    "caveat": "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.",
+    "confidence": 0.95,
+    "corporation": "East",
+    "normalized_place": "bellanduru",
+    "source": "offline_normalized_wards",
+    "ward_name": "Bellanduru",
+    "ward_number": "45",
+    "zone": ""
+  },
+  "question": "Bellandur streetlight not working, what can I cite and who should I contact?",
+  "records_show": [
+    "Providing Energy saving street light system with timer control in Bellanduru Ward No.150; amount 169813",
+    "Providing Additional Street lights in Bellandur ward No.150; amount 161720",
+    "054-21-000019 Providing improvements to street lights in important junctions and roads of Varthuru and Bellandur and near by areas hoodi and doddnekundi areas ward no 54 and 85; amount 3822532"
+  ],
+  "related_works": [
+    "Providing Energy saving street light system with timer control in Bellanduru Ward No.150; amount 169813",
+    "Providing Additional Street lights in Bellandur ward No.150; amount 161720",
+    "054-21-000019 Providing improvements to street lights in important junctions and roads of Varthuru and Bellandur and near by areas hoodi and doddnekundi areas ward no 54 and 85; amount 3822532",
+    "086-22-000011 Providing street lights in Dark streches and installation of missing street lights in Marathalli, Bellandur ward no-86,150; amount 10695766"
+  ],
+  "responsibility": {
+    "fallback_agency": {
+      "agency_id": "gba",
+      "name": "Greater Bengaluru Authority / local city corporation"
+    },
+    "ownership_caveat": "Streetlight ownership may split between civic electrical maintenance and BESCOM power distribution.",
+    "primary_agency": {
+      "agency_id": "gba",
+      "name": "Greater Bengaluru Authority / local city corporation"
+    }
+  },
+  "responsible_agency": {
+    "agency_id": "gba",
+    "name": "Greater Bengaluru Authority / local city corporation"
+  },
+  "retrieval_trace": {
+    "backend": "normalized_civic_case",
+    "channels_considered": 3,
+    "payments_considered": 0,
+    "used_rag": false,
+    "used_raw_scan": false,
+    "works_considered": 9
+  },
+  "schema_version": 3,
+  "service_request": {
+    "do_not_include": [
+      "private phone numbers",
+      "claims that a listed work proves the light is fixed"
+    ],
+    "filing_guidance": "Use GBA/BBMP local corporation channels for streetlight maintenance; use BESCOM if wording indicates outage, wires, transformer, or power-distribution failure.",
+    "open311_like_service_type": "streetlight_maintenance",
+    "required_fields": [
+      "pole number",
+      "photo",
+      "landmark or pin",
+      "whether multiple lights are affected"
+    ],
+    "status_policy": "Official closure is a source claim, not verified ground resolution."
+  },
+  "short_answer": "This looks like a streetlight issue around Bellanduru. Likely owner: Greater Bengaluru Authority / local city corporation. I found normalized public evidence rows to cite.",
+  "what_to_cite": [
+    "Providing Energy saving street light system with timer control in Bellanduru Ward No.150; amount 169813",
+    "Providing Additional Street lights in Bellandur ward No.150; amount 161720",
+    "054-21-000019 Providing improvements to street lights in important junctions and roads of Varthuru and Bellandur and near by areas hoodi and doddnekundi areas ward no 54 and 85; amount 3822532"
+  ],
+  "what_to_do_next": [
+    "File through: Use GBA/BBMP local corporation channels for streetlight maintenance; use BESCOM if wording indicates outage, wires, transformer, or power-distribution failure.",
+    "Mention ward/corporation context: Bellanduru / East.",
+    "Attach or mention: pole number, photo, landmark or pin, whether multiple lights are affected."
+  ],
+  "who_to_contact": [
+    "Use GBA/BBMP local corporation channels for streetlight maintenance; use BESCOM if wording indicates outage, wires, transformer, or power-distribution failure.",
+    "BESCOM complaint/contact channel: https://bescom.karnataka.gov.in/new-page/Contact%20Us/en",
+    "BESCOM 1912",
+    "BESCOM official WhatsApp channel"
+  ]
+}

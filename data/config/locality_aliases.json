@@ -1,0 +1,98 @@
+[
+  {
+    "alias": "kadubeesanahalli",
+    "basis": "Common locality near Bellandur/ORR; text-only seed pending authoritative geometry.",
+    "canonical_ward_name": "bellanduru",
+    "caveat": "Text-only locality alias match; this is a confidence hint, not filing-critical proof. Confirm with the official lat/lng lookup before filing.",
+    "confidence": 0.72,
+    "source_url": "https://bbmp.gov.in/KnowYourNewCorporation/index.html"
+  },
+  {
+    "alias": "ecospace",
+    "basis": "Common landmark on Bellandur Outer Ring Road; text-only seed pending authoritative geometry.",
+    "canonical_ward_name": "bellanduru",
+    "caveat": "Text-only locality alias match; this is a confidence hint, not filing-critical proof. Confirm with the official lat/lng lookup before filing.",
+    "confidence": 0.72,
+    "source_url": "https://bbmp.gov.in/KnowYourNewCorporation/index.html"
+  },
+  {
+    "alias": "orr bellandur",
+    "basis": "Common shorthand for Bellandur Outer Ring Road.",
+    "canonical_ward_name": "bellanduru",
+    "caveat": "Text-only locality alias match; this is a confidence hint, not filing-critical proof. Confirm with the official lat/lng lookup before filing.",
+    "confidence": 0.72,
+    "source_url": "https://bbmp.gov.in/KnowYourNewCorporation/index.html"
+  },
+  {
+    "alias": "outer ring road bellandur",
+    "basis": "Common locality phrase for Bellandur ORR.",
+    "canonical_ward_name": "bellanduru",
+    "caveat": "Text-only locality alias match; this is a confidence hint, not filing-critical proof. Confirm with the official lat/lng lookup before filing.",
+    "confidence": 0.72,
+    "source_url": "https://bbmp.gov.in/KnowYourNewCorporation/index.html"
+  },
+  {
+    "alias": "bellandur outer ring road",
+    "basis": "Common locality phrase for Bellandur ORR.",
+    "canonical_ward_name": "bellanduru",
+    "caveat": "Text-only locality alias match; this is a confidence hint, not filing-critical proof. Confirm with the official lat/lng lookup before filing.",
+    "confidence": 0.72,
+    "source_url": "https://bbmp.gov.in/KnowYourNewCorporation/index.html"
+  },
+  {
+    "alias": "panathur",
+    "basis": "Alias matches a known GBA 2025 ward name.",
+    "canonical_ward_name": "panathur",
+    "caveat": "Text-only locality alias match; confirm exact lat/lng against the official lookup for filing-critical routing.",
+    "confidence": 0.8,
+    "source_url": "https://bbmp.gov.in/KnowYourNewCorporation/index.html"
+  },
+  {
+    "alias": "kundalahalli",
+    "basis": "Alias matches a known GBA 2025 ward name.",
+    "canonical_ward_name": "kundalahalli",
+    "caveat": "Text-only locality alias match; confirm exact lat/lng against the official lookup for filing-critical routing.",
+    "confidence": 0.8,
+    "source_url": "https://bbmp.gov.in/KnowYourNewCorporation/index.html"
+  },
+  {
+    "alias": "kundalahalli gate",
+    "basis": "Common landmark/locality phrase near Kundalahalli.",
+    "canonical_ward_name": "kundalahalli",
+    "caveat": "Text-only locality alias match; confirm exact lat/lng against the official lookup for filing-critical routing.",
+    "confidence": 0.78,
+    "source_url": "https://bbmp.gov.in/KnowYourNewCorporation/index.html"
+  },
+  {
+    "alias": "itpl",
+    "basis": "Common Whitefield/ITPL locality shorthand; lower confidence without coordinates.",
+    "canonical_ward_name": "whitefield",
+    "caveat": "Text-only locality alias match; this is a lower-confidence hint. Confirm with the official lat/lng lookup before filing.",
+    "confidence": 0.68,
+    "source_url": "https://bbmp.gov.in/KnowYourNewCorporation/index.html"
+  },
+  {
+    "alias": "varthur",
+    "basis": "Alias matches a known ward/locality name.",
+    "canonical_ward_name": "varthur",
+    "caveat": "Text-only locality alias match; confirm exact lat/lng against the official lookup for filing-critical routing.",
+    "confidence": 0.8,
+    "source_url": "https://bbmp.gov.in/KnowYourNewCorporation/index.html"
+  },
+  {
+    "alias": "whitefield",
+    "basis": "Alias matches a known GBA 2025 ward name.",
+    "canonical_ward_name": "whitefield",
+    "caveat": "Text-only locality alias match; confirm exact lat/lng against the official lookup for filing-critical routing.",
+    "confidence": 0.9,
+    "source_url": "https://bbmp.gov.in/KnowYourNewCorporation/index.html"
+  },
+  {
+    "alias": "mahadevapura",
+    "basis": "Alias matches a known GBA 2025 ward/zone name.",
+    "canonical_ward_name": "mahadevapura",
+    "caveat": "Text-only locality alias match; confirm exact lat/lng against the official lookup for filing-critical routing.",
+    "confidence": 0.9,
+    "source_url": "https://bbmp.gov.in/KnowYourNewCorporation/index.html"
+  }
+]
