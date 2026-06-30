@@ -7,7 +7,10 @@ from pathlib import Path
 
 from civic_data.dossier import create_dossier
 from civic_data.fetch import UrlLibHttpClient, fetch_all_sources
-from civic_data.normalize import normalize_grievances, normalize_wards
+from civic_data.normalize import normalize_channels, normalize_grievances, normalize_wards, normalize_works_payments
+from civic_data.packet import build_evidence_packet
+from civic_data.packet_builder import dumps_packet, render_packet_markdown
+from civic_data.packet_eval import run_packet_eval
 from civic_data.profile import profile_archives
 from civic_data.rag import ask_rag, build_rag_index
 from civic_data.registry import load_sources, registry_hash, validate_registry
@@ -41,16 +44,24 @@ def main(argv: list[str] | None = None) -> int:
             return _normalize_wards(args)
         if args.command == "normalize" and args.normalize_command == "grievances":
             return _normalize_grievances(args)
+        if args.command == "normalize" and args.normalize_command == "works-payments":
+            return _normalize_works_payments(args)
+        if args.command == "normalize" and args.normalize_command == "channels":
+            return _normalize_channels(args)
         if args.command == "places" and args.places_command == "truth":
             return _places_truth(args)
         if args.command == "rag" and args.rag_command == "ask":
             return _rag_ask(args)
         if args.command == "rag" and args.rag_command == "index":
             return _rag_index(args)
+        if args.command == "packets" and args.packets_command == "build":
+            return _packets_build(args)
         if args.command == "retrieval" and args.retrieval_command == "build":
             return _retrieval_build(args)
         if args.command == "eval" and args.eval_command == "rag":
             return _eval_rag(args)
+        if args.command == "eval" and args.eval_command == "packets":
+            return _eval_packets(args)
         if args.command == "warehouse" and args.warehouse_command == "export":
             return _warehouse_export(args)
         if args.command == "warehouse" and args.warehouse_command == "load":
@@ -115,6 +126,12 @@ def _build_parser() -> argparse.ArgumentParser:
     normalize_grievances_parser = normalize_sub.add_parser("grievances")
     normalize_grievances_parser.add_argument("--raw-root", default=str(DEFAULT_RAW_ROOT))
     normalize_grievances_parser.add_argument("--warehouse-root", default=str(DEFAULT_WAREHOUSE_ROOT))
+    normalize_works_parser = normalize_sub.add_parser("works-payments")
+    normalize_works_parser.add_argument("--raw-root", default=str(DEFAULT_RAW_ROOT))
+    normalize_works_parser.add_argument("--warehouse-root", default=str(DEFAULT_WAREHOUSE_ROOT))
+    normalize_channels_parser = normalize_sub.add_parser("channels")
+    normalize_channels_parser.add_argument("--raw-root", default=str(DEFAULT_RAW_ROOT))
+    normalize_channels_parser.add_argument("--warehouse-root", default=str(DEFAULT_WAREHOUSE_ROOT))
 
     places = subparsers.add_parser("places")
     places_sub = places.add_subparsers(dest="places_command")
@@ -138,6 +155,18 @@ def _build_parser() -> argparse.ArgumentParser:
     rag_index.add_argument("--raw-root", default=str(DEFAULT_RAW_ROOT))
     rag_index.add_argument("--output")
 
+    packets = subparsers.add_parser("packets")
+    packets_sub = packets.add_subparsers(dest="packets_command")
+    packets_build = packets_sub.add_parser("build")
+    packets_build.add_argument("--q", required=True)
+    packets_build.add_argument("--warehouse-root", default=str(DEFAULT_WAREHOUSE_ROOT))
+    packets_build.add_argument("--raw-root", default=str(DEFAULT_RAW_ROOT))
+    packets_build.add_argument("--index")
+    packets_build.add_argument("--lat", type=float)
+    packets_build.add_argument("--lng", type=float)
+    packets_build.add_argument("--format", choices=("json", "md"), default="json")
+    packets_build.add_argument("--output")
+
     retrieval = subparsers.add_parser("retrieval")
     retrieval_sub = retrieval.add_subparsers(dest="retrieval_command")
     retrieval_build = retrieval_sub.add_parser("build")
@@ -152,6 +181,11 @@ def _build_parser() -> argparse.ArgumentParser:
     eval_rag.add_argument("--warehouse-root", default=str(DEFAULT_WAREHOUSE_ROOT))
     eval_rag.add_argument("--raw-root", default=str(DEFAULT_RAW_ROOT))
     eval_rag.add_argument("--index")
+    eval_packets = eval_sub.add_parser("packets")
+    eval_packets.add_argument("--suite", required=True)
+    eval_packets.add_argument("--warehouse-root", default=str(DEFAULT_WAREHOUSE_ROOT))
+    eval_packets.add_argument("--raw-root", default=str(DEFAULT_RAW_ROOT))
+    eval_packets.add_argument("--index")
 
     warehouse = subparsers.add_parser("warehouse")
     warehouse_sub = warehouse.add_subparsers(dest="warehouse_command")
@@ -325,6 +359,32 @@ def _normalize_grievances(args: argparse.Namespace) -> int:
     return 0
 
 
+def _normalize_works_payments(args: argparse.Namespace) -> int:
+    counts = normalize_works_payments(
+        raw_root=Path(args.raw_root),
+        warehouse_root=Path(args.warehouse_root),
+    )
+    print(
+        f"normalized works/payments: {counts['works']} works, "
+        f"{counts['payments']} payments, {counts['rejected']} rejected"
+    )
+    return 0
+
+
+def _normalize_channels(args: argparse.Namespace) -> int:
+    counts = normalize_channels(
+        raw_root=Path(args.raw_root),
+        warehouse_root=Path(args.warehouse_root),
+    )
+    print(
+        f"normalized channels: {counts['agencies']} agencies, "
+        f"{counts['complaint_channels']} complaint channels, "
+        f"{counts['contact_channels']} contact channels, "
+        f"{counts['issue_categories']} issue categories, {counts['rejected']} rejected"
+    )
+    return 0
+
+
 def _places_truth(args: argparse.Namespace) -> int:
     write_place_truth(
         query=str(args.q),
@@ -355,6 +415,23 @@ def _rag_index(args: argparse.Namespace) -> int:
         output_path=Path(args.output) if args.output else None,
     )
     print(json.dumps(payload, indent=2, sort_keys=True))
+    return 0
+
+
+def _packets_build(args: argparse.Namespace) -> int:
+    payload = build_evidence_packet(
+        query=str(args.q),
+        warehouse_root=Path(args.warehouse_root),
+        raw_root=Path(args.raw_root),
+        index_path=Path(args.index) if args.index else None,
+        lat=args.lat,
+        lng=args.lng,
+    )
+    text = render_packet_markdown(payload) if args.format == "md" else dumps_packet(payload)
+    if args.output:
+        Path(args.output).write_text(text + "\n")
+    else:
+        print(text)
     return 0
 
 
@@ -405,6 +482,17 @@ def _eval_rag(args: argparse.Namespace) -> int:
         "failed": len(cases) - passed,
         "results": results,
     }
+    print(json.dumps(payload, indent=2, sort_keys=True))
+    return 0 if payload["failed"] == 0 else 1
+
+
+def _eval_packets(args: argparse.Namespace) -> int:
+    payload = run_packet_eval(
+        Path(args.suite),
+        warehouse_root=Path(args.warehouse_root),
+        raw_root=Path(args.raw_root),
+        index_path=Path(args.index) if args.index else None,
+    )
     print(json.dumps(payload, indent=2, sort_keys=True))
     return 0 if payload["failed"] == 0 else 1
 

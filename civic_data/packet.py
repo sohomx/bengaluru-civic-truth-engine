@@ -1,0 +1,25 @@
+from __future__ import annotations
+
+from pathlib import Path
+from typing import Any, Callable
+
+from civic_data.packet_builder import build_packet
+
+
+def build_evidence_packet(
+    query: str,
+    warehouse_root: Path | str = Path("data/normalized"),
+    raw_root: Path | str = Path("data/raw"),
+    index_path: Path | str | None = None,
+    lat: float | None = None,
+    lng: float | None = None,
+    xyinfo_client: Callable[[float, float], Any] | None = None,
+) -> dict[str, Any]:
+    _ = raw_root, index_path
+    return build_packet(
+        query=query,
+        warehouse_root=warehouse_root,
+        lat=lat,
+        lng=lng,
+        xyinfo_client=xyinfo_client,
+    )

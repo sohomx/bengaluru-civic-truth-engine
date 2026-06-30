@@ -1,0 +1,13 @@
+{
+  "evidence_count": 1,
+  "first_evidence_source_id": "bbmp_work_orders_and_payments_2025_26",
+  "issue_type": "streetlight",
+  "packet_status": "ready",
+  "packet_type": "civic_action_packet",
+  "primary_agency_id": "gba",
+  "service_type": "streetlight_maintenance",
+  "used_rag": false,
+  "used_raw_scan": false,
+  "ward_name": "Bellanduru",
+  "ward_number": "45"
+}

@@ -77,7 +77,7 @@
     "aliases": [
       "https://data.opencity.in/dataset/bbmp-grievances-data"
     ],
-    "domain": "wards",
+    "domain": "grievances",
     "agency": "BBMP/GBA",
     "publisher": "OpenCity",
     "source_tier": 1,

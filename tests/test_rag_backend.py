@@ -389,6 +389,60 @@ class RagBackendTests(unittest.TestCase):
         self.assertIn("extractive_answer", payload)
         self.assertIn("generated_answer", payload)
 
+    def test_build_evidence_packet_returns_user_facing_backend_contract(self):
+        tmp, warehouse, raw = self._fixture()
+        self.addCleanup(tmp.cleanup)
+
+        from civic_data.packet import build_evidence_packet
+
+        packet = build_evidence_packet(
+            "Bellandur street light not working; what can I cite and who do I call?",
+            warehouse_root=warehouse,
+            raw_root=raw,
+        )
+
+        self.assertEqual(packet["packet_type"], "civic_action_packet")
+        self.assertEqual(packet["legacy_packet_type"], "civic_evidence_packet")
+        self.assertEqual(packet["packet_status"], "insufficient_structured_evidence")
+        self.assertEqual(packet["question"], "Bellandur street light not working; what can I cite and who do I call?")
+        self.assertEqual(packet["normalized_place"], "bellanduru")
+        self.assertEqual(packet["normalized_issue"], "streetlight")
+        self.assertIn("short_answer", packet)
+        self.assertTrue(packet["records_show"])
+        self.assertTrue(packet["what_to_cite"])
+        self.assertTrue(packet["who_to_contact"])
+        self.assertTrue(packet["limits"])
+        self.assertEqual(packet["evidence_table"], [])
+        self.assertTrue(packet["citations"])
+        self.assertIn("retrieval_trace", packet)
+        self.assertFalse(packet["audit"]["used_rag"])
+        self.assertNotIn("generated_answer", packet)
+
+    def test_cli_packets_build_outputs_evidence_packet(self):
+        tmp, warehouse, raw = self._fixture()
+        self.addCleanup(tmp.cleanup)
+        output = io.StringIO()
+
+        with contextlib.redirect_stdout(output):
+            exit_code = main([
+                "packets",
+                "build",
+                "--q",
+                "Bellandur street light not working",
+                "--warehouse-root",
+                str(warehouse),
+                "--raw-root",
+                str(raw),
+            ])
+
+        self.assertEqual(exit_code, 0)
+        packet = json.loads(output.getvalue())
+        self.assertEqual(packet["packet_type"], "civic_action_packet")
+        self.assertEqual(packet["legacy_packet_type"], "civic_evidence_packet")
+        self.assertEqual(packet["normalized_place"], "bellanduru")
+        self.assertIn("what_to_cite", packet)
+        self.assertIn("retrieval_trace", packet)
+
     def test_build_rag_index_and_ask_from_index_without_raw_scan(self):
         tmp, warehouse, raw = self._fixture()
         self.addCleanup(tmp.cleanup)

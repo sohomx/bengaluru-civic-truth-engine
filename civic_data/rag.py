@@ -145,7 +145,11 @@ def build_rag_index(
     bucket_dir = output.with_suffix("")
     chunks: list[dict[str, Any]] = []
     chunks.extend(_all_complaint_chunks(warehouse / "complaints.json"))
-    chunks.extend(_all_raw_csv_chunks(raw, WORK_SOURCE_TOKENS, "work_payment"))
+    normalized_work_payment_chunks = _all_normalized_work_payment_chunks(warehouse)
+    if normalized_work_payment_chunks:
+        chunks.extend(normalized_work_payment_chunks)
+    else:
+        chunks.extend(_all_raw_csv_chunks(raw, WORK_SOURCE_TOKENS, "work_payment"))
     chunks.extend(_all_raw_csv_chunks(raw, TENDER_SOURCE_TOKENS, "tender"))
     chunks.extend(_all_raw_csv_chunks(raw, STREETLIGHT_SOURCE_TOKENS, "streetlight_asset"))
     indexed = [_index_chunk(chunk) for chunk in chunks]
@@ -313,6 +317,54 @@ def _all_raw_csv_chunks(
             for row_number, row in _read_csv_rows(file_path):
                 chunks.append(_csv_chunk(chunk_type, run_dir, file_path, row_number, row))
     return chunks
+
+
+def _all_normalized_work_payment_chunks(warehouse_root: Path) -> list[dict[str, Any]]:
+    chunks: list[dict[str, Any]] = []
+    for record in _read_json_list(warehouse_root / "works.json"):
+        chunks.append(_normalized_work_payment_chunk(record, "work"))
+    for record in _read_json_list(warehouse_root / "payments.json"):
+        chunks.append(_normalized_work_payment_chunk(record, "payment"))
+    return chunks
+
+
+def _normalized_work_payment_chunk(record: dict[str, Any], entity_type: str) -> dict[str, Any]:
+    evidence = record.get("evidence") if isinstance(record.get("evidence"), dict) else {}
+    description = str(record.get("description") or record.get("payment_reference") or "")
+    amount = record.get("amount") or record.get("net_amount") or ""
+    text = (
+        f"{description}; contractor {record.get('contractor', '')}; amount {amount}; "
+        f"ward {record.get('ward_number', '')}; ward regime {record.get('ward_regime', '')}."
+    )
+    return {
+        "chunk_type": "work_payment",
+        "entity_type": entity_type,
+        "source_id": record.get("source_id") or evidence.get("source_id"),
+        "title": _clean_text(description or f"{entity_type.title()} row"),
+        "text": _clean_text(text),
+        "fields": {
+            "work_id": record.get("work_id"),
+            "payment_id": record.get("payment_id"),
+            "ward": record.get("ward_number"),
+            "ward_regime": record.get("ward_regime"),
+            "description": record.get("description"),
+            "payment_reference": record.get("payment_reference"),
+            "contractor": record.get("contractor"),
+            "amount": record.get("amount"),
+            "net_amount": record.get("net_amount"),
+            "claim_class": record.get("claim_class"),
+            "allowed_claims": record.get("allowed_claims"),
+            "disallowed_claims": record.get("disallowed_claims"),
+            "freshness_basis": record.get("freshness_basis"),
+            "parser_version": record.get("parser_version"),
+        },
+        "claim_class": record.get("claim_class"),
+        "allowed_claims": record.get("allowed_claims"),
+        "disallowed_claims": record.get("disallowed_claims"),
+        "freshness_basis": record.get("freshness_basis"),
+        "parser_version": record.get("parser_version"),
+        "citation": _citation(evidence),
+    }
 
 
 def _bucket_index_chunks(
