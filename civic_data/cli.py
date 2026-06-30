@@ -8,6 +8,8 @@ from pathlib import Path
 from civic_data.dossier import create_dossier
 from civic_data.demo_report import generate_hiring_demo_report
 from civic_data.fetch import UrlLibHttpClient, fetch_all_sources
+from civic_data.geo_boundary import build_boundary_geojson
+from civic_data.model_matrix import run_packet_rag_matrix
 from civic_data.normalize import normalize_channels, normalize_grievances, normalize_wards, normalize_works_payments
 from civic_data.packet import build_evidence_packet
 from civic_data.packet_builder import dumps_packet, render_packet_markdown
@@ -19,6 +21,7 @@ from civic_data.rag import ask_rag, build_rag_index
 from civic_data.registry import load_sources, registry_hash, validate_registry
 from civic_data.retrieval_eval import run_retrieval_eval
 from civic_data.site import DEFAULT_PLACES, build_site_data, parse_place_arg
+from civic_data.trace_inspector import inspect_trace, list_traces, render_trace_markdown
 from civic_data.truth import write_place_truth
 from civic_data.warehouse import export_wave1_for_postgres, load_wave1_with_psql
 
@@ -64,6 +67,12 @@ def main(argv: list[str] | None = None) -> int:
             return _packets_build(args)
         if args.command == "packets" and args.packets_command == "explain":
             return _packets_explain(args)
+        if args.command == "geo" and args.geo_command == "build-boundaries":
+            return _geo_build_boundaries(args)
+        if args.command == "traces" and args.traces_command == "list":
+            return _traces_list(args)
+        if args.command == "traces" and args.traces_command == "inspect":
+            return _traces_inspect(args)
         if args.command == "retrieval" and args.retrieval_command == "build":
             return _retrieval_build(args)
         if args.command == "eval" and args.eval_command == "rag":
@@ -72,6 +81,8 @@ def main(argv: list[str] | None = None) -> int:
             return _eval_packets(args)
         if args.command == "eval" and args.eval_command == "packet-rag":
             return _eval_packet_rag(args)
+        if args.command == "eval" and args.eval_command == "packet-rag-matrix":
+            return _eval_packet_rag_matrix(args)
         if args.command == "eval" and args.eval_command == "retrieval":
             return _eval_retrieval(args)
         if args.command == "warehouse" and args.warehouse_command == "export":
@@ -183,12 +194,29 @@ def _build_parser() -> argparse.ArgumentParser:
     packets_build.add_argument("--lat", type=float)
     packets_build.add_argument("--lng", type=float)
     packets_build.add_argument("--locality-aliases", default="data/config/locality_aliases.json")
+    packets_build.add_argument("--boundary-path", default="data/geo/ward_boundaries.geojson")
     packets_build.add_argument("--format", choices=("json", "md"), default="json")
     packets_build.add_argument("--output")
     packets_explain = packets_sub.add_parser("explain")
     packets_explain.add_argument("--packet", required=True)
     packets_explain.add_argument("--q")
     packets_explain.add_argument("--mode", choices=("deterministic", "llm"))
+
+    geo = subparsers.add_parser("geo")
+    geo_sub = geo.add_subparsers(dest="geo_command")
+    geo_build = geo_sub.add_parser("build-boundaries")
+    geo_build.add_argument("--raw-root", default=str(DEFAULT_RAW_ROOT))
+    geo_build.add_argument("--output", default="data/geo/ward_boundaries.geojson")
+
+    traces = subparsers.add_parser("traces")
+    traces_sub = traces.add_subparsers(dest="traces_command")
+    traces_list = traces_sub.add_parser("list")
+    traces_list.add_argument("--trace-path", default=".context/traces/packets.jsonl")
+    traces_list.add_argument("--limit", type=int, default=10)
+    traces_inspect = traces_sub.add_parser("inspect")
+    traces_inspect.add_argument("--trace-id", required=True)
+    traces_inspect.add_argument("--trace-path", default=".context/traces/packets.jsonl")
+    traces_inspect.add_argument("--format", choices=("json", "md"), default="md")
 
     retrieval = subparsers.add_parser("retrieval")
     retrieval_sub = retrieval.add_subparsers(dest="retrieval_command")
@@ -215,6 +243,10 @@ def _build_parser() -> argparse.ArgumentParser:
     eval_packet_rag.add_argument("--suite", required=True)
     eval_packet_rag.add_argument("--mode", choices=("deterministic", "llm"), default="deterministic")
     eval_packet_rag.add_argument("--output")
+    eval_packet_rag_matrix = eval_sub.add_parser("packet-rag-matrix")
+    eval_packet_rag_matrix.add_argument("--suite", required=True)
+    eval_packet_rag_matrix.add_argument("--providers", default="deterministic,anthropic,openai")
+    eval_packet_rag_matrix.add_argument("--output", default="data/eval_runs/model_matrix_latest")
     eval_retrieval = eval_sub.add_parser("retrieval")
     eval_retrieval.add_argument("--suite", required=True)
     eval_retrieval.add_argument("--warehouse-root", default=str(DEFAULT_WAREHOUSE_ROOT))
@@ -482,12 +514,43 @@ def _packets_build(args: argparse.Namespace) -> int:
         lat=args.lat,
         lng=args.lng,
         locality_alias_path=Path(args.locality_aliases) if args.locality_aliases else None,
+        boundary_path=Path(args.boundary_path) if args.boundary_path else None,
     )
     text = render_packet_markdown(payload) if args.format == "md" else dumps_packet(payload)
     if args.output:
         Path(args.output).write_text(text + "\n")
     else:
         print(text)
+    return 0
+
+
+def _geo_build_boundaries(args: argparse.Namespace) -> int:
+    payload = build_boundary_geojson(Path(args.raw_root), Path(args.output))
+    print(
+        json.dumps(
+            {
+                "output": str(args.output),
+                "feature_count": len(payload.get("features", [])),
+                "source_file": payload.get("metadata", {}).get("source_file"),
+            },
+            indent=2,
+            sort_keys=True,
+        )
+    )
+    return 0
+
+
+def _traces_list(args: argparse.Namespace) -> int:
+    print(json.dumps(list_traces(Path(args.trace_path), limit=int(args.limit)), indent=2, sort_keys=True))
+    return 0
+
+
+def _traces_inspect(args: argparse.Namespace) -> int:
+    event = inspect_trace(str(args.trace_id), Path(args.trace_path))
+    if args.format == "json":
+        print(json.dumps(event, indent=2, sort_keys=True))
+    else:
+        print(render_trace_markdown(event), end="")
     return 0
 
 
@@ -561,6 +624,16 @@ def _eval_packet_rag(args: argparse.Namespace) -> int:
         Path(args.output).write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n")
     print(json.dumps(payload, indent=2, sort_keys=True))
     return 0 if payload["failed"] == 0 else 1
+
+
+def _eval_packet_rag_matrix(args: argparse.Namespace) -> int:
+    payload = run_packet_rag_matrix(
+        Path(args.suite),
+        [item.strip() for item in str(args.providers).split(",")],
+        Path(args.output),
+    )
+    print(json.dumps(payload, indent=2, sort_keys=True))
+    return 0 if payload["summary"]["failed"] == 0 else 1
 
 
 def _eval_retrieval(args: argparse.Namespace) -> int:

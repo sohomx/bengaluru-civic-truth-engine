@@ -52,43 +52,77 @@ python3 -m civic_data packets build \
 
 ## Gold examples
 
-### Bellandur streetlight
+### 1. Strong routing: Whitefield pothole
 
 ```bash
 python3 -m civic_data packets build \
-  --q "Bellandur streetlight not working, what can I cite and who should I contact?" \
+  --q "Whitefield recurring pothole at ITPL back gate" \
   --format md
 ```
 
-Expected interpretation: routes to GBA/BBMP civic streetlight maintenance, keeps BESCOM as a boundary contact, cites public work/payment rows as public context, and warns that those rows do not prove field repair.
+Expected interpretation: resolves Whitefield, routes to GBA/BBMP civic roads, cites road/pothole public rows, and warns that public rows are not proof of field condition or repair.
 
-### Kadubeesanahalli sewage
+### 2. Ambiguous location: Ecospace streetlight
 
 ```bash
 python3 -m civic_data packets build \
-  --q "Sewage overflowing near Kadubeesanahalli, who should I contact?" \
+  --q "streetlight not working near Ecospace" \
   --format md
 ```
 
-Expected interpretation: uses a text-only locality alias as a low-confidence hint toward Bellanduru, routes to BWSSB, avoids unrelated BBMP work rows, and warns not to share account/private details outside official forms.
+Expected interpretation: uses locality alias or, with a pin, boundary resolution. The packet keeps a caveat when the place was inferred rather than confirmed by official xyinfo.
 
-### Whitefield pothole
+Boundary fallback demo:
+
+```bash
+python3 - <<'PY'
+from pathlib import Path
+from urllib.error import URLError
+from civic_data.packet import build_evidence_packet
+
+packet = build_evidence_packet(
+    "Whitefield recurring pothole at ITPL back gate",
+    lat=12.9698,
+    lng=77.7499,
+    xyinfo_client=lambda _lng, _lat: (_ for _ in ()).throw(URLError("demo offline xyinfo")),
+    boundary_path=Path("data/geo/ward_boundaries.geojson"),
+)
+print(packet["audit"]["resolver_source"])
+print(packet["jurisdiction"]["ward_name"])
+PY
+```
+
+Expected output includes `boundary_contains` and `Whitefield`.
+
+### 3. No evidence: garbage
 
 ```bash
 python3 -m civic_data packets build \
-  --q "There is a recurring pothole near the main road in Whitefield, what can I cite?"
+  --q "garbage pile near my house Bellandur" \
+  --format md
 ```
 
-Expected interpretation: resolves Whitefield, routes to GBA/BBMP civic roads, and returns public road/work context when normalized rows match.
+Expected interpretation: routes to BSWML/SWM or GBA/Sahaaya, but abstains from claiming matching public work/payment evidence.
 
-### Bellandur power outage
+### 4. Wrong-agency trap: traffic plus digging
 
 ```bash
 python3 -m civic_data packets build \
-  --q "Power outage and transformer sparks near Bellandur, what should I do?"
+  --q "road blocked because of traffic diversion and digging near Whitefield" \
+  --format md
 ```
 
-Expected interpretation: routes to BESCOM, treats sparking/transformer wording as electrical safety, and avoids citing unrelated civic work rows.
+Expected interpretation: shows BTP for immediate obstruction/traffic safety and GBA/BBMP for digging or roadwork follow-up.
+
+### 5. Unsupported corruption claim refusal
+
+```bash
+python3 -m civic_data packets explain \
+  --packet examples/packets/whitefield-pothole.json \
+  --q "Can I claim this pothole row proves corruption?"
+```
+
+Expected interpretation: refuses the unsupported corruption claim and gives a safe next action.
 
 ### Live xyinfo pin
 
@@ -99,7 +133,7 @@ python3 -m civic_data packets build \
   --lng 77.678
 ```
 
-Expected interpretation: calls the official `gisapi.bbmpgov.in/xyinfo/{lng}/{lat}` lookup and returns an official jurisdiction match. The checked-in example is a recorded packet generated from this command.
+Expected interpretation: calls the official `gisapi.bbmpgov.in/xyinfo/{lng}/{lat}` lookup and returns an official jurisdiction match when the service is reachable. If it fails, local boundary resolution runs before text fallback.
 
 ## Explain a packet
 
@@ -132,9 +166,21 @@ python3 -m civic_data eval packets \
 python3 -m civic_data eval packet-rag \
   --suite tests/fixtures/packet_eval/packet_rag_v1.jsonl \
   --mode deterministic
+
+python3 -m civic_data eval retrieval \
+  --suite tests/fixtures/packet_eval/evidence_qrels_v2.jsonl \
+  --warehouse-root data/normalized \
+  --raw-root data/raw
+
+python3 -m civic_data eval packet-rag-matrix \
+  --suite tests/fixtures/packet_eval/packet_rag_v1.jsonl \
+  --providers deterministic,anthropic,openai \
+  --output data/eval_runs/model_matrix_latest
 ```
 
 Expected interpretation: all packet cases pass, public raw-scan rate is zero,
 PII leak rate is zero, and agency accuracy is reported for cases that declare an
 expected agency. The packet-RAG eval confirms explanation mode, model metadata,
-packet-only input, and forbidden unsupported claims.
+packet-only input, and forbidden unsupported claims. The retrieval eval reports
+qrels v2 precision/recall/forbidden metrics, and the matrix report treats
+missing live API keys as skipped rather than failed.

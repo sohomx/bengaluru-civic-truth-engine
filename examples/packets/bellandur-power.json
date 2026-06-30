@@ -14,7 +14,8 @@
       "account numbers outside official BESCOM workflows",
       "BESCOM contact guidance does not prove current outage status.",
       "No normalized work/payment evidence matched this question.",
-      "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing."
+      "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.",
+      "Freshness: Recent public record. Not live status."
     ],
     "what_to_send": [
       "File through: Use BESCOM 1912, BESCOM online channels, or official WhatsApp channels for outages and electrical safety.",
@@ -42,7 +43,8 @@
       "evidence_matcher": "v3",
       "issue_router": "routing-v3"
     },
-    "query_hash": "f703805817a2cf44d356cfec5fe7c8079c9dbbd4b95fbd7a59894c6020426093",
+    "persisted_trace_id": "packet-5f4e10c64e74bc44",
+    "query_hash": "5f4e10c64e74bc442b6792d610508226aa301d30e294472c60e1899ac6de8f91",
     "resolver_source": "offline_normalized_wards",
     "routing_policy_id": "bengaluru-civic-routing",
     "routing_policy_version": "routing-v3",
@@ -50,6 +52,7 @@
       "power.primary"
     ],
     "source_of_truth": "packet_structured_data",
+    "source_snapshot_id": "source-snapshot-300a0f725bfdce37",
     "total_evidence_matches": 0,
     "used_rag": false,
     "used_raw_scan": false
@@ -113,7 +116,8 @@
   "coverage_gaps": [
     "BESCOM contact guidance does not prove current outage status.",
     "No normalized work/payment evidence matched this question.",
-    "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing."
+    "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.",
+    "Freshness: Recent public record. Not live status."
   ],
   "evidence": [],
   "evidence_strength": "none",
@@ -126,6 +130,9 @@
   "evidence_table": [],
   "freshness": {
     "basis": "normalized_public_records",
+    "citizen_labels": [
+      "Recent public record"
+    ],
     "fetched_at_values": [
       "2026-06-30T08-49-34Z"
     ],
@@ -133,16 +140,39 @@
     "latest_record_date": "",
     "policy_version": "freshness-v1",
     "record_date_values": [],
+    "source_policies": [
+      {
+        "claim_eligibility": "routing",
+        "expected_update_cadence_days": 30,
+        "source_authority": "official_reference",
+        "source_id": "bescom_official_contact_complaint_channels"
+      },
+      {
+        "claim_eligibility": "routing",
+        "expected_update_cadence_days": 30,
+        "source_authority": "official_reference",
+        "source_id": "bescom_official_contact_complaint_channels"
+      },
+      {
+        "claim_eligibility": "routing",
+        "expected_update_cadence_days": 30,
+        "source_authority": "official_reference",
+        "source_id": "bescom_official_contact_complaint_channels"
+      }
+    ],
+    "staleness_statuses": [
+      "fresh"
+    ],
     "staleness_warning": "",
     "undated_record_count": 0
   },
   "input": {
     "lat": null,
     "lng": null,
-    "query": "Power outage and transformer sparks near Bellandur, what should I do?"
+    "query": "Bellandur power outage sparks"
   },
   "issue": {
-    "description": "Power outage and transformer sparks near Bellandur, what should I do?",
+    "description": "Bellandur power outage sparks",
     "display_type": "power issue",
     "matched_terms": [
       "electrical",
@@ -183,7 +213,8 @@
   "limits": [
     "BESCOM contact guidance does not prove current outage status.",
     "No normalized work/payment evidence matched this question.",
-    "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing."
+    "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.",
+    "Freshness: Recent public record. Not live status."
   ],
   "normalized_issue": "power",
   "normalized_place": "bellanduru",
@@ -207,9 +238,11 @@
     },
     "evidence_records": [
       {
+        "claim_eligibility": "routing",
         "fetched_at": "2026-06-30T08-49-34Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Recent public record",
+        "freshness_status": "fresh",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "channels_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -217,13 +250,16 @@
         "record_date": "",
         "row_or_page_id": "1",
         "run_id": "2026-06-30T08-49-34Z",
+        "source_authority": "official_reference",
         "source_id": "bescom_official_contact_complaint_channels",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "claim_eligibility": "routing",
         "fetched_at": "2026-06-30T08-49-34Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Recent public record",
+        "freshness_status": "fresh",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "channels_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -231,13 +267,16 @@
         "record_date": "",
         "row_or_page_id": "1",
         "run_id": "2026-06-30T08-49-34Z",
+        "source_authority": "official_reference",
         "source_id": "bescom_official_contact_complaint_channels",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "claim_eligibility": "routing",
         "fetched_at": "2026-06-30T08-49-34Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Recent public record",
+        "freshness_status": "fresh",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "channels_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -245,13 +284,16 @@
         "record_date": "",
         "row_or_page_id": "1",
         "run_id": "2026-06-30T08-49-34Z",
+        "source_authority": "official_reference",
         "source_id": "bescom_official_contact_complaint_channels",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "claim_eligibility": "jurisdiction",
         "fetched_at": "",
-        "freshness_status": "undated_public_record",
-        "license": "unknown",
+        "freshness_label": "Public ward data",
+        "freshness_status": "undated",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "jurisdiction-v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -259,13 +301,14 @@
         "record_date": "",
         "row_or_page_id": "112",
         "run_id": "2026-06-30T08-48-51Z",
+        "source_authority": "mirrored_official",
         "source_id": "gba_wards_delimitation_2025",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       }
     ],
     "model": "w3c-prov-lite"
   },
-  "question": "Power outage and transformer sparks near Bellandur, what should I do?",
+  "question": "Bellandur power outage sparks",
   "records_show": [
     "No normalized record proves the reported power issue condition yet."
   ],
@@ -300,7 +343,7 @@
     "routing_rule_ids": [
       "power.primary"
     ],
-    "trace_id": "packet-f703805817a2cf44",
+    "trace_id": "packet-5f4e10c64e74bc44",
     "used_rag": false,
     "used_raw_scan": false,
     "works_considered": 0
@@ -331,7 +374,8 @@
       "evidence_matcher": "v3",
       "issue_router": "routing-v3"
     },
-    "query_hash": "f703805817a2cf44d356cfec5fe7c8079c9dbbd4b95fbd7a59894c6020426093",
+    "persisted_trace_path": ".context/traces/packets.jsonl",
+    "query_hash": "5f4e10c64e74bc442b6792d610508226aa301d30e294472c60e1899ac6de8f91",
     "resolver_confidence": 0.95,
     "resolver_source": "offline_normalized_wards",
     "retrieval_snapshot_id": "json-warehouse-current",
@@ -340,7 +384,7 @@
     "routing_rule_ids": [
       "power.primary"
     ],
-    "source_snapshot_id": "normalized-json-current",
+    "source_snapshot_id": "source-snapshot-300a0f725bfdce37",
     "stages": {
       "matcher": {
         "selected_channel_ids": [
@@ -362,7 +406,7 @@
         "secondary_agency_ids": []
       }
     },
-    "trace_id": "packet-f703805817a2cf44",
+    "trace_id": "packet-5f4e10c64e74bc44",
     "warnings": [
       "BESCOM contact guidance does not prove current outage status."
     ]

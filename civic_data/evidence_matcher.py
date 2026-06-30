@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 from dataclasses import dataclass
 from typing import Any
 
@@ -141,7 +142,8 @@ def action_evidence(matches: list[EvidenceMatch]) -> list[dict[str, Any]]:
         text = str(record.get("description") or record.get("payment_reference") or record.get("name") or "")
         items.append(
             {
-                "evidence_id": f"evidence-{index}",
+                "evidence_id": stable_evidence_id(match.entity_type, record, citation),
+                "legacy_evidence_id": f"evidence-{index}",
                 "entity_type": match.entity_type,
                 "claim": text,
                 "source_id": str(record.get("source_id") or citation.get("source_id") or ""),
@@ -157,6 +159,23 @@ def action_evidence(matches: list[EvidenceMatch]) -> list[dict[str, Any]]:
             }
         )
     return items
+
+
+def stable_evidence_id(entity_type: str, record: dict[str, Any], citation: dict[str, Any]) -> str:
+    text = str(record.get("description") or record.get("payment_reference") or record.get("name") or "")
+    normalized_text = normalize_name(text)
+    record_id = str(record.get("work_id") or record.get("payment_id") or record.get("id") or "")
+    payload = "|".join(
+        [
+            str(record.get("source_id") or citation.get("source_id") or ""),
+            str(citation.get("row_number") or ""),
+            record_id,
+            normalized_text,
+        ]
+    )
+    digest = hashlib.sha1(payload.encode("utf-8")).hexdigest()[:16]
+    safe_type = normalize_name(entity_type).replace(" ", "_") or "evidence"
+    return f"ev_{safe_type}_{digest}"
 
 
 def ward_regime_compatible(jurisdiction_regime: str, record_regime: str) -> bool:

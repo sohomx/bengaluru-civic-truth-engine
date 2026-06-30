@@ -5,6 +5,7 @@ from typing import Any, Callable
 from urllib.error import URLError
 
 from civic_data.locality import resolve_locality_alias
+from civic_data.geo_boundary import resolve_boundary
 from civic_data.normalize import normalize_name
 from civic_data.warehouse_reader import NormalizedWarehouse
 from civic_data.xyinfo import OFFICIAL_XYINFO_PATTERN, XYINFO_SOURCE_ID, fetch_xyinfo, xyinfo_jurisdiction
@@ -21,6 +22,7 @@ def resolve_jurisdiction(
     warehouse_root: Path | str = Path("data/normalized"),
     xyinfo_client: Callable[[float, float], Any] | None = None,
     locality_alias_path: Path | str | None = Path("data/config/locality_aliases.json"),
+    boundary_path: Path | str | None = Path("data/geo/ward_boundaries.geojson"),
 ) -> dict[str, Any]:
     warehouse = NormalizedWarehouse.open(warehouse_root)
     wards = warehouse.load_wards()
@@ -33,12 +35,26 @@ def resolve_jurisdiction(
                 response=(xyinfo_client or fetch_xyinfo)(lng, lat),
             )
         except (ValueError, OSError, TimeoutError, URLError) as exc:
+            boundary_error = ""
+            if boundary_path is not None:
+                try:
+                    boundary = resolve_boundary(lat, lng, Path(boundary_path))
+                except (OSError, ValueError, TypeError) as boundary_exc:
+                    boundary = None
+                    boundary_error = str(boundary_exc)
+                if boundary:
+                    boundary["official_lookup_error"] = str(exc)
+                    return boundary
             fallback = _offline_jurisdiction(query, wards, mappings, locality_alias_path=locality_alias_path)
             fallback["official_lookup_error"] = str(exc)
+            if boundary_error:
+                fallback["boundary_lookup_error"] = boundary_error
             fallback["caveat"] = (
                 "Official xyinfo lookup failed, so this used offline normalized ward data. "
                 "Retry xyinfo before filing-critical routing."
             )
+            if boundary_path is not None:
+                fallback["caveat"] += " Boundary lookup failed or did not match this point."
             return fallback
     return _offline_jurisdiction(query, wards, mappings, locality_alias_path=locality_alias_path)
 

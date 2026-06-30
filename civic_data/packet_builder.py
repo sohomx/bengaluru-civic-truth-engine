@@ -25,6 +25,7 @@ def build_packet(
     lng: float | None = None,
     xyinfo_client: Callable[[float, float], Any] | None = None,
     locality_alias_path: Path | str | None = Path("data/config/locality_aliases.json"),
+    boundary_path: Path | str | None = Path("data/geo/ward_boundaries.geojson"),
 ) -> dict[str, Any]:
     q = query.strip()
     if not q:
@@ -40,6 +41,7 @@ def build_packet(
             warehouse_root=warehouse.root,
             xyinfo_client=xyinfo_client,
             locality_alias_path=locality_alias_path,
+            boundary_path=boundary_path,
         )
         return _insufficient_packet(q, route, jurisdiction, lat=lat, lng=lng, missing=capabilities.missing_packet_inputs)
 
@@ -50,6 +52,7 @@ def build_packet(
         warehouse_root=warehouse.root,
         xyinfo_client=xyinfo_client,
         locality_alias_path=locality_alias_path,
+        boundary_path=boundary_path,
     )
     evidence_matches = match_work_records(q, route, jurisdiction, warehouse.load_works(), warehouse.load_payments())
     channel_matches = match_channels(route, warehouse.load_complaint_channels(), "complaint_channel")
@@ -485,7 +488,7 @@ def _evidence_strength(jurisdiction: dict[str, Any], rows: list[dict[str, str]])
         return "public_row"
     if jurisdiction.get("source") == "official_xyinfo":
         return "official_lookup"
-    if jurisdiction.get("source") == "locality_alias":
+    if jurisdiction.get("source") in {"locality_alias", "boundary_contains", "boundary_edge"}:
         return "weak"
     return "none"
 

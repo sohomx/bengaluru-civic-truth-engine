@@ -1,6 +1,6 @@
 # Civic Action Packet
 
-Query: Sewage overflowing near Kadubeesanahalli, who should I contact?
+Query: Kadubeesanahalli sewage overflow
 Issue: sewage/water issue
 Place: Bellanduru
 Likely owner: Bengaluru Water Supply and Sewerage Board
@@ -38,4 +38,4 @@ Hello, I want to report a sewage/water issue at Bellanduru. Ward/corporation: 45
 - Do not expose account-linked complaint or tracking details.
 - No normalized work/payment evidence matched this question.
 - Text-only locality alias match; this is a confidence hint, not filing-critical proof. Confirm with the official lat/lng lookup before filing.
-
+- Freshness: Recent public record. Not live status.

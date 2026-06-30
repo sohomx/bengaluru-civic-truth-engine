@@ -14,7 +14,8 @@
       "private complaint tracking details",
       "Do not expose account-linked complaint or tracking details.",
       "No normalized work/payment evidence matched this question.",
-      "Text-only locality alias match; this is a confidence hint, not filing-critical proof. Confirm with the official lat/lng lookup before filing."
+      "Text-only locality alias match; this is a confidence hint, not filing-critical proof. Confirm with the official lat/lng lookup before filing.",
+      "Freshness: Recent public record. Not live status."
     ],
     "what_to_send": [
       "File through: Use BWSSB complaint channels for water, sewage, manholes, billing, or tanker issues.",
@@ -42,7 +43,8 @@
       "evidence_matcher": "v3",
       "issue_router": "routing-v3"
     },
-    "query_hash": "2cba9ef46f503d2262b5e4b6ea5debad925e47b303c8281026cc0cfb1a60add7",
+    "persisted_trace_id": "packet-27a2cac59b283daf",
+    "query_hash": "27a2cac59b283dafef10c6998b96106030f441d436718ce6479f11b9fa537fe1",
     "resolver_source": "locality_alias",
     "routing_policy_id": "bengaluru-civic-routing",
     "routing_policy_version": "routing-v3",
@@ -50,6 +52,7 @@
       "water_sewage.primary"
     ],
     "source_of_truth": "packet_structured_data",
+    "source_snapshot_id": "source-snapshot-bcbae48ce9324ade",
     "total_evidence_matches": 0,
     "used_rag": false,
     "used_raw_scan": false
@@ -113,7 +116,8 @@
   "coverage_gaps": [
     "Do not expose account-linked complaint or tracking details.",
     "No normalized work/payment evidence matched this question.",
-    "Text-only locality alias match; this is a confidence hint, not filing-critical proof. Confirm with the official lat/lng lookup before filing."
+    "Text-only locality alias match; this is a confidence hint, not filing-critical proof. Confirm with the official lat/lng lookup before filing.",
+    "Freshness: Recent public record. Not live status."
   ],
   "evidence": [],
   "evidence_strength": "weak",
@@ -126,6 +130,9 @@
   "evidence_table": [],
   "freshness": {
     "basis": "normalized_public_records",
+    "citizen_labels": [
+      "Recent public record"
+    ],
     "fetched_at_values": [
       "2026-06-30T08-49-34Z"
     ],
@@ -133,16 +140,39 @@
     "latest_record_date": "",
     "policy_version": "freshness-v1",
     "record_date_values": [],
+    "source_policies": [
+      {
+        "claim_eligibility": "routing",
+        "expected_update_cadence_days": 90,
+        "source_authority": "official",
+        "source_id": "bwssb_crm_complaint_form"
+      },
+      {
+        "claim_eligibility": "routing",
+        "expected_update_cadence_days": 90,
+        "source_authority": "official",
+        "source_id": "bwssb_crm_complaint_form"
+      },
+      {
+        "claim_eligibility": "routing",
+        "expected_update_cadence_days": 90,
+        "source_authority": "official",
+        "source_id": "bwssb_crm_complaint_form"
+      }
+    ],
+    "staleness_statuses": [
+      "fresh"
+    ],
     "staleness_warning": "",
     "undated_record_count": 0
   },
   "input": {
     "lat": null,
     "lng": null,
-    "query": "Sewage overflowing near Kadubeesanahalli, who should I contact?"
+    "query": "Kadubeesanahalli sewage overflow"
   },
   "issue": {
-    "description": "Sewage overflowing near Kadubeesanahalli, who should I contact?",
+    "description": "Kadubeesanahalli sewage overflow",
     "display_type": "sewage/water issue",
     "matched_terms": [
       "drain",
@@ -184,7 +214,8 @@
   "limits": [
     "Do not expose account-linked complaint or tracking details.",
     "No normalized work/payment evidence matched this question.",
-    "Text-only locality alias match; this is a confidence hint, not filing-critical proof. Confirm with the official lat/lng lookup before filing."
+    "Text-only locality alias match; this is a confidence hint, not filing-critical proof. Confirm with the official lat/lng lookup before filing.",
+    "Freshness: Recent public record. Not live status."
   ],
   "normalized_issue": "water_sewage",
   "normalized_place": "bellanduru",
@@ -208,9 +239,11 @@
     },
     "evidence_records": [
       {
+        "claim_eligibility": "routing",
         "fetched_at": "2026-06-30T08-49-34Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Recent public record",
+        "freshness_status": "fresh",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "channels_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -218,13 +251,16 @@
         "record_date": "",
         "row_or_page_id": "1",
         "run_id": "2026-06-30T08-49-34Z",
+        "source_authority": "official",
         "source_id": "bwssb_crm_complaint_form",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_3"
       },
       {
+        "claim_eligibility": "routing",
         "fetched_at": "2026-06-30T08-49-34Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Recent public record",
+        "freshness_status": "fresh",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "channels_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -232,13 +268,16 @@
         "record_date": "",
         "row_or_page_id": "1",
         "run_id": "2026-06-30T08-49-34Z",
+        "source_authority": "official",
         "source_id": "bwssb_crm_complaint_form",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_3"
       },
       {
+        "claim_eligibility": "routing",
         "fetched_at": "2026-06-30T08-49-34Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Recent public record",
+        "freshness_status": "fresh",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "channels_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -246,13 +285,16 @@
         "record_date": "",
         "row_or_page_id": "1",
         "run_id": "2026-06-30T08-49-34Z",
+        "source_authority": "official",
         "source_id": "bwssb_crm_complaint_form",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_3"
       },
       {
+        "claim_eligibility": "jurisdiction",
         "fetched_at": "",
-        "freshness_status": "undated_public_record",
-        "license": "unknown",
+        "freshness_label": "Public ward data",
+        "freshness_status": "undated",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "jurisdiction-v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -260,13 +302,14 @@
         "record_date": "",
         "row_or_page_id": "112",
         "run_id": "2026-06-30T08-48-51Z",
+        "source_authority": "mirrored_official",
         "source_id": "gba_wards_delimitation_2025",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       }
     ],
     "model": "w3c-prov-lite"
   },
-  "question": "Sewage overflowing near Kadubeesanahalli, who should I contact?",
+  "question": "Kadubeesanahalli sewage overflow",
   "records_show": [
     "No normalized record proves the reported sewage/water issue condition yet."
   ],
@@ -301,7 +344,7 @@
     "routing_rule_ids": [
       "water_sewage.primary"
     ],
-    "trace_id": "packet-2cba9ef46f503d22",
+    "trace_id": "packet-27a2cac59b283daf",
     "used_rag": false,
     "used_raw_scan": false,
     "works_considered": 0
@@ -332,7 +375,8 @@
       "evidence_matcher": "v3",
       "issue_router": "routing-v3"
     },
-    "query_hash": "2cba9ef46f503d2262b5e4b6ea5debad925e47b303c8281026cc0cfb1a60add7",
+    "persisted_trace_path": ".context/traces/packets.jsonl",
+    "query_hash": "27a2cac59b283dafef10c6998b96106030f441d436718ce6479f11b9fa537fe1",
     "resolver_confidence": 0.72,
     "resolver_source": "locality_alias",
     "retrieval_snapshot_id": "json-warehouse-current",
@@ -341,7 +385,7 @@
     "routing_rule_ids": [
       "water_sewage.primary"
     ],
-    "source_snapshot_id": "normalized-json-current",
+    "source_snapshot_id": "source-snapshot-bcbae48ce9324ade",
     "stages": {
       "matcher": {
         "selected_channel_ids": [
@@ -363,7 +407,7 @@
         "secondary_agency_ids": []
       }
     },
-    "trace_id": "packet-2cba9ef46f503d22",
+    "trace_id": "packet-27a2cac59b283daf",
     "warnings": [
       "Do not expose account-linked complaint or tracking details."
     ]

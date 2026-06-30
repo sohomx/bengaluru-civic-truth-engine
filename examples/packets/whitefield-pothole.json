@@ -15,7 +15,8 @@
       "uncited claims of official responsibility",
       "Routing is an inference until an official complaint channel or record confirms ownership.",
       "Public work/payment rows are administrative context only; they are not proof of current field condition or field resolution.",
-      "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing."
+      "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.",
+      "Freshness: Historical public record. Not live status."
     ],
     "what_to_send": [
       "File through: Use GBA/BBMP local corporation channels or Namma Bengaluru/Sahaaya for local civic issues.",
@@ -40,7 +41,8 @@
       "evidence_matcher": "v3",
       "issue_router": "routing-v3"
     },
-    "query_hash": "ca3c00f9f3d2895a2042fd5312556c37d59889949db723062db260002e2dc776",
+    "persisted_trace_id": "packet-d6d3f2ff789af32d",
+    "query_hash": "d6d3f2ff789af32d207b2993f325d9b2d34d439191b6ad325efcd624aa8d9358",
     "resolver_source": "offline_normalized_wards",
     "routing_policy_id": "bengaluru-civic-routing",
     "routing_policy_version": "routing-v3",
@@ -48,6 +50,7 @@
       "road.primary"
     ],
     "source_of_truth": "packet_structured_data",
+    "source_snapshot_id": "source-snapshot-a4112641b884c04d",
     "total_evidence_matches": 20,
     "used_rag": false,
     "used_raw_scan": false
@@ -247,7 +250,8 @@
   "coverage_gaps": [
     "Routing is an inference until an official complaint channel or record confirms ownership.",
     "Public work/payment rows are administrative context only; they are not proof of current field condition or field resolution.",
-    "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing."
+    "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.",
+    "Freshness: Historical public record. Not live status."
   ],
   "evidence": [
     {
@@ -261,7 +265,8 @@
       ],
       "display_claim": "Filling of Portholes and Bad reaches in Whitefield main road ITPL Back gate road Pattanduru agrahara main road RHB colony to Garudacharpalya road, Maheshwarinagara and Lakshmisa...",
       "entity_type": "work",
-      "evidence_id": "evidence-1",
+      "evidence_id": "ev_work_f95600518609cd96",
+      "legacy_evidence_id": "evidence-1",
       "match_confidence": 0.88,
       "match_method": "place_text_and_issue_terms",
       "proof_note": "Public row; not proof of field resolution.",
@@ -280,7 +285,8 @@
       ],
       "display_claim": "Filling up of pot holes in Whitefield roads and surrounding roads in Ward No 84",
       "entity_type": "work",
-      "evidence_id": "evidence-2",
+      "evidence_id": "ev_work_e8e83801ae353172",
+      "legacy_evidence_id": "evidence-2",
       "match_confidence": 0.88,
       "match_method": "place_text_and_issue_terms",
       "proof_note": "Public row; not proof of field resolution.",
@@ -299,7 +305,8 @@
       ],
       "display_claim": "Filling up of Pot holes in Whitefield Inner Circle Outer Circle and Layouts at Ward No 84 Hagaduru",
       "entity_type": "work",
-      "evidence_id": "evidence-3",
+      "evidence_id": "ev_work_960c4ce84863c04f",
+      "legacy_evidence_id": "evidence-3",
       "match_confidence": 0.88,
       "match_method": "place_text_and_issue_terms",
       "proof_note": "Public row; not proof of field resolution.",
@@ -318,7 +325,8 @@
       ],
       "display_claim": "Construction of RCC drain and asphalting at Whitefield main road to Prashanth layout in Kadugudi ward no:83",
       "entity_type": "work",
-      "evidence_id": "evidence-4",
+      "evidence_id": "ev_work_6fca46b2499644e6",
+      "legacy_evidence_id": "evidence-4",
       "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
       "proof_note": "Public row; not proof of field resolution.",
@@ -337,7 +345,8 @@
       ],
       "display_claim": "Construction of RCC drain with covering slabs one side from Bhagini Hotel to Muzhab house in Brookbond and laying of RCC Slabs on existing drain in Bhuvaneshwari road Whitefield...",
       "entity_type": "work",
-      "evidence_id": "evidence-5",
+      "evidence_id": "ev_work_54cbb2488156aa6b",
+      "legacy_evidence_id": "evidence-5",
       "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
       "proof_note": "Public row; not proof of field resolution.",
@@ -356,7 +365,8 @@
       ],
       "display_claim": "Providing and Laying Asphalting from Whitefield Main road to KEB Office Gandhipura in Hagaduru Ward No 84",
       "entity_type": "work",
-      "evidence_id": "evidence-6",
+      "evidence_id": "ev_work_bf8de219af60c5fe",
+      "legacy_evidence_id": "evidence-6",
       "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
       "proof_note": "Public row; not proof of field resolution.",
@@ -375,7 +385,8 @@
       ],
       "display_claim": "Providing and Laying Asphalting from Karumariyamma temple to Whitefield Main road in Hagaduru Ward No 84",
       "entity_type": "work",
-      "evidence_id": "evidence-7",
+      "evidence_id": "ev_work_a26412416755e5f0",
+      "legacy_evidence_id": "evidence-7",
       "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
       "proof_note": "Public row; not proof of field resolution.",
@@ -394,7 +405,8 @@
       ],
       "display_claim": "Providing and Laying Asphalting to Whitefield Main road HLRC Beside road towards R Narayanapura in Hagaduru Ward No 84",
       "entity_type": "work",
-      "evidence_id": "evidence-8",
+      "evidence_id": "ev_work_c191399c4aa4f139",
+      "legacy_evidence_id": "evidence-8",
       "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
       "proof_note": "Public row; not proof of field resolution.",
@@ -413,7 +425,8 @@
       ],
       "display_claim": "Improvements of drain and road in Shanthi Avenue behind Post office Whitefield at w no 84",
       "entity_type": "work",
-      "evidence_id": "evidence-9",
+      "evidence_id": "ev_work_3bbe570898956c8a",
+      "legacy_evidence_id": "evidence-9",
       "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
       "proof_note": "Public row; not proof of field resolution.",
@@ -432,7 +445,8 @@
       ],
       "display_claim": "Improvements of drain in Karumariyamma temple road upto Chowdappa house in Whitefield w no 84",
       "entity_type": "work",
-      "evidence_id": "evidence-10",
+      "evidence_id": "ev_work_1fa20cf6079d0b60",
+      "legacy_evidence_id": "evidence-10",
       "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
       "proof_note": "Public row; not proof of field resolution.",
@@ -451,7 +465,8 @@
       ],
       "display_claim": "Improvements to drains and Providing slabs in Brookbond cross roads, Narayanappa garden roads and Bhuvaneshwari road in Whitefield at Ward No.84",
       "entity_type": "work",
-      "evidence_id": "evidence-11",
+      "evidence_id": "ev_work_80c28696edcfe4d1",
+      "legacy_evidence_id": "evidence-11",
       "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
       "proof_note": "Public row; not proof of field resolution.",
@@ -470,7 +485,8 @@
       ],
       "display_claim": "Improvements of roads in Narayanappa garden at Whitefield in ward no 84",
       "entity_type": "work",
-      "evidence_id": "evidence-12",
+      "evidence_id": "ev_work_a7bf0a46a9c37f91",
+      "legacy_evidence_id": "evidence-12",
       "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
       "proof_note": "Public row; not proof of field resolution.",
@@ -489,7 +505,8 @@
       ],
       "display_claim": "Improvements of 1st to 4th cross roads and drains at Doctor s Layout at Whitefield in Ward No.84",
       "entity_type": "work",
-      "evidence_id": "evidence-13",
+      "evidence_id": "ev_work_443334279e90c31a",
+      "legacy_evidence_id": "evidence-13",
       "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
       "proof_note": "Public row; not proof of field resolution.",
@@ -508,7 +525,8 @@
       ],
       "display_claim": "Improvements of 1st to 4th cross roads and drains at Byrappa Layout at Whitefield in Ward No.84",
       "entity_type": "work",
-      "evidence_id": "evidence-14",
+      "evidence_id": "ev_work_7e179a425c78bde6",
+      "legacy_evidence_id": "evidence-14",
       "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
       "proof_note": "Public row; not proof of field resolution.",
@@ -527,7 +545,8 @@
       ],
       "display_claim": "Improvements of road and drains near Subbarao Compound road at Whitefield in Ward No. 84",
       "entity_type": "work",
-      "evidence_id": "evidence-15",
+      "evidence_id": "ev_work_ac7a0148eab61c69",
+      "legacy_evidence_id": "evidence-15",
       "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
       "proof_note": "Public row; not proof of field resolution.",
@@ -546,7 +565,8 @@
       ],
       "display_claim": "Development of Whitefield Outer circle cross road in Ward No.84 (Hagaduru)",
       "entity_type": "work",
-      "evidence_id": "evidence-16",
+      "evidence_id": "ev_work_11acc395fb33b625",
+      "legacy_evidence_id": "evidence-16",
       "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
       "proof_note": "Public row; not proof of field resolution.",
@@ -565,7 +585,8 @@
       ],
       "display_claim": "Providing Project Management Consultancy Services for the work of Improvements, strengthening and asphalting to internal roads and construction of underpass at EPIP zone, whitef...",
       "entity_type": "work",
-      "evidence_id": "evidence-17",
+      "evidence_id": "ev_work_d1f3a0b25f48ac8a",
+      "legacy_evidence_id": "evidence-17",
       "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
       "proof_note": "Public row; not proof of field resolution.",
@@ -584,7 +605,8 @@
       ],
       "display_claim": "084-19-000040 Improvements to roads and drains at Vinayaka Layout - Whitefield in Hagadur ward No.84",
       "entity_type": "work",
-      "evidence_id": "evidence-18",
+      "evidence_id": "ev_work_6290a7f00ab09280",
+      "legacy_evidence_id": "evidence-18",
       "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
       "proof_note": "Public row; not proof of field resolution.",
@@ -603,7 +625,8 @@
       ],
       "display_claim": "304-20-000242 Comprehensive Development and Improvement to the Roads Connecting to ITPL Area Whitefield in RI Mahadevapura Division Package-2",
       "entity_type": "work",
-      "evidence_id": "evidence-19",
+      "evidence_id": "ev_work_1dc2e3c4118ecd4e",
+      "legacy_evidence_id": "evidence-19",
       "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
       "proof_note": "Public row; not proof of field resolution.",
@@ -622,7 +645,8 @@
       ],
       "display_claim": "304-20-000242 Comprehensive Development and Improvement to the Roads Connecting to ITPL Area Whitefield in RI Mahadevapura Division Package-2",
       "entity_type": "work",
-      "evidence_id": "evidence-20",
+      "evidence_id": "ev_work_d101be528220281a",
+      "legacy_evidence_id": "evidence-20",
       "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
       "proof_note": "Public row; not proof of field resolution.",
@@ -882,6 +906,9 @@
   ],
   "freshness": {
     "basis": "normalized_public_records",
+    "citizen_labels": [
+      "Historical public record"
+    ],
     "fetched_at_values": [
       "2026-06-30T08-48-51Z",
       "2026-06-30T08-49-46Z"
@@ -890,16 +917,141 @@
     "latest_record_date": "",
     "policy_version": "freshness-v1",
     "record_date_values": [],
-    "staleness_warning": "",
+    "source_policies": [
+      {
+        "claim_eligibility": "historical_public_context",
+        "expected_update_cadence_days": 30,
+        "source_authority": "mirrored_official",
+        "source_id": "bbmp_work_orders_and_bill_payment"
+      },
+      {
+        "claim_eligibility": "historical_public_context",
+        "expected_update_cadence_days": 30,
+        "source_authority": "mirrored_official",
+        "source_id": "bbmp_work_orders_and_bill_payment"
+      },
+      {
+        "claim_eligibility": "historical_public_context",
+        "expected_update_cadence_days": 30,
+        "source_authority": "mirrored_official",
+        "source_id": "bbmp_work_orders_and_bill_payment"
+      },
+      {
+        "claim_eligibility": "historical_public_context",
+        "expected_update_cadence_days": 30,
+        "source_authority": "mirrored_official",
+        "source_id": "bbmp_work_orders_and_bill_payment"
+      },
+      {
+        "claim_eligibility": "historical_public_context",
+        "expected_update_cadence_days": 30,
+        "source_authority": "mirrored_official",
+        "source_id": "bbmp_work_orders_and_bill_payment"
+      },
+      {
+        "claim_eligibility": "historical_public_context",
+        "expected_update_cadence_days": 30,
+        "source_authority": "mirrored_official",
+        "source_id": "bbmp_work_orders_and_bill_payment"
+      },
+      {
+        "claim_eligibility": "historical_public_context",
+        "expected_update_cadence_days": 30,
+        "source_authority": "mirrored_official",
+        "source_id": "bbmp_work_orders_and_bill_payment"
+      },
+      {
+        "claim_eligibility": "historical_public_context",
+        "expected_update_cadence_days": 30,
+        "source_authority": "mirrored_official",
+        "source_id": "bbmp_work_orders_and_bill_payment"
+      },
+      {
+        "claim_eligibility": "historical_public_context",
+        "expected_update_cadence_days": 30,
+        "source_authority": "mirrored_official",
+        "source_id": "bbmp_work_orders_and_bill_payment"
+      },
+      {
+        "claim_eligibility": "historical_public_context",
+        "expected_update_cadence_days": 30,
+        "source_authority": "mirrored_official",
+        "source_id": "bbmp_work_orders_and_bill_payment"
+      },
+      {
+        "claim_eligibility": "historical_public_context",
+        "expected_update_cadence_days": 30,
+        "source_authority": "mirrored_official",
+        "source_id": "bbmp_work_orders_and_bill_payment"
+      },
+      {
+        "claim_eligibility": "historical_public_context",
+        "expected_update_cadence_days": 30,
+        "source_authority": "mirrored_official",
+        "source_id": "bbmp_work_orders_and_bill_payment"
+      },
+      {
+        "claim_eligibility": "historical_public_context",
+        "expected_update_cadence_days": 30,
+        "source_authority": "mirrored_official",
+        "source_id": "bbmp_work_orders_and_bill_payment"
+      },
+      {
+        "claim_eligibility": "historical_public_context",
+        "expected_update_cadence_days": 30,
+        "source_authority": "mirrored_official",
+        "source_id": "bbmp_work_orders_and_bill_payment"
+      },
+      {
+        "claim_eligibility": "historical_public_context",
+        "expected_update_cadence_days": 30,
+        "source_authority": "mirrored_official",
+        "source_id": "bbmp_work_orders_and_bill_payment"
+      },
+      {
+        "claim_eligibility": "historical_public_context",
+        "expected_update_cadence_days": 30,
+        "source_authority": "mirrored_official",
+        "source_id": "bbmp_work_orders_and_bill_payment"
+      },
+      {
+        "claim_eligibility": "historical_public_context",
+        "expected_update_cadence_days": 30,
+        "source_authority": "mirrored_official",
+        "source_id": "bbmp_work_orders_and_bill_payment"
+      },
+      {
+        "claim_eligibility": "historical_public_context",
+        "expected_update_cadence_days": 30,
+        "source_authority": "mirrored_official",
+        "source_id": "bbmp_work_orders_and_payments_2025_26"
+      },
+      {
+        "claim_eligibility": "historical_public_context",
+        "expected_update_cadence_days": 30,
+        "source_authority": "mirrored_official",
+        "source_id": "bbmp_work_orders_and_payments_2025_26"
+      },
+      {
+        "claim_eligibility": "historical_public_context",
+        "expected_update_cadence_days": 30,
+        "source_authority": "mirrored_official",
+        "source_id": "bbmp_work_orders_and_payments_2025_26"
+      }
+    ],
+    "staleness_statuses": [
+      "historical_only"
+    ],
+    "staleness_warning": "Matched work/payment rows are historical public records, not live status.",
     "undated_record_count": 0
   },
   "input": {
     "lat": null,
     "lng": null,
-    "query": "There is a recurring pothole near the main road in Whitefield, what can I cite?"
+    "query": "Whitefield pothole at ITPL back gate public rows"
   },
   "issue": {
-    "description": "There is a recurring pothole near the main road in Whitefield, what can I cite?",
+    "description": "Whitefield pothole at ITPL back gate public rows",
     "display_type": "road or footpath issue",
     "matched_terms": [
       "asphalt",
@@ -940,7 +1092,8 @@
   "limits": [
     "Routing is an inference until an official complaint channel or record confirms ownership.",
     "Public work/payment rows are administrative context only; they are not proof of current field condition or field resolution.",
-    "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing."
+    "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.",
+    "Freshness: Historical public record. Not live status."
   ],
   "normalized_issue": "road",
   "normalized_place": "whitefield",
@@ -964,9 +1117,11 @@
     },
     "evidence_records": [
       {
+        "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Historical public record",
+        "freshness_status": "historical_only",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -974,13 +1129,16 @@
         "record_date": "",
         "row_or_page_id": "1257",
         "run_id": "2026-06-30T08-49-46Z",
+        "source_authority": "mirrored_official",
         "source_id": "bbmp_work_orders_and_bill_payment",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Historical public record",
+        "freshness_status": "historical_only",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -988,13 +1146,16 @@
         "record_date": "",
         "row_or_page_id": "249",
         "run_id": "2026-06-30T08-49-46Z",
+        "source_authority": "mirrored_official",
         "source_id": "bbmp_work_orders_and_bill_payment",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Historical public record",
+        "freshness_status": "historical_only",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -1002,13 +1163,16 @@
         "record_date": "",
         "row_or_page_id": "479",
         "run_id": "2026-06-30T08-49-46Z",
+        "source_authority": "mirrored_official",
         "source_id": "bbmp_work_orders_and_bill_payment",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Historical public record",
+        "freshness_status": "historical_only",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -1016,13 +1180,16 @@
         "record_date": "",
         "row_or_page_id": "1987",
         "run_id": "2026-06-30T08-49-46Z",
+        "source_authority": "mirrored_official",
         "source_id": "bbmp_work_orders_and_bill_payment",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Historical public record",
+        "freshness_status": "historical_only",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -1030,13 +1197,16 @@
         "record_date": "",
         "row_or_page_id": "3248",
         "run_id": "2026-06-30T08-49-46Z",
+        "source_authority": "mirrored_official",
         "source_id": "bbmp_work_orders_and_bill_payment",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Historical public record",
+        "freshness_status": "historical_only",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -1044,13 +1214,16 @@
         "record_date": "",
         "row_or_page_id": "1775",
         "run_id": "2026-06-30T08-49-46Z",
+        "source_authority": "mirrored_official",
         "source_id": "bbmp_work_orders_and_bill_payment",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Historical public record",
+        "freshness_status": "historical_only",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -1058,13 +1231,16 @@
         "record_date": "",
         "row_or_page_id": "1774",
         "run_id": "2026-06-30T08-49-46Z",
+        "source_authority": "mirrored_official",
         "source_id": "bbmp_work_orders_and_bill_payment",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Historical public record",
+        "freshness_status": "historical_only",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -1072,13 +1248,16 @@
         "record_date": "",
         "row_or_page_id": "1772",
         "run_id": "2026-06-30T08-49-46Z",
+        "source_authority": "mirrored_official",
         "source_id": "bbmp_work_orders_and_bill_payment",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Historical public record",
+        "freshness_status": "historical_only",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -1086,13 +1265,16 @@
         "record_date": "",
         "row_or_page_id": "5969",
         "run_id": "2026-06-30T08-49-46Z",
+        "source_authority": "mirrored_official",
         "source_id": "bbmp_work_orders_and_bill_payment",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Historical public record",
+        "freshness_status": "historical_only",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -1100,13 +1282,16 @@
         "record_date": "",
         "row_or_page_id": "5966",
         "run_id": "2026-06-30T08-49-46Z",
+        "source_authority": "mirrored_official",
         "source_id": "bbmp_work_orders_and_bill_payment",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Historical public record",
+        "freshness_status": "historical_only",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -1114,13 +1299,16 @@
         "record_date": "",
         "row_or_page_id": "6918",
         "run_id": "2026-06-30T08-49-46Z",
+        "source_authority": "mirrored_official",
         "source_id": "bbmp_work_orders_and_bill_payment",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Historical public record",
+        "freshness_status": "historical_only",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -1128,13 +1316,16 @@
         "record_date": "",
         "row_or_page_id": "1070",
         "run_id": "2026-06-30T08-49-46Z",
+        "source_authority": "mirrored_official",
         "source_id": "bbmp_work_orders_and_bill_payment",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Historical public record",
+        "freshness_status": "historical_only",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -1142,13 +1333,16 @@
         "record_date": "",
         "row_or_page_id": "1645",
         "run_id": "2026-06-30T08-49-46Z",
+        "source_authority": "mirrored_official",
         "source_id": "bbmp_work_orders_and_bill_payment",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Historical public record",
+        "freshness_status": "historical_only",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -1156,13 +1350,16 @@
         "record_date": "",
         "row_or_page_id": "1643",
         "run_id": "2026-06-30T08-49-46Z",
+        "source_authority": "mirrored_official",
         "source_id": "bbmp_work_orders_and_bill_payment",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Historical public record",
+        "freshness_status": "historical_only",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -1170,13 +1367,16 @@
         "record_date": "",
         "row_or_page_id": "1644",
         "run_id": "2026-06-30T08-49-46Z",
+        "source_authority": "mirrored_official",
         "source_id": "bbmp_work_orders_and_bill_payment",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Historical public record",
+        "freshness_status": "historical_only",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -1184,13 +1384,16 @@
         "record_date": "",
         "row_or_page_id": "1583",
         "run_id": "2026-06-30T08-49-46Z",
+        "source_authority": "mirrored_official",
         "source_id": "bbmp_work_orders_and_bill_payment",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Historical public record",
+        "freshness_status": "historical_only",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -1198,13 +1401,16 @@
         "record_date": "",
         "row_or_page_id": "5517",
         "run_id": "2026-06-30T08-49-46Z",
+        "source_authority": "mirrored_official",
         "source_id": "bbmp_work_orders_and_bill_payment",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-48-51Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Historical public record",
+        "freshness_status": "historical_only",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -1212,13 +1418,16 @@
         "record_date": "",
         "row_or_page_id": "140",
         "run_id": "2026-06-30T08-48-51Z",
+        "source_authority": "mirrored_official",
         "source_id": "bbmp_work_orders_and_payments_2025_26",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-48-51Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Historical public record",
+        "freshness_status": "historical_only",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -1226,13 +1435,16 @@
         "record_date": "",
         "row_or_page_id": "587",
         "run_id": "2026-06-30T08-48-51Z",
+        "source_authority": "mirrored_official",
         "source_id": "bbmp_work_orders_and_payments_2025_26",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-48-51Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Historical public record",
+        "freshness_status": "historical_only",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -1240,13 +1452,16 @@
         "record_date": "",
         "row_or_page_id": "1158",
         "run_id": "2026-06-30T08-48-51Z",
+        "source_authority": "mirrored_official",
         "source_id": "bbmp_work_orders_and_payments_2025_26",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "claim_eligibility": "jurisdiction",
         "fetched_at": "",
-        "freshness_status": "undated_public_record",
-        "license": "unknown",
+        "freshness_label": "Public ward data",
+        "freshness_status": "undated",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "jurisdiction-v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -1254,13 +1469,14 @@
         "record_date": "",
         "row_or_page_id": "100",
         "run_id": "2026-06-30T08-48-51Z",
+        "source_authority": "mirrored_official",
         "source_id": "gba_wards_delimitation_2025",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       }
     ],
     "model": "w3c-prov-lite"
   },
-  "question": "There is a recurring pothole near the main road in Whitefield, what can I cite?",
+  "question": "Whitefield pothole at ITPL back gate public rows",
   "records_show": [
     "Filling of Portholes and Bad reaches in Whitefield main road ITPL Back gate road Pattanduru agrahara main road RHB colony to Garudacharpalya road, Maheshwarinagara and Lakshmisa...",
     "Filling up of pot holes in Whitefield roads and surrounding roads in Ward No 84; amount 470944",
@@ -1300,7 +1516,7 @@
     "routing_rule_ids": [
       "road.primary"
     ],
-    "trace_id": "packet-ca3c00f9f3d2895a",
+    "trace_id": "packet-d6d3f2ff789af32d",
     "used_rag": false,
     "used_raw_scan": false,
     "works_considered": 20
@@ -1332,7 +1548,8 @@
       "evidence_matcher": "v3",
       "issue_router": "routing-v3"
     },
-    "query_hash": "ca3c00f9f3d2895a2042fd5312556c37d59889949db723062db260002e2dc776",
+    "persisted_trace_path": ".context/traces/packets.jsonl",
+    "query_hash": "d6d3f2ff789af32d207b2993f325d9b2d34d439191b6ad325efcd624aa8d9358",
     "resolver_confidence": 0.95,
     "resolver_source": "offline_normalized_wards",
     "retrieval_snapshot_id": "json-warehouse-current",
@@ -1341,7 +1558,7 @@
     "routing_rule_ids": [
       "road.primary"
     ],
-    "source_snapshot_id": "normalized-json-current",
+    "source_snapshot_id": "source-snapshot-a4112641b884c04d",
     "stages": {
       "matcher": {
         "selected_channel_ids": [],
@@ -1379,7 +1596,7 @@
         "secondary_agency_ids": []
       }
     },
-    "trace_id": "packet-ca3c00f9f3d2895a",
+    "trace_id": "packet-d6d3f2ff789af32d",
     "warnings": [
       "Routing is an inference until an official complaint channel or record confirms ownership."
     ]

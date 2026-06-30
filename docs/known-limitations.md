@@ -22,8 +22,13 @@ system.
 
 ## Data Gaps
 
+- `data/geo/ward_boundaries.geojson` is derived from public GBA KML. It is not
+  live gazette proof, and boundary-edge matches require official confirmation.
 - Ward aliases are useful hints but not filing-critical proof.
-- Footpath, garbage, sewage, and power cases often need deeper official datasets.
+- Data coverage is strongest for roads and streetlights. Garbage, sewage, power,
+  and some footpath cases often need deeper official datasets.
+- Model matrix live providers are optional. Missing OpenAI or Anthropic keys are
+  recorded as `skipped_missing_key`, not as release blockers.
 - Some official portals are dynamic, account-linked, OTP-protected, or unsafe for
   public scraping and are intentionally excluded.
 - The legacy RAG retriever can inspect broader retrieval data, but it is not the

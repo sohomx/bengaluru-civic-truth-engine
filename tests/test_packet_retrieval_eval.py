@@ -62,6 +62,34 @@ class PacketRetrievalEvalTests(unittest.TestCase):
         self.assertGreaterEqual(len(cases), 10)
         self.assertTrue(all(case.get("relevant_evidence_ids") is not None for case in cases))
 
+    def test_qrels_v2_fixture_has_senior_negative_coverage(self):
+        cases = [
+            json.loads(line)
+            for line in Path("tests/fixtures/packet_eval/evidence_qrels_v2.jsonl").read_text().splitlines()
+            if line.strip()
+        ]
+        categories = {category for case in cases for category in case.get("hard_negative_categories", [])}
+
+        self.assertGreaterEqual(len(cases), 75)
+        self.assertTrue(all(case.get("issue_group") for case in cases))
+        self.assertTrue(all(case.get("expected_top3_categories") is not None for case in cases))
+        self.assertGreaterEqual(
+            categories,
+            {
+                "wrong_locality",
+                "wrong_issue",
+                "stale_historical_only",
+                "unsafe_private_evidence",
+                "no_evidence",
+                "same_keyword_wrong_agency",
+                "jurisdiction_only",
+                "direct_row",
+                "weak_related_row",
+                "traffic_roadwork_secondary",
+                "non_work_issue",
+            },
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

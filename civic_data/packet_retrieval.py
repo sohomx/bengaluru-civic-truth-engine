@@ -23,6 +23,7 @@ def packet_evidence_chunks(packet: dict[str, Any]) -> list[dict[str, Any]]:
         chunks.append(
             {
                 "chunk_id": evidence_id,
+                "legacy_chunk_id": str(item.get("legacy_evidence_id") or ""),
                 "entity_type": str(item.get("entity_type") or "evidence"),
                 "text": redact_pii(text),
                 "source_id": str(item.get("source_id") or ""),

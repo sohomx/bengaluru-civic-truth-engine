@@ -20,6 +20,8 @@ def run_retrieval_eval(
     precision_total = 0.0
     recall_total = 0.0
     forbidden_total = 0
+    issue_groups: dict[str, dict[str, float]] = {}
+    resolver_sources: dict[str, int] = {}
     for case in cases:
         packet = build_evidence_packet(
             str(case["query"]),
@@ -36,14 +38,27 @@ def run_retrieval_eval(
         )
         chunks = retrieval["chunks"]
         ids = [str(chunk.get("chunk_id") or "") for chunk in chunks]
+        aliases = [
+            {str(chunk.get("chunk_id") or ""), str(chunk.get("legacy_chunk_id") or "")}
+            for chunk in chunks
+        ]
         relevant = _string_set(case.get("relevant_evidence_ids"))
         forbidden = _string_set(case.get("forbidden_evidence_ids"))
-        precision = _precision(ids[:3], relevant)
-        recall = _recall(ids[:5], relevant)
-        forbidden_hits = sorted(set(ids[:5]) & forbidden)
+        precision = _precision_aliases(aliases[:3], relevant)
+        recall = _recall_aliases(aliases[:5], relevant)
+        forbidden_hits = sorted({item for alias in aliases[:5] for item in alias if item} & forbidden)
         precision_total += precision
         recall_total += recall
         forbidden_total += len(forbidden_hits)
+        group = str(case.get("issue_group") or "uncategorized")
+        group_metrics = issue_groups.setdefault(group, {"total": 0, "precision_at_3": 0.0, "recall_at_5": 0.0, "forbidden_at_5": 0.0})
+        group_metrics["total"] += 1
+        group_metrics["precision_at_3"] += precision
+        group_metrics["recall_at_5"] += recall
+        group_metrics["forbidden_at_5"] += len(forbidden_hits)
+        audit = packet.get("audit") if isinstance(packet.get("audit"), dict) else {}
+        resolver = str(audit.get("resolver_source") or "unknown")
+        resolver_sources[resolver] = resolver_sources.get(resolver, 0) + 1
         failures = []
         if forbidden_hits:
             failures.append("forbidden@5=" + ",".join(forbidden_hits))
@@ -73,6 +88,16 @@ def run_retrieval_eval(
             "precision_at_3": precision_total / total,
             "recall_at_5": recall_total / total,
             "forbidden_at_5": forbidden_total / total,
+            "issue_group_metrics": {
+                key: {
+                    "total": int(value["total"]),
+                    "precision_at_3": value["precision_at_3"] / value["total"] if value["total"] else 0.0,
+                    "recall_at_5": value["recall_at_5"] / value["total"] if value["total"] else 0.0,
+                    "forbidden_at_5": value["forbidden_at_5"] / value["total"] if value["total"] else 0.0,
+                }
+                for key, value in sorted(issue_groups.items())
+            },
+            "resolver_source_breakdown": resolver_sources,
         },
         "results": results,
     }
@@ -104,6 +129,21 @@ def _recall(ids: list[str], relevant: set[str]) -> float:
     if not relevant:
         return 1.0
     return len(set(ids) & relevant) / len(relevant)
+
+
+def _precision_aliases(aliases: list[set[str]], relevant: set[str]) -> float:
+    if not aliases:
+        return 1.0 if not relevant else 0.0
+    if not relevant:
+        return 1.0
+    return sum(1 for alias in aliases if alias & relevant) / len(aliases)
+
+
+def _recall_aliases(aliases: list[set[str]], relevant: set[str]) -> float:
+    if not relevant:
+        return 1.0
+    hits = {item for alias in aliases for item in alias if item in relevant}
+    return len(hits) / len(relevant)
 
 
 def _string_set(value: object) -> set[str]:

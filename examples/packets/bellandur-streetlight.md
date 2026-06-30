@@ -1,6 +1,6 @@
 # Civic Action Packet
 
-Query: Bellandur streetlight not working, what can I cite and who should I contact?
+Query: Bellandur streetlight public rows
 Issue: streetlight issue
 Place: Bellanduru
 Likely owner: Greater Bengaluru Authority / local city corporation
@@ -43,4 +43,4 @@ Hello, I want to report a streetlight issue at Bellanduru. Ward/corporation: 45 
 - Streetlight ownership may split between civic electrical maintenance and BESCOM power distribution.
 - Public work/payment rows are administrative context only; they are not proof of current field condition or field resolution.
 - Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.
-
+- Freshness: Historical public record, Recent public record. Not live status.

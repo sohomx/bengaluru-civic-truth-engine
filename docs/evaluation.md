@@ -59,11 +59,57 @@ python3 -m civic_data eval packet-rag \
   --mode llm
 ```
 
+## Retrieval Qrels v2
+
+```bash
+python3 -m civic_data eval retrieval \
+  --suite tests/fixtures/packet_eval/evidence_qrels_v2.jsonl \
+  --warehouse-root data/normalized \
+  --raw-root data/raw
+```
+
+Latest local result:
+
+| Metric | Value |
+| --- | ---: |
+| cases | 75 |
+| passed | 75 |
+| precision@3 | 0.8667 |
+| recall@5 | 0.9000 |
+| forbidden@5 | 0.0000 |
+
+The report also includes `issue_group_metrics` and
+`resolver_source_breakdown`.
+
+## Model Matrix
+
+```bash
+python3 -m civic_data eval packet-rag-matrix \
+  --suite tests/fixtures/packet_eval/packet_rag_v1.jsonl \
+  --providers deterministic,anthropic,openai \
+  --output data/eval_runs/model_matrix_latest
+```
+
+Latest local result:
+
+| Provider | Status | Cases | Passed | Failed |
+| --- | --- | ---: | ---: | ---: |
+| deterministic | completed | 55 | 55 | 0 |
+| anthropic | skipped_missing_key | 0 | 0 | 0 |
+| openai | skipped_missing_key | 0 | 0 | 0 |
+
+Report paths:
+
+- `data/eval_runs/model_matrix_latest/matrix.json`
+- `data/eval_runs/model_matrix_latest/matrix.md`
+
 ## Benchmark Suites To Grow
 
 - `routing_v1`: agency and mixed-path routing.
 - `jurisdiction_v1`: official xyinfo, offline ward, locality alias, unresolved.
 - `evidence_qrels_v1`: evidence precision@3, recall@5, wrong-locality rate.
+- `evidence_qrels_v2`: stable evidence IDs, hard negatives, issue groups,
+  forbidden@5, and resolver-source breakdown.
 - `grounding_v1`: every claim must be supported by cited packet evidence.
 - `abstention_v1`: say unknown when evidence is insufficient.
 - `confidence_calibration_v1`: confidence labels match observed correctness.

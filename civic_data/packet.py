@@ -15,6 +15,7 @@ def build_evidence_packet(
     lng: float | None = None,
     xyinfo_client: Callable[[float, float], Any] | None = None,
     locality_alias_path: Path | str | None = Path("data/config/locality_aliases.json"),
+    boundary_path: Path | str | None = Path("data/geo/ward_boundaries.geojson"),
 ) -> dict[str, Any]:
     packet = build_packet(
         query=query,
@@ -23,6 +24,7 @@ def build_evidence_packet(
         lng=lng,
         xyinfo_client=xyinfo_client,
         locality_alias_path=locality_alias_path,
+        boundary_path=boundary_path,
     )
     audit = packet.setdefault("audit", {})
     if isinstance(audit, dict):

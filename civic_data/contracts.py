@@ -32,6 +32,8 @@ EVIDENCE_STRENGTHS = {"none", "weak", "public_row", "official_lookup"}
 GENERATION_MODES = {"structured", "packet_structured_data", "packet_only", "deterministic", "llm"}
 RESOLVER_SOURCES = {
     "official_xyinfo",
+    "boundary_contains",
+    "boundary_edge",
     "offline_normalized_wards",
     "offline_normalized_wards_via_old_new_mapping",
     "locality_alias",
