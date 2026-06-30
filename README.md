@@ -35,7 +35,7 @@ python3 -m civic_data packets build \
   --q "Sewage overflowing near Kadubeesanahalli, who should I contact?" \
   --format md
 
-python3 -m civic_data rag explain-packet \
+python3 -m civic_data packets explain \
   --packet examples/packets/bellandur-streetlight.json \
   --q "What should I do next?"
 ```
@@ -45,6 +45,23 @@ The trusted public path is:
 ```text
 normalized public data -> civic_action_packet -> packet-only explanation/UI
 ```
+
+`packets explain` defaults to deterministic packet-only explanation for
+reproducible local demos. To run model-backed Packet-RAG, set `OPENAI_API_KEY`
+and use:
+
+```bash
+python3 -m civic_data packets explain \
+  --packet examples/packets/bellandur-streetlight.json \
+  --q "What should I do next?" \
+  --mode llm
+```
+
+The default LLM config is `CIVIC_LLM_MODEL=gpt-5.4-mini`,
+`CIVIC_EMBEDDING_MODEL=text-embedding-3-small`, and
+`CIVIC_RAG_RETRIEVAL=packet_lexical`. The current LLM path uses packet-only
+lexical chunks for retrieval and the OpenAI Responses API for structured
+generation; it does not read raw CSVs or discover facts outside the packet.
 
 The legacy `/rag/ask` path is retained for retrieval diagnostics and older evals;
 it is not the source of truth for the civic action packet demo.
@@ -60,6 +77,10 @@ python3 -m civic_data eval packets \
   --raw-root data/raw \
   --report \
   --output data/eval_runs/packet_eval_report.json
+
+python3 -m civic_data eval packet-rag \
+  --suite tests/fixtures/packet_eval/packet_rag_v1.jsonl \
+  --mode deterministic
 
 cd web && npm run build
 ```
@@ -97,7 +118,8 @@ Key boundaries:
 - `civic_data/provenance.py`: public evidence provenance ledger.
 - `civic_data/freshness.py`: shared source freshness policy.
 - `civic_data/trace.py`: packet trace IDs and audit stages.
-- `civic_data/packet_rag.py`: packet-only explanation layer.
+- `civic_data/packet_explainer.py`: packet-only deterministic and model-backed explanation layer.
+- `civic_data/packet_rag.py`: compatibility import for older callers.
 - `data/config/issue_routing_policy.json`: auditable routing policy metadata.
 
 ## Known Limits

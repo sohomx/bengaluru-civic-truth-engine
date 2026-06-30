@@ -24,6 +24,30 @@ The report tracks:
 The gate fails if packet cases fail, public output uses raw scan, or public text
 leaks PII.
 
+## Packet-RAG Gate
+
+```bash
+python3 -m civic_data eval packet-rag \
+  --suite tests/fixtures/packet_eval/packet_rag_v1.jsonl \
+  --mode deterministic
+```
+
+This gate evaluates the explanation layer separately from packet generation. It
+records generation mode, provider, model, embedding configuration, prompt
+version, retrieval mode, and confirms explanations use packet data only.
+
+Model-backed runs are explicit:
+
+```bash
+OPENAI_API_KEY=... python3 -m civic_data eval packet-rag \
+  --suite tests/fixtures/packet_eval/packet_rag_v1.jsonl \
+  --mode llm
+```
+
+The current LLM path uses packet-only lexical retrieval plus the OpenAI
+Responses API for structured generation. Embedding configuration is audited, but
+embedding retrieval is not yet enabled.
+
 ## Benchmark Suites To Grow
 
 - `routing_v1`: agency and mixed-path routing.

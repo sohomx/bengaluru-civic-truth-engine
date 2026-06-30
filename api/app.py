@@ -82,14 +82,19 @@ def create_app(
     def packets_explain(payload: dict[str, object]) -> dict[str, object]:
         packet = payload.get("packet")
         question = payload.get("question")
+        mode = payload.get("mode")
         if not isinstance(packet, dict):
             raise HTTPException(status_code=400, detail="packet must be an object")
         if question is not None and not isinstance(question, str):
             raise HTTPException(status_code=400, detail="question must be a string")
+        if mode is not None and mode not in {"deterministic", "llm"}:
+            raise HTTPException(status_code=400, detail="mode must be deterministic or llm")
         try:
-            return service.explain_action_packet(packet, question=question)
+            return service.explain_action_packet(packet, question=question, mode=mode if isinstance(mode, str) else None)
         except (TypeError, ValueError) as exc:
             raise HTTPException(status_code=400, detail=str(exc)) from exc
+        except RuntimeError as exc:
+            raise HTTPException(status_code=503, detail=str(exc)) from exc
 
     return app
 

@@ -1,0 +1,1 @@
+{"id":"bellandur-streetlight-explain","packet":"examples/packets/bellandur-streetlight.json","question":"What should I do next?","must_contain":["streetlight","packet"],"forbidden":["bribe was paid"]}

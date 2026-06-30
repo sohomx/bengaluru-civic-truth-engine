@@ -104,12 +104,17 @@ Expected interpretation: calls the official `gisapi.bbmpgov.in/xyinfo/{lng}/{lat
 ## Explain a packet
 
 ```bash
-python3 -m civic_data rag explain-packet \
+python3 -m civic_data packets explain \
   --packet examples/packets/bellandur-streetlight.json \
   --q "What should I do next?"
 ```
 
 Expected interpretation: explains only the packet data, cites the packet's public evidence, preserves caveats, and reports `used_packet_only: true`.
+
+For model-backed explanation, set `OPENAI_API_KEY` and add `--mode llm`. This
+uses the OpenAI Responses API with `CIVIC_LLM_MODEL` defaulting to
+`gpt-5.4-mini`. It still receives only sanitized packet fields and retrieved
+packet chunks.
 
 ## Release gate
 
@@ -120,8 +125,13 @@ python3 -m civic_data eval packets \
   --raw-root data/raw \
   --report \
   --output data/eval_runs/packet_eval_report.json
+
+python3 -m civic_data eval packet-rag \
+  --suite tests/fixtures/packet_eval/packet_rag_v1.jsonl \
+  --mode deterministic
 ```
 
 Expected interpretation: all packet cases pass, public raw-scan rate is zero,
 PII leak rate is zero, and agency accuracy is reported for cases that declare an
-expected agency.
+expected agency. The packet-RAG eval confirms explanation mode, model metadata,
+packet-only input, and forbidden unsupported claims.

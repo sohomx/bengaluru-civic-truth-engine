@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Any
 
 from civic_data.packet import build_evidence_packet
-from civic_data.packet_rag import explain_packet
+from civic_data.packet_explainer import explain_packet
 from civic_data.rag import DEFAULT_RAG_INDEX_NAME, ask_rag, load_rag_index
 from civic_data.truth import build_place_truth
 
@@ -54,5 +54,6 @@ class CivicMemoryService:
         packet: dict[str, Any],
         *,
         question: str | None = None,
+        mode: str | None = None,
     ) -> dict[str, Any]:
-        return explain_packet(packet, question=question)
+        return explain_packet(packet, question=question, mode=mode)

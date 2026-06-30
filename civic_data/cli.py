@@ -11,7 +11,8 @@ from civic_data.normalize import normalize_channels, normalize_grievances, norma
 from civic_data.packet import build_evidence_packet
 from civic_data.packet_builder import dumps_packet, render_packet_markdown
 from civic_data.packet_eval import run_packet_eval
-from civic_data.packet_rag import explain_packet
+from civic_data.packet_explainer import explain_packet
+from civic_data.packet_rag_eval import run_packet_rag_eval
 from civic_data.profile import profile_archives
 from civic_data.rag import ask_rag, build_rag_index
 from civic_data.registry import load_sources, registry_hash, validate_registry
@@ -59,12 +60,16 @@ def main(argv: list[str] | None = None) -> int:
             return _rag_explain_packet(args)
         if args.command == "packets" and args.packets_command == "build":
             return _packets_build(args)
+        if args.command == "packets" and args.packets_command == "explain":
+            return _packets_explain(args)
         if args.command == "retrieval" and args.retrieval_command == "build":
             return _retrieval_build(args)
         if args.command == "eval" and args.eval_command == "rag":
             return _eval_rag(args)
         if args.command == "eval" and args.eval_command == "packets":
             return _eval_packets(args)
+        if args.command == "eval" and args.eval_command == "packet-rag":
+            return _eval_packet_rag(args)
         if args.command == "warehouse" and args.warehouse_command == "export":
             return _warehouse_export(args)
         if args.command == "warehouse" and args.warehouse_command == "load":
@@ -160,6 +165,7 @@ def _build_parser() -> argparse.ArgumentParser:
     rag_explain = rag_sub.add_parser("explain-packet")
     rag_explain.add_argument("--packet", required=True)
     rag_explain.add_argument("--q")
+    rag_explain.add_argument("--mode", choices=("deterministic", "llm"))
 
     packets = subparsers.add_parser("packets")
     packets_sub = packets.add_subparsers(dest="packets_command")
@@ -173,6 +179,10 @@ def _build_parser() -> argparse.ArgumentParser:
     packets_build.add_argument("--locality-aliases", default="data/config/locality_aliases.json")
     packets_build.add_argument("--format", choices=("json", "md"), default="json")
     packets_build.add_argument("--output")
+    packets_explain = packets_sub.add_parser("explain")
+    packets_explain.add_argument("--packet", required=True)
+    packets_explain.add_argument("--q")
+    packets_explain.add_argument("--mode", choices=("deterministic", "llm"))
 
     retrieval = subparsers.add_parser("retrieval")
     retrieval_sub = retrieval.add_subparsers(dest="retrieval_command")
@@ -195,6 +205,10 @@ def _build_parser() -> argparse.ArgumentParser:
     eval_packets.add_argument("--index")
     eval_packets.add_argument("--report", action="store_true")
     eval_packets.add_argument("--output")
+    eval_packet_rag = eval_sub.add_parser("packet-rag")
+    eval_packet_rag.add_argument("--suite", required=True)
+    eval_packet_rag.add_argument("--mode", choices=("deterministic", "llm"), default="deterministic")
+    eval_packet_rag.add_argument("--output")
 
     warehouse = subparsers.add_parser("warehouse")
     warehouse_sub = warehouse.add_subparsers(dest="warehouse_command")
@@ -429,7 +443,14 @@ def _rag_index(args: argparse.Namespace) -> int:
 
 def _rag_explain_packet(args: argparse.Namespace) -> int:
     packet = json.loads(Path(args.packet).read_text())
-    payload = explain_packet(packet, question=args.q)
+    payload = explain_packet(packet, question=args.q, mode=args.mode)
+    print(json.dumps(payload, indent=2, sort_keys=True))
+    return 0
+
+
+def _packets_explain(args: argparse.Namespace) -> int:
+    packet = json.loads(Path(args.packet).read_text())
+    payload = explain_packet(packet, question=args.q, mode=args.mode)
     print(json.dumps(payload, indent=2, sort_keys=True))
     return 0
 
@@ -511,6 +532,14 @@ def _eval_packets(args: argparse.Namespace) -> int:
         index_path=Path(args.index) if args.index else None,
     )
     if args.report and args.output:
+        Path(args.output).write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n")
+    print(json.dumps(payload, indent=2, sort_keys=True))
+    return 0 if payload["failed"] == 0 else 1
+
+
+def _eval_packet_rag(args: argparse.Namespace) -> int:
+    payload = run_packet_rag_eval(Path(args.suite), mode=str(args.mode))
+    if args.output:
         Path(args.output).write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n")
     print(json.dumps(payload, indent=2, sort_keys=True))
     return 0 if payload["failed"] == 0 else 1

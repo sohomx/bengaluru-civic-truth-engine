@@ -30,7 +30,8 @@ reviewable as open-source civic infrastructure.
 ## Consequences
 
 - `/packets/build` remains the trusted product path.
-- `/packets/explain` and `rag explain-packet` can only use packet data.
+- `/packets/explain`, `packets explain`, and legacy `rag explain-packet` can only use packet data.
+- Model-backed explanation is opt-in through `--mode llm` or API `mode: "llm"`; deterministic packet-only explanation remains the default for reproducible local demos.
 - `/rag/ask` is retained as a legacy retrieval/debug surface, not the demo source
   of truth.
 - Packet evals must fail on raw-scan use, PII leakage, unsupported claims, and
