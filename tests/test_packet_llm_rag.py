@@ -191,6 +191,18 @@ class PacketLlmRagTests(unittest.TestCase):
             self.assertEqual(payload["passed"], 1)
             self.assertEqual(payload["model_config"]["generation_mode"], "deterministic")
             self.assertEqual(payload["model_config"]["prompt_version"], "packet-explainer-deterministic-v1")
+            self.assertIn("category_metrics", payload)
+            self.assertIn("token_usage", payload)
+            self.assertIn("failed_samples", payload)
+
+    def test_packet_rag_gold_suite_is_large_enough_and_categorized(self):
+        suite = Path("tests/fixtures/packet_eval/packet_rag_v1.jsonl")
+        cases = [json.loads(line) for line in suite.read_text().splitlines() if line.strip()]
+
+        self.assertGreaterEqual(len(cases), 50)
+        self.assertEqual(len({case["id"] for case in cases}), len(cases))
+        self.assertTrue(all(case.get("packet") for case in cases))
+        self.assertTrue(all(case.get("category") for case in cases))
 
     def test_packet_explainer_refuses_unsupported_blame_claims(self):
         with tempfile.TemporaryDirectory() as tmp:
