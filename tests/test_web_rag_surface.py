@@ -60,6 +60,11 @@ class WebRagSurfaceTests(unittest.TestCase):
         self.assertIn("lucide-react", component)
         self.assertIn("formatSourceLabel", component)
         self.assertIn("formatMatchLabel", component)
+        lowered = component.lower()
+        self.assertNotIn("map preview", lowered)
+        self.assertNotIn("ward polygon", lowered)
+        self.assertNotIn("fake map", lowered)
+        self.assertNotIn("decorative map", lowered)
         self.assertNotIn("offline_normalized_wards", component)
         self.assertNotIn("place_text_and_issue_terms", component)
         self.assertNotIn("generated_answer", component)
@@ -83,6 +88,7 @@ class WebRagSurfaceTests(unittest.TestCase):
 
         self.assertIn("async rewrites()", config)
         self.assertIn("/rag/:path*", config)
+        self.assertIn("/diagnostics/:path*", config)
         self.assertIn("/packets/:path*", config)
         self.assertIn("CIVIC_API_BASE", config)
 
@@ -93,3 +99,5 @@ class WebRagSurfaceTests(unittest.TestCase):
         self.assertIn("127.0.0.1:3017", app)
         self.assertIn('@app.get("/packets/build")', app)
         self.assertIn('@app.post("/packets/explain")', app)
+        self.assertIn('@app.get("/diagnostics/rag/ask")', app)
+        self.assertIn('"replacement"] = "/diagnostics/rag/ask"', app)

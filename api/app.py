@@ -64,11 +64,25 @@ def create_app(
             raise HTTPException(status_code=400, detail="q must not be empty")
         return service.place_truth(q)
 
+    @app.get("/diagnostics/rag/ask")
+    def diagnostics_rag_ask(q: str) -> dict[str, object]:
+        if not q.strip():
+            raise HTTPException(status_code=400, detail="q must not be empty")
+        payload = service.rag_answer(q)
+        payload["diagnostic_only"] = True
+        payload["public_product_path"] = "/packets/build"
+        return payload
+
     @app.get("/rag/ask")
     def rag_ask(q: str) -> dict[str, object]:
         if not q.strip():
             raise HTTPException(status_code=400, detail="q must not be empty")
-        return service.rag_answer(q)
+        payload = service.rag_answer(q)
+        payload["deprecated"] = True
+        payload["diagnostic_only"] = True
+        payload["replacement"] = "/diagnostics/rag/ask"
+        payload["public_product_path"] = "/packets/build"
+        return payload
 
     @app.get("/packets/build")
     def packets_build(q: str, lat: float | None = None, lng: float | None = None) -> dict[str, object]:

@@ -39,7 +39,8 @@ version, retrieval mode, and confirms explanations use packet data only.
 Model-backed runs are explicit:
 
 ```bash
-OPENAI_API_KEY=... python3 -m civic_data eval packet-rag \
+export OPENAI_API_KEY
+python3 -m civic_data eval packet-rag \
   --suite tests/fixtures/packet_eval/packet_rag_v1.jsonl \
   --mode llm
 ```
@@ -53,7 +54,6 @@ Anthropic eval runs use the same packet-only path:
 ```bash
 CIVIC_LLM_PROVIDER=anthropic \
 ANTHROPIC_MODEL=claude-haiku-4-5-20251001 \
-ANTHROPIC_API_KEY=... \
 python3 -m civic_data eval packet-rag \
   --suite tests/fixtures/packet_eval/packet_rag_v1.jsonl \
   --mode llm

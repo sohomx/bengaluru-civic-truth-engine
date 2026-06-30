@@ -9,6 +9,10 @@ const nextConfig = {
         destination: `${backend}/rag/:path*`
       },
       {
+        source: "/diagnostics/:path*",
+        destination: `${backend}/diagnostics/:path*`
+      },
+      {
         source: "/packets/:path*",
         destination: `${backend}/packets/:path*`
       }

@@ -526,3 +526,23 @@ class RagBackendTests(unittest.TestCase):
 
         self.assertGreaterEqual(response.status_code, 400)
         self.assertLess(response.status_code, 500)
+
+    def test_api_rag_ask_is_deprecated_diagnostic_route(self):
+        try:
+            from fastapi.testclient import TestClient
+        except Exception as exc:  # pragma: no cover - depends on optional local env.
+            self.skipTest(f"FastAPI test client unavailable: {exc}")
+        tmp, warehouse, raw = self._fixture()
+        self.addCleanup(tmp.cleanup)
+        from api.app import create_app
+
+        client = TestClient(create_app(warehouse_root=warehouse, raw_root=raw))
+        legacy = client.get("/rag/ask", params={"q": "Bellandur road issue"})
+        diagnostic = client.get("/diagnostics/rag/ask", params={"q": "Bellandur road issue"})
+
+        self.assertEqual(legacy.status_code, 200)
+        self.assertEqual(diagnostic.status_code, 200)
+        self.assertTrue(legacy.json()["deprecated"])
+        self.assertEqual(legacy.json()["replacement"], "/diagnostics/rag/ask")
+        self.assertTrue(diagnostic.json()["diagnostic_only"])
+        self.assertEqual(diagnostic.json()["public_product_path"], "/packets/build")

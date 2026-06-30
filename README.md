@@ -74,8 +74,10 @@ python3 -m civic_data packets explain \
   --mode llm
 ```
 
-The legacy `/rag/ask` path is retained for retrieval diagnostics and older evals;
-it is not the source of truth for the civic action packet demo.
+The public product path is `/packets/build` and `/packets/explain`.
+Retrieval debugging lives under `/diagnostics/rag/ask`. The legacy `/rag/ask`
+path is retained temporarily with deprecation metadata for older evals; it is
+not the source of truth for the civic action packet demo.
 
 ## Verification
 

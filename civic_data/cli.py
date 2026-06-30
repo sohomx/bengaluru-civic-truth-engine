@@ -6,6 +6,7 @@ import sys
 from pathlib import Path
 
 from civic_data.dossier import create_dossier
+from civic_data.demo_report import generate_hiring_demo_report
 from civic_data.fetch import UrlLibHttpClient, fetch_all_sources
 from civic_data.normalize import normalize_channels, normalize_grievances, normalize_wards, normalize_works_payments
 from civic_data.packet import build_evidence_packet
@@ -79,6 +80,8 @@ def main(argv: list[str] | None = None) -> int:
             return _warehouse_load(args)
         if args.command == "dossiers" and args.dossiers_command == "create":
             return _dossiers_create(args)
+        if args.command == "demo" and args.demo_command == "report":
+            return _demo_report(args)
         if args.command == "site" and args.site_command == "build":
             return _site_build(args)
     except Exception as exc:  # noqa: BLE001 - command-line boundary should report cleanly.
@@ -233,6 +236,13 @@ def _build_parser() -> argparse.ArgumentParser:
     create.add_argument("--place", required=True)
     create.add_argument("--warehouse-root", default=str(DEFAULT_WAREHOUSE_ROOT))
     create.add_argument("--output", required=True)
+
+    demo = subparsers.add_parser("demo")
+    demo_sub = demo.add_subparsers(dest="demo_command")
+    demo_report = demo_sub.add_parser("report")
+    demo_report.add_argument("--warehouse-root", default=str(DEFAULT_WAREHOUSE_ROOT))
+    demo_report.add_argument("--raw-root", default=str(DEFAULT_RAW_ROOT))
+    demo_report.add_argument("--output", default="data/eval_runs/hiring_demo_report.md")
 
     site = subparsers.add_parser("site")
     site_sub = site.add_subparsers(dest="site_command")
@@ -624,6 +634,16 @@ def _dossiers_create(args: argparse.Namespace) -> int:
         output_path=Path(args.output),
     )
     print(f"created dossier: {args.output}")
+    return 0
+
+
+def _demo_report(args: argparse.Namespace) -> int:
+    payload = generate_hiring_demo_report(
+        warehouse_root=Path(args.warehouse_root),
+        raw_root=Path(args.raw_root),
+        output_path=Path(args.output),
+    )
+    print(json.dumps(payload, indent=2, sort_keys=True))
     return 0
 
 
