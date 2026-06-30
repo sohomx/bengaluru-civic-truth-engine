@@ -35,7 +35,7 @@ def create_app(
             "http://localhost:3001",
             "http://localhost:3017",
         ],
-        allow_methods=["GET"],
+        allow_methods=["GET", "POST"],
         allow_headers=["*"],
     )
 
@@ -69,6 +69,27 @@ def create_app(
         if not q.strip():
             raise HTTPException(status_code=400, detail="q must not be empty")
         return service.rag_answer(q)
+
+    @app.get("/packets/build")
+    def packets_build(q: str, lat: float | None = None, lng: float | None = None) -> dict[str, object]:
+        if not q.strip():
+            raise HTTPException(status_code=400, detail="q must not be empty")
+        if (lat is None) != (lng is None):
+            raise HTTPException(status_code=400, detail="lat and lng must be provided together")
+        return service.action_packet(q, lat=lat, lng=lng)
+
+    @app.post("/packets/explain")
+    def packets_explain(payload: dict[str, object]) -> dict[str, object]:
+        packet = payload.get("packet")
+        question = payload.get("question")
+        if not isinstance(packet, dict):
+            raise HTTPException(status_code=400, detail="packet must be an object")
+        if question is not None and not isinstance(question, str):
+            raise HTTPException(status_code=400, detail="question must be a string")
+        try:
+            return service.explain_action_packet(packet, question=question)
+        except (TypeError, ValueError) as exc:
+            raise HTTPException(status_code=400, detail=str(exc)) from exc
 
     return app
 

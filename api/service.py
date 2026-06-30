@@ -3,6 +3,8 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
+from civic_data.packet import build_evidence_packet
+from civic_data.packet_rag import explain_packet
 from civic_data.rag import DEFAULT_RAG_INDEX_NAME, ask_rag, load_rag_index
 from civic_data.truth import build_place_truth
 
@@ -30,3 +32,27 @@ class CivicMemoryService:
             index_path=self.index_path,
             rag_index=self.rag_index,
         )
+
+    def action_packet(
+        self,
+        query: str,
+        *,
+        lat: float | None = None,
+        lng: float | None = None,
+    ) -> dict[str, Any]:
+        return build_evidence_packet(
+            query=query,
+            warehouse_root=self.warehouse_root,
+            raw_root=self.raw_root,
+            index_path=self.index_path,
+            lat=lat,
+            lng=lng,
+        )
+
+    def explain_action_packet(
+        self,
+        packet: dict[str, Any],
+        *,
+        question: str | None = None,
+    ) -> dict[str, Any]:
+        return explain_packet(packet, question=question)

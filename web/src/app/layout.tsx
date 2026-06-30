@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Bengaluru Civic Truth Engine",
-  description: "Official-record civic dossiers for Bengaluru localities."
+  description: "Public-safe civic action packets for Bengaluru issues."
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

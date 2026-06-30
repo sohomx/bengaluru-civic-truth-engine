@@ -156,3 +156,65 @@ class WarehouseApiTests(unittest.TestCase):
 
         self.assertIn('@app.get("/healthz")', app_source)
         self.assertIn('@app.get("/version")', app_source)
+        self.assertIn('@app.get("/packets/build")', app_source)
+
+    def test_api_app_builds_action_packet_when_fastapi_is_available(self):
+        try:
+            from fastapi.testclient import TestClient
+        except Exception as exc:  # pragma: no cover - depends on optional local env.
+            self.skipTest(f"FastAPI test client unavailable: {exc}")
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            normalized = root / "normalized"
+            normalized.mkdir()
+            (normalized / "wards.json").write_text("[]")
+            from api.app import create_app
+
+            client = TestClient(create_app(warehouse_root=normalized, raw_root=root / "raw"))
+            response = client.get("/packets/build", params={"q": "Bellandur streetlight not working"})
+
+            self.assertEqual(response.status_code, 200)
+            payload = response.json()
+            self.assertEqual(payload["packet_type"], "civic_action_packet")
+            self.assertFalse(payload["audit"]["used_rag"])
+
+    def test_api_app_explains_packet_without_raw_rag_when_fastapi_is_available(self):
+        try:
+            from fastapi.testclient import TestClient
+        except Exception as exc:  # pragma: no cover - depends on optional local env.
+            self.skipTest(f"FastAPI test client unavailable: {exc}")
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            normalized = root / "normalized"
+            normalized.mkdir()
+            from api.app import create_app
+
+            packet = {
+                "packet_type": "civic_action_packet",
+                "packet_status": "ready",
+                "evidence_strength": "public_row",
+                "issue": {"type": "streetlight"},
+                "place": {"ward_name": "Bellanduru"},
+                "responsibility": {
+                    "primary_agency": {
+                        "agency_id": "gba",
+                        "name": "Greater Bengaluru Authority / local city corporation",
+                    }
+                },
+                "service_request": {"open311_like_service_type": "streetlight"},
+                "action": {"message_draft": "Please fix the streetlight."},
+                "evidence": [],
+                "citations": [],
+                "limits": [],
+            }
+            client = TestClient(create_app(warehouse_root=normalized, raw_root=root / "raw"))
+            response = client.post(
+                "/packets/explain",
+                json={"packet": packet, "question": "Why this route?"},
+            )
+
+            self.assertEqual(response.status_code, 200)
+            payload = response.json()
+            self.assertTrue(payload["audit"]["used_packet_only"])
+            self.assertFalse(payload["audit"]["used_raw_scan"])
+            self.assertIn("why_this_agency", payload)

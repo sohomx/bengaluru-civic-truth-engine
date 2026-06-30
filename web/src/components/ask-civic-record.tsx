@@ -1,69 +1,95 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
+import { Clipboard, FileText, Loader2, LocateFixed, Search, ShieldCheck } from "lucide-react";
 
-type RagAnswer = {
-  generated_answer: string;
-  answer_brief?: AnswerBrief;
-  question?: string;
-  normalized_place?: string | null;
-  normalized_issue?: string | null;
-  answer_type?: string;
-  confidence_label?: string;
-  claims?: Claim[];
-  citations?: Citation[];
-  what_to_do_next?: string[];
-  retrieval_trace?: {
-    retrieval_snapshot_id?: string;
-    retrieval_backend?: string;
-    stage_timings_ms?: Record<string, number>;
+type CivicPacket = {
+  packet_type?: string;
+  packet_status?: string;
+  evidence_strength?: "none" | "weak" | "public_row" | "official_lookup" | string;
+  input?: {
+    query?: string;
+    lat?: number | null;
+    lng?: number | null;
   };
-  jurisdiction?: {
-    agency?: string;
-    ward?: string | null;
+  issue?: {
+    type?: string;
+    urgency?: string;
+    matched_terms?: string[];
+  };
+  place?: {
+    normalized_place?: string | null;
+    ward_name?: string | null;
     ward_number?: string | null;
-    match_method?: string;
+    corporation?: string | null;
+    confidence?: number | null;
+    source?: string | null;
+    caveat?: string | null;
   };
-  civic_triage?: {
-    civic_interpretation?: string;
+  responsibility?: {
+    primary_agency?: {
+      name?: string;
+      agency_id?: string;
+    };
+    fallback_agency?: {
+      name?: string;
+      agency_id?: string;
+    };
+    ownership_caveat?: string;
+  };
+  evidence_summary?: {
+    shown_count?: number;
+    total_matches?: number;
+    hidden_count?: number;
+  };
+  action?: {
+    primary_action?: string;
+    escalation_action?: string;
+    legal_or_rti_action?: string;
+    message_draft?: string;
+    evidence_to_attach?: string[];
+    what_not_to_claim?: string[];
     who_to_contact?: string[];
-    what_to_do_next?: string[];
-    cause_boundary?: string;
-    complaint_memory?: {
-      count?: number;
-      latest_record_date?: string | null;
-      status_breakdown?: Record<string, number>;
-      example_ids?: string[];
-      scope_note?: string;
-    };
-    evidence_library?: {
-      complaints?: EvidenceEntry[];
-      work_payments?: EvidenceEntry[];
-      tenders?: EvidenceEntry[];
-      assets?: EvidenceEntry[];
-    };
-    issue_tracks?: IssueTrack[];
   };
-  extractive_answer?: {
-    summary?: string;
-  };
-  coverage_gaps?: string[];
-  freshness?: {
-    latest_record_date?: string | null;
-  };
-};
-
-type AnswerBrief = {
-  short_answer?: string;
-  records_show?: string[];
-  what_to_cite?: string[];
-  who_to_contact?: string[];
-  related_works?: string[];
+  evidence?: EvidenceRow[];
+  evidence_table?: LegacyEvidenceRow[];
   limits?: string[];
-  evidence_table?: BriefEvidenceRow[];
+  audit?: {
+    used_rag?: boolean;
+    used_raw_scan?: boolean;
+    resolver_source?: string | null;
+  };
 };
 
-type BriefEvidenceRow = {
+type PacketExplanation = {
+  what_the_packet_says?: string;
+  why_this_agency?: string;
+  what_to_cite?: string[];
+  what_not_to_claim?: string[];
+  audit?: {
+    used_packet_only?: boolean;
+    used_raw_scan?: boolean;
+    used_private_data?: boolean;
+  };
+};
+
+type EvidenceRow = {
+  evidence_id?: string;
+  entity_type?: string;
+  source_id?: string;
+  row_number?: number | string;
+  claim?: string;
+  display_claim?: string;
+  relevance_label?: string;
+  proof_note?: string;
+  claim_class?: string;
+  match_confidence?: number;
+  match_method?: string;
+  allowed_claims?: string[];
+  disallowed_claims?: string[];
+};
+
+type LegacyEvidenceRow = {
   kind?: string;
   label?: string;
   source?: string;
@@ -71,42 +97,12 @@ type BriefEvidenceRow = {
   match_reason?: string;
 };
 
-type Claim = {
-  text?: string;
-  claim_type?: string;
-  citation_ids?: string[];
-  support_level?: string;
-};
-
-type Citation = {
-  id?: string;
-  source_id?: string | null;
-  source_tier?: number;
-  evidence_type?: string;
-  raw_file?: string | null;
-  row_number?: number | string | null;
-};
-
-type EvidenceEntry = {
-  text?: string;
-  match_strength?: string;
-  match_reason?: string;
-  fields?: Record<string, string | number | null | undefined>;
-  citation?: {
-    source_id?: string | null;
-    raw_file?: string | null;
-    row_number?: number | string | null;
-  };
-};
-
-type IssueTrack = {
-  issue_key?: string;
-  title?: string;
-  summary?: string;
-  complaint_example_ids?: string[];
-  support_types?: string[];
-  gap?: string | null;
-};
+const EXAMPLE_QUERIES = [
+  "Bellandur streetlight not working",
+  "Kadubeesanahalli sewage overflowing",
+  "Whitefield recurring pothole",
+  "Bellandur power outage"
+];
 
 export function AskCivicRecord({
   initialQuery = "",
@@ -117,31 +113,45 @@ export function AskCivicRecord({
 }) {
   const [query, setQuery] = useState(initialQuery);
   const [submittedQuery, setSubmittedQuery] = useState(initialQuery.trim());
-  const [answer, setAnswer] = useState<RagAnswer | null>(null);
+  const [packet, setPacket] = useState<CivicPacket | null>(null);
+  const [explanation, setExplanation] = useState<PacketExplanation | null>(null);
   const [error, setError] = useState("");
+  const [explanationError, setExplanationError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isExplaining, setIsExplaining] = useState(false);
+  const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null);
+  const [locationStatus, setLocationStatus] = useState("");
+  const [copied, setCopied] = useState(false);
   const hasQuery = query.trim().length > 0;
   const apiBase =
     process.env.NEXT_PUBLIC_CIVIC_API_BASE ??
     (process.env.NODE_ENV === "development" ? "http://127.0.0.1:8017" : "");
 
-  async function askBackend(nextQuery: string) {
+  async function buildPacket(nextQuery: string) {
     const q = nextQuery.trim();
     if (!q) return;
     setIsLoading(true);
     setError("");
+    setExplanation(null);
+    setExplanationError("");
+    setCopied(false);
     try {
-      const response = await fetch(`${apiBase}/rag/ask?q=${encodeURIComponent(q)}`, {
+      const params = new URLSearchParams({ q });
+      if (location) {
+        params.set("lat", String(location.lat));
+        params.set("lng", String(location.lng));
+      }
+      const response = await fetch(`${apiBase}/packets/build?${params.toString()}`, {
         headers: { Accept: "application/json" }
       });
       if (!response.ok) {
         throw new Error(`Request failed with ${response.status}`);
       }
-      setAnswer((await response.json()) as RagAnswer);
+      setPacket((await response.json()) as CivicPacket);
       setSubmittedQuery(q);
     } catch (caught) {
-      setAnswer(null);
-      setError(caught instanceof Error ? caught.message : "Could not ask the civic record.");
+      setPacket(null);
+      setError(caught instanceof Error ? caught.message : "Could not build a civic action packet.");
     } finally {
       setIsLoading(false);
     }
@@ -149,226 +159,490 @@ export function AskCivicRecord({
 
   useEffect(() => {
     if (initialQuery.trim()) {
-      void askBackend(initialQuery);
+      void buildPacket(initialQuery);
     }
   }, [initialQuery]);
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    void askBackend(query);
+    void buildPacket(query);
+  }
+
+  function requestLocation() {
+    if (!navigator.geolocation) {
+      setLocationStatus("Location is not available in this browser.");
+      return;
+    }
+    setLocationStatus("Requesting location...");
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setLocation({
+          lat: Number(position.coords.latitude.toFixed(6)),
+          lng: Number(position.coords.longitude.toFixed(6))
+        });
+        setLocationStatus("Pin added for official ward lookup.");
+      },
+      () => setLocationStatus("Location was not added."),
+      { enableHighAccuracy: true, timeout: 8000 }
+    );
+  }
+
+  async function copyMessage() {
+    const message = packet?.action?.message_draft;
+    if (!message) return;
+    await navigator.clipboard.writeText(message);
+    setCopied(true);
+  }
+
+  async function explainPacket() {
+    if (!packet) return;
+    setIsExplaining(true);
+    setExplanationError("");
+    try {
+      const response = await fetch(`${apiBase}/packets/explain`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          packet,
+          question: "Explain why this agency was chosen and what evidence can be cited."
+        })
+      });
+      if (!response.ok) {
+        throw new Error(`Explanation failed with ${response.status}`);
+      }
+      setExplanation((await response.json()) as PacketExplanation);
+    } catch (caught) {
+      setExplanation(null);
+      setExplanationError(caught instanceof Error ? caught.message : "Could not explain this packet.");
+    } finally {
+      setIsExplaining(false);
+    }
   }
 
   return (
-    <section className="mx-auto flex min-h-[calc(100vh-2rem)] w-full max-w-3xl flex-col justify-center gap-5">
-      <form action="/ask" onSubmit={onSubmit}>
-        <input
-          name="q"
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder="Ask anything"
-          autoFocus={autoFocus}
-          className="w-full border border-line bg-paper px-5 py-4 text-lg text-ink outline-none transition focus:border-ink"
-        />
-      </form>
+    <section className="mx-auto flex min-h-[calc(100vh-2rem)] w-full max-w-5xl items-center px-0 py-4 sm:px-4">
+      <div className="w-full border border-line bg-paper shadow-soft">
+        <div className="flex items-center justify-between border-b border-line px-4 py-3 sm:px-6">
+          <div>
+            <p className="text-sm font-semibold text-ink">Bengaluru Civic Truth Engine</p>
+            <p className="text-xs text-muted">Civic action packet</p>
+          </div>
+          <div className="flex items-center gap-2 text-xs text-muted">
+            <ShieldCheck aria-hidden className="h-4 w-4 text-civic" />
+            <span>Public-safe</span>
+          </div>
+        </div>
 
-      {isLoading && <p className="text-base leading-7 text-muted">Searching the civic record...</p>}
+        <form className="border-b border-line px-4 py-4 sm:px-6" action="/ask" onSubmit={onSubmit}>
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <textarea
+              name="q"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Describe the issue and place..."
+              autoFocus={autoFocus}
+              rows={2}
+              className="min-h-20 flex-1 resize-none border border-line bg-white px-4 py-3 text-base leading-6 text-ink outline-none transition focus:border-ink"
+            />
+            <div className="flex gap-2 sm:flex-col">
+              <button
+                type="submit"
+                disabled={!hasQuery || isLoading}
+                className="inline-flex h-11 flex-1 items-center justify-center gap-2 bg-ink px-4 text-sm font-medium text-white transition hover:bg-civic disabled:cursor-not-allowed disabled:bg-line disabled:text-muted sm:flex-none"
+              >
+                {isLoading ? <Loader2 aria-hidden className="h-4 w-4 animate-spin" /> : <Search aria-hidden className="h-4 w-4" />}
+                Build
+              </button>
+              <button
+                type="button"
+                onClick={requestLocation}
+                className="inline-flex h-11 flex-1 items-center justify-center gap-2 border border-line px-4 text-sm font-medium text-ink transition hover:border-civic hover:text-civic sm:flex-none"
+              >
+                <LocateFixed aria-hidden className="h-4 w-4" />
+                Pin
+              </button>
+            </div>
+          </div>
 
-      {error && <p className="text-base leading-7 text-muted">{error}</p>}
+          <div className="mt-3 flex flex-wrap gap-2">
+            {EXAMPLE_QUERIES.map((example) => (
+              <button
+                key={example}
+                type="button"
+                onClick={() => {
+                  setQuery(example);
+                  void buildPacket(example);
+                }}
+                className="border border-line px-2.5 py-1 text-xs text-muted transition hover:border-civic hover:text-ink"
+              >
+                {example}
+              </button>
+            ))}
+          </div>
 
-      {hasQuery && answer && !isLoading && submittedQuery === query.trim() && (
-        <CivicAnswer answer={answer} />
-      )}
+          {locationStatus ? <p className="mt-2 text-xs text-muted">{locationStatus}</p> : null}
+        </form>
+
+        <div className="px-4 py-5 sm:px-6 sm:py-6">
+          {isLoading ? <LoadingState /> : null}
+          {error ? <p className="text-sm leading-6 text-muted">{error}</p> : null}
+          {hasQuery && packet && !isLoading && submittedQuery === query.trim() ? (
+            <PacketCaseDesk
+              packet={packet}
+              explanation={explanation}
+              explanationError={explanationError}
+              isExplaining={isExplaining}
+              onCopyMessage={copyMessage}
+              onExplainPacket={explainPacket}
+              copied={copied}
+            />
+          ) : null}
+          {!packet && !isLoading && !error ? <EmptyState /> : null}
+        </div>
+      </div>
     </section>
   );
 }
 
-function CivicAnswer({ answer }: { answer: RagAnswer }) {
-  const triage = answer.civic_triage;
-  const brief = answer.answer_brief;
-  const memory = triage?.complaint_memory;
-  const library = triage?.evidence_library;
-
-  if (!triage) {
-    return (
-      <div className="text-base leading-7 text-ink">
-        <p>{answer.generated_answer}</p>
-      </div>
-    );
-  }
-
-  if (brief) {
-    return (
-      <div className="space-y-6 text-base leading-7 text-ink">
-        <section className="space-y-2">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">Short answer</h2>
-          <p>{brief.short_answer ?? answer.generated_answer}</p>
-        </section>
-
-        <BriefList title="What records show" items={brief.records_show ?? []} />
-        <BriefList title="What you can cite" items={brief.what_to_cite ?? []} />
-        <BriefList title="Who to contact" items={brief.who_to_contact ?? []} />
-        <BriefList title="Related works and payments" items={brief.related_works ?? []} />
-        <BriefList title="What this does not prove" items={brief.limits ?? []} muted />
-
-        {brief.evidence_table?.length ? (
-          <section className="space-y-2">
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">Evidence table</h2>
-            <ul className="space-y-3">
-              {brief.evidence_table.slice(0, 6).map((row, index) => (
-                <li key={`${row.source ?? "evidence"}-${index}`} className="border-l border-line pl-4 text-sm leading-6">
-                  <p className="font-medium text-ink">
-                    {row.kind ?? "Evidence"} · {row.match_strength ?? "source-backed"}
-                  </p>
-                  <p>{row.label}</p>
-                  {row.match_reason ? <p className="text-muted">{row.match_reason}</p> : null}
-                  {row.source ? <p className="text-muted">{row.source}</p> : null}
-                </li>
-              ))}
-            </ul>
-          </section>
-        ) : null}
-      </div>
-    );
-  }
+function PacketCaseDesk({
+  packet,
+  explanation,
+  explanationError,
+  isExplaining,
+  onCopyMessage,
+  onExplainPacket,
+  copied
+}: {
+  packet: CivicPacket;
+  explanation: PacketExplanation | null;
+  explanationError: string;
+  isExplaining: boolean;
+  onCopyMessage: () => void;
+  onExplainPacket: () => void;
+  copied: boolean;
+}) {
+  const placeLabel = formatPlace(packet);
+  const owner = packet.responsibility?.primary_agency?.name ?? "Ownership unresolved";
+  const evidenceRows = useMemo(() => normalizedEvidenceRows(packet), [packet]);
+  const notToClaim = packet.action?.what_not_to_claim?.length ? packet.action.what_not_to_claim : packet.limits ?? [];
+  const [showMoreEvidence, setShowMoreEvidence] = useState(false);
 
   return (
-    <div className="space-y-5 text-base leading-7 text-ink">
-      <p>{triage.civic_interpretation ?? answer.generated_answer}</p>
+    <div className="space-y-6 text-ink">
+      <section>
+        <div className="mb-3 flex flex-wrap items-center gap-2">
+          <StatusPill value={packet.packet_status ?? "unknown"} />
+          <StatusPill value={`Evidence: ${formatEvidenceStrength(packet.evidence_strength)}`} quiet />
+          <StatusPill value="Facts: public records" quiet />
+          <StatusPill value={explanation ? "AI: explains packet only" : "AI: optional"} quiet />
+        </div>
 
-      {triage.who_to_contact?.length ? (
-        <section className="space-y-2">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">Who to contact / call path</h2>
-          <ul className="list-disc space-y-1 pl-5">
-            {triage.who_to_contact.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </section>
-      ) : null}
-
-      {triage.issue_tracks?.length && triage.issue_tracks.length > 1 ? (
-        <section className="space-y-2">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">Issue tracks</h2>
-          <ul className="list-disc space-y-1 pl-5">
-            {triage.issue_tracks.map((track) => (
-              <li key={track.issue_key ?? track.title}>
-                <span className="font-medium">{track.title ?? track.issue_key}:</span> {track.summary}
-                {track.complaint_example_ids?.length ? ` Examples: ${track.complaint_example_ids.join(", ")}.` : ""}
-                {track.gap ? ` ${track.gap}` : ""}
-              </li>
-            ))}
-          </ul>
-        </section>
-      ) : null}
-
-      {triage.what_to_do_next?.length ? (
-        <section className="space-y-2">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">What to say when you call</h2>
-          <ul className="list-disc space-y-1 pl-5">
-            {triage.what_to_do_next.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </section>
-      ) : null}
-
-      {memory ? (
-        <section className="space-y-2">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">Complaint memory</h2>
-          <p>
-            {formatCount(memory.count)} matching complaint records
-            {memory.latest_record_date ? `; latest record ${memory.latest_record_date}` : ""}.
-          </p>
-          {memory.example_ids?.length ? (
-            <p className="text-sm leading-6 text-muted">Example IDs: {memory.example_ids.join(", ")}</p>
-          ) : null}
-          {memory.scope_note ? (
-            <p className="text-sm leading-6 text-muted">{memory.scope_note}</p>
-          ) : null}
-          {memory.status_breakdown ? (
-            <p className="text-sm leading-6 text-muted">Status breakdown: {formatStatusBreakdown(memory.status_breakdown)}</p>
-          ) : null}
-        </section>
-      ) : null}
-
-      <section className="space-y-3">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">Public evidence library</h2>
-        <EvidenceList title="Related public works and spending" entries={[...(library?.work_payments ?? []), ...(library?.tenders ?? [])]} />
-        <EvidenceList title="Complaint examples" entries={library?.complaints ?? []} />
-      </section>
-
-      <section className="space-y-2 text-sm leading-6 text-muted">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">Neutrality note</h2>
-        <p>
-          These records do not prove corruption, negligence, or the exact cause of this specific issue. They show the
-          public record around the issue so you can inspect it and draw your own conclusion.
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <h1 className="text-xl font-semibold tracking-normal text-ink sm:text-2xl">Case summary</h1>
+          <button
+            type="button"
+            onClick={onExplainPacket}
+            disabled={isExplaining}
+            className="inline-flex h-9 items-center justify-center gap-2 border border-line px-3 text-xs font-medium text-ink transition hover:border-civic hover:text-civic disabled:cursor-not-allowed disabled:text-muted"
+          >
+            {isExplaining ? <Loader2 aria-hidden className="h-3.5 w-3.5 animate-spin" /> : <FileText aria-hidden className="h-3.5 w-3.5" />}
+            {isExplaining ? "Explaining" : "Why this answer?"}
+          </button>
+        </div>
+        <div className="mt-4 grid gap-x-6 gap-y-4 sm:grid-cols-2 lg:grid-cols-4">
+          <SummaryItem label="Issue" value={formatIssue(packet)} />
+          <SummaryItem label="Place" value={placeLabel} />
+          <SummaryItem label="Owner" value={owner} />
+          <SummaryItem label="Ward source" value={formatSourceLabel(packet.place?.source ?? packet.audit?.resolver_source)} />
+        </div>
+        {packet.responsibility?.ownership_caveat ? (
+          <p className="mt-4 max-w-3xl text-sm leading-6 text-muted">{packet.responsibility.ownership_caveat}</p>
+        ) : null}
+        <p className="mt-3 max-w-3xl text-xs leading-5 text-muted">
+          Facts come from public records and resolver data; AI only explains this packet.
         </p>
-        {triage.cause_boundary ? <p>{triage.cause_boundary}</p> : null}
-        {answer.coverage_gaps?.length ? <p>{answer.coverage_gaps.join(" ")}</p> : null}
-        {answer.freshness?.latest_record_date ? <p>Latest cited record: {answer.freshness.latest_record_date}</p> : null}
-        {answer.retrieval_trace ? (
-          <p>
-            Retrieval: {answer.retrieval_trace.retrieval_backend ?? "unknown"} ·{" "}
-            {answer.retrieval_trace.retrieval_snapshot_id ?? "no snapshot"}
+        {explanationError ? <p className="mt-3 text-sm leading-6 text-muted">{explanationError}</p> : null}
+      </section>
+
+      {explanation ? (
+        <>
+          <Divider />
+          <section>
+            <h2 className="section-title">Why this route</h2>
+            <div className="mt-3 grid gap-4 lg:grid-cols-2">
+              <div className="border-l border-line pl-4">
+                <p className="text-xs font-medium uppercase text-muted">Packet reading</p>
+                <p className="mt-1 text-sm leading-6 text-ink">{explanation.what_the_packet_says}</p>
+              </div>
+              <div className="border-l border-line pl-4">
+                <p className="text-xs font-medium uppercase text-muted">Agency choice</p>
+                <p className="mt-1 text-sm leading-6 text-ink">{explanation.why_this_agency}</p>
+              </div>
+            </div>
+            {explanation.what_to_cite?.length ? (
+              <p className="mt-4 text-sm leading-6 text-muted">
+                Cite: {explanation.what_to_cite.slice(0, 2).join(" ")}
+              </p>
+            ) : null}
+          </section>
+        </>
+      ) : null}
+
+      <Divider />
+
+      <section>
+        <h2 className="section-title">What to do next</h2>
+        <div className="mt-3 grid gap-4 lg:grid-cols-3">
+          <ActionStep number="1" title="Primary action" text={packet.action?.primary_action} />
+          <ActionStep number="2" title="Escalate" text={packet.action?.escalation_action} />
+          <ActionStep number="3" title="Records / RTI" text={packet.action?.legal_or_rti_action} />
+        </div>
+        {packet.action?.evidence_to_attach?.length ? (
+          <p className="mt-4 text-sm leading-6 text-muted">
+            Attach: {packet.action.evidence_to_attach.join(", ")}.
           </p>
         ) : null}
+      </section>
+
+      <Divider />
+
+      <section>
+        <div className="mb-3 flex items-center justify-between gap-3">
+          <div>
+            <h2 className="section-title">Best public evidence</h2>
+            <p className="mt-1 text-xs text-muted">{formatEvidenceSummary(packet, evidenceRows)}</p>
+          </div>
+        </div>
+        <EvidenceTable
+          rows={evidenceRows}
+          expanded={showMoreEvidence}
+          onToggleExpanded={() => setShowMoreEvidence((value) => !value)}
+        />
+      </section>
+
+      <Divider />
+
+      <section className="grid gap-6 lg:grid-cols-[1.3fr_0.7fr]">
+        <div>
+          <div className="mb-3 flex items-center justify-between gap-3">
+            <h2 className="section-title">Simple message</h2>
+            <button
+              type="button"
+              onClick={onCopyMessage}
+              disabled={!packet.action?.message_draft}
+              className="inline-flex h-9 items-center gap-2 border border-line px-3 text-xs font-medium text-ink transition hover:border-civic hover:text-civic disabled:cursor-not-allowed disabled:text-muted"
+            >
+              <Clipboard aria-hidden className="h-3.5 w-3.5" />
+              {copied ? "Copied" : "Copy"}
+            </button>
+          </div>
+          <p className="whitespace-pre-wrap border-l border-line pl-4 text-sm leading-6 text-ink">
+            {packet.action?.message_draft ?? "No message draft was generated for this packet."}
+          </p>
+        </div>
+
+        <div>
+          <h2 className="section-title">What not to claim</h2>
+          <ul className="mt-3 space-y-2 text-sm leading-6 text-muted">
+            {notToClaim.length ? (
+              notToClaim.slice(0, 5).map((item) => <li key={item}>- {item}</li>)
+            ) : (
+              <li>- Do not claim field resolution unless the packet has proof.</li>
+            )}
+          </ul>
+        </div>
       </section>
     </div>
   );
 }
 
-function EvidenceList({ title, entries }: { title: string; entries: EvidenceEntry[] }) {
-  if (!entries.length) return null;
-
+function EmptyState() {
   return (
-    <div className="space-y-2">
-      <h3 className="text-sm font-medium text-ink">{title}</h3>
-      <ul className="space-y-3">
-        {entries.slice(0, 4).map((entry, index) => (
-          <li key={`${title}-${index}`} className="border-l border-line pl-4 text-sm leading-6">
-            {entry.match_strength ? (
-              <p className="mb-1 font-medium text-ink">
-                {entry.match_strength}
-                {entry.match_reason ? ` · ${entry.match_reason}` : ""}
-              </p>
-            ) : null}
-            <p>{entry.text}</p>
-            {entry.citation?.source_id ? (
-              <p className="mt-1 text-muted">
-                {entry.citation.source_id}
-                {entry.citation.row_number ? ` row ${entry.citation.row_number}` : ""}
-              </p>
-            ) : null}
-          </li>
-        ))}
-      </ul>
+    <div className="py-10 text-sm leading-6 text-muted">
+      <p>Start with a civic issue and a place. The packet will show the case summary, next action, evidence, and proof limits.</p>
     </div>
   );
 }
 
-function BriefList({ title, items, muted = false }: { title: string; items: string[]; muted?: boolean }) {
-  if (!items.length) return null;
-
+function LoadingState() {
   return (
-    <section className="space-y-2">
-      <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">{title}</h2>
-      <ul className="list-disc space-y-1 pl-5">
-        {items.map((item) => (
-          <li key={item} className={muted ? "text-muted" : undefined}>
-            {item}
-          </li>
-        ))}
-      </ul>
-    </section>
+    <div className="flex items-center gap-3 py-10 text-sm text-muted">
+      <Loader2 aria-hidden className="h-4 w-4 animate-spin text-civic" />
+      Building a public-safe action packet...
+    </div>
   );
 }
 
-function formatCount(value: number | undefined) {
-  return typeof value === "number" ? value.toLocaleString("en-IN") : "0";
+function SummaryItem({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="min-w-0">
+      <p className="text-xs font-medium uppercase text-muted">{label}</p>
+      <p className="mt-1 break-words text-sm font-medium leading-6 text-ink">{value}</p>
+    </div>
+  );
 }
 
-function formatStatusBreakdown(value: Record<string, number>) {
-  return Object.entries(value)
-    .map(([status, count]) => `${status}: ${count}`)
-    .join(", ");
+function ActionStep({ number, title, text }: { number: string; title: string; text?: string }) {
+  return (
+    <div className="border-l border-line pl-4">
+      <p className="text-xs font-medium uppercase text-muted">{number} / {title}</p>
+      <p className="mt-1 text-sm leading-6 text-ink">{text ?? "No action was generated."}</p>
+    </div>
+  );
+}
+
+function EvidenceTable({
+  rows,
+  expanded,
+  onToggleExpanded
+}: {
+  rows: EvidenceRow[];
+  expanded: boolean;
+  onToggleExpanded: () => void;
+}) {
+  if (!rows.length) {
+    return (
+      <p className="border-l border-line pl-4 text-sm leading-6 text-muted">
+        No matching public work/payment row was found. Use the official channel and jurisdiction as the basis for filing.
+      </p>
+    );
+  }
+
+  const visibleRows = expanded ? rows.slice(0, 6) : rows.slice(0, 3);
+  const canExpand = rows.length > 3;
+
+  return (
+    <div>
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[720px] border-collapse text-left text-sm">
+          <thead>
+            <tr className="border-b border-line text-xs uppercase text-muted">
+              <th className="py-2 pr-4 font-medium">Public record</th>
+              <th className="py-2 pr-4 font-medium">Type</th>
+              <th className="py-2 pr-4 font-medium">Match</th>
+              <th className="py-2 font-medium">What it supports</th>
+            </tr>
+          </thead>
+          <tbody>
+            {visibleRows.map((row, index) => (
+              <tr key={`${row.source_id ?? "evidence"}-${row.row_number ?? index}`} className="border-b border-line/70 align-top last:border-0">
+                <td className="py-3 pr-4 text-muted">
+                  <span className="block text-ink">{formatPublicSource(row.source_id)}</span>
+                  {row.row_number ? <span className="block text-xs">row {row.row_number}</span> : null}
+                </td>
+                <td className="py-3 pr-4 text-muted">{formatEntityType(row.entity_type)}</td>
+                <td className="py-3 pr-4 text-muted">{formatMatchLabel(row)}</td>
+                <td className="py-3 text-ink">
+                  <p className="leading-6">{row.display_claim ?? row.claim ?? "A public record exists."}</p>
+                  <p className="mt-1 text-xs leading-5 text-muted">
+                    {row.proof_note ?? row.disallowed_claims?.[0] ?? "Public context only; not proof of field resolution."}
+                  </p>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {canExpand ? (
+        <button
+          type="button"
+          onClick={onToggleExpanded}
+          className="mt-3 border border-line px-3 py-1.5 text-xs font-medium text-ink transition hover:border-civic hover:text-civic"
+        >
+          {expanded ? "Show top evidence" : "Show more evidence"}
+        </button>
+      ) : null}
+    </div>
+  );
+}
+
+function StatusPill({ value, quiet = false }: { value: string; quiet?: boolean }) {
+  return (
+    <span className={`border px-2.5 py-1 text-xs ${quiet ? "border-line text-muted" : "border-civic text-civic"}`}>
+      {value}
+    </span>
+  );
+}
+
+function Divider() {
+  return <div className="h-px w-full bg-line" />;
+}
+
+function normalizedEvidenceRows(packet: CivicPacket): EvidenceRow[] {
+  if (packet.evidence?.length) return packet.evidence;
+  return (packet.evidence_table ?? []).map((row, index) => ({
+    evidence_id: `legacy-${index}`,
+    entity_type: row.kind,
+    source_id: row.source,
+    claim: row.label,
+    claim_class: row.match_strength,
+    match_method: row.match_reason
+  }));
+}
+
+function formatIssue(packet: CivicPacket) {
+  return packet.issue?.type ? titleCase(packet.issue.type) : "Unresolved civic issue";
+}
+
+function formatPlace(packet: CivicPacket) {
+  const place = packet.place;
+  if (!place) return "Place unresolved";
+  const ward = place.ward_name ? `${place.ward_number ? `${place.ward_number} ` : ""}${place.ward_name}` : place.normalized_place;
+  return [ward, place.corporation].filter(Boolean).join(" / ") || "Place unresolved";
+}
+
+function formatEvidenceStrength(value: CivicPacket["evidence_strength"]) {
+  if (!value) return "none";
+  return value.replaceAll("_", " ");
+}
+
+function formatEvidenceSummary(packet: CivicPacket, rows: EvidenceRow[]) {
+  if (!rows.length) return "No public work/payment row matched.";
+  const total = packet.evidence_summary?.total_matches ?? rows.length;
+  const shown = Math.min(packet.evidence_summary?.shown_count ?? 3, total);
+  if (total <= shown) return `Showing ${total} matched public row${total === 1 ? "" : "s"}.`;
+  return `Showing top ${shown} of ${total} matched public rows.`;
+}
+
+function formatSourceLabel(source?: string | null) {
+  const value = (source ?? "").toLowerCase();
+  if (!value) return "Unresolved";
+  if (value.includes("xyinfo")) return "Official BBMP/GBA coordinate lookup";
+  if (value.includes("offline") && value.includes("ward")) return "Offline public ward data";
+  if (value.includes("alias")) return "Locality hint";
+  return titleCase(source ?? "public source");
+}
+
+function formatPublicSource(source?: string) {
+  const value = (source ?? "").toLowerCase();
+  if (value.includes("work_orders")) return "BBMP/GBA work orders";
+  if (value.includes("bescom")) return "BESCOM public channel";
+  if (value.includes("bwssb")) return "BWSSB public channel";
+  if (value.includes("btp")) return "BTP public source";
+  return source ? titleCase(source) : "Public source";
+}
+
+function formatEntityType(value?: string) {
+  if (!value) return "Evidence";
+  return titleCase(value);
+}
+
+function formatMatchLabel(row: EvidenceRow) {
+  if (row.relevance_label) return row.relevance_label;
+  const method = (row.match_method ?? "").toLowerCase();
+  if (method.includes("ward") && method.includes("issue")) return "Ward + issue match";
+  if (method.includes("place") && method.includes("issue")) return "Strong locality + issue match";
+  if (typeof row.match_confidence === "number" && row.match_confidence >= 0.8) return "Strong public-record match";
+  return row.claim_class ? titleCase(row.claim_class) : "Source-backed";
+}
+
+function titleCase(value: string) {
+  return value
+    .split(/[_\s-]+/)
+    .filter(Boolean)
+    .map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`)
+    .join(" ");
 }

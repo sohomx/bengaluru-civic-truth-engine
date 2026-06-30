@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class WebRagSurfaceTests(unittest.TestCase):
-    def test_home_page_is_simple_rag_entrypoint(self):
+    def test_home_page_is_simple_packet_entrypoint(self):
         page = (ROOT / "web" / "src" / "app" / "page.tsx").read_text()
 
         self.assertIn("AskCivicRecord", page)
@@ -32,36 +32,39 @@ class WebRagSurfaceTests(unittest.TestCase):
         self.assertNotIn("Methodology", page)
         self.assertNotIn("Known gaps", page)
 
-    def test_ask_component_is_only_question_box_and_plain_answer(self):
+    def test_ask_component_is_packet_first_case_desk(self):
         component = (ROOT / "web" / "src" / "components" / "ask-civic-record.tsx").read_text()
 
-        self.assertIn("<input", component)
-        self.assertIn("generated_answer", component)
-        self.assertIn("answer_brief", component)
-        self.assertIn("Short answer", component)
-        self.assertIn("What records show", component)
-        self.assertIn("What you can cite", component)
-        self.assertIn("Who to contact", component)
-        self.assertIn("Related works and payments", component)
-        self.assertIn("What this does not prove", component)
-        self.assertIn("Evidence table", component)
-        self.assertIn("claims", component)
-        self.assertIn("citations", component)
-        self.assertIn("retrieval_trace", component)
-        self.assertNotIn("Answer contract", component)
-        self.assertNotIn("Source-backed claims", component)
-        self.assertIn("civic_triage", component)
-        self.assertIn("civic_interpretation", component)
-        self.assertIn("who_to_contact", component)
-        self.assertIn("what_to_do_next", component)
-        self.assertIn("evidence_library", component)
-        self.assertIn("Public evidence library", component)
-        self.assertIn("Related public works and spending", component)
-        self.assertIn("Neutrality note", component)
+        self.assertIn("<textarea", component)
+        self.assertIn("CivicPacket", component)
+        self.assertIn("Case summary", component)
+        self.assertIn("What to do next", component)
+        self.assertIn("Best public evidence", component)
+        self.assertIn("Simple message", component)
+        self.assertIn("What not to claim", component)
+        self.assertIn("Facts: public records", component)
+        self.assertIn("AI: explains packet only", component)
+        self.assertIn("Why this answer?", component)
+        self.assertIn("Show more evidence", component)
+        self.assertIn("/packets/explain", component)
+        self.assertIn("primary_action", component)
+        self.assertIn("escalation_action", component)
+        self.assertIn("legal_or_rti_action", component)
+        self.assertIn("evidence_summary", component)
+        self.assertIn("evidence_strength", component)
+        self.assertIn("used_rag", component)
         self.assertIn("fetch(", component)
-        self.assertIn("/rag/ask", component)
+        self.assertIn("/packets/build", component)
         self.assertIn("NEXT_PUBLIC_CIVIC_API_BASE", component)
         self.assertIn("127.0.0.1:8017", component)
+        self.assertIn("lucide-react", component)
+        self.assertIn("formatSourceLabel", component)
+        self.assertIn("formatMatchLabel", component)
+        self.assertNotIn("offline_normalized_wards", component)
+        self.assertNotIn("place_text_and_issue_terms", component)
+        self.assertNotIn("generated_answer", component)
+        self.assertNotIn("answer_brief", component)
+        self.assertNotIn("RAG: ", component)
         self.assertNotIn("buildRagAnswer", component)
         self.assertNotIn("SearchIndexEntry", component)
         self.assertNotIn("getRagExamples", component)
@@ -71,16 +74,16 @@ class WebRagSurfaceTests(unittest.TestCase):
         self.assertNotIn("Citations", component)
         self.assertNotIn("Source IDs retrieved", component)
         self.assertNotIn("Inspect retrieved record", component)
-        self.assertNotIn("lucide-react", component)
 
     def test_static_client_side_rag_helper_is_removed(self):
         self.assertFalse((ROOT / "web" / "src" / "lib" / "rag.ts").exists())
 
-    def test_next_rewrites_rag_path_to_backend(self):
+    def test_next_rewrites_packet_and_rag_paths_to_backend(self):
         config = (ROOT / "web" / "next.config.mjs").read_text()
 
         self.assertIn("async rewrites()", config)
         self.assertIn("/rag/:path*", config)
+        self.assertIn("/packets/:path*", config)
         self.assertIn("CIVIC_API_BASE", config)
 
     def test_api_allows_local_frontend_cors(self):
@@ -88,3 +91,5 @@ class WebRagSurfaceTests(unittest.TestCase):
 
         self.assertIn("CORSMiddleware", app)
         self.assertIn("127.0.0.1:3017", app)
+        self.assertIn('@app.get("/packets/build")', app)
+        self.assertIn('@app.post("/packets/explain")', app)

@@ -52,14 +52,16 @@ def build_packet(
     rows = evidence_rows(evidence_matches)
     citations = build_citations(jurisdiction, evidence_matches, channel_matches, contact_matches)
     claims = build_claims(route, jurisdiction, evidence_matches, channel_matches, contact_matches)
-    limits = _limits(route, jurisdiction, rows)
+    specificity = _evidence_specificity(q, route, rows)
+    limits = _limits(route, jurisdiction, rows, specificity=specificity)
     contacts = _contact_text(channel_matches, contact_matches, route)
-    what_to_cite = [row["text"] for row in rows[:3]] or [
+    what_to_cite = [row.get("display_claim") or row["text"] for row in rows[:3]] or [
         "Use the jurisdiction and official filing channel; no row-level work/payment evidence matched yet."
     ]
     normalized_place = jurisdiction.get("normalized_ward_name") or first_place_guess(q)
-    action = _action(route, jurisdiction, contacts, what_to_cite, limits)
+    action = _action(route, jurisdiction, contacts, what_to_cite, limits, has_public_rows=bool(rows))
     evidence_strength = _evidence_strength(jurisdiction, rows)
+    evidence_summary = _evidence_summary(rows, specificity=specificity)
     packet = {
         "schema_version": 3,
         "compatibility_schema_version": 2,
@@ -72,12 +74,14 @@ def build_packet(
         "responsibility": _responsibility(route),
         "service_request": _service_request(route),
         "evidence": action_evidence(evidence_matches),
+        "evidence_summary": evidence_summary,
         "evidence_strength": evidence_strength,
         "action": action,
         "audit": {
             "used_rag": False,
             "used_raw_scan": False,
             "resolver_source": jurisdiction.get("source"),
+            "total_evidence_matches": len(rows),
             "matcher_versions": {"evidence_matcher": "v2", "issue_router": "v2"},
         },
         "question": q,
@@ -92,7 +96,7 @@ def build_packet(
         "what_to_cite": what_to_cite,
         "who_to_contact": contacts,
         "what_to_do_next": _what_to_do_next(route, jurisdiction),
-        "related_works": [row["text"] for row in rows[:4]] or ["No matching normalized work/payment rows were found."],
+        "related_works": [row.get("display_claim") or row["text"] for row in rows[:4]] or ["No matching normalized work/payment rows were found."],
         "limits": limits,
         "evidence_table": rows,
         "claims": claims,
@@ -190,8 +194,9 @@ def _insufficient_packet(
         "responsibility": _responsibility(route),
         "service_request": _service_request(route),
         "evidence": [],
+        "evidence_summary": _evidence_summary([], specificity="none"),
         "evidence_strength": _evidence_strength(jurisdiction, []),
-        "action": _action(route, jurisdiction, _contact_text([], [], route), [], limits),
+        "action": _action(route, jurisdiction, _contact_text([], [], route), [], limits, has_public_rows=False),
         "audit": {
             "used_rag": False,
             "used_raw_scan": False,
@@ -232,6 +237,7 @@ def _insufficient_packet(
 def _issue(route: dict[str, Any], query: str) -> dict[str, Any]:
     return {
         "type": route.get("issue_type"),
+        "display_type": _issue_display_type(route),
         "description": query,
         "urgency": "safety" if route.get("issue_type") in {"power", "traffic"} else "unknown",
         "matched_terms": route.get("match_terms", []),
@@ -254,10 +260,12 @@ def _place(normalized_place: object, jurisdiction: dict[str, Any]) -> dict[str, 
 def _responsibility(route: dict[str, Any]) -> dict[str, Any]:
     return {
         "primary_agency": route.get("agency"),
+        "secondary_agencies": route.get("secondary_agencies", []),
         "fallback_agency": {"agency_id": "gba", "name": "Greater Bengaluru Authority / local city corporation"}
         if route.get("issue_type") in {"streetlight", "garbage"}
         else None,
         "ownership_caveat": " ".join(str(item) for item in route.get("proof_limitations", [])),
+        "dual_path_caveat": route.get("dual_path_caveat") or "",
     }
 
 
@@ -277,10 +285,12 @@ def _action(
     contacts: list[str],
     what_to_cite: list[str],
     limits: list[str],
+    *,
+    has_public_rows: bool,
 ) -> dict[str, Any]:
     evidence = route.get("required_evidence") if isinstance(route.get("required_evidence"), list) else []
     what_not_to_claim = _what_not_to_claim(route, limits)
-    message = _message_draft(route, jurisdiction, evidence, what_to_cite)
+    message = _message_draft(route, jurisdiction, evidence, what_to_cite, has_public_rows=has_public_rows)
     return {
         "primary_action": _primary_action(route, jurisdiction),
         "escalation_action": _escalation_action(route, contacts),
@@ -298,22 +308,31 @@ def _message_draft(
     jurisdiction: dict[str, Any],
     required_evidence: list[Any],
     what_to_cite: list[str],
+    *,
+    has_public_rows: bool,
 ) -> str:
     agency = route.get("agency") if isinstance(route.get("agency"), dict) else {}
     place = jurisdiction.get("ward_name") or "this location"
+    issue_label = _issue_display_type(route)
     pieces = [
-        f"Hello, I want to report a {route.get('issue_type')} issue at {place}.",
-        "This appears recurring or unresolved from the citizen side.",
+        f"Hello, I want to report a {issue_label} at {place}.",
     ]
     if jurisdiction.get("ward_number"):
-        pieces.append(f"Ward/corporation context: {jurisdiction.get('ward_number')} {jurisdiction.get('ward_name')} / {jurisdiction.get('corporation') or 'unknown corporation'}.")
+        pieces.append(f"Ward/corporation: {jurisdiction.get('ward_number')} {jurisdiction.get('ward_name')} / {jurisdiction.get('corporation') or 'unknown corporation'}.")
     if required_evidence:
-        pieces.append("I can share: " + ", ".join(str(item) for item in required_evidence[:4]) + ".")
-    if what_to_cite:
-        pieces.append("Relevant public context, not proof of field resolution: " + str(what_to_cite[0]))
+        pieces.append("I can share photos, pin/landmark, date/time, and recurrence details.")
+    if has_public_rows:
+        pieces.append("For public context: I found public work/payment rows that may help frame the issue; they are not proof of field resolution.")
+    else:
+        pieces.append("I did not find matching public work/payment rows for this exact issue yet.")
     if route.get("issue_type") in {"water_sewage", "power"}:
         pieces.append("I will share account or private details only inside the official form, not in public messages.")
-    pieces.append(f"Please route this to {agency.get('name') or 'the responsible team'} and share the official complaint/reference number.")
+    if route.get("secondary_agencies"):
+        pieces.append(
+            "Please route the obstruction or traffic-safety part to Bengaluru Traffic Police, and the digging or repair part to GBA/BBMP; share the official complaint/reference numbers."
+        )
+    else:
+        pieces.append(f"Please route this to {agency.get('name') or 'the responsible team'} and share the official complaint/reference number.")
     return " ".join(pieces)
 
 
@@ -329,6 +348,11 @@ def _primary_action(route: dict[str, Any], jurisdiction: dict[str, Any]) -> str:
     if issue_type == "streetlight":
         return f"File a civic streetlight maintenance complaint for {place}; include pole number, photo, and landmark or pin."
     if issue_type == "traffic":
+        if route.get("secondary_agencies"):
+            return (
+                f"Use BTP for the immediate obstruction or traffic-safety issue at {place}; "
+                "also file a GBA/BBMP civic complaint for the digging, road damage, or repair work."
+            )
         return f"Use Bengaluru Traffic Police channels for the traffic disruption at {place}; include time, location, and safe photo/video evidence."
     return f"File through the relevant GBA/BBMP civic channel for {place}; include photo, pin, date/time, and recurrence details."
 
@@ -370,9 +394,13 @@ def _evidence_strength(jurisdiction: dict[str, Any], rows: list[dict[str, str]])
     return "none"
 
 
-def _limits(route: dict[str, Any], jurisdiction: dict[str, Any], rows: list[dict[str, str]]) -> list[str]:
+def _limits(route: dict[str, Any], jurisdiction: dict[str, Any], rows: list[dict[str, str]], *, specificity: str) -> list[str]:
     limits = list(route.get("proof_limitations") or [])
-    if not rows:
+    if rows:
+        limits.append("Public work/payment rows are administrative context only; they are not proof of current field condition or field resolution.")
+        if specificity == "related":
+            limits.append("No exact footpath row matched; listed work/payment rows are related road or drain context only.")
+    else:
         limits.append("No normalized work/payment evidence matched this question.")
     if jurisdiction.get("caveat"):
         limits.append(str(jurisdiction["caveat"]))
@@ -401,13 +429,50 @@ def _short_answer(route: dict[str, Any], jurisdiction: dict[str, Any], has_evide
     agency = route.get("agency") if isinstance(route.get("agency"), dict) else {}
     place = jurisdiction.get("ward_name") or "the detected area"
     evidence_text = "I found normalized public evidence rows to cite." if has_evidence else "I did not find matching normalized work/payment rows yet."
-    return f"This looks like a {route.get('issue_type')} issue around {place}. Likely owner: {agency.get('name')}. {evidence_text}"
+    return f"This looks like a {_issue_display_type(route)} around {place}. Likely owner: {agency.get('name')}. {evidence_text}"
 
 
 def _records_show(rows: list[dict[str, str]], route: dict[str, Any]) -> list[str]:
     if rows:
-        return [row["text"] for row in rows[:3]]
+        return [row.get("display_claim") or row["text"] for row in rows[:3]]
     return [f"No normalized record proves the reported {route.get('issue_type')} condition yet."]
+
+
+def _evidence_specificity(query: str, route: dict[str, Any], rows: list[dict[str, str]]) -> str:
+    if not rows:
+        return "none"
+    text = query.lower()
+    labels = {str(row.get("relevance_label") or "").lower() for row in rows}
+    if "footpath" in text and not any("footpath" in label for label in labels):
+        return "related"
+    if any(label.startswith("direct") or "streetlight" in label for label in labels):
+        return "direct"
+    if route.get("issue_type") in {"garbage", "water_sewage", "power", "traffic"}:
+        return "none"
+    return "related"
+
+
+def _evidence_summary(rows: list[dict[str, str]], *, specificity: str) -> dict[str, Any]:
+    shown = min(3, len(rows))
+    return {
+        "shown_count": shown,
+        "total_matches": len(rows),
+        "hidden_count": max(0, len(rows) - shown),
+        "specificity": specificity,
+    }
+
+
+def _issue_display_type(route: dict[str, Any]) -> str:
+    issue_type = str(route.get("issue_type") or "civic")
+    return {
+        "water_sewage": "sewage/water issue",
+        "power": "power issue",
+        "traffic": "traffic or road-blocking issue",
+        "garbage": "garbage or dumping issue",
+        "streetlight": "streetlight issue",
+        "road": "road or footpath issue",
+        "civic": "civic issue",
+    }.get(issue_type, "civic issue")
 
 
 def _what_to_do_next(route: dict[str, Any], jurisdiction: dict[str, Any]) -> list[str]:

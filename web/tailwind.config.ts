@@ -6,10 +6,10 @@ const config: Config = {
     extend: {
       colors: {
         ink: "#171717",
-        paper: "#f7f4ef",
+        paper: "#fbfcfb",
         civic: "#0f766e",
-        line: "#ded8cc",
-        muted: "#6f6a61"
+        line: "#d8dedb",
+        muted: "#64706b"
       },
       fontFamily: {
         sans: ["var(--font-sans)", "Inter", "system-ui", "sans-serif"]

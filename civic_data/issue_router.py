@@ -52,7 +52,7 @@ def route_issue(query: str) -> dict[str, Any]:
             {"power", "outage", "transformer", "wire", "wires", "electrical", "sparks", "spark"},
         )
     if issue_type == "traffic":
-        return _route(
+        route = _route(
             issue_type,
             "btp",
             "traffic_violation_or_disruption",
@@ -62,6 +62,15 @@ def route_issue(query: str) -> dict[str, Any]:
             ["BTP advisories do not prove civic repair responsibility."],
             {"traffic", "blocked", "block", "diversion", "advisory"},
         )
+        if _has_roadwork_context(text):
+            route["secondary_agencies"] = [AGENCIES["gba"]]
+            route["dual_path_caveat"] = (
+                "Use BTP for the obstruction/traffic safety issue, and GBA/BBMP for the digging, road damage, or civic repair issue."
+            )
+            route["proof_limitations"].append(
+                "Traffic obstruction and civic road repair may have different responsible agencies."
+            )
+        return route
     if issue_type == "streetlight":
         return _route(
             issue_type,
@@ -109,7 +118,7 @@ def _route(
 
 
 def _issue_type(text: str) -> str:
-    if re.search(r"\b(garbage|trash|waste|swm|blackspot|dump|rubbish)\b", text):
+    if re.search(r"\b(garbage|trash|waste|swm|blackspot|dump|dumped|dumping|debris|rubbish)\b", text):
         return "garbage"
     if re.search(r"\b(sewage|sewer|water|manhole|bwssb|tanker|overflow)\b", text):
         return "water_sewage"
@@ -122,3 +131,7 @@ def _issue_type(text: str) -> str:
     if re.search(r"\b(potholes?|roads?|footpath|drain|stormwater|swd)\b", text):
         return "road"
     return "civic"
+
+
+def _has_roadwork_context(text: str) -> bool:
+    return bool(re.search(r"\b(digging|dug|excavation|road\s*work|roadwork|potholes?|road damage|repair)\b", text))

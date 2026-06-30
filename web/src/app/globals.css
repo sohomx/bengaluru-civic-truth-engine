@@ -11,16 +11,12 @@
 }
 
 html {
-  background: #f7f4ef;
+  background: #f4f6f5;
 }
 
 body {
   margin: 0;
-  background:
-    linear-gradient(90deg, rgba(23, 23, 23, 0.035) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(23, 23, 23, 0.035) 1px, transparent 1px),
-    #f7f4ef;
-  background-size: 42px 42px;
+  background: #f4f6f5;
   color: #171717;
 }
 
@@ -32,4 +28,10 @@ a {
 ::selection {
   background: #0f766e;
   color: #ffffff;
+}
+
+@layer components {
+  .section-title {
+    @apply text-sm font-semibold uppercase text-muted;
+  }
 }

@@ -14,6 +14,8 @@ class EvidenceMatch:
     match_method: str
     confidence: float
     explanation: str
+    relevance_label: str = "Public row match"
+    proof_note: str = "Public row; not proof of field resolution."
 
     @property
     def citation(self) -> dict[str, Any]:
@@ -40,11 +42,12 @@ def match_work_records(
         return []
 
     matches: list[EvidenceMatch] = []
+    intent = _query_intent(query, str(route.get("issue_type") or ""))
     for entity_type, record in records:
         text = normalize_name(" ".join(str(record.get(key, "")) for key in ("description", "payment_reference", "contractor")))
         text_terms = set(text.split())
-        issue_matches = not issue_terms or bool(issue_terms & text_terms)
-        if not issue_matches:
+        issue_match = _issue_match(intent, issue_terms, text, text_terms)
+        if not issue_match:
             continue
         place_text_matches = bool(place and place in text) or any(term in text for term in terms)
         record_ward_matches = bool(
@@ -53,26 +56,30 @@ def match_work_records(
             and ward_regime_compatible(str(jurisdiction.get("ward_regime") or ""), str(record.get("ward_regime") or ""))
         )
         if record_ward_matches:
+            label, confidence = _rank_work_match(intent, text, ward_match=True)
             matches.append(
                 EvidenceMatch(
                     entity_type=entity_type,
                     record=record,
                     match_method="ward_number_and_issue_terms",
-                    confidence=0.86,
+                    confidence=confidence,
                     explanation="Record ward number and issue terms matched the civic case.",
+                    relevance_label=label,
                 )
             )
         elif place_text_matches:
+            label, confidence = _rank_work_match(intent, text, ward_match=False)
             matches.append(
                 EvidenceMatch(
                     entity_type=entity_type,
                     record=record,
                     match_method="place_text_and_issue_terms",
-                    confidence=0.78,
+                    confidence=confidence,
                     explanation="Record text included the detected place and issue terms.",
+                    relevance_label=label,
                 )
             )
-    return matches[:20]
+    return sorted(matches, key=lambda item: item.confidence, reverse=True)[:20]
 
 
 def match_channels(route: dict[str, Any], channels: list[dict[str, Any]], entity_type: str) -> list[EvidenceMatch]:
@@ -118,6 +125,9 @@ def evidence_rows(matches: list[EvidenceMatch]) -> list[dict[str, str]]:
                 "claim_class": str(record.get("claim_class") or ""),
                 "match_method": match.match_method,
                 "match_confidence": f"{match.confidence:.2f}",
+                "relevance_label": match.relevance_label,
+                "display_claim": _display_claim(text),
+                "proof_note": match.proof_note,
             }
         )
     return rows
@@ -141,6 +151,9 @@ def action_evidence(matches: list[EvidenceMatch]) -> list[dict[str, Any]]:
                 "disallowed_claims": _string_list(record.get("disallowed_claims")),
                 "match_method": match.match_method,
                 "match_confidence": match.confidence,
+                "relevance_label": match.relevance_label,
+                "display_claim": _display_claim(text),
+                "proof_note": match.proof_note,
             }
         )
     return items
@@ -160,3 +173,88 @@ def ward_regime_compatible(jurisdiction_regime: str, record_regime: str) -> bool
 
 def _string_list(value: Any) -> list[str]:
     return [str(item) for item in value if isinstance(item, str)] if isinstance(value, list) else []
+
+
+def _query_intent(query: str, issue_type: str) -> str:
+    text = normalize_name(query)
+    if issue_type == "streetlight":
+        return "streetlight"
+    if issue_type == "road" and _has_any(text, ("footpath", "footpaths", "sidewalk", "side walk", "pavement")):
+        return "road_footpath"
+    if issue_type == "road" and _has_any(text, ("pothole", "potholes", "pot hole", "pot holes", "porthole", "portholes", "bad reach", "bad reaches")):
+        return "road_pothole"
+    if issue_type == "road" and _has_any(text, ("drain", "drains", "culvert", "culverts", "stormwater", "storm water", "swd")):
+        return "road_drain"
+    if issue_type == "road":
+        return "road_general"
+    return issue_type or "civic"
+
+
+def _issue_match(intent: str, issue_terms: set[str], text: str, text_terms: set[str]) -> bool:
+    if intent == "streetlight":
+        return _has_streetlight_context(text)
+    if intent == "road_footpath":
+        return _has_footpath_context(text) or _has_road_surface(text) or _has_drain_context(text)
+    if intent == "road_pothole":
+        return _has_direct_pothole(text) or _has_road_surface(text) or _has_drain_context(text)
+    if intent in {"road_drain", "road_general"}:
+        return bool(issue_terms & text_terms) or _has_road_surface(text) or _has_drain_context(text)
+    return not issue_terms or bool(issue_terms & text_terms)
+
+
+def _rank_work_match(intent: str, text: str, *, ward_match: bool) -> tuple[str, float]:
+    ward_boost = 0.06 if ward_match else 0.0
+    if intent == "road_pothole":
+        if _has_direct_pothole(text):
+            return "Direct pothole/road work", 0.88 + ward_boost
+        if _has_road_surface(text):
+            return "Related road work", 0.82 + ward_boost
+        if _has_drain_context(text):
+            return "Drain/road context", 0.66 + ward_boost
+    if intent == "road_drain" and _has_drain_context(text):
+        return "Drain/road context", 0.80 + ward_boost
+    if intent == "streetlight" and _has_streetlight_context(text):
+        return "Streetlight work", 0.82 + ward_boost
+    if intent == "road_footpath":
+        if _has_footpath_context(text):
+            return "Direct footpath work", 0.88 + ward_boost
+        if _has_road_surface(text):
+            return "Related road work", 0.70 + ward_boost
+        if _has_drain_context(text):
+            return "Drain/road context", 0.64 + ward_boost
+    if intent.startswith("road") and _has_road_surface(text):
+        return "Related road work", 0.78 + ward_boost
+    if ward_match:
+        return "Ward + issue match", 0.86
+    return "Strong locality + issue match", 0.78
+
+
+def _has_direct_pothole(text: str) -> bool:
+    return _has_any(text, ("pothole", "potholes", "pot hole", "pot holes", "porthole", "portholes", "bad reach", "bad reaches"))
+
+
+def _has_road_surface(text: str) -> bool:
+    return _has_any(text, ("road", "roads", "asphalt", "asphalting", "filling"))
+
+
+def _has_footpath_context(text: str) -> bool:
+    return _has_any(text, ("footpath", "footpaths", "sidewalk", "side walk", "pavement"))
+
+
+def _has_drain_context(text: str) -> bool:
+    return _has_any(text, ("drain", "drains", "culvert", "culverts", "stormwater", "storm water", "swd", "rcc drain"))
+
+
+def _has_streetlight_context(text: str) -> bool:
+    return _has_any(text, ("streetlight", "streetlights", "street light", "street lights", "light pole", "pole light", "lamp", "lamps"))
+
+
+def _has_any(text: str, needles: tuple[str, ...]) -> bool:
+    return any(needle in text for needle in needles)
+
+
+def _display_claim(text: str, limit: int = 180) -> str:
+    compact = " ".join(text.split())
+    if len(compact) <= limit:
+        return compact
+    return compact[: limit - 3].rstrip() + "..."
