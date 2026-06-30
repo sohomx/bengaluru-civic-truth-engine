@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
+from civic_data.anthropic_packet_client import AnthropicMessagesPacketClient
 from civic_data.llm_config import PacketRagConfig
 from civic_data.openai_packet_client import OpenAIResponsesPacketClient
 from civic_data.packet_retrieval import retrieve_packet_chunks
@@ -38,7 +39,7 @@ def explain_packet(
     if config.generation_mode == "deterministic":
         return _deterministic_explanation(packet, question, config)
     config.require_llm_key() if llm_client is None else None
-    return _llm_explanation(packet, question, config, llm_client or OpenAIResponsesPacketClient())
+    return _llm_explanation(packet, question, config, llm_client or _default_llm_client(config))
 
 
 def _deterministic_explanation(packet: dict[str, Any], question: str | None, config: PacketRagConfig) -> dict[str, Any]:
@@ -111,7 +112,7 @@ def _llm_explanation(packet: dict[str, Any], question: str | None, config: Packe
         "retrieved_chunks": chunks,
         "caveats": [_safe(item) for item in _string_list(packet.get("limits"))],
         "llm_usage": result.get("_usage") or {},
-        "audit": _audit(packet, config, used_llm=True, response_id=str(result.get("_openai_response_id") or "")),
+        "audit": _audit(packet, config, used_llm=True, response_id=str(result.get("_llm_response_id") or result.get("_openai_response_id") or "")),
     }
 
 
@@ -176,13 +177,22 @@ def _audit(packet: dict[str, Any], config: PacketRagConfig, *, used_llm: bool, r
         "embedding_used": False,
         "prompt_version": config.prompt_version,
         "retrieval_mode": config.retrieval_mode,
-        "openai_response_id": response_id,
+        "openai_response_id": response_id if config.provider == "openai" else "",
+        "llm_response_id": response_id,
         "used_packet_only": True,
         "used_raw_scan": False,
         "used_private_data": False,
         "packet_type": packet.get("packet_type"),
         "packet_status": packet.get("packet_status"),
     }
+
+
+def _default_llm_client(config: PacketRagConfig) -> Any:
+    if config.provider == "anthropic":
+        return AnthropicMessagesPacketClient()
+    if config.provider == "openai":
+        return OpenAIResponsesPacketClient()
+    raise ValueError(f"Unsupported LLM provider: {config.provider}")
 
 
 def _action(packet: dict[str, Any]) -> dict[str, Any]:

@@ -63,6 +63,17 @@ The default LLM config is `CIVIC_LLM_MODEL=gpt-5.4-mini`,
 lexical chunks for retrieval and the OpenAI Responses API for structured
 generation; it does not read raw CSVs or discover facts outside the packet.
 
+Anthropic is also supported:
+
+```bash
+CIVIC_LLM_PROVIDER=anthropic \
+ANTHROPIC_MODEL=claude-haiku-4-5-20251001 \
+python3 -m civic_data packets explain \
+  --packet examples/packets/bellandur-streetlight.json \
+  --q "What should I do next?" \
+  --mode llm
+```
+
 The legacy `/rag/ask` path is retained for retrieval diagnostics and older evals;
 it is not the source of truth for the civic action packet demo.
 

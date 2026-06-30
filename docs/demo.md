@@ -116,6 +116,9 @@ uses the OpenAI Responses API with `CIVIC_LLM_MODEL` defaulting to
 `gpt-5.4-mini`. It still receives only sanitized packet fields and retrieved
 packet chunks.
 
+To use Anthropic instead, set `CIVIC_LLM_PROVIDER=anthropic`,
+`ANTHROPIC_API_KEY`, and `ANTHROPIC_MODEL=claude-haiku-4-5-20251001`.
+
 ## Release gate
 
 ```bash

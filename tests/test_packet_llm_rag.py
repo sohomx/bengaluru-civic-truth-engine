@@ -47,13 +47,19 @@ class PacketLlmRagTests(unittest.TestCase):
             from civic_data.packet_explainer import explain_packet
 
             packet = build_evidence_packet("Bellandur streetlight not working", warehouse_root=_warehouse(Path(tmp)))
-            previous = os.environ.pop("OPENAI_API_KEY", None)
+            previous = {key: os.environ.get(key) for key in ("OPENAI_API_KEY", "CIVIC_OPENAI_API_KEY", "CIVIC_LLM_PROVIDER")}
             try:
+                os.environ.pop("OPENAI_API_KEY", None)
+                os.environ.pop("CIVIC_OPENAI_API_KEY", None)
+                os.environ.pop("CIVIC_LLM_PROVIDER", None)
                 with self.assertRaisesRegex(RuntimeError, "OPENAI_API_KEY"):
                     explain_packet(packet, question="What should I do?", mode="llm")
             finally:
-                if previous is not None:
-                    os.environ["OPENAI_API_KEY"] = previous
+                for key, value in previous.items():
+                    if value is None:
+                        os.environ.pop(key, None)
+                    else:
+                        os.environ[key] = value
 
     def test_llm_packet_explainer_uses_packet_chunks_and_structured_output(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -76,6 +82,80 @@ class PacketLlmRagTests(unittest.TestCase):
             prompt = fake.calls[0]["prompt"]
             self.assertIn("allowed_claims", json.dumps(prompt))
             self.assertNotIn("raw_root", json.dumps(prompt))
+
+    def test_anthropic_llm_config_uses_anthropic_env_names(self):
+        from civic_data.llm_config import PacketRagConfig
+
+        previous = {
+            "CIVIC_LLM_PROVIDER": os.environ.get("CIVIC_LLM_PROVIDER"),
+            "ANTHROPIC_API_KEY": os.environ.get("ANTHROPIC_API_KEY"),
+            "ANTHROPIC_MODEL": os.environ.get("ANTHROPIC_MODEL"),
+        }
+        try:
+            os.environ["CIVIC_LLM_PROVIDER"] = "anthropic"
+            os.environ["ANTHROPIC_API_KEY"] = "test-anthropic-key"
+            os.environ["ANTHROPIC_MODEL"] = "claude-haiku-4-5-20251001"
+
+            config = PacketRagConfig.from_env("llm")
+
+            self.assertEqual(config.provider, "anthropic")
+            self.assertEqual(config.api_key, "test-anthropic-key")
+            self.assertEqual(config.llm_model, "claude-haiku-4-5-20251001")
+            config.require_llm_key()
+        finally:
+            for key, value in previous.items():
+                if value is None:
+                    os.environ.pop(key, None)
+                else:
+                    os.environ[key] = value
+
+    def test_anthropic_packet_client_parses_json_text_response(self):
+        from civic_data.anthropic_packet_client import AnthropicMessagesPacketClient
+        from civic_data.llm_config import PacketRagConfig
+
+        calls: list[dict[str, object]] = []
+
+        def fake_transport(request: object, timeout: int = 30) -> dict[str, object]:
+            calls.append({"request": request, "timeout": timeout})
+            return {
+                "id": "msg_test",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": json.dumps(
+                            {
+                                "answer": "Use the packet action and cite evidence-1 only as public context.",
+                                "next_action": "File through the official channel.",
+                                "citations": ["evidence-1"],
+                                "refusals": [],
+                                "unsupported_claims": ["field resolution"],
+                                "confidence": "source_backed_partial",
+                            }
+                        ),
+                    }
+                ],
+                "usage": {"input_tokens": 10, "output_tokens": 12},
+            }
+
+        client = AnthropicMessagesPacketClient(transport=fake_transport)
+        config = PacketRagConfig(
+            generation_mode="llm",
+            provider="anthropic",
+            llm_model="claude-haiku-4-5-20251001",
+            embedding_model="",
+            prompt_version="packet-explainer-v1",
+            api_key="test-key",
+        )
+
+        result = client.create_packet_explanation(
+            prompt={"system": "system prompt", "user": {"question": "What now?"}},
+            schema={"type": "object"},
+            config=config,
+        )
+
+        self.assertEqual(result["answer"], "Use the packet action and cite evidence-1 only as public context.")
+        self.assertEqual(result["_llm_response_id"], "msg_test")
+        self.assertEqual(calls[0]["timeout"], 30)
 
     def test_cli_packet_explain_supports_llm_mode_with_deterministic_default(self):
         with tempfile.TemporaryDirectory() as tmp:

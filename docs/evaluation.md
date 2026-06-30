@@ -48,6 +48,17 @@ The current LLM path uses packet-only lexical retrieval plus the OpenAI
 Responses API for structured generation. Embedding configuration is audited, but
 embedding retrieval is not yet enabled.
 
+Anthropic eval runs use the same packet-only path:
+
+```bash
+CIVIC_LLM_PROVIDER=anthropic \
+ANTHROPIC_MODEL=claude-haiku-4-5-20251001 \
+ANTHROPIC_API_KEY=... \
+python3 -m civic_data eval packet-rag \
+  --suite tests/fixtures/packet_eval/packet_rag_v1.jsonl \
+  --mode llm
+```
+
 ## Benchmark Suites To Grow
 
 - `routing_v1`: agency and mixed-path routing.
