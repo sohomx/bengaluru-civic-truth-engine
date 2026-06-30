@@ -7,6 +7,7 @@ from civic_data.llm_config import PacketRagConfig
 from civic_data.openai_packet_client import OpenAIResponsesPacketClient
 from civic_data.packet_retrieval import retrieve_packet_chunks_with_audit
 from civic_data.safety import redact_pii
+from civic_data.trace_writer import write_packet_trace
 
 
 PACKET_EXPLANATION_SCHEMA: dict[str, Any] = {
@@ -66,7 +67,7 @@ def _deterministic_explanation(packet: dict[str, Any], question: str | None, con
     place_label = place.get("ward_name") or place.get("normalized_place") or "the reported location"
     issue = packet.get("issue") if isinstance(packet.get("issue"), dict) else {}
     issue_type = issue.get("display_type") or issue.get("type") or packet.get("normalized_issue") or "civic issue"
-    return {
+    explanation = {
         "question": question,
         "answer": _safe(str(action.get("primary_action") or "")),
         "what_the_packet_says": _safe(
@@ -87,6 +88,8 @@ def _deterministic_explanation(packet: dict[str, Any], question: str | None, con
         "caveats": [_safe(item) for item in _string_list(packet.get("limits"))],
         "audit": _audit(packet, config, used_llm=False, retrieval_audit=retrieval["audit"]),
     }
+    _persist_explanation_trace(packet, explanation)
+    return explanation
 
 
 def _llm_explanation(packet: dict[str, Any], question: str | None, config: PacketRagConfig, llm_client: Any) -> dict[str, Any]:
@@ -100,7 +103,7 @@ def _llm_explanation(packet: dict[str, Any], question: str | None, config: Packe
     )
     refusals = _string_list(result.get("refusals"))
     unsupported = _string_list(result.get("unsupported_claims"))
-    return {
+    explanation = {
         "question": question,
         "answer": _safe(str(result.get("answer") or "")),
         "what_the_packet_says": _safe(str(result.get("answer") or "")),
@@ -122,6 +125,8 @@ def _llm_explanation(packet: dict[str, Any], question: str | None, config: Packe
             retrieval_audit=retrieval["audit"],
         ),
     }
+    _persist_explanation_trace(packet, explanation)
+    return explanation
 
 
 def _prompt(packet: dict[str, Any], question: str | None, chunks: list[dict[str, Any]]) -> dict[str, object]:
@@ -212,6 +217,16 @@ def _default_llm_client(config: PacketRagConfig) -> Any:
     if config.provider == "openai":
         return OpenAIResponsesPacketClient()
     raise ValueError(f"Unsupported LLM provider: {config.provider}")
+
+
+def _persist_explanation_trace(packet: dict[str, Any], explanation: dict[str, Any]) -> None:
+    try:
+        persisted = write_packet_trace(packet=packet, explanation=explanation, event_type="packet_explanation")
+    except OSError as exc:
+        explanation["audit"]["trace_write_error"] = str(exc)
+        return
+    explanation["audit"]["persisted_trace_id"] = persisted["trace_id"]
+    explanation["audit"]["source_snapshot_id"] = persisted["source_snapshot_id"]
 
 
 def _action(packet: dict[str, Any]) -> dict[str, Any]:

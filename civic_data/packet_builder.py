@@ -13,6 +13,7 @@ from civic_data.jurisdiction import resolve_jurisdiction
 from civic_data.locality import first_place_guess
 from civic_data.provenance import evidence_provenance
 from civic_data.trace import packet_trace, query_hash
+from civic_data.trace_writer import write_packet_trace
 from civic_data.warehouse_reader import NormalizedWarehouse
 
 
@@ -144,6 +145,7 @@ def build_packet(
         },
     }
     packet["audit"]["contract_validation_failures"] = validate_action_packet(packet)
+    _persist_trace(packet)
     return packet
 
 
@@ -292,7 +294,20 @@ def _insufficient_packet(
         },
     }
     packet["audit"]["contract_validation_failures"] = validate_action_packet(packet)
+    _persist_trace(packet)
     return packet
+
+
+def _persist_trace(packet: dict[str, Any]) -> None:
+    try:
+        persisted = write_packet_trace(packet=packet)
+    except OSError as exc:
+        packet["audit"]["trace_write_error"] = str(exc)
+        return
+    packet["audit"]["persisted_trace_id"] = persisted["trace_id"]
+    packet["audit"]["source_snapshot_id"] = persisted["source_snapshot_id"]
+    packet["trace"]["source_snapshot_id"] = persisted["source_snapshot_id"]
+    packet["trace"]["persisted_trace_path"] = persisted["trace_path"]
 
 
 def _issue(route: dict[str, Any], query: str) -> dict[str, Any]:
