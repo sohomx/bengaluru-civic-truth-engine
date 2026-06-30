@@ -5,7 +5,7 @@ from typing import Any
 from civic_data.anthropic_packet_client import AnthropicMessagesPacketClient
 from civic_data.llm_config import PacketRagConfig
 from civic_data.openai_packet_client import OpenAIResponsesPacketClient
-from civic_data.packet_retrieval import retrieve_packet_chunks
+from civic_data.packet_retrieval import retrieve_packet_chunks_with_audit
 from civic_data.safety import redact_pii
 
 
@@ -50,7 +50,8 @@ def _deterministic_explanation(packet: dict[str, Any], question: str | None, con
     service = packet.get("service_request") if isinstance(packet.get("service_request"), dict) else {}
     evidence = packet.get("evidence") if isinstance(packet.get("evidence"), list) else []
     citations = packet.get("citations") if isinstance(packet.get("citations"), list) else []
-    chunks = retrieve_packet_chunks(packet, question)
+    retrieval = retrieve_packet_chunks_with_audit(packet, question, retrieval_mode=config.retrieval_mode)
+    chunks = retrieval["chunks"]
     what_not_to_claim = _string_list(action.get("what_not_to_claim")) or _string_list(packet.get("limits"))
     if not any("does not prove" in item.lower() for item in what_not_to_claim):
         what_not_to_claim.append("The packet evidence does not prove real-world resolution or field completion.")
@@ -84,12 +85,13 @@ def _deterministic_explanation(packet: dict[str, Any], question: str | None, con
         "citations": citations,
         "retrieved_chunks": chunks,
         "caveats": [_safe(item) for item in _string_list(packet.get("limits"))],
-        "audit": _audit(packet, config, used_llm=False),
+        "audit": _audit(packet, config, used_llm=False, retrieval_audit=retrieval["audit"]),
     }
 
 
 def _llm_explanation(packet: dict[str, Any], question: str | None, config: PacketRagConfig, llm_client: Any) -> dict[str, Any]:
-    chunks = retrieve_packet_chunks(packet, question)
+    retrieval = retrieve_packet_chunks_with_audit(packet, question, retrieval_mode=config.retrieval_mode)
+    chunks = retrieval["chunks"]
     prompt = _prompt(packet, question, chunks)
     result = llm_client.create_packet_explanation(
         prompt=prompt,
@@ -112,7 +114,13 @@ def _llm_explanation(packet: dict[str, Any], question: str | None, config: Packe
         "retrieved_chunks": chunks,
         "caveats": [_safe(item) for item in _string_list(packet.get("limits"))],
         "llm_usage": result.get("_usage") or {},
-        "audit": _audit(packet, config, used_llm=True, response_id=str(result.get("_llm_response_id") or result.get("_openai_response_id") or "")),
+        "audit": _audit(
+            packet,
+            config,
+            used_llm=True,
+            response_id=str(result.get("_llm_response_id") or result.get("_openai_response_id") or ""),
+            retrieval_audit=retrieval["audit"],
+        ),
     }
 
 
@@ -168,15 +176,26 @@ def _citeable_chunk_text(chunks: list[dict[str, Any]]) -> list[str]:
     return values
 
 
-def _audit(packet: dict[str, Any], config: PacketRagConfig, *, used_llm: bool, response_id: str = "") -> dict[str, Any]:
+def _audit(
+    packet: dict[str, Any],
+    config: PacketRagConfig,
+    *,
+    used_llm: bool,
+    response_id: str = "",
+    retrieval_audit: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    retrieval = retrieval_audit or {}
     return {
         "generation_mode": "llm" if used_llm else "deterministic",
         "llm_provider": config.provider,
         "llm_model": config.llm_model,
-        "embedding_model": config.embedding_model,
-        "embedding_used": False,
+        "embedding_model": retrieval.get("embedding_model") or config.embedding_model,
+        "embedding_used": bool(retrieval.get("embedding_used")),
         "prompt_version": config.prompt_version,
-        "retrieval_mode": config.retrieval_mode,
+        "retrieval_mode": retrieval.get("retrieval_mode") or config.retrieval_mode,
+        "retrieval_candidate_count": retrieval.get("candidate_count", 0),
+        "retrieval_eligible_count": retrieval.get("eligible_count", 0),
+        "retrieval_rejected_count": retrieval.get("rejected_count", 0),
         "openai_response_id": response_id if config.provider == "openai" else "",
         "llm_response_id": response_id,
         "used_packet_only": True,

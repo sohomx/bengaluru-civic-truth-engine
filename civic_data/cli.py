@@ -16,6 +16,7 @@ from civic_data.packet_rag_eval import run_packet_rag_eval
 from civic_data.profile import profile_archives
 from civic_data.rag import ask_rag, build_rag_index
 from civic_data.registry import load_sources, registry_hash, validate_registry
+from civic_data.retrieval_eval import run_retrieval_eval
 from civic_data.site import DEFAULT_PLACES, build_site_data, parse_place_arg
 from civic_data.truth import write_place_truth
 from civic_data.warehouse import export_wave1_for_postgres, load_wave1_with_psql
@@ -70,6 +71,8 @@ def main(argv: list[str] | None = None) -> int:
             return _eval_packets(args)
         if args.command == "eval" and args.eval_command == "packet-rag":
             return _eval_packet_rag(args)
+        if args.command == "eval" and args.eval_command == "retrieval":
+            return _eval_retrieval(args)
         if args.command == "warehouse" and args.warehouse_command == "export":
             return _warehouse_export(args)
         if args.command == "warehouse" and args.warehouse_command == "load":
@@ -209,6 +212,11 @@ def _build_parser() -> argparse.ArgumentParser:
     eval_packet_rag.add_argument("--suite", required=True)
     eval_packet_rag.add_argument("--mode", choices=("deterministic", "llm"), default="deterministic")
     eval_packet_rag.add_argument("--output")
+    eval_retrieval = eval_sub.add_parser("retrieval")
+    eval_retrieval.add_argument("--suite", required=True)
+    eval_retrieval.add_argument("--warehouse-root", default=str(DEFAULT_WAREHOUSE_ROOT))
+    eval_retrieval.add_argument("--raw-root", default=str(DEFAULT_RAW_ROOT))
+    eval_retrieval.add_argument("--retrieval-mode", default="packet_lexical", choices=("packet_lexical", "packet_embedding"))
 
     warehouse = subparsers.add_parser("warehouse")
     warehouse_sub = warehouse.add_subparsers(dest="warehouse_command")
@@ -541,6 +549,17 @@ def _eval_packet_rag(args: argparse.Namespace) -> int:
     payload = run_packet_rag_eval(Path(args.suite), mode=str(args.mode))
     if args.output:
         Path(args.output).write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n")
+    print(json.dumps(payload, indent=2, sort_keys=True))
+    return 0 if payload["failed"] == 0 else 1
+
+
+def _eval_retrieval(args: argparse.Namespace) -> int:
+    payload = run_retrieval_eval(
+        Path(args.suite),
+        warehouse_root=Path(args.warehouse_root),
+        raw_root=Path(args.raw_root),
+        retrieval_mode=str(args.retrieval_mode),
+    )
     print(json.dumps(payload, indent=2, sort_keys=True))
     return 0 if payload["failed"] == 0 else 1
 
