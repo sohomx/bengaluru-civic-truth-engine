@@ -145,6 +145,10 @@ def _route(
 def _issue_type(text: str) -> str:
     if re.search(r"\b(garbage|trash|waste|swm|blackspot|dump|dumped|dumping|debris|rubbish)\b", text):
         return "garbage"
+    if re.search(r"\b(drain|stormwater|storm water|swd)\b", text) and not re.search(
+        r"\b(sewage|sewer|manhole|bwssb|tanker)\b", text
+    ):
+        return "road"
     if re.search(r"\b(sewage|sewer|water|manhole|bwssb|tanker|overflow)\b", text):
         return "water_sewage"
     if re.search(r"\b(power|outage|transformer|wires?|bescom|shock|sparks?|sparking)\b", text):

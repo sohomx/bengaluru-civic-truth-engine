@@ -478,6 +478,9 @@ def _contact_text(channel_matches: list[Any], contact_matches: list[Any], route:
     filing_guidance = str(route.get("filing_guidance") or "")
     if filing_guidance:
         items.append(filing_guidance)
+    for agency in route.get("secondary_agencies", []) if isinstance(route.get("secondary_agencies"), list) else []:
+        if isinstance(agency, dict) and agency.get("agency_id") == "gba":
+            items.append("Use GBA/BBMP local corporation channels or Namma Bengaluru/Sahaaya for the civic roadwork part.")
     for match in channel_matches:
         channel = match.record
         name = str(channel.get("name") or "Official complaint channel")

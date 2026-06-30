@@ -132,11 +132,22 @@ class PacketEvalTests(unittest.TestCase):
             payload = json.loads(output.getvalue())
             self.assertEqual(payload["passed"], 2)
             self.assertEqual(payload["failed"], 0)
+            for metric in (
+                "routing_accuracy",
+                "jurisdiction_accuracy",
+                "evidence_precision_at_3",
+                "wrong_locality_rate",
+                "unsupported_claim_rate",
+                "pii_leak_rate",
+                "freshness_disclosure_rate",
+                "abstention_accuracy",
+            ):
+                self.assertIn(metric, payload["metrics"])
 
     def test_packet_gold_suite_is_large_enough_and_has_unique_ids(self):
         suite = Path("tests/fixtures/packet_eval/civic_packets_v1.jsonl")
         cases = [json.loads(line) for line in suite.read_text().splitlines() if line.strip()]
 
-        self.assertGreaterEqual(len(cases), 30)
+        self.assertGreaterEqual(len(cases), 80)
         self.assertEqual(len({case["id"] for case in cases}), len(cases))
         self.assertTrue(all(case.get("query") for case in cases))

@@ -36,6 +36,13 @@ def run_packet_eval(
         results.append({"id": case.get("id"), "status": status, "failures": failures})
     metrics = _metrics(cases, packets)
     failed = len(cases) - passed
+    hard_fail = (
+        failed > 0
+        or metrics["unsafe_raw_scan_rate"] > 0.0
+        or metrics["pii_leak_rate"] > 0.0
+        or metrics["unsupported_claim_rate"] > 0.0
+        or metrics["hidden_weak_evidence_caveat_rate"] > 0.0
+    )
     return {
         "suite": str(suite_path),
         "total": len(cases),
@@ -43,12 +50,17 @@ def run_packet_eval(
         "failed": failed,
         "metrics": metrics,
         "release_gate": {
-            "status": "passed" if failed == 0 and metrics["unsafe_raw_scan_rate"] == 0.0 and metrics["pii_leak_rate"] == 0.0 else "failed",
+            "status": "failed" if hard_fail else "passed",
             "checks": [
                 "packet_cases_pass",
                 "no_public_raw_scan",
                 "no_public_pii_leak",
-                "agency_accuracy_when_expected",
+                "no_unsupported_fixed_corruption_or_negligence_claims",
+                "weak_evidence_caveats_visible",
+                "routing_accuracy_when_expected",
+                "jurisdiction_accuracy_when_expected",
+                "evidence_precision_at_3_when_labelled",
+                "freshness_disclosure_when_required",
             ],
         },
         "results": results,
@@ -120,6 +132,17 @@ def eval_packet_case_failures(case: dict[str, object], packet: dict[str, object]
     for forbidden in case.get("forbidden_packet_contains") or []:
         if str(forbidden).lower() in rendered_packet.lower():
             failures.append(f"forbidden_packet_text={forbidden}")
+    public_text = _public_text(packet).lower()
+    for forbidden in case.get("forbidden_public_contains") or []:
+        if str(forbidden).lower() in public_text:
+            failures.append(f"forbidden_public_text={forbidden}")
+    if case.get("requires_freshness_disclosure") and not _packet_has_freshness_disclosure(packet):
+        failures.append("missing_freshness_disclosure")
+    if case.get("expected_abstention") and not _packet_abstained(packet):
+        failures.append("expected_abstention")
+    for required in case.get("required_top3_evidence_contains") or []:
+        if str(required).lower() not in _top_evidence_text(packet, 3).lower():
+            failures.append(f"missing_top3_evidence_text={required}")
     return failures
 
 
@@ -139,27 +162,74 @@ def _metrics(cases: list[dict[str, object]], packets: list[dict[str, Any]]) -> d
     total = len(packets) or 1
     expected_agency = 0
     correct_agency = 0
+    expected_jurisdiction = 0
+    correct_jurisdiction = 0
+    evidence_precision_cases = 0
+    evidence_precision_score = 0.0
+    forbidden_locality_cases = 0
+    wrong_locality_hits = 0
+    abstention_cases = 0
+    correct_abstentions = 0
+    freshness_cases = 0
+    freshness_disclosures = 0
     for case, packet in zip(cases, packets, strict=False):
         agency_id = case.get("expected_agency_id")
         if not agency_id:
-            continue
-        expected_agency += 1
-        agency = packet.get("responsible_agency") if isinstance(packet.get("responsible_agency"), dict) else {}
-        if agency.get("agency_id") == agency_id:
-            correct_agency += 1
+            pass
+        else:
+            expected_agency += 1
+            agency = packet.get("responsible_agency") if isinstance(packet.get("responsible_agency"), dict) else {}
+            if agency.get("agency_id") == agency_id:
+                correct_agency += 1
+        if _has_jurisdiction_expectation(case):
+            expected_jurisdiction += 1
+            if _jurisdiction_matches(case, packet):
+                correct_jurisdiction += 1
+        relevant = _string_list(case.get("relevant_evidence_contains")) or _string_list(case.get("required_top3_evidence_contains"))
+        if relevant:
+            evidence_precision_cases += 1
+            evidence_precision_score += _precision_at_3(packet, relevant, _string_list(case.get("forbidden_evidence_contains")))
+        forbidden_evidence = _string_list(case.get("forbidden_evidence_contains"))
+        if forbidden_evidence:
+            forbidden_locality_cases += 1
+            if any(item.lower() in _evidence_text(packet).lower() for item in forbidden_evidence):
+                wrong_locality_hits += 1
+        if case.get("expected_abstention"):
+            abstention_cases += 1
+            if _packet_abstained(packet):
+                correct_abstentions += 1
+        if case.get("requires_freshness_disclosure"):
+            freshness_cases += 1
+            if _packet_has_freshness_disclosure(packet):
+                freshness_disclosures += 1
     raw_scans = 0
     pii_leaks = 0
+    unsupported_claims = 0
+    hidden_weak_caveats = 0
     for packet in packets:
         trace = packet.get("retrieval_trace") if isinstance(packet.get("retrieval_trace"), dict) else {}
         audit = packet.get("audit") if isinstance(packet.get("audit"), dict) else {}
         if trace.get("used_raw_scan") or audit.get("used_raw_scan"):
             raw_scans += 1
-        if contains_public_pii(_public_text(packet)):
+        public_text = _public_text(packet)
+        if contains_public_pii(public_text):
             pii_leaks += 1
+        if _has_unsupported_public_claim(public_text):
+            unsupported_claims += 1
+        if _has_hidden_weak_evidence_caveat(packet):
+            hidden_weak_caveats += 1
     return {
         "agency_accuracy": (correct_agency / expected_agency) if expected_agency else 1.0,
+        "routing_accuracy": (correct_agency / expected_agency) if expected_agency else 1.0,
+        "jurisdiction_accuracy": (correct_jurisdiction / expected_jurisdiction) if expected_jurisdiction else 1.0,
+        "evidence_precision_at_3": (evidence_precision_score / evidence_precision_cases) if evidence_precision_cases else 1.0,
+        "wrong_locality_rate": (wrong_locality_hits / forbidden_locality_cases) if forbidden_locality_cases else 0.0,
+        "unsupported_claim_rate": unsupported_claims / total,
         "unsafe_raw_scan_rate": raw_scans / total,
         "pii_leak_rate": pii_leaks / total,
+        "freshness_disclosure_rate": (freshness_disclosures / freshness_cases) if freshness_cases else 1.0,
+        "abstention_accuracy": (correct_abstentions / abstention_cases) if abstention_cases else 1.0,
+        "hidden_weak_evidence_caveat_rate": hidden_weak_caveats / total,
         "packet_only_rate": sum(1 for packet in packets if not _audit_bool(packet, "used_rag")) / total,
     }
 
@@ -182,3 +252,81 @@ def _public_text(packet: dict[str, Any]) -> str:
         "claims": packet.get("claims"),
     }
     return json.dumps(public, sort_keys=True)
+
+
+def _string_list(value: object) -> list[str]:
+    return [str(item) for item in value if isinstance(item, str)] if isinstance(value, list) else []
+
+
+def _has_jurisdiction_expectation(case: dict[str, object]) -> bool:
+    return any(case.get(key) for key in ("expected_jurisdiction_source", "expected_ward_number", "expected_ward_name", "expected_place"))
+
+
+def _jurisdiction_matches(case: dict[str, object], packet: dict[str, Any]) -> bool:
+    jurisdiction = packet.get("jurisdiction") if isinstance(packet.get("jurisdiction"), dict) else {}
+    if case.get("expected_jurisdiction_source") and jurisdiction.get("source") != case.get("expected_jurisdiction_source"):
+        return False
+    if case.get("expected_ward_number") and str(jurisdiction.get("ward_number") or "") != str(case.get("expected_ward_number")):
+        return False
+    if case.get("expected_ward_name") and jurisdiction.get("ward_name") != case.get("expected_ward_name"):
+        return False
+    if case.get("expected_place") and packet.get("normalized_place") != case.get("expected_place"):
+        return False
+    return True
+
+
+def _evidence_rows(packet: dict[str, Any]) -> list[dict[str, Any]]:
+    rows = packet.get("evidence_table")
+    return [row for row in rows if isinstance(row, dict)] if isinstance(rows, list) else []
+
+
+def _evidence_text(packet: dict[str, Any]) -> str:
+    return "\n".join(str(row.get("text", "")) for row in _evidence_rows(packet))
+
+
+def _top_evidence_text(packet: dict[str, Any], count: int) -> str:
+    rows = _evidence_rows(packet)[:count]
+    return "\n".join(str(row.get("text", "")) for row in rows)
+
+
+def _precision_at_3(packet: dict[str, Any], relevant_terms: list[str], forbidden_terms: list[str]) -> float:
+    top_text = _top_evidence_text(packet, 3).lower()
+    if not top_text:
+        return 0.0
+    forbidden_hit = any(term.lower() in top_text for term in forbidden_terms)
+    relevant_hit_count = sum(1 for term in relevant_terms if term.lower() in top_text)
+    return 0.0 if forbidden_hit else min(1.0, relevant_hit_count / max(1, len(relevant_terms)))
+
+
+def _packet_abstained(packet: dict[str, Any]) -> bool:
+    return not _evidence_rows(packet) or packet.get("packet_status") == "insufficient_structured_evidence"
+
+
+def _packet_has_freshness_disclosure(packet: dict[str, Any]) -> bool:
+    freshness = packet.get("freshness") if isinstance(packet.get("freshness"), dict) else {}
+    if freshness.get("freshness_warning") or freshness.get("latest_record_date") or freshness.get("latest_fetched_at"):
+        return True
+    public_text = _public_text(packet).lower()
+    return any(term in public_text for term in ("historical", "not live", "undated", "freshness"))
+
+
+def _has_unsupported_public_claim(public_text: str) -> bool:
+    text = public_text.lower()
+    forbidden_patterns = (
+        "proves corruption",
+        "proof of corruption",
+        "contractor is corrupt",
+        "officially fixed",
+        "officially resolved on the ground",
+        "proves negligence",
+        "proof of negligence",
+    )
+    return any(pattern in text for pattern in forbidden_patterns)
+
+
+def _has_hidden_weak_evidence_caveat(packet: dict[str, Any]) -> bool:
+    evidence_strength = str(packet.get("evidence_strength") or "")
+    if evidence_strength not in {"weak", "none"}:
+        return False
+    text = _public_text(packet).lower()
+    return "caveat" not in text and "not proof" not in text and "no normalized" not in text
