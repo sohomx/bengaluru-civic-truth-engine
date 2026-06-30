@@ -5,10 +5,14 @@ from pathlib import Path
 from typing import Any, Callable
 
 from civic_data.claim_builder import build_citations, build_claims
+from civic_data.contracts import contract_metadata, validate_action_packet
 from civic_data.evidence_matcher import action_evidence, evidence_rows, match_channels, match_work_records
+from civic_data.freshness import build_freshness
 from civic_data.issue_router import route_issue
 from civic_data.jurisdiction import resolve_jurisdiction
 from civic_data.locality import first_place_guess
+from civic_data.provenance import evidence_provenance
+from civic_data.trace import packet_trace, query_hash
 from civic_data.warehouse_reader import NormalizedWarehouse
 
 
@@ -62,7 +66,23 @@ def build_packet(
     action = _action(route, jurisdiction, contacts, what_to_cite, limits, has_public_rows=bool(rows))
     evidence_strength = _evidence_strength(jurisdiction, rows)
     evidence_summary = _evidence_summary(rows, specificity=specificity)
+    trace = packet_trace(
+        query=q,
+        jurisdiction=jurisdiction,
+        route=route,
+        evidence_matches=evidence_matches,
+        channel_matches=channel_matches,
+        contact_matches=contact_matches,
+    )
+    provenance = evidence_provenance(
+        jurisdiction=jurisdiction,
+        evidence_matches=evidence_matches,
+        channel_matches=channel_matches,
+        contact_matches=contact_matches,
+    )
+    freshness = build_freshness([match.record for match in evidence_matches + channel_matches + contact_matches])
     packet = {
+        "contract": contract_metadata(),
         "schema_version": 3,
         "compatibility_schema_version": 2,
         "packet_type": "civic_action_packet",
@@ -77,12 +97,21 @@ def build_packet(
         "evidence_summary": evidence_summary,
         "evidence_strength": evidence_strength,
         "action": action,
+        "trace": trace,
+        "provenance": provenance,
         "audit": {
+            "source_of_truth": "packet_structured_data",
+            "legacy_rag_status": "not_used_for_fact_generation",
+            "query_hash": query_hash(q),
             "used_rag": False,
             "used_raw_scan": False,
             "resolver_source": jurisdiction.get("source"),
             "total_evidence_matches": len(rows),
-            "matcher_versions": {"evidence_matcher": "v2", "issue_router": "v2"},
+            "routing_policy_id": route.get("policy_id"),
+            "routing_policy_version": route.get("policy_version"),
+            "routing_rule_ids": route.get("routing_rule_ids", []),
+            "matcher_versions": {"evidence_matcher": "v3", "issue_router": route.get("policy_version", "routing-v3")},
+            "contract_validation_failures": [],
         },
         "question": q,
         "normalized_place": normalized_place or None,
@@ -102,7 +131,7 @@ def build_packet(
         "claims": claims,
         "citations": citations,
         "coverage_gaps": limits,
-        "freshness": _freshness([match.record for match in evidence_matches + channel_matches + contact_matches]),
+        "freshness": freshness,
         "retrieval_trace": {
             "backend": "normalized_civic_case",
             "used_raw_scan": False,
@@ -110,8 +139,11 @@ def build_packet(
             "works_considered": len(evidence_matches),
             "payments_considered": 0,
             "channels_considered": len(channel_matches) + len(contact_matches),
+            "trace_id": trace["trace_id"],
+            "routing_rule_ids": route.get("routing_rule_ids", []),
         },
     }
+    packet["audit"]["contract_validation_failures"] = validate_action_packet(packet)
     return packet
 
 
@@ -126,7 +158,7 @@ def render_packet_markdown(packet: dict[str, Any]) -> str:
         "# Civic Action Packet",
         "",
         f"Query: {packet.get('question') or packet.get('input', {}).get('query')}",
-        f"Issue: {issue.get('type', 'unknown')}",
+        f"Issue: {issue.get('display_type') or issue.get('type', 'unknown')}",
         f"Place: {place.get('ward_name') or place.get('normalized_place') or 'unresolved'}",
         f"Likely owner: {_agency_name(responsibility.get('primary_agency'))}",
         f"Evidence strength: {packet.get('evidence_strength', 'none')}",
@@ -182,7 +214,23 @@ def _insufficient_packet(
     if jurisdiction.get("caveat"):
         limits.append(str(jurisdiction["caveat"]))
     normalized_place = jurisdiction.get("normalized_ward_name") or first_place_guess(query)
-    return {
+    trace = packet_trace(
+        query=query,
+        jurisdiction=jurisdiction,
+        route=route,
+        evidence_matches=[],
+        channel_matches=[],
+        contact_matches=[],
+    )
+    provenance = evidence_provenance(
+        jurisdiction=jurisdiction,
+        evidence_matches=[],
+        channel_matches=[],
+        contact_matches=[],
+    )
+    freshness = build_freshness([])
+    packet = {
+        "contract": contract_metadata(),
         "schema_version": 3,
         "compatibility_schema_version": 2,
         "packet_type": "civic_action_packet",
@@ -197,12 +245,21 @@ def _insufficient_packet(
         "evidence_summary": _evidence_summary([], specificity="none"),
         "evidence_strength": _evidence_strength(jurisdiction, []),
         "action": _action(route, jurisdiction, _contact_text([], [], route), [], limits, has_public_rows=False),
+        "trace": trace,
+        "provenance": provenance,
         "audit": {
+            "source_of_truth": "packet_structured_data",
+            "legacy_rag_status": "not_used_for_fact_generation",
+            "query_hash": query_hash(query),
             "used_rag": False,
             "used_raw_scan": False,
             "resolver_source": jurisdiction.get("source"),
             "missing_packet_inputs": missing,
-            "matcher_versions": {"evidence_matcher": "v2", "issue_router": "v2"},
+            "routing_policy_id": route.get("policy_id"),
+            "routing_policy_version": route.get("policy_version"),
+            "routing_rule_ids": route.get("routing_rule_ids", []),
+            "matcher_versions": {"evidence_matcher": "v3", "issue_router": route.get("policy_version", "routing-v3")},
+            "contract_validation_failures": [],
         },
         "question": query,
         "normalized_place": normalized_place or None,
@@ -212,7 +269,7 @@ def _insufficient_packet(
         "confidence_label": _confidence_label(jurisdiction),
         "short_answer": _short_answer(route, jurisdiction, False),
         "jurisdiction": jurisdiction,
-        "records_show": [f"No normalized record proves the reported {route.get('issue_type')} condition yet."],
+        "records_show": [f"No normalized record proves the reported {_issue_display_type(route)} condition yet."],
         "what_to_cite": ["Structured work/payment evidence is unavailable until packet inputs are normalized."],
         "who_to_contact": _contact_text([], [], route),
         "what_to_do_next": _what_to_do_next(route, jurisdiction),
@@ -222,7 +279,7 @@ def _insufficient_packet(
         "claims": [{"claim_type": "coverage_gap", "text": limits[0], "citation_ids": []}],
         "citations": [{"id": "jurisdiction-1", **jurisdiction["evidence"]}] if jurisdiction.get("evidence") else [],
         "coverage_gaps": limits,
-        "freshness": {"fetched_at_values": [], "basis": "normalized_public_records"},
+        "freshness": freshness,
         "retrieval_trace": {
             "backend": "normalized_civic_case",
             "used_raw_scan": False,
@@ -230,8 +287,12 @@ def _insufficient_packet(
             "works_considered": 0,
             "payments_considered": 0,
             "channels_considered": 0,
+            "trace_id": trace["trace_id"],
+            "routing_rule_ids": route.get("routing_rule_ids", []),
         },
     }
+    packet["audit"]["contract_validation_failures"] = validate_action_packet(packet)
+    return packet
 
 
 def _issue(route: dict[str, Any], query: str) -> dict[str, Any]:
@@ -266,6 +327,11 @@ def _responsibility(route: dict[str, Any]) -> dict[str, Any]:
         else None,
         "ownership_caveat": " ".join(str(item) for item in route.get("proof_limitations", [])),
         "dual_path_caveat": route.get("dual_path_caveat") or "",
+        "routing_decision": {
+            "policy_id": route.get("policy_id"),
+            "policy_version": route.get("policy_version"),
+            "rule_ids": route.get("routing_rule_ids", []),
+        },
     }
 
 
@@ -435,7 +501,7 @@ def _short_answer(route: dict[str, Any], jurisdiction: dict[str, Any], has_evide
 def _records_show(rows: list[dict[str, str]], route: dict[str, Any]) -> list[str]:
     if rows:
         return [row.get("display_claim") or row["text"] for row in rows[:3]]
-    return [f"No normalized record proves the reported {route.get('issue_type')} condition yet."]
+    return [f"No normalized record proves the reported {_issue_display_type(route)} condition yet."]
 
 
 def _evidence_specificity(query: str, route: dict[str, Any], rows: list[dict[str, str]]) -> str:

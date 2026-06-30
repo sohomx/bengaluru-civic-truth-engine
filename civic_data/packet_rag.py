@@ -20,6 +20,9 @@ def explain_packet(packet: dict[str, Any], question: str | None = None) -> dict[
     what_not_to_claim = _string_list(action.get("what_not_to_claim")) or _string_list(packet.get("limits"))
     if not any("does not prove" in item.lower() for item in what_not_to_claim):
         what_not_to_claim.append("The packet evidence does not prove real-world resolution or field completion.")
+    refusal = _refusal(question)
+    if refusal["status"] != "not_refused":
+        what_not_to_claim.extend(refusal["reasons"])
     what_to_cite = [
         _safe(str(item.get("claim") or item.get("text") or ""))
         for item in evidence
@@ -42,6 +45,7 @@ def explain_packet(packet: dict[str, Any], question: str | None = None) -> dict[
         "what_not_to_claim": [_safe(item) for item in what_not_to_claim],
         "message_to_send": _safe(str(action.get("message_draft") or "")),
         "next_actions": [_safe(item) for item in _string_list(action.get("what_to_send"))],
+        "refusal": refusal,
         "citations": citations,
         "caveats": [_safe(item) for item in _string_list(packet.get("limits"))],
         "audit": {
@@ -61,3 +65,21 @@ def _string_list(value: Any) -> list[str]:
 
 def _safe(value: str) -> str:
     return redact_pii(value)
+
+
+def _refusal(question: str | None) -> dict[str, Any]:
+    text = (question or "").lower()
+    reasons: list[str] = []
+    if any(term in text for term in ("corruption", "bribe", "fraud", "scam", "criminal")):
+        reasons.append("The packet does not support corruption, fraud, criminal, or contractor-fault claims.")
+    if any(term in text for term in ("resolved", "fixed", "completed", "field condition")):
+        reasons.append("The packet does not prove real-world resolution, field completion, repair quality, or current field condition.")
+    if any(term in text for term in ("private phone", "account number", "rr number", "personal detail")):
+        reasons.append("The packet cannot expose private contact, account, RR, or complaint-tracking details.")
+    if not reasons:
+        return {"status": "not_refused", "reasons": []}
+    return {
+        "status": "refused_unsupported_claim",
+        "reasons": [_safe(item) for item in reasons],
+        "safe_alternative": "Use the cited public rows only as administrative context and ask the official agency for status or records.",
+    }

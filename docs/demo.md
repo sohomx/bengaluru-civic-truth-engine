@@ -4,6 +4,14 @@ This demo shows the core product: a deterministic civic action packet, not a gen
 
 Each command returns a `civic_action_packet` with jurisdiction, responsible agency, public evidence, caveats, and a citizen-ready message draft. Packet generation is structured and sets `audit.used_rag` to `false`.
 
+The v3 packet also includes:
+
+- `contract`: stable `CivicActionPacket` metadata.
+- `trace`: resolver, router, matcher, and rule IDs.
+- `provenance`: public evidence records with source/run/row identity.
+- `freshness`: shared source freshness policy.
+- `audit`: explicit packet-only source-of-truth flags.
+
 ## Regenerate the demo packets
 
 ```bash
@@ -102,3 +110,18 @@ python3 -m civic_data rag explain-packet \
 ```
 
 Expected interpretation: explains only the packet data, cites the packet's public evidence, preserves caveats, and reports `used_packet_only: true`.
+
+## Release gate
+
+```bash
+python3 -m civic_data eval packets \
+  --suite tests/fixtures/packet_eval/civic_packets_v1.jsonl \
+  --warehouse-root data/normalized \
+  --raw-root data/raw \
+  --report \
+  --output data/eval_runs/packet_eval_report.json
+```
+
+Expected interpretation: all packet cases pass, public raw-scan rate is zero,
+PII leak rate is zero, and agency accuracy is reported for cases that declare an
+expected agency.

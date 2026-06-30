@@ -193,6 +193,8 @@ def _build_parser() -> argparse.ArgumentParser:
     eval_packets.add_argument("--warehouse-root", default=str(DEFAULT_WAREHOUSE_ROOT))
     eval_packets.add_argument("--raw-root", default=str(DEFAULT_RAW_ROOT))
     eval_packets.add_argument("--index")
+    eval_packets.add_argument("--report", action="store_true")
+    eval_packets.add_argument("--output")
 
     warehouse = subparsers.add_parser("warehouse")
     warehouse_sub = warehouse.add_subparsers(dest="warehouse_command")
@@ -508,6 +510,8 @@ def _eval_packets(args: argparse.Namespace) -> int:
         raw_root=Path(args.raw_root),
         index_path=Path(args.index) if args.index else None,
     )
+    if args.report and args.output:
+        Path(args.output).write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n")
     print(json.dumps(payload, indent=2, sort_keys=True))
     return 0 if payload["failed"] == 0 else 1
 

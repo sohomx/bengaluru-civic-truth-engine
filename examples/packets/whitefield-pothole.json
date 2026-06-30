@@ -8,12 +8,13 @@
       "recurrence details"
     ],
     "legal_or_rti_action": "For a persistent unresolved issue, ask the department for written status, responsible office, and related work/order records for Whitefield. Use RTI only for official records; do not include private account details outside official workflows.",
-    "message_draft": "Hello, I want to report a road issue at Whitefield. This appears recurring or unresolved from the citizen side. Ward/corporation context: 29 Whitefield / East. I can share: photo, landmark or pin, date/time, recurrence details. Relevant public context, not proof of field resolution: Filling of Portholes and Bad reaches in Whitefield main road ITPL Back gate road Pattanduru agrahara main road RHB colony to Garudacharpalya road, Maheshwarinagara and Lakshmisagara roads in ward no 82; amount 1444184 Please route this to Greater Bengaluru Authority / local city corporation and share the official complaint/reference number.",
+    "message_draft": "Hello, I want to report a road or footpath issue at Whitefield. Ward/corporation: 29 Whitefield / East. I can share photos, pin/landmark, date/time, and recurrence details. For public context: I found public work/payment rows that may help frame the issue; they are not proof of field resolution. Please route this to Greater Bengaluru Authority / local city corporation and share the official complaint/reference number.",
     "primary_action": "File through the relevant GBA/BBMP civic channel for Whitefield; include photo, pin, date/time, and recurrence details.",
     "what_not_to_claim": [
       "private phone numbers",
       "uncited claims of official responsibility",
       "Routing is an inference until an official complaint channel or record confirms ownership.",
+      "Public work/payment rows are administrative context only; they are not proof of current field condition or field resolution.",
       "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing."
     ],
     "what_to_send": [
@@ -27,11 +28,27 @@
   },
   "answer_type": "structured_civic_case",
   "audit": {
-    "matcher_versions": {
-      "evidence_matcher": "v2",
-      "issue_router": "v2"
+    "compatibility_inputs": {
+      "index_path": "",
+      "note": "Packet generation reads normalized public data only; raw and RAG index inputs are compatibility parameters.",
+      "raw_root": "data/raw",
+      "used_for_fact_generation": false
     },
+    "contract_validation_failures": [],
+    "legacy_rag_status": "not_used_for_fact_generation",
+    "matcher_versions": {
+      "evidence_matcher": "v3",
+      "issue_router": "routing-v3"
+    },
+    "query_hash": "ca3c00f9f3d2895a2042fd5312556c37d59889949db723062db260002e2dc776",
     "resolver_source": "offline_normalized_wards",
+    "routing_policy_id": "bengaluru-civic-routing",
+    "routing_policy_version": "routing-v3",
+    "routing_rule_ids": [
+      "road.primary"
+    ],
+    "source_of_truth": "packet_structured_data",
+    "total_evidence_matches": 20,
     "used_rag": false,
     "used_raw_scan": false
   },
@@ -53,28 +70,28 @@
     {
       "id": "evidence-2",
       "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
-      "row_number": 1987,
+      "row_number": 249,
       "run_id": "2026-06-30T08-49-46Z",
       "source_id": "bbmp_work_orders_and_bill_payment"
     },
     {
       "id": "evidence-3",
-      "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
-      "row_number": 101,
+      "raw_file": "original/73a2ea75-a5c6-40c5-a947-e4be1698102c.csv",
+      "row_number": 479,
       "run_id": "2026-06-30T08-49-46Z",
       "source_id": "bbmp_work_orders_and_bill_payment"
     },
     {
       "id": "evidence-4",
       "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
-      "row_number": 3248,
+      "row_number": 1987,
       "run_id": "2026-06-30T08-49-46Z",
       "source_id": "bbmp_work_orders_and_bill_payment"
     },
     {
       "id": "evidence-5",
       "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
-      "row_number": 249,
+      "row_number": 3248,
       "run_id": "2026-06-30T08-49-46Z",
       "source_id": "bbmp_work_orders_and_bill_payment"
     },
@@ -221,8 +238,15 @@
   ],
   "compatibility_schema_version": 2,
   "confidence_label": "high",
+  "contract": {
+    "compatibility_schema_version": 2,
+    "name": "CivicActionPacket",
+    "source_of_truth": "packet_structured_data",
+    "version": "3.0"
+  },
   "coverage_gaps": [
     "Routing is an inference until an official complaint channel or record confirms ownership.",
+    "Public work/payment rows are administrative context only; they are not proof of current field condition or field resolution.",
     "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing."
   ],
   "evidence": [
@@ -235,59 +259,14 @@
       "disallowed_claims": [
         "Does not prove field completion, repair quality, corruption, or contractor fault."
       ],
+      "display_claim": "Filling of Portholes and Bad reaches in Whitefield main road ITPL Back gate road Pattanduru agrahara main road RHB colony to Garudacharpalya road, Maheshwarinagara and Lakshmisa...",
       "entity_type": "work",
       "evidence_id": "evidence-1",
-      "match_confidence": 0.78,
+      "match_confidence": 0.88,
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Direct pothole/road work",
       "row_number": 1257,
-      "source_id": "bbmp_work_orders_and_bill_payment"
-    },
-    {
-      "allowed_claims": [
-        "A public work/payment source row exists with these fields."
-      ],
-      "claim": "Construction of RCC drain and asphalting at Whitefield main road to Prashanth layout in Kadugudi ward no:83",
-      "claim_class": "proof_with_mirror_caveat",
-      "disallowed_claims": [
-        "Does not prove field completion, repair quality, corruption, or contractor fault."
-      ],
-      "entity_type": "work",
-      "evidence_id": "evidence-2",
-      "match_confidence": 0.78,
-      "match_method": "place_text_and_issue_terms",
-      "row_number": 1987,
-      "source_id": "bbmp_work_orders_and_bill_payment"
-    },
-    {
-      "allowed_claims": [
-        "A public work/payment source row exists with these fields."
-      ],
-      "claim": "Maintenance of Drains and Culverts at Whitefield area immadihalli and hagaduru village in word No 84",
-      "claim_class": "proof_with_mirror_caveat",
-      "disallowed_claims": [
-        "Does not prove field completion, repair quality, corruption, or contractor fault."
-      ],
-      "entity_type": "work",
-      "evidence_id": "evidence-3",
-      "match_confidence": 0.78,
-      "match_method": "place_text_and_issue_terms",
-      "row_number": 101,
-      "source_id": "bbmp_work_orders_and_bill_payment"
-    },
-    {
-      "allowed_claims": [
-        "A public work/payment source row exists with these fields."
-      ],
-      "claim": "Construction of RCC drain with covering slabs one side from Bhagini Hotel to Muzhab house in Brookbond and laying of RCC Slabs on existing drain in Bhuvaneshwari road Whitefield in Ward No84",
-      "claim_class": "proof_with_mirror_caveat",
-      "disallowed_claims": [
-        "Does not prove field completion, repair quality, corruption, or contractor fault."
-      ],
-      "entity_type": "work",
-      "evidence_id": "evidence-4",
-      "match_confidence": 0.78,
-      "match_method": "place_text_and_issue_terms",
-      "row_number": 3248,
       "source_id": "bbmp_work_orders_and_bill_payment"
     },
     {
@@ -299,11 +278,71 @@
       "disallowed_claims": [
         "Does not prove field completion, repair quality, corruption, or contractor fault."
       ],
+      "display_claim": "Filling up of pot holes in Whitefield roads and surrounding roads in Ward No 84",
+      "entity_type": "work",
+      "evidence_id": "evidence-2",
+      "match_confidence": 0.88,
+      "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Direct pothole/road work",
+      "row_number": 249,
+      "source_id": "bbmp_work_orders_and_bill_payment"
+    },
+    {
+      "allowed_claims": [
+        "A public work/payment source row exists with these fields."
+      ],
+      "claim": "Filling up of Pot holes in Whitefield Inner Circle Outer Circle and Layouts at Ward No 84 Hagaduru",
+      "claim_class": "proof_with_mirror_caveat",
+      "disallowed_claims": [
+        "Does not prove field completion, repair quality, corruption, or contractor fault."
+      ],
+      "display_claim": "Filling up of Pot holes in Whitefield Inner Circle Outer Circle and Layouts at Ward No 84 Hagaduru",
+      "entity_type": "work",
+      "evidence_id": "evidence-3",
+      "match_confidence": 0.88,
+      "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Direct pothole/road work",
+      "row_number": 479,
+      "source_id": "bbmp_work_orders_and_bill_payment"
+    },
+    {
+      "allowed_claims": [
+        "A public work/payment source row exists with these fields."
+      ],
+      "claim": "Construction of RCC drain and asphalting at Whitefield main road to Prashanth layout in Kadugudi ward no:83",
+      "claim_class": "proof_with_mirror_caveat",
+      "disallowed_claims": [
+        "Does not prove field completion, repair quality, corruption, or contractor fault."
+      ],
+      "display_claim": "Construction of RCC drain and asphalting at Whitefield main road to Prashanth layout in Kadugudi ward no:83",
+      "entity_type": "work",
+      "evidence_id": "evidence-4",
+      "match_confidence": 0.82,
+      "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
+      "row_number": 1987,
+      "source_id": "bbmp_work_orders_and_bill_payment"
+    },
+    {
+      "allowed_claims": [
+        "A public work/payment source row exists with these fields."
+      ],
+      "claim": "Construction of RCC drain with covering slabs one side from Bhagini Hotel to Muzhab house in Brookbond and laying of RCC Slabs on existing drain in Bhuvaneshwari road Whitefield in Ward No84",
+      "claim_class": "proof_with_mirror_caveat",
+      "disallowed_claims": [
+        "Does not prove field completion, repair quality, corruption, or contractor fault."
+      ],
+      "display_claim": "Construction of RCC drain with covering slabs one side from Bhagini Hotel to Muzhab house in Brookbond and laying of RCC Slabs on existing drain in Bhuvaneshwari road Whitefield...",
       "entity_type": "work",
       "evidence_id": "evidence-5",
-      "match_confidence": 0.78,
+      "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
-      "row_number": 249,
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
+      "row_number": 3248,
       "source_id": "bbmp_work_orders_and_bill_payment"
     },
     {
@@ -315,10 +354,13 @@
       "disallowed_claims": [
         "Does not prove field completion, repair quality, corruption, or contractor fault."
       ],
+      "display_claim": "Providing and Laying Asphalting from Whitefield Main road to KEB Office Gandhipura in Hagaduru Ward No 84",
       "entity_type": "work",
       "evidence_id": "evidence-6",
-      "match_confidence": 0.78,
+      "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": 1775,
       "source_id": "bbmp_work_orders_and_bill_payment"
     },
@@ -331,10 +373,13 @@
       "disallowed_claims": [
         "Does not prove field completion, repair quality, corruption, or contractor fault."
       ],
+      "display_claim": "Providing and Laying Asphalting from Karumariyamma temple to Whitefield Main road in Hagaduru Ward No 84",
       "entity_type": "work",
       "evidence_id": "evidence-7",
-      "match_confidence": 0.78,
+      "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": 1774,
       "source_id": "bbmp_work_orders_and_bill_payment"
     },
@@ -347,10 +392,13 @@
       "disallowed_claims": [
         "Does not prove field completion, repair quality, corruption, or contractor fault."
       ],
+      "display_claim": "Providing and Laying Asphalting to Whitefield Main road HLRC Beside road towards R Narayanapura in Hagaduru Ward No 84",
       "entity_type": "work",
       "evidence_id": "evidence-8",
-      "match_confidence": 0.78,
+      "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": 1772,
       "source_id": "bbmp_work_orders_and_bill_payment"
     },
@@ -363,10 +411,13 @@
       "disallowed_claims": [
         "Does not prove field completion, repair quality, corruption, or contractor fault."
       ],
+      "display_claim": "Improvements of drain and road in Shanthi Avenue behind Post office Whitefield at w no 84",
       "entity_type": "work",
       "evidence_id": "evidence-9",
-      "match_confidence": 0.78,
+      "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": 5969,
       "source_id": "bbmp_work_orders_and_bill_payment"
     },
@@ -379,10 +430,13 @@
       "disallowed_claims": [
         "Does not prove field completion, repair quality, corruption, or contractor fault."
       ],
+      "display_claim": "Improvements of drain in Karumariyamma temple road upto Chowdappa house in Whitefield w no 84",
       "entity_type": "work",
       "evidence_id": "evidence-10",
-      "match_confidence": 0.78,
+      "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": 5966,
       "source_id": "bbmp_work_orders_and_bill_payment"
     },
@@ -395,10 +449,13 @@
       "disallowed_claims": [
         "Does not prove field completion, repair quality, corruption, or contractor fault."
       ],
+      "display_claim": "Improvements to drains and Providing slabs in Brookbond cross roads, Narayanappa garden roads and Bhuvaneshwari road in Whitefield at Ward No.84",
       "entity_type": "work",
       "evidence_id": "evidence-11",
-      "match_confidence": 0.78,
+      "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": 6918,
       "source_id": "bbmp_work_orders_and_bill_payment"
     },
@@ -411,10 +468,13 @@
       "disallowed_claims": [
         "Does not prove field completion, repair quality, corruption, or contractor fault."
       ],
+      "display_claim": "Improvements of roads in Narayanappa garden at Whitefield in ward no 84",
       "entity_type": "work",
       "evidence_id": "evidence-12",
-      "match_confidence": 0.78,
+      "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": 1070,
       "source_id": "bbmp_work_orders_and_bill_payment"
     },
@@ -427,10 +487,13 @@
       "disallowed_claims": [
         "Does not prove field completion, repair quality, corruption, or contractor fault."
       ],
+      "display_claim": "Improvements of 1st to 4th cross roads and drains at Doctor s Layout at Whitefield in Ward No.84",
       "entity_type": "work",
       "evidence_id": "evidence-13",
-      "match_confidence": 0.78,
+      "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": 1645,
       "source_id": "bbmp_work_orders_and_bill_payment"
     },
@@ -443,10 +506,13 @@
       "disallowed_claims": [
         "Does not prove field completion, repair quality, corruption, or contractor fault."
       ],
+      "display_claim": "Improvements of 1st to 4th cross roads and drains at Byrappa Layout at Whitefield in Ward No.84",
       "entity_type": "work",
       "evidence_id": "evidence-14",
-      "match_confidence": 0.78,
+      "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": 1643,
       "source_id": "bbmp_work_orders_and_bill_payment"
     },
@@ -459,10 +525,13 @@
       "disallowed_claims": [
         "Does not prove field completion, repair quality, corruption, or contractor fault."
       ],
+      "display_claim": "Improvements of road and drains near Subbarao Compound road at Whitefield in Ward No. 84",
       "entity_type": "work",
       "evidence_id": "evidence-15",
-      "match_confidence": 0.78,
+      "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": 1644,
       "source_id": "bbmp_work_orders_and_bill_payment"
     },
@@ -475,10 +544,13 @@
       "disallowed_claims": [
         "Does not prove field completion, repair quality, corruption, or contractor fault."
       ],
+      "display_claim": "Development of Whitefield Outer circle cross road in Ward No.84 (Hagaduru)",
       "entity_type": "work",
       "evidence_id": "evidence-16",
-      "match_confidence": 0.78,
+      "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": 1583,
       "source_id": "bbmp_work_orders_and_bill_payment"
     },
@@ -491,10 +563,13 @@
       "disallowed_claims": [
         "Does not prove field completion, repair quality, corruption, or contractor fault."
       ],
+      "display_claim": "Providing Project Management Consultancy Services for the work of Improvements, strengthening and asphalting to internal roads and construction of underpass at EPIP zone, whitef...",
       "entity_type": "work",
       "evidence_id": "evidence-17",
-      "match_confidence": 0.78,
+      "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": 5517,
       "source_id": "bbmp_work_orders_and_bill_payment"
     },
@@ -507,10 +582,13 @@
       "disallowed_claims": [
         "Does not prove field completion, repair quality, corruption, or contractor fault."
       ],
+      "display_claim": "084-19-000040 Improvements to roads and drains at Vinayaka Layout - Whitefield in Hagadur ward No.84",
       "entity_type": "work",
       "evidence_id": "evidence-18",
-      "match_confidence": 0.78,
+      "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": 140,
       "source_id": "bbmp_work_orders_and_payments_2025_26"
     },
@@ -523,10 +601,13 @@
       "disallowed_claims": [
         "Does not prove field completion, repair quality, corruption, or contractor fault."
       ],
+      "display_claim": "304-20-000242 Comprehensive Development and Improvement to the Roads Connecting to ITPL Area Whitefield in RI Mahadevapura Division Package-2",
       "entity_type": "work",
       "evidence_id": "evidence-19",
-      "match_confidence": 0.78,
+      "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": 587,
       "source_id": "bbmp_work_orders_and_payments_2025_26"
     },
@@ -539,192 +620,261 @@
       "disallowed_claims": [
         "Does not prove field completion, repair quality, corruption, or contractor fault."
       ],
+      "display_claim": "304-20-000242 Comprehensive Development and Improvement to the Roads Connecting to ITPL Area Whitefield in RI Mahadevapura Division Package-2",
       "entity_type": "work",
       "evidence_id": "evidence-20",
-      "match_confidence": 0.78,
+      "match_confidence": 0.82,
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": 1158,
       "source_id": "bbmp_work_orders_and_payments_2025_26"
     }
   ],
   "evidence_strength": "public_row",
+  "evidence_summary": {
+    "hidden_count": 17,
+    "shown_count": 3,
+    "specificity": "direct",
+    "total_matches": 20
+  },
   "evidence_table": [
     {
       "claim_class": "proof_with_mirror_caveat",
+      "display_claim": "Filling of Portholes and Bad reaches in Whitefield main road ITPL Back gate road Pattanduru agrahara main road RHB colony to Garudacharpalya road, Maheshwarinagara and Lakshmisa...",
       "entity_type": "work",
-      "match_confidence": "0.78",
+      "match_confidence": "0.88",
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Direct pothole/road work",
       "row_number": "1257",
       "source_id": "bbmp_work_orders_and_bill_payment",
       "text": "Filling of Portholes and Bad reaches in Whitefield main road ITPL Back gate road Pattanduru agrahara main road RHB colony to Garudacharpalya road, Maheshwarinagara and Lakshmisagara roads in ward no 82; amount 1444184"
     },
     {
       "claim_class": "proof_with_mirror_caveat",
+      "display_claim": "Filling up of pot holes in Whitefield roads and surrounding roads in Ward No 84; amount 470944",
       "entity_type": "work",
-      "match_confidence": "0.78",
+      "match_confidence": "0.88",
       "match_method": "place_text_and_issue_terms",
-      "row_number": "1987",
-      "source_id": "bbmp_work_orders_and_bill_payment",
-      "text": "Construction of RCC drain and asphalting at Whitefield main road to Prashanth layout in Kadugudi ward no:83; amount 12738753"
-    },
-    {
-      "claim_class": "proof_with_mirror_caveat",
-      "entity_type": "work",
-      "match_confidence": "0.78",
-      "match_method": "place_text_and_issue_terms",
-      "row_number": "101",
-      "source_id": "bbmp_work_orders_and_bill_payment",
-      "text": "Maintenance of Drains and Culverts at Whitefield area immadihalli and hagaduru village in word No 84; amount 209724"
-    },
-    {
-      "claim_class": "proof_with_mirror_caveat",
-      "entity_type": "work",
-      "match_confidence": "0.78",
-      "match_method": "place_text_and_issue_terms",
-      "row_number": "3248",
-      "source_id": "bbmp_work_orders_and_bill_payment",
-      "text": "Construction of RCC drain with covering slabs one side from Bhagini Hotel to Muzhab house in Brookbond and laying of RCC Slabs on existing drain in Bhuvaneshwari road Whitefield in Ward No84; amount 1266585"
-    },
-    {
-      "claim_class": "proof_with_mirror_caveat",
-      "entity_type": "work",
-      "match_confidence": "0.78",
-      "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Direct pothole/road work",
       "row_number": "249",
       "source_id": "bbmp_work_orders_and_bill_payment",
       "text": "Filling up of pot holes in Whitefield roads and surrounding roads in Ward No 84; amount 470944"
     },
     {
       "claim_class": "proof_with_mirror_caveat",
+      "display_claim": "Filling up of Pot holes in Whitefield Inner Circle Outer Circle and Layouts at Ward No 84 Hagaduru; amount 313784",
       "entity_type": "work",
-      "match_confidence": "0.78",
+      "match_confidence": "0.88",
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Direct pothole/road work",
+      "row_number": "479",
+      "source_id": "bbmp_work_orders_and_bill_payment",
+      "text": "Filling up of Pot holes in Whitefield Inner Circle Outer Circle and Layouts at Ward No 84 Hagaduru; amount 313784"
+    },
+    {
+      "claim_class": "proof_with_mirror_caveat",
+      "display_claim": "Construction of RCC drain and asphalting at Whitefield main road to Prashanth layout in Kadugudi ward no:83; amount 12738753",
+      "entity_type": "work",
+      "match_confidence": "0.82",
+      "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
+      "row_number": "1987",
+      "source_id": "bbmp_work_orders_and_bill_payment",
+      "text": "Construction of RCC drain and asphalting at Whitefield main road to Prashanth layout in Kadugudi ward no:83; amount 12738753"
+    },
+    {
+      "claim_class": "proof_with_mirror_caveat",
+      "display_claim": "Construction of RCC drain with covering slabs one side from Bhagini Hotel to Muzhab house in Brookbond and laying of RCC Slabs on existing drain in Bhuvaneshwari road Whitefield...",
+      "entity_type": "work",
+      "match_confidence": "0.82",
+      "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
+      "row_number": "3248",
+      "source_id": "bbmp_work_orders_and_bill_payment",
+      "text": "Construction of RCC drain with covering slabs one side from Bhagini Hotel to Muzhab house in Brookbond and laying of RCC Slabs on existing drain in Bhuvaneshwari road Whitefield in Ward No84; amount 1266585"
+    },
+    {
+      "claim_class": "proof_with_mirror_caveat",
+      "display_claim": "Providing and Laying Asphalting from Whitefield Main road to KEB Office Gandhipura in Hagaduru Ward No 84; amount 292229",
+      "entity_type": "work",
+      "match_confidence": "0.82",
+      "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": "1775",
       "source_id": "bbmp_work_orders_and_bill_payment",
       "text": "Providing and Laying Asphalting from Whitefield Main road to KEB Office Gandhipura in Hagaduru Ward No 84; amount 292229"
     },
     {
       "claim_class": "proof_with_mirror_caveat",
+      "display_claim": "Providing and Laying Asphalting from Karumariyamma temple to Whitefield Main road in Hagaduru Ward No 84; amount 477633",
       "entity_type": "work",
-      "match_confidence": "0.78",
+      "match_confidence": "0.82",
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": "1774",
       "source_id": "bbmp_work_orders_and_bill_payment",
       "text": "Providing and Laying Asphalting from Karumariyamma temple to Whitefield Main road in Hagaduru Ward No 84; amount 477633"
     },
     {
       "claim_class": "proof_with_mirror_caveat",
+      "display_claim": "Providing and Laying Asphalting to Whitefield Main road HLRC Beside road towards R Narayanapura in Hagaduru Ward No 84; amount 390426",
       "entity_type": "work",
-      "match_confidence": "0.78",
+      "match_confidence": "0.82",
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": "1772",
       "source_id": "bbmp_work_orders_and_bill_payment",
       "text": "Providing and Laying Asphalting to Whitefield Main road HLRC Beside road towards R Narayanapura in Hagaduru Ward No 84; amount 390426"
     },
     {
       "claim_class": "proof_with_mirror_caveat",
+      "display_claim": "Improvements of drain and road in Shanthi Avenue behind Post office Whitefield at w no 84; amount 994047",
       "entity_type": "work",
-      "match_confidence": "0.78",
+      "match_confidence": "0.82",
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": "5969",
       "source_id": "bbmp_work_orders_and_bill_payment",
       "text": "Improvements of drain and road in Shanthi Avenue behind Post office Whitefield at w no 84; amount 994047"
     },
     {
       "claim_class": "proof_with_mirror_caveat",
+      "display_claim": "Improvements of drain in Karumariyamma temple road upto Chowdappa house in Whitefield w no 84; amount 1494199",
       "entity_type": "work",
-      "match_confidence": "0.78",
+      "match_confidence": "0.82",
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": "5966",
       "source_id": "bbmp_work_orders_and_bill_payment",
       "text": "Improvements of drain in Karumariyamma temple road upto Chowdappa house in Whitefield w no 84; amount 1494199"
     },
     {
       "claim_class": "proof_with_mirror_caveat",
+      "display_claim": "Improvements to drains and Providing slabs in Brookbond cross roads, Narayanappa garden roads and Bhuvaneshwari road in Whitefield at Ward No.84; amount 499209",
       "entity_type": "work",
-      "match_confidence": "0.78",
+      "match_confidence": "0.82",
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": "6918",
       "source_id": "bbmp_work_orders_and_bill_payment",
       "text": "Improvements to drains and Providing slabs in Brookbond cross roads, Narayanappa garden roads and Bhuvaneshwari road in Whitefield at Ward No.84; amount 499209"
     },
     {
       "claim_class": "proof_with_mirror_caveat",
+      "display_claim": "Improvements of roads in Narayanappa garden at Whitefield in ward no 84; amount 2591770",
       "entity_type": "work",
-      "match_confidence": "0.78",
+      "match_confidence": "0.82",
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": "1070",
       "source_id": "bbmp_work_orders_and_bill_payment",
       "text": "Improvements of roads in Narayanappa garden at Whitefield in ward no 84; amount 2591770"
     },
     {
       "claim_class": "proof_with_mirror_caveat",
+      "display_claim": "Improvements of 1st to 4th cross roads and drains at Doctor s Layout at Whitefield in Ward No.84; amount 1960169",
       "entity_type": "work",
-      "match_confidence": "0.78",
+      "match_confidence": "0.82",
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": "1645",
       "source_id": "bbmp_work_orders_and_bill_payment",
       "text": "Improvements of 1st to 4th cross roads and drains at Doctor s Layout at Whitefield in Ward No.84; amount 1960169"
     },
     {
       "claim_class": "proof_with_mirror_caveat",
+      "display_claim": "Improvements of 1st to 4th cross roads and drains at Byrappa Layout at Whitefield in Ward No.84; amount 2475224",
       "entity_type": "work",
-      "match_confidence": "0.78",
+      "match_confidence": "0.82",
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": "1643",
       "source_id": "bbmp_work_orders_and_bill_payment",
       "text": "Improvements of 1st to 4th cross roads and drains at Byrappa Layout at Whitefield in Ward No.84; amount 2475224"
     },
     {
       "claim_class": "proof_with_mirror_caveat",
+      "display_claim": "Improvements of road and drains near Subbarao Compound road at Whitefield in Ward No. 84; amount 1490843",
       "entity_type": "work",
-      "match_confidence": "0.78",
+      "match_confidence": "0.82",
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": "1644",
       "source_id": "bbmp_work_orders_and_bill_payment",
       "text": "Improvements of road and drains near Subbarao Compound road at Whitefield in Ward No. 84; amount 1490843"
     },
     {
       "claim_class": "proof_with_mirror_caveat",
+      "display_claim": "Development of Whitefield Outer circle cross road in Ward No.84 (Hagaduru); amount 487078",
       "entity_type": "work",
-      "match_confidence": "0.78",
+      "match_confidence": "0.82",
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": "1583",
       "source_id": "bbmp_work_orders_and_bill_payment",
       "text": "Development of Whitefield Outer circle cross road in Ward No.84 (Hagaduru); amount 487078"
     },
     {
       "claim_class": "proof_with_mirror_caveat",
+      "display_claim": "Providing Project Management Consultancy Services for the work of Improvements, strengthening and asphalting to internal roads and construction of underpass at EPIP zone, whitef...",
       "entity_type": "work",
-      "match_confidence": "0.78",
+      "match_confidence": "0.82",
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": "5517",
       "source_id": "bbmp_work_orders_and_bill_payment",
       "text": "Providing Project Management Consultancy Services for the work of Improvements, strengthening and asphalting to internal roads and construction of underpass at EPIP zone, whitefield Bangalore Phase-11; amount 91338799"
     },
     {
       "claim_class": "proof_with_mirror_caveat",
+      "display_claim": "084-19-000040 Improvements to roads and drains at Vinayaka Layout - Whitefield in Hagadur ward No.84; amount 3306387",
       "entity_type": "work",
-      "match_confidence": "0.78",
+      "match_confidence": "0.82",
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": "140",
       "source_id": "bbmp_work_orders_and_payments_2025_26",
       "text": "084-19-000040 Improvements to roads and drains at Vinayaka Layout - Whitefield in Hagadur ward No.84; amount 3306387"
     },
     {
       "claim_class": "proof_with_mirror_caveat",
+      "display_claim": "304-20-000242 Comprehensive Development and Improvement to the Roads Connecting to ITPL Area Whitefield in RI Mahadevapura Division Package-2; amount 30151951",
       "entity_type": "work",
-      "match_confidence": "0.78",
+      "match_confidence": "0.82",
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": "587",
       "source_id": "bbmp_work_orders_and_payments_2025_26",
       "text": "304-20-000242 Comprehensive Development and Improvement to the Roads Connecting to ITPL Area Whitefield in RI Mahadevapura Division Package-2; amount 30151951"
     },
     {
       "claim_class": "proof_with_mirror_caveat",
+      "display_claim": "304-20-000242 Comprehensive Development and Improvement to the Roads Connecting to ITPL Area Whitefield in RI Mahadevapura Division Package-2; amount 8130200",
       "entity_type": "work",
-      "match_confidence": "0.78",
+      "match_confidence": "0.82",
       "match_method": "place_text_and_issue_terms",
+      "proof_note": "Public row; not proof of field resolution.",
+      "relevance_label": "Related road work",
       "row_number": "1158",
       "source_id": "bbmp_work_orders_and_payments_2025_26",
       "text": "304-20-000242 Comprehensive Development and Improvement to the Roads Connecting to ITPL Area Whitefield in RI Mahadevapura Division Package-2; amount 8130200"
@@ -735,7 +885,13 @@
     "fetched_at_values": [
       "2026-06-30T08-48-51Z",
       "2026-06-30T08-49-46Z"
-    ]
+    ],
+    "latest_fetched_at": "2026-06-30T08-49-46Z",
+    "latest_record_date": "",
+    "policy_version": "freshness-v1",
+    "record_date_values": [],
+    "staleness_warning": "",
+    "undated_record_count": 0
   },
   "input": {
     "lat": null,
@@ -744,6 +900,7 @@
   },
   "issue": {
     "description": "There is a recurring pothole near the main road in Whitefield, what can I cite?",
+    "display_type": "road or footpath issue",
     "matched_terms": [
       "asphalt",
       "drain",
@@ -782,6 +939,7 @@
   "legacy_packet_type": "civic_evidence_packet",
   "limits": [
     "Routing is an inference until an official complaint channel or record confirms ownership.",
+    "Public work/payment rows are administrative context only; they are not proof of current field condition or field resolution.",
     "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing."
   ],
   "normalized_issue": "road",
@@ -798,25 +956,338 @@
     "ward_number": "29",
     "zone": ""
   },
+  "provenance": {
+    "entities": {
+      "activity": "fetch, normalize, resolve, route, match, packet_build",
+      "agent": "source publisher plus civic action packet builder",
+      "source_record": "raw public record, row, page, or official API response"
+    },
+    "evidence_records": [
+      {
+        "fetched_at": "2026-06-30T08-49-46Z",
+        "freshness_status": "timestamped",
+        "license": "unknown",
+        "parser_version": "works_payments_v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/73a2ea75-a5c6-40c5-a947-e4be1698102c.csv",
+        "record_date": "",
+        "row_or_page_id": "1257",
+        "run_id": "2026-06-30T08-49-46Z",
+        "source_id": "bbmp_work_orders_and_bill_payment",
+        "source_tier": "tier_1_official_or_mirror"
+      },
+      {
+        "fetched_at": "2026-06-30T08-49-46Z",
+        "freshness_status": "timestamped",
+        "license": "unknown",
+        "parser_version": "works_payments_v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+        "record_date": "",
+        "row_or_page_id": "249",
+        "run_id": "2026-06-30T08-49-46Z",
+        "source_id": "bbmp_work_orders_and_bill_payment",
+        "source_tier": "tier_1_official_or_mirror"
+      },
+      {
+        "fetched_at": "2026-06-30T08-49-46Z",
+        "freshness_status": "timestamped",
+        "license": "unknown",
+        "parser_version": "works_payments_v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/73a2ea75-a5c6-40c5-a947-e4be1698102c.csv",
+        "record_date": "",
+        "row_or_page_id": "479",
+        "run_id": "2026-06-30T08-49-46Z",
+        "source_id": "bbmp_work_orders_and_bill_payment",
+        "source_tier": "tier_1_official_or_mirror"
+      },
+      {
+        "fetched_at": "2026-06-30T08-49-46Z",
+        "freshness_status": "timestamped",
+        "license": "unknown",
+        "parser_version": "works_payments_v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+        "record_date": "",
+        "row_or_page_id": "1987",
+        "run_id": "2026-06-30T08-49-46Z",
+        "source_id": "bbmp_work_orders_and_bill_payment",
+        "source_tier": "tier_1_official_or_mirror"
+      },
+      {
+        "fetched_at": "2026-06-30T08-49-46Z",
+        "freshness_status": "timestamped",
+        "license": "unknown",
+        "parser_version": "works_payments_v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+        "record_date": "",
+        "row_or_page_id": "3248",
+        "run_id": "2026-06-30T08-49-46Z",
+        "source_id": "bbmp_work_orders_and_bill_payment",
+        "source_tier": "tier_1_official_or_mirror"
+      },
+      {
+        "fetched_at": "2026-06-30T08-49-46Z",
+        "freshness_status": "timestamped",
+        "license": "unknown",
+        "parser_version": "works_payments_v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+        "record_date": "",
+        "row_or_page_id": "1775",
+        "run_id": "2026-06-30T08-49-46Z",
+        "source_id": "bbmp_work_orders_and_bill_payment",
+        "source_tier": "tier_1_official_or_mirror"
+      },
+      {
+        "fetched_at": "2026-06-30T08-49-46Z",
+        "freshness_status": "timestamped",
+        "license": "unknown",
+        "parser_version": "works_payments_v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+        "record_date": "",
+        "row_or_page_id": "1774",
+        "run_id": "2026-06-30T08-49-46Z",
+        "source_id": "bbmp_work_orders_and_bill_payment",
+        "source_tier": "tier_1_official_or_mirror"
+      },
+      {
+        "fetched_at": "2026-06-30T08-49-46Z",
+        "freshness_status": "timestamped",
+        "license": "unknown",
+        "parser_version": "works_payments_v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+        "record_date": "",
+        "row_or_page_id": "1772",
+        "run_id": "2026-06-30T08-49-46Z",
+        "source_id": "bbmp_work_orders_and_bill_payment",
+        "source_tier": "tier_1_official_or_mirror"
+      },
+      {
+        "fetched_at": "2026-06-30T08-49-46Z",
+        "freshness_status": "timestamped",
+        "license": "unknown",
+        "parser_version": "works_payments_v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+        "record_date": "",
+        "row_or_page_id": "5969",
+        "run_id": "2026-06-30T08-49-46Z",
+        "source_id": "bbmp_work_orders_and_bill_payment",
+        "source_tier": "tier_1_official_or_mirror"
+      },
+      {
+        "fetched_at": "2026-06-30T08-49-46Z",
+        "freshness_status": "timestamped",
+        "license": "unknown",
+        "parser_version": "works_payments_v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+        "record_date": "",
+        "row_or_page_id": "5966",
+        "run_id": "2026-06-30T08-49-46Z",
+        "source_id": "bbmp_work_orders_and_bill_payment",
+        "source_tier": "tier_1_official_or_mirror"
+      },
+      {
+        "fetched_at": "2026-06-30T08-49-46Z",
+        "freshness_status": "timestamped",
+        "license": "unknown",
+        "parser_version": "works_payments_v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+        "record_date": "",
+        "row_or_page_id": "6918",
+        "run_id": "2026-06-30T08-49-46Z",
+        "source_id": "bbmp_work_orders_and_bill_payment",
+        "source_tier": "tier_1_official_or_mirror"
+      },
+      {
+        "fetched_at": "2026-06-30T08-49-46Z",
+        "freshness_status": "timestamped",
+        "license": "unknown",
+        "parser_version": "works_payments_v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/73a2ea75-a5c6-40c5-a947-e4be1698102c.csv",
+        "record_date": "",
+        "row_or_page_id": "1070",
+        "run_id": "2026-06-30T08-49-46Z",
+        "source_id": "bbmp_work_orders_and_bill_payment",
+        "source_tier": "tier_1_official_or_mirror"
+      },
+      {
+        "fetched_at": "2026-06-30T08-49-46Z",
+        "freshness_status": "timestamped",
+        "license": "unknown",
+        "parser_version": "works_payments_v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/73a2ea75-a5c6-40c5-a947-e4be1698102c.csv",
+        "record_date": "",
+        "row_or_page_id": "1645",
+        "run_id": "2026-06-30T08-49-46Z",
+        "source_id": "bbmp_work_orders_and_bill_payment",
+        "source_tier": "tier_1_official_or_mirror"
+      },
+      {
+        "fetched_at": "2026-06-30T08-49-46Z",
+        "freshness_status": "timestamped",
+        "license": "unknown",
+        "parser_version": "works_payments_v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/73a2ea75-a5c6-40c5-a947-e4be1698102c.csv",
+        "record_date": "",
+        "row_or_page_id": "1643",
+        "run_id": "2026-06-30T08-49-46Z",
+        "source_id": "bbmp_work_orders_and_bill_payment",
+        "source_tier": "tier_1_official_or_mirror"
+      },
+      {
+        "fetched_at": "2026-06-30T08-49-46Z",
+        "freshness_status": "timestamped",
+        "license": "unknown",
+        "parser_version": "works_payments_v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/73a2ea75-a5c6-40c5-a947-e4be1698102c.csv",
+        "record_date": "",
+        "row_or_page_id": "1644",
+        "run_id": "2026-06-30T08-49-46Z",
+        "source_id": "bbmp_work_orders_and_bill_payment",
+        "source_tier": "tier_1_official_or_mirror"
+      },
+      {
+        "fetched_at": "2026-06-30T08-49-46Z",
+        "freshness_status": "timestamped",
+        "license": "unknown",
+        "parser_version": "works_payments_v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/73a2ea75-a5c6-40c5-a947-e4be1698102c.csv",
+        "record_date": "",
+        "row_or_page_id": "1583",
+        "run_id": "2026-06-30T08-49-46Z",
+        "source_id": "bbmp_work_orders_and_bill_payment",
+        "source_tier": "tier_1_official_or_mirror"
+      },
+      {
+        "fetched_at": "2026-06-30T08-49-46Z",
+        "freshness_status": "timestamped",
+        "license": "unknown",
+        "parser_version": "works_payments_v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/c1dad862-1ea3-4e1e-9728-991988e09da0.csv",
+        "record_date": "",
+        "row_or_page_id": "5517",
+        "run_id": "2026-06-30T08-49-46Z",
+        "source_id": "bbmp_work_orders_and_bill_payment",
+        "source_tier": "tier_1_official_or_mirror"
+      },
+      {
+        "fetched_at": "2026-06-30T08-48-51Z",
+        "freshness_status": "timestamped",
+        "license": "unknown",
+        "parser_version": "works_payments_v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/7a6907c2-6efd-43d6-99ac-1d10f67b3f85.csv",
+        "record_date": "",
+        "row_or_page_id": "140",
+        "run_id": "2026-06-30T08-48-51Z",
+        "source_id": "bbmp_work_orders_and_payments_2025_26",
+        "source_tier": "tier_1_official_or_mirror"
+      },
+      {
+        "fetched_at": "2026-06-30T08-48-51Z",
+        "freshness_status": "timestamped",
+        "license": "unknown",
+        "parser_version": "works_payments_v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/71b93422-3d64-4de6-a823-468517f441e3.csv",
+        "record_date": "",
+        "row_or_page_id": "587",
+        "run_id": "2026-06-30T08-48-51Z",
+        "source_id": "bbmp_work_orders_and_payments_2025_26",
+        "source_tier": "tier_1_official_or_mirror"
+      },
+      {
+        "fetched_at": "2026-06-30T08-48-51Z",
+        "freshness_status": "timestamped",
+        "license": "unknown",
+        "parser_version": "works_payments_v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/71b93422-3d64-4de6-a823-468517f441e3.csv",
+        "record_date": "",
+        "row_or_page_id": "1158",
+        "run_id": "2026-06-30T08-48-51Z",
+        "source_id": "bbmp_work_orders_and_payments_2025_26",
+        "source_tier": "tier_1_official_or_mirror"
+      },
+      {
+        "fetched_at": "",
+        "freshness_status": "undated_public_record",
+        "license": "unknown",
+        "parser_version": "jurisdiction-v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+        "record_date": "",
+        "row_or_page_id": "100",
+        "run_id": "2026-06-30T08-48-51Z",
+        "source_id": "gba_wards_delimitation_2025",
+        "source_tier": "tier_1_official_or_mirror"
+      }
+    ],
+    "model": "w3c-prov-lite"
+  },
   "question": "There is a recurring pothole near the main road in Whitefield, what can I cite?",
   "records_show": [
-    "Filling of Portholes and Bad reaches in Whitefield main road ITPL Back gate road Pattanduru agrahara main road RHB colony to Garudacharpalya road, Maheshwarinagara and Lakshmisagara roads in ward no 82; amount 1444184",
-    "Construction of RCC drain and asphalting at Whitefield main road to Prashanth layout in Kadugudi ward no:83; amount 12738753",
-    "Maintenance of Drains and Culverts at Whitefield area immadihalli and hagaduru village in word No 84; amount 209724"
+    "Filling of Portholes and Bad reaches in Whitefield main road ITPL Back gate road Pattanduru agrahara main road RHB colony to Garudacharpalya road, Maheshwarinagara and Lakshmisa...",
+    "Filling up of pot holes in Whitefield roads and surrounding roads in Ward No 84; amount 470944",
+    "Filling up of Pot holes in Whitefield Inner Circle Outer Circle and Layouts at Ward No 84 Hagaduru; amount 313784"
   ],
   "related_works": [
-    "Filling of Portholes and Bad reaches in Whitefield main road ITPL Back gate road Pattanduru agrahara main road RHB colony to Garudacharpalya road, Maheshwarinagara and Lakshmisagara roads in ward no 82; amount 1444184",
-    "Construction of RCC drain and asphalting at Whitefield main road to Prashanth layout in Kadugudi ward no:83; amount 12738753",
-    "Maintenance of Drains and Culverts at Whitefield area immadihalli and hagaduru village in word No 84; amount 209724",
-    "Construction of RCC drain with covering slabs one side from Bhagini Hotel to Muzhab house in Brookbond and laying of RCC Slabs on existing drain in Bhuvaneshwari road Whitefield in Ward No84; amount 1266585"
+    "Filling of Portholes and Bad reaches in Whitefield main road ITPL Back gate road Pattanduru agrahara main road RHB colony to Garudacharpalya road, Maheshwarinagara and Lakshmisa...",
+    "Filling up of pot holes in Whitefield roads and surrounding roads in Ward No 84; amount 470944",
+    "Filling up of Pot holes in Whitefield Inner Circle Outer Circle and Layouts at Ward No 84 Hagaduru; amount 313784",
+    "Construction of RCC drain and asphalting at Whitefield main road to Prashanth layout in Kadugudi ward no:83; amount 12738753"
   ],
   "responsibility": {
+    "dual_path_caveat": "",
     "fallback_agency": null,
     "ownership_caveat": "Routing is an inference until an official complaint channel or record confirms ownership.",
     "primary_agency": {
       "agency_id": "gba",
       "name": "Greater Bengaluru Authority / local city corporation"
-    }
+    },
+    "routing_decision": {
+      "policy_id": "bengaluru-civic-routing",
+      "policy_version": "routing-v3",
+      "rule_ids": [
+        "road.primary"
+      ]
+    },
+    "secondary_agencies": []
   },
   "responsible_agency": {
     "agency_id": "gba",
@@ -826,6 +1297,10 @@
     "backend": "normalized_civic_case",
     "channels_considered": 0,
     "payments_considered": 0,
+    "routing_rule_ids": [
+      "road.primary"
+    ],
+    "trace_id": "packet-ca3c00f9f3d2895a",
     "used_rag": false,
     "used_raw_scan": false,
     "works_considered": 20
@@ -846,11 +1321,73 @@
     ],
     "status_policy": "Official closure is a source claim, not verified ground resolution."
   },
-  "short_answer": "This looks like a road issue around Whitefield. Likely owner: Greater Bengaluru Authority / local city corporation. I found normalized public evidence rows to cite.",
+  "short_answer": "This looks like a road or footpath issue around Whitefield. Likely owner: Greater Bengaluru Authority / local city corporation. I found normalized public evidence rows to cite.",
+  "trace": {
+    "candidate_counts": {
+      "channels_selected": 0,
+      "contacts_selected": 0,
+      "evidence_selected": 20
+    },
+    "matcher_versions": {
+      "evidence_matcher": "v3",
+      "issue_router": "routing-v3"
+    },
+    "query_hash": "ca3c00f9f3d2895a2042fd5312556c37d59889949db723062db260002e2dc776",
+    "resolver_confidence": 0.95,
+    "resolver_source": "offline_normalized_wards",
+    "retrieval_snapshot_id": "json-warehouse-current",
+    "routing_policy_id": "bengaluru-civic-routing",
+    "routing_policy_version": "routing-v3",
+    "routing_rule_ids": [
+      "road.primary"
+    ],
+    "source_snapshot_id": "normalized-json-current",
+    "stages": {
+      "matcher": {
+        "selected_channel_ids": [],
+        "selected_contact_ids": [],
+        "selected_evidence_ids": [
+          "evidence-1",
+          "evidence-2",
+          "evidence-3",
+          "evidence-4",
+          "evidence-5",
+          "evidence-6",
+          "evidence-7",
+          "evidence-8",
+          "evidence-9",
+          "evidence-10",
+          "evidence-11",
+          "evidence-12",
+          "evidence-13",
+          "evidence-14",
+          "evidence-15",
+          "evidence-16",
+          "evidence-17",
+          "evidence-18",
+          "evidence-19",
+          "evidence-20"
+        ]
+      },
+      "resolver": {
+        "confidence": 0.95,
+        "source": "offline_normalized_wards"
+      },
+      "router": {
+        "issue_type": "road",
+        "primary_agency_id": "gba",
+        "secondary_agency_ids": []
+      }
+    },
+    "trace_id": "packet-ca3c00f9f3d2895a",
+    "warnings": [
+      "Routing is an inference until an official complaint channel or record confirms ownership."
+    ]
+  },
   "what_to_cite": [
-    "Filling of Portholes and Bad reaches in Whitefield main road ITPL Back gate road Pattanduru agrahara main road RHB colony to Garudacharpalya road, Maheshwarinagara and Lakshmisagara roads in ward no 82; amount 1444184",
-    "Construction of RCC drain and asphalting at Whitefield main road to Prashanth layout in Kadugudi ward no:83; amount 12738753",
-    "Maintenance of Drains and Culverts at Whitefield area immadihalli and hagaduru village in word No 84; amount 209724"
+    "Filling of Portholes and Bad reaches in Whitefield main road ITPL Back gate road Pattanduru agrahara main road RHB colony to Garudacharpalya road, Maheshwarinagara and Lakshmisa...",
+    "Filling up of pot holes in Whitefield roads and surrounding roads in Ward No 84; amount 470944",
+    "Filling up of Pot holes in Whitefield Inner Circle Outer Circle and Layouts at Ward No 84 Hagaduru; amount 313784"
   ],
   "what_to_do_next": [
     "File through: Use GBA/BBMP local corporation channels or Namma Bengaluru/Sahaaya for local civic issues.",

@@ -7,7 +7,7 @@ from typing import Any
 EMAIL_RE = re.compile(r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", re.IGNORECASE)
 PHONE_RE = re.compile(r"(?<!\d)(?:\+?91[-\s]?)?[6-9]\d{9}(?!\d)")
 ACCOUNT_RE = re.compile(
-    r"\b(?:rr\s*(?:number|no\.?)?|account\s*(?:number|no\.?)?)\s*[:#-]?\s*[A-Z0-9/-]{6,}\b",
+    r"\b(?:rr\s*(?:number|no\.?)?|account\s*(?:number|no\.?)?)\s*[:#-]?\s*[A-Z0-9/-]*\d[A-Z0-9/-]{5,}\b",
     re.IGNORECASE,
 )
 
@@ -34,4 +34,3 @@ def redact_record(value: dict[str, Any], keys: set[str] | None = None) -> dict[s
         else:
             result[key] = item
     return result
-

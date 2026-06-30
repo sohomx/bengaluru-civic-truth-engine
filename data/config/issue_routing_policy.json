@@ -1,0 +1,40 @@
+{
+  "policy_id": "bengaluru-civic-routing",
+  "policy_version": "routing-v3",
+  "description": "Versioned civic routing policy for Bengaluru action packets. Rules are deterministic and auditable; they do not prove legal ownership by themselves.",
+  "rules": {
+    "garbage.primary": {
+      "issue_type": "garbage",
+      "primary_agency_id": "bswml"
+    },
+    "water_sewage.primary": {
+      "issue_type": "water_sewage",
+      "primary_agency_id": "bwssb"
+    },
+    "power.primary": {
+      "issue_type": "power",
+      "primary_agency_id": "bescom"
+    },
+    "traffic.primary": {
+      "issue_type": "traffic",
+      "primary_agency_id": "btp"
+    },
+    "roadwork.secondary_gba": {
+      "issue_type": "traffic",
+      "secondary_agency_id": "gba",
+      "when": "traffic query also includes digging, roadwork, road damage, repair, or pothole context"
+    },
+    "streetlight.primary": {
+      "issue_type": "streetlight",
+      "primary_agency_id": "gba"
+    },
+    "road.primary": {
+      "issue_type": "road",
+      "primary_agency_id": "gba"
+    },
+    "civic.fallback": {
+      "issue_type": "civic",
+      "primary_agency_id": "gba"
+    }
+  }
+}

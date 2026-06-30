@@ -1,63 +1,111 @@
 # Bengaluru Civic Truth Engine
 
-A provenance-first civic memory system for Bengaluru.
+An open-source civic action engine for Bengaluru.
 
-The project starts by registering and archiving every source listed in the local
-overview, then normalizes the data into a civic warehouse with row-level
-provenance.
+The core product is a provenance-backed `CivicActionPacket`: given a citizen issue,
+the system resolves the likely place, routes the issue to the likely public body,
+attaches public evidence, states what can and cannot be claimed, and drafts the
+next action.
 
-## First Slice
+This is not a generic chatbot over scraped data. Packet generation is structured
+and deterministic. RAG is limited to explaining an existing packet and must not
+discover civic facts from raw files.
 
-The first implementation slice was **Fetch All First**:
+## What It Does
 
-1. Validate the source registry.
-2. Fetch every enabled source into immutable raw archives.
-3. Produce fetch status and parser backlog exports.
-4. Normalize structured sources in waves after the raw archive is proven.
+- Resolves jurisdiction from official `xyinfo` lat/lng lookup when available,
+  then offline ward data, then low-confidence locality aliases.
+- Routes issues such as potholes, garbage, sewage, power, traffic, and
+  streetlights to the likely agency.
+- Matches sanitized public work/payment/contact records as administrative
+  context.
+- Emits claim boundaries: public rows do not prove field completion, current
+  field condition, corruption, or official resolution.
+- Records provenance, freshness, routing policy IDs, and packet traces for
+  auditability.
 
-The current implementation also includes **Wave 1 normalization**:
+## Quick Demo
 
-1. Normalize old BBMP and new GBA ward context.
-2. Normalize BBMP grievance rows from archived CSV resources.
-3. Generate a first place truth report with ward context, grievance trends, and
-   evidence pointers.
+```bash
+python3 -m civic_data packets build \
+  --q "There is a recurring pothole near the main road in Whitefield, what can I cite?" \
+  --format md
 
-## Commands
+python3 -m civic_data packets build \
+  --q "Sewage overflowing near Kadubeesanahalli, who should I contact?" \
+  --format md
+
+python3 -m civic_data rag explain-packet \
+  --packet examples/packets/bellandur-streetlight.json \
+  --q "What should I do next?"
+```
+
+The trusted public path is:
+
+```text
+normalized public data -> civic_action_packet -> packet-only explanation/UI
+```
+
+The legacy `/rag/ask` path is retained for retrieval diagnostics and older evals;
+it is not the source of truth for the civic action packet demo.
+
+## Verification
 
 ```bash
 python3 -m unittest discover -s tests
-python3 -m civic_data registry validate
-python3 -m civic_data sources status
-python3 -m civic_data sources fetch --all
-python3 -m civic_data sources fetch --all --resume --resource-retries 2
-python3 -m civic_data sources profile --all
-python3 -m civic_data normalize wards
-python3 -m civic_data normalize grievances
-python3 -m civic_data places truth --q Bellandur --output data/exports/truth-bellandur.json
-python3 -m civic_data dossiers create --place Bellandur --output data/exports/dossier-bellandur.md
-python3 -m civic_data warehouse export
-python3 -m uvicorn api.app:app --host 127.0.0.1 --port 8000
-cd web && npm install
-cd web && npm run dev -- -H 127.0.0.1 --port 3001
+
+python3 -m civic_data eval packets \
+  --suite tests/fixtures/packet_eval/civic_packets_v1.jsonl \
+  --warehouse-root data/normalized \
+  --raw-root data/raw \
+  --report \
+  --output data/eval_runs/packet_eval_report.json
+
 cd web && npm run build
 ```
 
-If `psql` is installed and a Postgres database is available, load Wave 1 with:
-
-```bash
-python3 -m civic_data warehouse load --database-url "$DATABASE_URL"
-```
-
-The `civic-data` console script is also declared in `pyproject.toml` for
-installed environments.
+The packet eval report includes release-gate metrics for agency accuracy,
+public raw-scan use, PII leakage, and packet-only behavior.
 
 ## Data Policy
 
-Raw data is not committed to Git. The repository tracks schemas, code, docs,
-tests, migrations, and small fixtures. Fetch outputs live under `data/raw/`,
-normalization outputs under `data/normalized/`, exports under `data/exports/`,
-and parser staging outputs under `data/parsed/`.
+Raw data is not committed to Git. The repository tracks source registry entries,
+schemas, normalizers, tests, migrations, docs, demo fixtures, and small public
+examples.
 
-CKAN package fetches are resource-resumable. New manifests include a
-`ckan_resources` ledger so a partial run can be retried without redownloading
-already verified files.
+- Raw archives: `data/raw/`
+- Normalized reproducible read model: `data/normalized/`
+- Locality and routing policy config: `data/config/`
+- Demo packets: `examples/packets/`
+- Production-oriented migrations: `warehouse/migrations/`
+
+Official public sources and mirrored official datasets outrank community or
+news sources. Private complaint tracking, OTP/login flows, account-linked forms,
+and automated complaint filing are intentionally out of scope.
+
+## Architecture
+
+The current open-source read model is JSON under `data/normalized`. Postgres,
+PostGIS, and vector migrations exist as the production backend direction, but
+the packet demo remains reproducible without external infrastructure.
+
+Key boundaries:
+
+- `civic_data/packet.py`: public packet API facade.
+- `civic_data/packet_builder.py`: deterministic packet orchestration.
+- `civic_data/contracts.py`: packet contract metadata and validation.
+- `civic_data/provenance.py`: public evidence provenance ledger.
+- `civic_data/freshness.py`: shared source freshness policy.
+- `civic_data/trace.py`: packet trace IDs and audit stages.
+- `civic_data/packet_rag.py`: packet-only explanation layer.
+- `data/config/issue_routing_policy.json`: auditable routing policy metadata.
+
+## Known Limits
+
+- Offline ward matching is not filing-critical proof; use official lat/lng
+  lookup where possible.
+- Public work/payment rows are administrative context, not proof of repair
+  quality or current field condition.
+- Garbage, sewage, and power cases often route well but may have little
+  issue-specific public evidence until more official datasets are normalized.
+- The legacy RAG retriever is not the demo source of truth.

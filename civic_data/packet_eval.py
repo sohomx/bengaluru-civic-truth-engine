@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Any
 
 from civic_data.packet import build_evidence_packet
+from civic_data.safety import contains_public_pii
 
 
 def run_packet_eval(
@@ -17,6 +18,7 @@ def run_packet_eval(
     cases = read_eval_cases(suite_path)
     results = []
     passed = 0
+    packets: list[dict[str, Any]] = []
     for case in cases:
         packet = build_evidence_packet(
             query=str(case["query"]),
@@ -30,12 +32,25 @@ def run_packet_eval(
         status = "passed" if not failures else "failed"
         if status == "passed":
             passed += 1
+        packets.append(packet)
         results.append({"id": case.get("id"), "status": status, "failures": failures})
+    metrics = _metrics(cases, packets)
+    failed = len(cases) - passed
     return {
         "suite": str(suite_path),
         "total": len(cases),
         "passed": passed,
-        "failed": len(cases) - passed,
+        "failed": failed,
+        "metrics": metrics,
+        "release_gate": {
+            "status": "passed" if failed == 0 and metrics["unsafe_raw_scan_rate"] == 0.0 and metrics["pii_leak_rate"] == 0.0 else "failed",
+            "checks": [
+                "packet_cases_pass",
+                "no_public_raw_scan",
+                "no_public_pii_leak",
+                "agency_accuracy_when_expected",
+            ],
+        },
         "results": results,
     }
 
@@ -118,3 +133,52 @@ def _int_or_none(value: object) -> int | None:
     if value is None or value == "":
         return None
     return int(str(value))
+
+
+def _metrics(cases: list[dict[str, object]], packets: list[dict[str, Any]]) -> dict[str, float]:
+    total = len(packets) or 1
+    expected_agency = 0
+    correct_agency = 0
+    for case, packet in zip(cases, packets, strict=False):
+        agency_id = case.get("expected_agency_id")
+        if not agency_id:
+            continue
+        expected_agency += 1
+        agency = packet.get("responsible_agency") if isinstance(packet.get("responsible_agency"), dict) else {}
+        if agency.get("agency_id") == agency_id:
+            correct_agency += 1
+    raw_scans = 0
+    pii_leaks = 0
+    for packet in packets:
+        trace = packet.get("retrieval_trace") if isinstance(packet.get("retrieval_trace"), dict) else {}
+        audit = packet.get("audit") if isinstance(packet.get("audit"), dict) else {}
+        if trace.get("used_raw_scan") or audit.get("used_raw_scan"):
+            raw_scans += 1
+        if contains_public_pii(_public_text(packet)):
+            pii_leaks += 1
+    return {
+        "agency_accuracy": (correct_agency / expected_agency) if expected_agency else 1.0,
+        "unsafe_raw_scan_rate": raw_scans / total,
+        "pii_leak_rate": pii_leaks / total,
+        "packet_only_rate": sum(1 for packet in packets if not _audit_bool(packet, "used_rag")) / total,
+    }
+
+
+def _audit_bool(packet: dict[str, Any], key: str) -> bool:
+    audit = packet.get("audit") if isinstance(packet.get("audit"), dict) else {}
+    return bool(audit.get(key))
+
+
+def _public_text(packet: dict[str, Any]) -> str:
+    public = {
+        "short_answer": packet.get("short_answer"),
+        "records_show": packet.get("records_show"),
+        "what_to_cite": packet.get("what_to_cite"),
+        "who_to_contact": packet.get("who_to_contact"),
+        "what_to_do_next": packet.get("what_to_do_next"),
+        "limits": packet.get("limits"),
+        "evidence_table": packet.get("evidence_table"),
+        "action": packet.get("action"),
+        "claims": packet.get("claims"),
+    }
+    return json.dumps(public, sort_keys=True)

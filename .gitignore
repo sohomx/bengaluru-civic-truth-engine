@@ -13,6 +13,7 @@ data/raw/
 data/parsed/
 data/quarantine/
 data/exports/
+data/eval_runs/
 data/normalized/
 data/warehouse/
 *.sqlite

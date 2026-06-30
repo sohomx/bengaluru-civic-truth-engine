@@ -1,7 +1,7 @@
 # Civic Action Packet
 
 Query: Bellandur streetlight not working, what can I cite and who should I contact?
-Issue: streetlight
+Issue: streetlight issue
 Place: Bellanduru
 Likely owner: Greater Bengaluru Authority / local city corporation
 Evidence strength: public_row
@@ -16,7 +16,7 @@ If there is no response, follow up with the official complaint/reference number 
 For a persistent unresolved issue, ask the department for written status, responsible office, and related work/order records for Bellanduru. Use RTI only for official records; do not include private account details outside official workflows.
 
 ## What to send
-Hello, I want to report a streetlight issue at Bellanduru. This appears recurring or unresolved from the citizen side. Ward/corporation context: 45 Bellanduru / East. I can share: pole number, photo, landmark or pin, whether multiple lights are affected. Relevant public context, not proof of field resolution: Providing Energy saving street light system with timer control in Bellanduru Ward No.150; amount 169813 Please route this to Greater Bengaluru Authority / local city corporation and share the official complaint/reference number.
+Hello, I want to report a streetlight issue at Bellanduru. Ward/corporation: 45 Bellanduru / East. I can share photos, pin/landmark, date/time, and recurrence details. For public context: I found public work/payment rows that may help frame the issue; they are not proof of field resolution. Please route this to Greater Bengaluru Authority / local city corporation and share the official complaint/reference number.
 
 ## Required Evidence
 - pole number
@@ -41,5 +41,6 @@ Hello, I want to report a streetlight issue at Bellanduru. This appears recurrin
 - private phone numbers
 - claims that a listed work proves the light is fixed
 - Streetlight ownership may split between civic electrical maintenance and BESCOM power distribution.
+- Public work/payment rows are administrative context only; they are not proof of current field condition or field resolution.
 - Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.
 

@@ -16,8 +16,7 @@ def build_evidence_packet(
     xyinfo_client: Callable[[float, float], Any] | None = None,
     locality_alias_path: Path | str | None = Path("data/config/locality_aliases.json"),
 ) -> dict[str, Any]:
-    _ = raw_root, index_path
-    return build_packet(
+    packet = build_packet(
         query=query,
         warehouse_root=warehouse_root,
         lat=lat,
@@ -25,3 +24,12 @@ def build_evidence_packet(
         xyinfo_client=xyinfo_client,
         locality_alias_path=locality_alias_path,
     )
+    audit = packet.setdefault("audit", {})
+    if isinstance(audit, dict):
+        audit["compatibility_inputs"] = {
+            "raw_root": str(raw_root),
+            "index_path": str(index_path) if index_path else "",
+            "used_for_fact_generation": False,
+            "note": "Packet generation reads normalized public data only; raw and RAG index inputs are compatibility parameters.",
+        }
+    return packet

@@ -7,7 +7,7 @@
       "address or pin"
     ],
     "legal_or_rti_action": "For a persistent unresolved issue, ask the department for written status, responsible office, and related work/order records for Bellanduru. Use RTI only for official records; do not include private account details outside official workflows.",
-    "message_draft": "Hello, I want to report a power issue at Bellanduru. This appears recurring or unresolved from the citizen side. Ward/corporation context: 45 Bellanduru / East. I can share: photo if safe, pole/transformer identifier if visible, address or pin. Relevant public context, not proof of field resolution: Use the jurisdiction and official filing channel; no row-level work/payment evidence matched yet. I will share account or private details only inside the official form, not in public messages. Please route this to Bengaluru Electricity Supply Company and share the official complaint/reference number.",
+    "message_draft": "Hello, I want to report a power issue at Bellanduru. Ward/corporation: 45 Bellanduru / East. I can share photos, pin/landmark, date/time, and recurrence details. I did not find matching public work/payment rows for this exact issue yet. I will share account or private details only inside the official form, not in public messages. Please route this to Bengaluru Electricity Supply Company and share the official complaint/reference number.",
     "primary_action": "Contact BESCOM for Bellanduru; treat sparking wires, transformer issues, or shock risk as an electrical safety issue.",
     "what_not_to_claim": [
       "private phone numbers",
@@ -30,11 +30,27 @@
   },
   "answer_type": "structured_civic_case",
   "audit": {
-    "matcher_versions": {
-      "evidence_matcher": "v2",
-      "issue_router": "v2"
+    "compatibility_inputs": {
+      "index_path": "",
+      "note": "Packet generation reads normalized public data only; raw and RAG index inputs are compatibility parameters.",
+      "raw_root": "data/raw",
+      "used_for_fact_generation": false
     },
+    "contract_validation_failures": [],
+    "legacy_rag_status": "not_used_for_fact_generation",
+    "matcher_versions": {
+      "evidence_matcher": "v3",
+      "issue_router": "routing-v3"
+    },
+    "query_hash": "f703805817a2cf44d356cfec5fe7c8079c9dbbd4b95fbd7a59894c6020426093",
     "resolver_source": "offline_normalized_wards",
+    "routing_policy_id": "bengaluru-civic-routing",
+    "routing_policy_version": "routing-v3",
+    "routing_rule_ids": [
+      "power.primary"
+    ],
+    "source_of_truth": "packet_structured_data",
+    "total_evidence_matches": 0,
     "used_rag": false,
     "used_raw_scan": false
   },
@@ -88,6 +104,12 @@
   ],
   "compatibility_schema_version": 2,
   "confidence_label": "high",
+  "contract": {
+    "compatibility_schema_version": 2,
+    "name": "CivicActionPacket",
+    "source_of_truth": "packet_structured_data",
+    "version": "3.0"
+  },
   "coverage_gaps": [
     "BESCOM contact guidance does not prove current outage status.",
     "No normalized work/payment evidence matched this question.",
@@ -95,12 +117,24 @@
   ],
   "evidence": [],
   "evidence_strength": "none",
+  "evidence_summary": {
+    "hidden_count": 0,
+    "shown_count": 0,
+    "specificity": "none",
+    "total_matches": 0
+  },
   "evidence_table": [],
   "freshness": {
     "basis": "normalized_public_records",
     "fetched_at_values": [
       "2026-06-30T08-49-34Z"
-    ]
+    ],
+    "latest_fetched_at": "2026-06-30T08-49-34Z",
+    "latest_record_date": "",
+    "policy_version": "freshness-v1",
+    "record_date_values": [],
+    "staleness_warning": "",
+    "undated_record_count": 0
   },
   "input": {
     "lat": null,
@@ -109,6 +143,7 @@
   },
   "issue": {
     "description": "Power outage and transformer sparks near Bellandur, what should I do?",
+    "display_type": "power issue",
     "matched_terms": [
       "electrical",
       "outage",
@@ -164,20 +199,95 @@
     "ward_number": "45",
     "zone": ""
   },
+  "provenance": {
+    "entities": {
+      "activity": "fetch, normalize, resolve, route, match, packet_build",
+      "agent": "source publisher plus civic action packet builder",
+      "source_record": "raw public record, row, page, or official API response"
+    },
+    "evidence_records": [
+      {
+        "fetched_at": "2026-06-30T08-49-34Z",
+        "freshness_status": "timestamped",
+        "license": "unknown",
+        "parser_version": "channels_v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/snapshot.html",
+        "record_date": "",
+        "row_or_page_id": "1",
+        "run_id": "2026-06-30T08-49-34Z",
+        "source_id": "bescom_official_contact_complaint_channels",
+        "source_tier": "tier_1_official_or_mirror"
+      },
+      {
+        "fetched_at": "2026-06-30T08-49-34Z",
+        "freshness_status": "timestamped",
+        "license": "unknown",
+        "parser_version": "channels_v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/snapshot.html",
+        "record_date": "",
+        "row_or_page_id": "1",
+        "run_id": "2026-06-30T08-49-34Z",
+        "source_id": "bescom_official_contact_complaint_channels",
+        "source_tier": "tier_1_official_or_mirror"
+      },
+      {
+        "fetched_at": "2026-06-30T08-49-34Z",
+        "freshness_status": "timestamped",
+        "license": "unknown",
+        "parser_version": "channels_v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/snapshot.html",
+        "record_date": "",
+        "row_or_page_id": "1",
+        "run_id": "2026-06-30T08-49-34Z",
+        "source_id": "bescom_official_contact_complaint_channels",
+        "source_tier": "tier_1_official_or_mirror"
+      },
+      {
+        "fetched_at": "",
+        "freshness_status": "undated_public_record",
+        "license": "unknown",
+        "parser_version": "jurisdiction-v1",
+        "pii_status": "redacted_or_absent",
+        "publishable": true,
+        "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+        "record_date": "",
+        "row_or_page_id": "112",
+        "run_id": "2026-06-30T08-48-51Z",
+        "source_id": "gba_wards_delimitation_2025",
+        "source_tier": "tier_1_official_or_mirror"
+      }
+    ],
+    "model": "w3c-prov-lite"
+  },
   "question": "Power outage and transformer sparks near Bellandur, what should I do?",
   "records_show": [
-    "No normalized record proves the reported power condition yet."
+    "No normalized record proves the reported power issue condition yet."
   ],
   "related_works": [
     "No matching normalized work/payment rows were found."
   ],
   "responsibility": {
+    "dual_path_caveat": "",
     "fallback_agency": null,
     "ownership_caveat": "BESCOM contact guidance does not prove current outage status.",
     "primary_agency": {
       "agency_id": "bescom",
       "name": "Bengaluru Electricity Supply Company"
-    }
+    },
+    "routing_decision": {
+      "policy_id": "bengaluru-civic-routing",
+      "policy_version": "routing-v3",
+      "rule_ids": [
+        "power.primary"
+      ]
+    },
+    "secondary_agencies": []
   },
   "responsible_agency": {
     "agency_id": "bescom",
@@ -187,6 +297,10 @@
     "backend": "normalized_civic_case",
     "channels_considered": 3,
     "payments_considered": 0,
+    "routing_rule_ids": [
+      "power.primary"
+    ],
+    "trace_id": "packet-f703805817a2cf44",
     "used_rag": false,
     "used_raw_scan": false,
     "works_considered": 0
@@ -207,6 +321,52 @@
     "status_policy": "Official closure is a source claim, not verified ground resolution."
   },
   "short_answer": "This looks like a power issue around Bellanduru. Likely owner: Bengaluru Electricity Supply Company. I did not find matching normalized work/payment rows yet.",
+  "trace": {
+    "candidate_counts": {
+      "channels_selected": 1,
+      "contacts_selected": 2,
+      "evidence_selected": 0
+    },
+    "matcher_versions": {
+      "evidence_matcher": "v3",
+      "issue_router": "routing-v3"
+    },
+    "query_hash": "f703805817a2cf44d356cfec5fe7c8079c9dbbd4b95fbd7a59894c6020426093",
+    "resolver_confidence": 0.95,
+    "resolver_source": "offline_normalized_wards",
+    "retrieval_snapshot_id": "json-warehouse-current",
+    "routing_policy_id": "bengaluru-civic-routing",
+    "routing_policy_version": "routing-v3",
+    "routing_rule_ids": [
+      "power.primary"
+    ],
+    "source_snapshot_id": "normalized-json-current",
+    "stages": {
+      "matcher": {
+        "selected_channel_ids": [
+          "channel-1"
+        ],
+        "selected_contact_ids": [
+          "contact-1",
+          "contact-2"
+        ],
+        "selected_evidence_ids": []
+      },
+      "resolver": {
+        "confidence": 0.95,
+        "source": "offline_normalized_wards"
+      },
+      "router": {
+        "issue_type": "power",
+        "primary_agency_id": "bescom",
+        "secondary_agency_ids": []
+      }
+    },
+    "trace_id": "packet-f703805817a2cf44",
+    "warnings": [
+      "BESCOM contact guidance does not prove current outage status."
+    ]
+  },
   "what_to_cite": [
     "Use the jurisdiction and official filing channel; no row-level work/payment evidence matched yet."
   ],

@@ -4,6 +4,11 @@ import { FormEvent, useEffect, useMemo, useState } from "react";
 import { Clipboard, FileText, Loader2, LocateFixed, Search, ShieldCheck } from "lucide-react";
 
 type CivicPacket = {
+  contract?: {
+    name?: string;
+    version?: string;
+    source_of_truth?: string;
+  };
   packet_type?: string;
   packet_status?: string;
   evidence_strength?: "none" | "weak" | "public_row" | "official_lookup" | string;
@@ -36,6 +41,11 @@ type CivicPacket = {
       agency_id?: string;
     };
     ownership_caveat?: string;
+    routing_decision?: {
+      policy_id?: string;
+      policy_version?: string;
+      rule_ids?: string[];
+    };
   };
   evidence_summary?: {
     shown_count?: number;
@@ -53,11 +63,39 @@ type CivicPacket = {
   };
   evidence?: EvidenceRow[];
   evidence_table?: LegacyEvidenceRow[];
+  trace?: {
+    trace_id?: string;
+    resolver_source?: string;
+    routing_policy_id?: string;
+    routing_policy_version?: string;
+    routing_rule_ids?: string[];
+  };
+  provenance?: {
+    model?: string;
+    evidence_records?: {
+      source_id?: string;
+      source_tier?: string;
+      run_id?: string;
+      raw_file?: string;
+      row_or_page_id?: string;
+      parser_version?: string;
+      fetched_at?: string;
+      record_date?: string;
+      freshness_status?: string;
+      publishable?: boolean;
+    }[];
+  };
   limits?: string[];
   audit?: {
+    source_of_truth?: string;
+    legacy_rag_status?: string;
+    query_hash?: string;
     used_rag?: boolean;
     used_raw_scan?: boolean;
     resolver_source?: string | null;
+    routing_policy_id?: string | null;
+    routing_policy_version?: string | null;
+    routing_rule_ids?: string[];
   };
 };
 

@@ -97,6 +97,9 @@ def ask_rag(
     answer_brief = _answer_brief(triage, extractive, gaps, freshness)
     composed_at = time.perf_counter()
     payload = {
+        "mode": "legacy_retrieval_debug",
+        "legacy_status": "RAG ask is retained for retrieval diagnostics; civic_action_packet is the public fact contract.",
+        "trusted_product_path": "packets.build_then_explain",
         "query": q,
         "interpreted_intent": intent["label"],
         "detected_places": [place["normalized_name"] for place in detected],
