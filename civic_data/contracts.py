@@ -92,7 +92,7 @@ def validate_action_packet(packet: dict[str, Any]) -> list[str]:
 
     _validate_evidence(packet.get("evidence"), failures)
     _validate_claim_citations(packet, failures)
-    _validate_provenance(packet.get("provenance"), failures)
+    _validate_provenance(packet, failures)
 
     audit = packet.get("audit") if isinstance(packet.get("audit"), dict) else {}
     if audit.get("used_raw_scan"):
@@ -172,7 +172,8 @@ def _validate_claim_citations(packet: dict[str, Any], failures: list[str]) -> No
                 failures.append(f"claim cites unknown citation_id={citation_id}")
 
 
-def _validate_provenance(value: object, failures: list[str]) -> None:
+def _validate_provenance(packet: dict[str, Any], failures: list[str]) -> None:
+    value = packet.get("provenance")
     if not isinstance(value, dict):
         return
     records = value.get("evidence_records")
@@ -185,3 +186,8 @@ def _validate_provenance(value: object, failures: list[str]) -> None:
             continue
         if record.get("publishable") is False:
             failures.append(f"provenance.evidence_records[{index}] is not publishable")
+        if (
+            record.get("claim_eligibility") == "unknown"
+            and packet.get("evidence_strength") not in {"none", "weak"}
+        ):
+            failures.append(f"provenance.evidence_records[{index}] has unknown source policy")

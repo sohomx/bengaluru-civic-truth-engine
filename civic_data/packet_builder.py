@@ -82,6 +82,7 @@ def build_packet(
         contact_matches=contact_matches,
     )
     freshness = build_freshness([match.record for match in evidence_matches + channel_matches + contact_matches])
+    _append_freshness_limit(limits, action, freshness)
     packet = {
         "contract": contract_metadata(),
         "schema_version": 3,
@@ -231,6 +232,8 @@ def _insufficient_packet(
         contact_matches=[],
     )
     freshness = build_freshness([])
+    action = _action(route, jurisdiction, _contact_text([], [], route), [], limits, has_public_rows=False)
+    _append_freshness_limit(limits, action, freshness)
     packet = {
         "contract": contract_metadata(),
         "schema_version": 3,
@@ -246,7 +249,7 @@ def _insufficient_packet(
         "evidence": [],
         "evidence_summary": _evidence_summary([], specificity="none"),
         "evidence_strength": _evidence_strength(jurisdiction, []),
-        "action": _action(route, jurisdiction, _contact_text([], [], route), [], limits, has_public_rows=False),
+        "action": action,
         "trace": trace,
         "provenance": provenance,
         "audit": {
@@ -308,6 +311,18 @@ def _persist_trace(packet: dict[str, Any]) -> None:
     packet["audit"]["source_snapshot_id"] = persisted["source_snapshot_id"]
     packet["trace"]["source_snapshot_id"] = persisted["source_snapshot_id"]
     packet["trace"]["persisted_trace_path"] = persisted["trace_path"]
+
+
+def _append_freshness_limit(limits: list[str], action: dict[str, Any], freshness: dict[str, Any]) -> None:
+    labels = freshness.get("citizen_labels") if isinstance(freshness.get("citizen_labels"), list) else []
+    if not labels:
+        return
+    label_text = "Freshness: " + ", ".join(str(item) for item in labels[:3]) + ". Not live status."
+    if label_text not in limits:
+        limits.append(label_text)
+    what_not = action.get("what_not_to_claim")
+    if isinstance(what_not, list) and label_text not in what_not:
+        what_not.append(label_text)
 
 
 def _issue(route: dict[str, Any], query: str) -> dict[str, Any]:
