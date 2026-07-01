@@ -22,6 +22,8 @@ class GeoBoundaryTests(unittest.TestCase):
         self.assertEqual(point_in_polygon(77.0, 12.05, ring), "edge")
 
     def test_build_boundary_geojson_from_existing_gba_kml(self):
+        if not (Path("data/raw") / "gba_wards_delimitation_2025").exists():
+            self.skipTest("raw GBA ward-boundary archive is not checked into the public repo")
         with tempfile.TemporaryDirectory() as tmp:
             output = Path(tmp) / "ward_boundaries.geojson"
 

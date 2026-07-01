@@ -1,17 +1,15 @@
 import copy
+import json
 import unittest
+from pathlib import Path
 
 from civic_data.contracts import validate_action_packet
-from civic_data.packet import build_evidence_packet
 
 
 class ActionPacketContractSchemaTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        cls.packet = build_evidence_packet(
-            "Whitefield recurring pothole, what can I cite?",
-            warehouse_root="data/normalized",
-        )
+        cls.packet = json.loads(Path("examples/packets/whitefield-pothole.json").read_text())
 
     def test_valid_built_packet_has_no_contract_failures(self):
         self.assertEqual(validate_action_packet(copy.deepcopy(self.packet)), [])

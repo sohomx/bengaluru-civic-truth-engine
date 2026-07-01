@@ -44,7 +44,7 @@ class TraceWriterTests(unittest.TestCase):
             previous = os.environ.get("CIVIC_TRACE_PATH")
             os.environ["CIVIC_TRACE_PATH"] = str(trace_path)
             try:
-                packet = build_evidence_packet("Whitefield pothole at ITPL back gate public rows", warehouse_root="data/normalized")
+                packet = json.loads(Path("examples/packets/whitefield-pothole.json").read_text())
                 explain_packet(packet, question="What can I cite?")
             finally:
                 if previous is None:

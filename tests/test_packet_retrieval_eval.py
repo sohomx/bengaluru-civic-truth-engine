@@ -2,6 +2,7 @@ import contextlib
 import io
 import json
 import os
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -12,7 +13,7 @@ from civic_data.packet_retrieval import retrieve_packet_chunks_with_audit
 
 class PacketRetrievalEvalTests(unittest.TestCase):
     def test_embedding_mode_falls_back_without_embedding_key(self):
-        packet = build_evidence_packet("Whitefield pothole at ITPL back gate public rows", warehouse_root="data/normalized")
+        packet = json.loads(Path("examples/packets/whitefield-pothole.json").read_text())
         previous = {key: os.environ.get(key) for key in ("OPENAI_API_KEY", "CIVIC_OPENAI_API_KEY")}
         try:
             os.environ.pop("OPENAI_API_KEY", None)
@@ -30,20 +31,39 @@ class PacketRetrievalEvalTests(unittest.TestCase):
         self.assertEqual(result["audit"]["retrieval_mode"], "packet_embedding")
 
     def test_retrieval_eval_reports_qrels_metrics(self):
-        output = io.StringIO()
-        with contextlib.redirect_stdout(output):
-            exit_code = main(
-                [
-                    "eval",
-                    "retrieval",
-                    "--suite",
-                    "tests/fixtures/packet_eval/evidence_qrels_v1.jsonl",
-                    "--warehouse-root",
-                    "data/normalized",
-                    "--raw-root",
-                    "data/raw",
-                ]
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            warehouse_root = root / "normalized"
+            _write_packet_warehouse(warehouse_root)
+            packet = build_evidence_packet("Whitefield pothole public rows", warehouse_root=warehouse_root)
+            suite = root / "qrels.jsonl"
+            suite.write_text(
+                json.dumps(
+                    {
+                        "id": "whitefield-pothole-public-row",
+                        "query": "Whitefield pothole public rows",
+                        "retrieval_question": "What public road evidence can I cite?",
+                        "relevant_evidence_ids": [packet["evidence"][0]["evidence_id"]],
+                        "forbidden_evidence_ids": [],
+                    }
+                )
+                + "\n"
             )
+
+            output = io.StringIO()
+            with contextlib.redirect_stdout(output):
+                exit_code = main(
+                    [
+                        "eval",
+                        "retrieval",
+                        "--suite",
+                        str(suite),
+                        "--warehouse-root",
+                        str(warehouse_root),
+                        "--raw-root",
+                        str(root / "raw"),
+                    ]
+                )
 
         self.assertEqual(exit_code, 0)
         payload = json.loads(output.getvalue())
@@ -93,3 +113,56 @@ class PacketRetrievalEvalTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def _write_packet_warehouse(root: Path) -> None:
+    root.mkdir(parents=True, exist_ok=True)
+    (root / "wards.json").write_text(
+        json.dumps(
+            [
+                {
+                    "ward_key": "gba:east:1",
+                    "source_id": "gba_wards_delimitation_2025",
+                    "ward_number": "1",
+                    "ward_name": "Whitefield",
+                    "normalized_name": "whitefield",
+                    "version": "gba_2025",
+                    "corporation": "East",
+                    "ward_regime": "368_or_369",
+                    "evidence": {
+                        "source_id": "gba_wards_delimitation_2025",
+                        "run_id": "test-run",
+                        "raw_file": "wards.csv",
+                        "row_number": 1,
+                    },
+                }
+            ]
+        )
+    )
+    (root / "old_new_ward_mappings.json").write_text("[]")
+    (root / "payments.json").write_text("[]")
+    (root / "complaint_channels.json").write_text("[]")
+    (root / "contact_channels.json").write_text("[]")
+    (root / "works.json").write_text(
+        json.dumps(
+            [
+                {
+                    "work_id": "work-1",
+                    "source_id": "bbmp_work_orders_and_bill_payment",
+                    "ward_number": "1",
+                    "ward_regime": "368_or_369",
+                    "description": "Pothole filling and road repair works in Whitefield",
+                    "claim_class": "historical_public_context",
+                    "allowed_claims": ["Public administrative work row exists."],
+                    "disallowed_claims": ["Does not prove current field condition."],
+                    "fetched_at": "2026-06-30T00:00:00Z",
+                    "evidence": {
+                        "source_id": "bbmp_work_orders_and_bill_payment",
+                        "run_id": "test-run",
+                        "raw_file": "works.csv",
+                        "row_number": 2,
+                    },
+                }
+            ]
+        )
+    )

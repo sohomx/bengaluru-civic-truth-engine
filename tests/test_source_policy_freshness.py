@@ -72,7 +72,7 @@ class SourcePolicyFreshnessTests(unittest.TestCase):
         self.assertIn("not live status", freshness["staleness_warning"].lower())
 
     def test_contract_rejects_unknown_source_policy_for_public_row_strength(self):
-        packet = build_evidence_packet("Whitefield pothole at ITPL back gate public rows", warehouse_root="data/normalized")
+        packet = json.loads(Path("examples/packets/whitefield-pothole.json").read_text())
         mutated = copy.deepcopy(packet)
         mutated["provenance"]["evidence_records"][0]["claim_eligibility"] = "unknown"
 
