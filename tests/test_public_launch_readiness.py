@@ -12,9 +12,18 @@ class PublicLaunchReadinessTests(unittest.TestCase):
         required_paths = [
             "LICENSE",
             "SECURITY.md",
+            "Dockerfile",
+            ".dockerignore",
+            "render.yaml",
             "docs/public-launch.md",
             "web/public/.nojekyll",
             ".github/workflows/pages.yml",
+            ".github/workflows/backend-image.yml",
+            "data/public_api/normalized/wards.json",
+            "data/public_api/normalized/works.json",
+            "data/public_api/normalized/payments.json",
+            "data/public_api/normalized/complaint_channels.json",
+            "data/public_api/normalized/contact_channels.json",
         ]
 
         for relative_path in required_paths:
@@ -38,8 +47,25 @@ class PublicLaunchReadinessTests(unittest.TestCase):
         self.assertIn("actions/upload-pages-artifact", workflow)
         self.assertIn("actions/deploy-pages", workflow)
         self.assertIn("GITHUB_PAGES: \"true\"", workflow)
+        self.assertIn("NEXT_PUBLIC_CIVIC_API_BASE", workflow)
+        self.assertIn("NEXT_PUBLIC_STATIC_DEMO", workflow)
         self.assertIn("path: web/out", workflow)
         self.assertIn("npm run build", workflow)
+
+    def test_backend_deployment_contract_is_configured(self):
+        dockerfile = (ROOT / "Dockerfile").read_text()
+        render = (ROOT / "render.yaml").read_text()
+        backend_image_workflow = (ROOT / ".github" / "workflows" / "backend-image.yml").read_text()
+
+        self.assertIn("uvicorn", dockerfile)
+        self.assertIn("api.app:app", dockerfile)
+        self.assertIn("CIVIC_WAREHOUSE_ROOT=data/public_api/normalized", dockerfile)
+        self.assertIn("healthCheckPath: /healthz", render)
+        self.assertIn("CIVIC_CORS_ORIGINS", render)
+        self.assertIn("https://sohomx.github.io", render)
+        self.assertIn("ghcr.io/sohomx/bengaluru-civic-truth-engine-api", backend_image_workflow)
+        self.assertIn("docker/build-push-action", backend_image_workflow)
+        self.assertIn("packages: write", backend_image_workflow)
 
     def test_no_personal_absolute_paths_in_tracked_public_files(self):
         home_prefix = "/" + "Users" + "/" + "sohom"

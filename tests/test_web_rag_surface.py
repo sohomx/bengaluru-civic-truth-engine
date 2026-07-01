@@ -102,6 +102,8 @@ class WebRagSurfaceTests(unittest.TestCase):
 
         self.assertIn("CORSMiddleware", app)
         self.assertIn("127.0.0.1:3017", app)
+        self.assertIn("CIVIC_CORS_ORIGINS", app)
+        self.assertIn("sohomx.github.io", app)
         self.assertIn('@app.get("/packets/build")', app)
         self.assertIn('@app.post("/packets/explain")', app)
         self.assertIn('@app.get("/diagnostics/rag/ask")', app)

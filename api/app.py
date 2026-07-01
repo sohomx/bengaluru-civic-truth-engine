@@ -15,6 +15,17 @@ except ImportError as exc:  # pragma: no cover - exercised only when serving the
     ) from exc
 
 
+DEFAULT_CORS_ORIGINS = [
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:3001",
+    "http://127.0.0.1:3017",
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "http://localhost:3017",
+    "https://sohomx.github.io",
+]
+
+
 def create_app(
     warehouse_root: Path | str | None = None,
     raw_root: Path | str | None = None,
@@ -27,14 +38,7 @@ def create_app(
     app = FastAPI(title="Bengaluru Civic Truth Engine")
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=[
-            "http://127.0.0.1:3000",
-            "http://127.0.0.1:3001",
-            "http://127.0.0.1:3017",
-            "http://localhost:3000",
-            "http://localhost:3001",
-            "http://localhost:3017",
-        ],
+        allow_origins=_cors_origins(),
         allow_methods=["GET", "POST"],
         allow_headers=["*"],
     )
@@ -111,6 +115,12 @@ def create_app(
             raise HTTPException(status_code=503, detail=str(exc)) from exc
 
     return app
+
+
+def _cors_origins() -> list[str]:
+    configured = os.environ.get("CIVIC_CORS_ORIGINS", "")
+    origins = [item.strip().rstrip("/") for item in configured.split(",") if item.strip()]
+    return origins or DEFAULT_CORS_ORIGINS
 
 
 app = create_app()

@@ -34,7 +34,8 @@ jobs:
         working-directory: web
         env:
           GITHUB_PAGES: "true"
-          NEXT_PUBLIC_STATIC_DEMO: "true"
+          NEXT_PUBLIC_CIVIC_API_BASE: ${{ vars.CIVIC_API_BASE }}
+          NEXT_PUBLIC_STATIC_DEMO: ${{ vars.CIVIC_API_BASE == '' && 'true' || 'false' }}
         run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:

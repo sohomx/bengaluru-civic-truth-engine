@@ -119,6 +119,46 @@ cd web && GITHUB_PAGES=true NEXT_PUBLIC_STATIC_DEMO=true npm run build
 The packet eval report includes release-gate metrics for agency accuracy,
 public raw-scan use, PII leakage, and packet-only behavior.
 
+## Backend Deployment
+
+The live API is a FastAPI service. GitHub hosts the source code and static site;
+an always-on backend still needs a runtime such as Render, Fly.io, Railway, or a
+VPS.
+
+This repo includes:
+
+- `Dockerfile`: production API container.
+- `.github/workflows/backend-image.yml`: publishes the API image to GitHub
+  Container Registry on `main`.
+- `render.yaml`: Render Blueprint for the API service.
+- `data/public_api/normalized/`: public-safe normalized read model used by the
+  deployed API.
+
+Run the API locally with the public deployment data:
+
+```bash
+CIVIC_WAREHOUSE_ROOT=data/public_api/normalized \
+uvicorn api.app:app --host 127.0.0.1 --port 8017
+```
+
+Build the backend container:
+
+```bash
+docker build -t bengaluru-civic-truth-engine-api .
+docker run --rm -p 8017:8000 bengaluru-civic-truth-engine-api
+```
+
+On `main`, GitHub publishes the same container as:
+
+```text
+ghcr.io/sohomx/bengaluru-civic-truth-engine-api:latest
+```
+
+After deploying that image or the Render Blueprint to a live API host, set the
+repository Actions variable `CIVIC_API_BASE` to the API origin, then rerun the
+GitHub Pages workflow. The public UI will call `/packets/build` on that API
+instead of staying in prebuilt static-demo mode.
+
 ## Data Policy
 
 Raw data is not committed to Git. The repository tracks source registry entries,
@@ -127,6 +167,7 @@ examples.
 
 - Raw archives: `data/raw/`
 - Normalized reproducible read model: `data/normalized/`
+- Public API read model: `data/public_api/normalized/`
 - Locality and routing policy config: `data/config/`
 - Demo packets: `examples/packets/`
 - Production-oriented migrations: `warehouse/migrations/`

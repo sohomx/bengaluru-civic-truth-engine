@@ -1,0 +1,151 @@
+[
+  {
+    "agency_id": "bescom",
+    "allowed_claims": [
+      "This public source describes an official filing or contact channel."
+    ],
+    "channel_id": "bescom:public_complaint_channel",
+    "claim_class": "official_channel",
+    "disallowed_claims": [
+      "Does not prove individual complaint status or ground resolution.",
+      "Do not scrape complaint tracking",
+      "Do not scrape citizen/account-linked records."
+    ],
+    "evidence": {
+      "raw_file": "original/snapshot.html",
+      "row_number": 1,
+      "run_id": "2026-06-30T08-49-34Z",
+      "source_id": "bescom_official_contact_complaint_channels"
+    },
+    "fetched_at": "2026-06-30T08-49-34Z",
+    "freshness_basis": "source_fetched_at",
+    "issue_types": [
+      "power",
+      "outage",
+      "electrical_safety",
+      "streetlight"
+    ],
+    "name": "BESCOM complaint/contact channel",
+    "parser_version": "channels_v1",
+    "raw_file": "original/snapshot.html",
+    "required_fields_observed": [
+      "Email Address",
+      "Address"
+    ],
+    "run_id": "2026-06-30T08-49-34Z",
+    "source_id": "bescom_official_contact_complaint_channels",
+    "url": "https://bescom.karnataka.gov.in/new-page/Contact%20Us/en"
+  },
+  {
+    "agency_id": "bswml",
+    "allowed_claims": [
+      "This public source describes an official filing or contact channel."
+    ],
+    "channel_id": "bswml:public_complaint_channel",
+    "claim_class": "official_channel",
+    "disallowed_claims": [
+      "Does not prove individual complaint status or ground resolution.",
+      "Do not scrape complaint tracking",
+      "Do not scrape citizen/account-linked records."
+    ],
+    "evidence": {
+      "raw_file": "original/ckan_package.json",
+      "row_number": 1,
+      "run_id": "2026-06-30T08-49-46Z",
+      "source_id": "bbmp_solid_waste_management_data"
+    },
+    "fetched_at": "2026-06-30T08-49-46Z",
+    "freshness_basis": "source_fetched_at",
+    "issue_types": [
+      "garbage",
+      "solid_waste",
+      "blackspot"
+    ],
+    "name": "BSWML/SWM complaint channel",
+    "parser_version": "channels_v1",
+    "raw_file": "original/ckan_package.json",
+    "required_fields_observed": [],
+    "run_id": "2026-06-30T08-49-46Z",
+    "source_id": "bbmp_solid_waste_management_data",
+    "url": ""
+  },
+  {
+    "agency_id": "btp",
+    "allowed_claims": [
+      "This public source describes an official filing or contact channel."
+    ],
+    "channel_id": "btp:public_complaint_channel",
+    "claim_class": "official_channel",
+    "disallowed_claims": [
+      "Does not prove individual complaint status or ground resolution.",
+      "Do not scrape complaint tracking",
+      "Do not scrape citizen/account-linked records."
+    ],
+    "evidence": {
+      "raw_file": "original/snapshot.html",
+      "row_number": 1,
+      "run_id": "2026-06-30T08-49-34Z",
+      "source_id": "bengaluru_traffic_police_official_website"
+    },
+    "fetched_at": "2026-06-30T08-49-34Z",
+    "freshness_basis": "source_fetched_at",
+    "issue_types": [
+      "traffic",
+      "road_block",
+      "violation"
+    ],
+    "name": "Bengaluru Traffic Police public channel",
+    "parser_version": "channels_v1",
+    "raw_file": "original/snapshot.html",
+    "required_fields_observed": [
+      "Email Address",
+      "Address",
+      "Category"
+    ],
+    "run_id": "2026-06-30T08-49-34Z",
+    "source_id": "bengaluru_traffic_police_official_website",
+    "url": "https://btp.karnataka.gov.in/en"
+  },
+  {
+    "agency_id": "bwssb",
+    "allowed_claims": [
+      "This public source describes an official filing or contact channel."
+    ],
+    "channel_id": "bwssb:public_complaint_channel",
+    "claim_class": "official_channel",
+    "disallowed_claims": [
+      "Does not prove individual complaint status or ground resolution.",
+      "Do not scrape complaint tracking",
+      "Do not scrape citizen/account-linked records."
+    ],
+    "evidence": {
+      "raw_file": "metadata/portal_snapshot.html",
+      "row_number": 1,
+      "run_id": "2026-06-30T08-49-34Z",
+      "source_id": "bwssb_crm_complaint_form"
+    },
+    "fetched_at": "2026-06-30T08-49-34Z",
+    "freshness_basis": "source_fetched_at",
+    "issue_types": [
+      "water",
+      "sewerage",
+      "manhole",
+      "billing"
+    ],
+    "name": "BWSSB complaint channel",
+    "parser_version": "channels_v1",
+    "raw_file": "metadata/portal_snapshot.html",
+    "required_fields_observed": [
+      "Consumer Name",
+      "Email Address",
+      "Contact Number",
+      "Address",
+      "Category",
+      "Sub Category",
+      "RR Number"
+    ],
+    "run_id": "2026-06-30T08-49-34Z",
+    "source_id": "bwssb_crm_complaint_form",
+    "url": "https://cms.bwssb.gov.in/module/complain/new_complaint"
+  }
+]

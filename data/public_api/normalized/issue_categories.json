@@ -1,0 +1,240 @@
+[
+  {
+    "allowed_claims": [
+      "This public source describes an official filing or contact channel."
+    ],
+    "claim_class": "official_channel",
+    "disallowed_claims": [
+      "Does not prove individual complaint status or ground resolution."
+    ],
+    "fetched_at": "2026-06-30T08-49-34Z",
+    "freshness_basis": "fetched_at",
+    "name": "billing",
+    "normalized_name": "billing",
+    "parser_version": "channels_v1",
+    "raw_file": "metadata/portal_snapshot.html",
+    "run_id": "2026-06-30T08-49-34Z",
+    "source_id": "bwssb_crm_complaint_form"
+  },
+  {
+    "allowed_claims": [
+      "This public source describes an official filing or contact channel."
+    ],
+    "claim_class": "official_channel",
+    "disallowed_claims": [
+      "Does not prove individual complaint status or ground resolution."
+    ],
+    "fetched_at": "2026-06-30T08-49-46Z",
+    "freshness_basis": "fetched_at",
+    "name": "blackspot",
+    "normalized_name": "blackspot",
+    "parser_version": "channels_v1",
+    "raw_file": "original/ckan_package.json",
+    "run_id": "2026-06-30T08-49-46Z",
+    "source_id": "bbmp_solid_waste_management_data"
+  },
+  {
+    "allowed_claims": [
+      "This public source describes an official filing or contact channel."
+    ],
+    "claim_class": "official_channel",
+    "disallowed_claims": [
+      "Does not prove individual complaint status or ground resolution."
+    ],
+    "fetched_at": "2026-06-30T08-49-34Z",
+    "freshness_basis": "fetched_at",
+    "name": "electrical_safety",
+    "normalized_name": "electrical safety",
+    "parser_version": "channels_v1",
+    "raw_file": "original/snapshot.html",
+    "run_id": "2026-06-30T08-49-34Z",
+    "source_id": "bescom_official_contact_complaint_channels"
+  },
+  {
+    "allowed_claims": [
+      "This public source describes an official filing or contact channel."
+    ],
+    "claim_class": "official_channel",
+    "disallowed_claims": [
+      "Does not prove individual complaint status or ground resolution."
+    ],
+    "fetched_at": "2026-06-30T08-49-46Z",
+    "freshness_basis": "fetched_at",
+    "name": "garbage",
+    "normalized_name": "garbage",
+    "parser_version": "channels_v1",
+    "raw_file": "original/ckan_package.json",
+    "run_id": "2026-06-30T08-49-46Z",
+    "source_id": "bbmp_solid_waste_management_data"
+  },
+  {
+    "allowed_claims": [
+      "This public source describes an official filing or contact channel."
+    ],
+    "claim_class": "official_channel",
+    "disallowed_claims": [
+      "Does not prove individual complaint status or ground resolution."
+    ],
+    "fetched_at": "2026-06-30T08-49-34Z",
+    "freshness_basis": "fetched_at",
+    "name": "manhole",
+    "normalized_name": "manhole",
+    "parser_version": "channels_v1",
+    "raw_file": "metadata/portal_snapshot.html",
+    "run_id": "2026-06-30T08-49-34Z",
+    "source_id": "bwssb_crm_complaint_form"
+  },
+  {
+    "allowed_claims": [
+      "This public source describes an official filing or contact channel."
+    ],
+    "claim_class": "official_channel",
+    "disallowed_claims": [
+      "Does not prove individual complaint status or ground resolution."
+    ],
+    "fetched_at": "2026-06-30T08-49-34Z",
+    "freshness_basis": "fetched_at",
+    "name": "outage",
+    "normalized_name": "outage",
+    "parser_version": "channels_v1",
+    "raw_file": "original/snapshot.html",
+    "run_id": "2026-06-30T08-49-34Z",
+    "source_id": "bescom_official_contact_complaint_channels"
+  },
+  {
+    "allowed_claims": [
+      "This public source describes an official filing or contact channel."
+    ],
+    "claim_class": "official_channel",
+    "disallowed_claims": [
+      "Does not prove individual complaint status or ground resolution."
+    ],
+    "fetched_at": "2026-06-30T08-49-34Z",
+    "freshness_basis": "fetched_at",
+    "name": "power",
+    "normalized_name": "power",
+    "parser_version": "channels_v1",
+    "raw_file": "original/snapshot.html",
+    "run_id": "2026-06-30T08-49-34Z",
+    "source_id": "bescom_official_contact_complaint_channels"
+  },
+  {
+    "allowed_claims": [
+      "This public source describes an official filing or contact channel."
+    ],
+    "claim_class": "official_channel",
+    "disallowed_claims": [
+      "Does not prove individual complaint status or ground resolution."
+    ],
+    "fetched_at": "2026-06-30T08-49-34Z",
+    "freshness_basis": "fetched_at",
+    "name": "road_block",
+    "normalized_name": "road block",
+    "parser_version": "channels_v1",
+    "raw_file": "original/snapshot.html",
+    "run_id": "2026-06-30T08-49-34Z",
+    "source_id": "bengaluru_traffic_police_official_website"
+  },
+  {
+    "allowed_claims": [
+      "This public source describes an official filing or contact channel."
+    ],
+    "claim_class": "official_channel",
+    "disallowed_claims": [
+      "Does not prove individual complaint status or ground resolution."
+    ],
+    "fetched_at": "2026-06-30T08-49-34Z",
+    "freshness_basis": "fetched_at",
+    "name": "sewerage",
+    "normalized_name": "sewerage",
+    "parser_version": "channels_v1",
+    "raw_file": "metadata/portal_snapshot.html",
+    "run_id": "2026-06-30T08-49-34Z",
+    "source_id": "bwssb_crm_complaint_form"
+  },
+  {
+    "allowed_claims": [
+      "This public source describes an official filing or contact channel."
+    ],
+    "claim_class": "official_channel",
+    "disallowed_claims": [
+      "Does not prove individual complaint status or ground resolution."
+    ],
+    "fetched_at": "2026-06-30T08-49-46Z",
+    "freshness_basis": "fetched_at",
+    "name": "solid_waste",
+    "normalized_name": "solid waste",
+    "parser_version": "channels_v1",
+    "raw_file": "original/ckan_package.json",
+    "run_id": "2026-06-30T08-49-46Z",
+    "source_id": "bbmp_solid_waste_management_data"
+  },
+  {
+    "allowed_claims": [
+      "This public source describes an official filing or contact channel."
+    ],
+    "claim_class": "official_channel",
+    "disallowed_claims": [
+      "Does not prove individual complaint status or ground resolution."
+    ],
+    "fetched_at": "2026-06-30T08-49-34Z",
+    "freshness_basis": "fetched_at",
+    "name": "streetlight",
+    "normalized_name": "streetlight",
+    "parser_version": "channels_v1",
+    "raw_file": "original/snapshot.html",
+    "run_id": "2026-06-30T08-49-34Z",
+    "source_id": "bescom_official_contact_complaint_channels"
+  },
+  {
+    "allowed_claims": [
+      "This public source describes an official filing or contact channel."
+    ],
+    "claim_class": "official_channel",
+    "disallowed_claims": [
+      "Does not prove individual complaint status or ground resolution."
+    ],
+    "fetched_at": "2026-06-30T08-49-34Z",
+    "freshness_basis": "fetched_at",
+    "name": "traffic",
+    "normalized_name": "traffic",
+    "parser_version": "channels_v1",
+    "raw_file": "original/snapshot.html",
+    "run_id": "2026-06-30T08-49-34Z",
+    "source_id": "bengaluru_traffic_police_official_website"
+  },
+  {
+    "allowed_claims": [
+      "This public source describes an official filing or contact channel."
+    ],
+    "claim_class": "official_channel",
+    "disallowed_claims": [
+      "Does not prove individual complaint status or ground resolution."
+    ],
+    "fetched_at": "2026-06-30T08-49-34Z",
+    "freshness_basis": "fetched_at",
+    "name": "violation",
+    "normalized_name": "violation",
+    "parser_version": "channels_v1",
+    "raw_file": "original/snapshot.html",
+    "run_id": "2026-06-30T08-49-34Z",
+    "source_id": "bengaluru_traffic_police_official_website"
+  },
+  {
+    "allowed_claims": [
+      "This public source describes an official filing or contact channel."
+    ],
+    "claim_class": "official_channel",
+    "disallowed_claims": [
+      "Does not prove individual complaint status or ground resolution."
+    ],
+    "fetched_at": "2026-06-30T08-49-34Z",
+    "freshness_basis": "fetched_at",
+    "name": "water",
+    "normalized_name": "water",
+    "parser_version": "channels_v1",
+    "raw_file": "metadata/portal_snapshot.html",
+    "run_id": "2026-06-30T08-49-34Z",
+    "source_id": "bwssb_crm_complaint_form"
+  }
+]

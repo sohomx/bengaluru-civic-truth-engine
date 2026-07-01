@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: bengaluru-civic-truth-engine-api
+    runtime: docker
+    plan: free
+    healthCheckPath: /healthz
+    envVars:
+      - key: CIVIC_WAREHOUSE_ROOT
+        value: data/public_api/normalized
+      - key: CIVIC_RAW_ROOT
+        value: data/raw
+      - key: CIVIC_CORS_ORIGINS
+        value: https://sohomx.github.io
