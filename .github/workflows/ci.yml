@@ -27,11 +27,21 @@ jobs:
       - name: Registry validation
         run: python -m civic_data registry validate
       - name: Packet eval
-        run: python -m civic_data eval packets --suite tests/fixtures/packet_eval/civic_packets_v1.jsonl --warehouse-root data/normalized --raw-root data/raw
+        run: |
+          if [ -f data/normalized/wards.json ] && [ -f data/normalized/works.json ]; then
+            python -m civic_data eval packets --suite tests/fixtures/packet_eval/civic_packets_v1.jsonl --warehouse-root data/normalized --raw-root data/raw
+          else
+            echo "Skipping packet eval: normalized public warehouse is not checked into this public repo."
+          fi
       - name: Packet RAG deterministic eval
         run: python -m civic_data eval packet-rag --suite tests/fixtures/packet_eval/packet_rag_v1.jsonl --mode deterministic
       - name: Retrieval qrels eval
-        run: python -m civic_data eval retrieval --suite tests/fixtures/packet_eval/evidence_qrels_v1.jsonl --warehouse-root data/normalized --raw-root data/raw
+        run: |
+          if [ -f data/normalized/wards.json ] && [ -f data/normalized/works.json ]; then
+            python -m civic_data eval retrieval --suite tests/fixtures/packet_eval/evidence_qrels_v1.jsonl --warehouse-root data/normalized --raw-root data/raw
+          else
+            echo "Skipping retrieval qrels eval: normalized public warehouse is not checked into this public repo."
+          fi
       - name: Frontend build
         working-directory: web
         run: npm ci && npm run build
