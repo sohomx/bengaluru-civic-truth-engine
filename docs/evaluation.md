@@ -20,9 +20,23 @@ The report tracks:
 - `unsafe_raw_scan_rate`
 - `pii_leak_rate`
 - `packet_only_rate`
+- `freshness_disclosure_rate`
 
-The gate fails if packet cases fail, public output uses raw scan, or public text
-leaks PII.
+The gate fails if packet cases fail, public output uses raw scan, public text
+leaks PII, unsupported corruption/negligence claims appear, weak-evidence
+caveats are hidden, or a case marked `requires_freshness_disclosure` does not
+reach `freshness_disclosure_rate == 1.0`.
+
+Source-monitor tests cover archive freshness separately from packet freshness:
+
+```bash
+python3 -m unittest tests.test_source_monitor tests.test_cli tests.test_site_build
+```
+
+Those tests verify that public `source_status.json` rows include archive status,
+monitor status, proof boundaries, parser status, usage status, and summary
+counts for `usable`, `partial`, `stale`, `unavailable`, `blocked`, and
+`used_without_monitor_ok`.
 
 ## Packet-RAG Gate
 

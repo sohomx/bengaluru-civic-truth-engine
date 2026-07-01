@@ -9,20 +9,26 @@ export function SourceExplorer({ sources }: { sources: SourceStatusRow[] }) {
   const [query, setQuery] = useState("");
   const [domain, setDomain] = useState("all");
   const [status, setStatus] = useState("all");
+  const [monitorStatus, setMonitorStatus] = useState("all");
+  const [usageStatus, setUsageStatus] = useState("all");
   const domains = useMemo(() => Array.from(new Set(sources.map((source) => source.domain))).sort(), [sources]);
   const statuses = useMemo(() => Array.from(new Set(sources.map((source) => source.latest_fetch_status))).sort(), [sources]);
+  const monitorStatuses = useMemo(() => Array.from(new Set(sources.map((source) => source.monitor_status))).sort(), [sources]);
+  const usageStatuses = useMemo(() => Array.from(new Set(sources.map((source) => source.normalized_usage_status))).sort(), [sources]);
   const filtered = sources.filter((source) => {
     const haystack = `${source.source_id} ${source.name} ${source.publisher} ${source.domain}`.toLowerCase();
     return (
       haystack.includes(query.toLowerCase()) &&
       (domain === "all" || source.domain === domain) &&
-      (status === "all" || source.latest_fetch_status === status)
+      (status === "all" || source.latest_fetch_status === status) &&
+      (monitorStatus === "all" || source.monitor_status === monitorStatus) &&
+      (usageStatus === "all" || source.normalized_usage_status === usageStatus)
     );
   });
 
   return (
     <div>
-      <div className="grid gap-3 border-y border-line py-4 md:grid-cols-[1fr_220px_220px]">
+      <div className="grid gap-3 border-y border-line py-4 md:grid-cols-[1fr_180px_180px_180px_180px]">
         <label className="flex items-center gap-3 border border-line bg-paper px-3 py-2">
           <Search size={17} className="text-muted" />
           <input
@@ -47,11 +53,23 @@ export function SourceExplorer({ sources }: { sources: SourceStatusRow[] }) {
             <option key={item} value={item}>{sourceStatusLabel(item)}</option>
           ))}
         </select>
+        <select value={monitorStatus} onChange={(event) => setMonitorStatus(event.target.value)} className="border border-line bg-paper px-3 py-2 text-sm outline-none">
+          <option value="all">All monitor states</option>
+          {monitorStatuses.map((item) => (
+            <option key={item} value={item}>{sourceStatusLabel(item)}</option>
+          ))}
+        </select>
+        <select value={usageStatus} onChange={(event) => setUsageStatus(event.target.value)} className="border border-line bg-paper px-3 py-2 text-sm outline-none">
+          <option value="all">All usage</option>
+          {usageStatuses.map((item) => (
+            <option key={item} value={item}>{sourceStatusLabel(item)}</option>
+          ))}
+        </select>
       </div>
 
       <div className="mt-6 divide-y divide-line border-y border-line">
         {filtered.map((source) => (
-          <Link key={source.source_id} href={`/sources/${source.source_id}`} className="grid gap-4 py-5 transition hover:bg-line/20 md:grid-cols-[1fr_160px_160px_24px]">
+          <Link key={source.source_id} href={`/sources/${source.source_id}`} className="grid gap-4 py-5 transition hover:bg-line/20 md:grid-cols-[1fr_150px_150px_150px_24px]">
             <div>
               <div className="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-muted">
                 <span>{sourceStatusLabel(source.domain)}</span>
@@ -62,12 +80,16 @@ export function SourceExplorer({ sources }: { sources: SourceStatusRow[] }) {
               <p className="mt-1 break-all text-sm text-muted">{source.source_id}</p>
             </div>
             <div className="text-sm">
-              <p className="font-semibold text-ink">{sourceStatusLabel(source.latest_fetch_status)}</p>
-              <p className="text-muted">fetch status</p>
+              <p className="font-semibold text-ink">{sourceStatusLabel(source.monitor_status)}</p>
+              <p className="text-muted">monitor</p>
+            </div>
+            <div className="text-sm">
+              <p className="font-semibold text-ink">{sourceStatusLabel(source.archive_status)}</p>
+              <p className="text-muted">archive</p>
             </div>
             <div className="text-sm">
               <p className="font-semibold text-ink">{formatDate(source.latest_fetched_at)}</p>
-              <p className="text-muted">latest fetch</p>
+              <p className="text-muted">last archived</p>
             </div>
             <ArrowUpRight size={19} className="self-center text-civic" />
           </Link>

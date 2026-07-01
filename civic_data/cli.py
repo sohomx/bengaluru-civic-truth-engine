@@ -21,6 +21,7 @@ from civic_data.rag import ask_rag, build_rag_index
 from civic_data.registry import load_sources, registry_hash, validate_registry
 from civic_data.retrieval_eval import run_retrieval_eval
 from civic_data.site import DEFAULT_PLACES, build_site_data, parse_place_arg
+from civic_data.source_monitor import build_source_monitor_report
 from civic_data.trace_inspector import inspect_trace, list_traces, render_trace_markdown
 from civic_data.truth import write_place_truth
 from civic_data.warehouse import export_wave1_for_postgres, load_wave1_with_psql
@@ -47,6 +48,8 @@ def main(argv: list[str] | None = None) -> int:
             return _sources_status(args)
         if args.command == "sources" and args.sources_command == "profile":
             return _sources_profile(args)
+        if args.command == "sources" and args.sources_command == "monitor":
+            return _sources_monitor(args)
         if args.command == "normalize" and args.normalize_command == "wards":
             return _normalize_wards(args)
         if args.command == "normalize" and args.normalize_command == "grievances":
@@ -142,6 +145,13 @@ def _build_parser() -> argparse.ArgumentParser:
     profile.add_argument("--registry", default=str(DEFAULT_REGISTRY))
     profile.add_argument("--raw-root", default=str(DEFAULT_RAW_ROOT))
     profile.add_argument("--export-root", default=str(DEFAULT_EXPORT_ROOT))
+
+    monitor = sources_sub.add_parser("monitor")
+    monitor.add_argument("--registry", default=str(DEFAULT_REGISTRY))
+    monitor.add_argument("--raw-root", default=str(DEFAULT_RAW_ROOT))
+    monitor.add_argument("--format", choices=("json",), default="json")
+    monitor.add_argument("--source")
+    monitor.add_argument("--output")
 
     normalize = subparsers.add_parser("normalize")
     normalize_sub = normalize.add_subparsers(dest="normalize_command")
@@ -405,6 +415,22 @@ def _sources_profile(args: argparse.Namespace) -> int:
         export_root=Path(args.export_root),
     )
     print(f"profiled {len(rows)} sources")
+    return 0
+
+
+def _sources_monitor(args: argparse.Namespace) -> int:
+    sources = load_sources(Path(args.registry))
+    if args.source and not any(str(source.get("id")) == str(args.source) for source in sources):
+        raise ValueError(f"Unknown source id: {args.source}")
+    payload = build_source_monitor_report(
+        sources,
+        Path(args.raw_root),
+        source_id=str(args.source) if args.source else None,
+    )
+    text = json.dumps(payload, indent=2, sort_keys=True)
+    if args.output:
+        Path(args.output).write_text(text + "\n")
+    print(text)
     return 0
 
 

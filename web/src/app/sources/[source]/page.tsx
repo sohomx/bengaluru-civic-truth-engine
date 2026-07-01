@@ -24,6 +24,7 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ s
           <span>{sourceStatusLabel(source.domain)}</span>
           <span>tier {source.source_tier}</span>
           <span>{sourceStatusLabel(source.official_status)}</span>
+          <span>{sourceStatusLabel(source.monitor_status)}</span>
         </div>
         <h1 className="mt-4 text-5xl font-semibold leading-tight text-ink md:text-7xl">{source.name}</h1>
         <p className="mt-5 break-all text-sm text-muted">{source.source_id}</p>
@@ -42,12 +43,34 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ s
           <MetaLine label="PII risk" value={sourceStatusLabel(source.pii_risk)} />
         </div>
         <div className="space-y-3">
-          <MetaLine label="Fetch status" value={sourceStatusLabel(source.latest_fetch_status)} />
-          <MetaLine label="Latest fetch" value={formatDate(source.latest_fetched_at)} />
+          <MetaLine label="Monitor" value={sourceStatusLabel(source.monitor_status)} />
+          <MetaLine label="Archive" value={sourceStatusLabel(source.archive_status)} />
+          <MetaLine label="Last archived" value={formatDate(source.latest_fetched_at)} />
           <MetaLine label="Latest run" value={source.latest_run ?? "Unavailable"} />
+          <MetaLine label="Successful run" value={source.latest_successful_run ?? "Unavailable"} />
+          <MetaLine label="Archive age" value={source.archive_age_days === null ? "Unavailable" : `${source.archive_age_days} days`} />
           <MetaLine label="Parser status" value={sourceStatusLabel(source.parser_status)} />
           <MetaLine label="Usage" value={sourceStatusLabel(source.normalized_usage_status)} />
           <MetaLine label="Files" value={String(source.file_count)} />
+        </div>
+      </section>
+
+      <section className="grid gap-8 border-b border-line py-8 md:grid-cols-2">
+        <div>
+          <h2 className="text-2xl font-semibold text-ink">Can prove</h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-6 text-muted">
+            {source.can_prove.map((item) => <li key={item}>{item}</li>)}
+          </ul>
+        </div>
+        <div>
+          <h2 className="text-2xl font-semibold text-ink">Cannot prove</h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-6 text-muted">
+            {source.cannot_prove.map((item) => <li key={item}>{item}</li>)}
+          </ul>
+        </div>
+        <div className="md:col-span-2">
+          <MetaLine label="Freshness scope" value={source.freshness_scope} />
+          <MetaLine label="Claim eligibility" value={sourceStatusLabel(source.claim_eligibility)} />
         </div>
       </section>
 

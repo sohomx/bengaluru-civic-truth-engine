@@ -3,7 +3,12 @@ from __future__ import annotations
 from typing import Any
 
 from civic_data.safety import contains_public_pii
-from civic_data.source_policy import citizen_freshness_label, lookup_source_policy, freshness_status_for_record
+from civic_data.source_policy import (
+    citizen_freshness_label,
+    freshness_status_for_record,
+    lookup_source_policy,
+    source_proof_contract,
+)
 
 
 def evidence_provenance(
@@ -37,6 +42,7 @@ def _public_record(record: dict[str, Any], citation: dict[str, Any]) -> dict[str
     row = citation.get("row_number") or citation.get("page_number") or citation.get("layer_id") or ""
     policy = lookup_source_policy(source_id)
     status = freshness_status_for_record(record, source_id=source_id)
+    proof = source_proof_contract(policy)
     payload = {
         "source_id": source_id,
         "source_tier": policy.source_tier,
@@ -53,6 +59,9 @@ def _public_record(record: dict[str, Any], citation: dict[str, Any]) -> dict[str
         "publishable": True,
         "freshness_status": status,
         "freshness_label": citizen_freshness_label(status, policy),
+        "can_prove": proof["can_prove"],
+        "cannot_prove": proof["cannot_prove"],
+        "freshness_scope": proof["freshness_scope"],
     }
     if contains_public_pii(record):
         payload["pii_status"] = "contains_pii_block_public_output"
@@ -65,6 +74,7 @@ def _jurisdiction_record(jurisdiction: dict[str, Any]) -> dict[str, Any]:
     source_id = str(jurisdiction.get("source_id") or evidence.get("source_id") or "")
     policy = lookup_source_policy(source_id)
     status = freshness_status_for_record(jurisdiction, source_id=source_id)
+    proof = source_proof_contract(policy)
     return {
         "source_id": source_id,
         "source_tier": policy.source_tier,
@@ -81,6 +91,9 @@ def _jurisdiction_record(jurisdiction: dict[str, Any]) -> dict[str, Any]:
         "publishable": True,
         "freshness_status": status,
         "freshness_label": citizen_freshness_label(status, policy),
+        "can_prove": proof["can_prove"],
+        "cannot_prove": proof["cannot_prove"],
+        "freshness_scope": proof["freshness_scope"],
     }
 
 

@@ -22,6 +22,9 @@ class SourcePolicy:
     claim_eligibility: str
     pii_risk: str
     enabled: bool
+    domain: str = ""
+    access_method: str = ""
+    official_status: str = ""
 
 
 def lookup_source_policy(source_id: str, registry_path: Path | str = DEFAULT_REGISTRY_PATH) -> SourcePolicy:
@@ -38,6 +41,11 @@ def lookup_source_policy(source_id: str, registry_path: Path | str = DEFAULT_REG
             pii_risk="unknown",
             enabled=False,
         )
+    return source_policy_from_source(source)
+
+
+def source_policy_from_source(source: dict[str, Any]) -> SourcePolicy:
+    source_id = str(source.get("id") or source.get("source_id") or "")
     return SourcePolicy(
         source_id=source_id,
         source_tier=f"tier_{source.get('source_tier')}",
@@ -47,7 +55,10 @@ def lookup_source_policy(source_id: str, registry_path: Path | str = DEFAULT_REG
         source_authority=str(source.get("official_status") or "unknown"),
         claim_eligibility=_claim_eligibility(source),
         pii_risk=str(source.get("pii_risk") or "unknown"),
-        enabled=bool(source.get("enabled")),
+        enabled=bool(source.get("enabled", True)),
+        domain=str(source.get("domain") or ""),
+        access_method=str(source.get("access_method") or ""),
+        official_status=str(source.get("official_status") or "unknown"),
     )
 
 
@@ -80,6 +91,66 @@ def citizen_freshness_label(status: str, policy: SourcePolicy) -> str:
     }.get(status, "Not live status")
 
 
+def source_proof_contract(policy: SourcePolicy) -> dict[str, Any]:
+    if (
+        policy.claim_eligibility == "not_public_output"
+        or policy.pii_risk == "high"
+        or not policy.enabled
+        or policy.access_method in {"manual_review", "private", "account_linked", "otp_login"}
+    ):
+        return {
+            "claim_eligibility": "not_public_output",
+            "can_prove": ["Not eligible for public-output proof from this archive."],
+            "cannot_prove": [
+                "Cannot support public claims, live status, incident ownership, or private/account-linked facts."
+            ],
+            "freshness_scope": "Blocked for public output; archive metadata may be retained for operator review only.",
+        }
+    if policy.domain == "wards" or policy.claim_eligibility == "jurisdiction":
+        return {
+            "claim_eligibility": policy.claim_eligibility,
+            "can_prove": ["Ward, corporation, and jurisdiction context present in available public records."],
+            "cannot_prove": ["Field condition, agency action, issue resolution, or current ground truth."],
+            "freshness_scope": "Jurisdiction context from the available archived lookup; not live issue status.",
+        }
+    if policy.domain == "grievances":
+        return {
+            "claim_eligibility": policy.claim_eligibility,
+            "can_prove": ["Complaint memory present in available archived records."],
+            "cannot_prove": ["Live complaint status, ground truth prevalence, or resolution quality."],
+            "freshness_scope": "Historical complaint-memory context from the available archived records.",
+        }
+    if policy.domain == "works_payments_tenders" or policy.claim_eligibility == "historical_public_context":
+        return {
+            "claim_eligibility": policy.claim_eligibility,
+            "can_prove": ["Public administrative work, payment, tender, or award rows exist in available records."],
+            "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+            ],
+            "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+        }
+    if policy.claim_eligibility == "routing":
+        return {
+            "claim_eligibility": policy.claim_eligibility,
+            "can_prove": ["Route/contact metadata present in available public records."],
+            "cannot_prove": ["Ownership for the exact incident, live ticket status, or current ground response."],
+            "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+        }
+    if policy.official_status in {"community_signal", "external_reference", "unofficial"}:
+        return {
+            "claim_eligibility": policy.claim_eligibility,
+            "can_prove": ["Lead or contextual signal only."],
+            "cannot_prove": ["Official claims, civic status, agency action, or current condition."],
+            "freshness_scope": "Unofficial context only; not a public-record proof source.",
+        }
+    return {
+        "claim_eligibility": policy.claim_eligibility,
+        "can_prove": ["Public context present in available archived records."],
+        "cannot_prove": ["Live civic status, ground truth condition, resolution quality, or agency action."],
+        "freshness_scope": "Available archived context only; not live issue status.",
+    }
+
+
 @lru_cache(maxsize=8)
 def _source_by_id(registry_path: str) -> dict[str, dict[str, Any]]:
     path = Path(registry_path)
@@ -93,7 +164,7 @@ def _source_by_id(registry_path: str) -> dict[str, dict[str, Any]]:
 
 
 def _claim_eligibility(source: dict[str, Any]) -> str:
-    if not source.get("enabled") or source.get("pii_risk") == "high":
+    if not source.get("enabled", True) or source.get("pii_risk") == "high":
         return "not_public_output"
     domain = str(source.get("domain") or "")
     status = str(source.get("official_status") or "")

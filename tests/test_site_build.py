@@ -123,6 +123,19 @@ class SiteBuildTests(unittest.TestCase):
                     }
                 )
             )
+            ward_run = raw / "gba_wards_delimitation_2025" / "2026-06-13T00-00-00Z"
+            ward_run.mkdir(parents=True)
+            (ward_run / "manifest.json").write_text(
+                json.dumps(
+                    {
+                        "source_id": "gba_wards_delimitation_2025",
+                        "fetched_at": "2026-06-13T00-00-00Z",
+                        "status": "success",
+                        "files": [],
+                        "errors": [],
+                    }
+                )
+            )
             _write_json(
                 normalized / "wards.json",
                 [
@@ -199,6 +212,30 @@ class SiteBuildTests(unittest.TestCase):
             self.assertEqual(source_status["sources"][0]["source_id"], "bbmp_grievances_data")
             self.assertEqual(source_status["sources"][0]["latest_fetch_status"], "success")
             self.assertEqual(source_status["sources"][0]["normalized_usage_status"], "used_in_public_claims")
+            self.assertEqual(source_status["sources"][0]["archive_status"], "archive_available")
+            self.assertIn(source_status["sources"][0]["monitor_status"], {"usable", "stale"})
+            self.assertIn("can_prove", source_status["sources"][0])
+            self.assertIn("cannot_prove", source_status["sources"][0])
+            self.assertIn("freshness_scope", source_status["sources"][0])
+            self.assertIn("claim_eligibility", source_status["sources"][0])
+            self.assertIn("usable", source_status["summary"])
+            self.assertIn("partial", source_status["summary"])
+            self.assertIn("stale", source_status["summary"])
+            self.assertIn("unavailable", source_status["summary"])
+            self.assertIn("blocked", source_status["summary"])
+            self.assertIn("used_without_monitor_ok", source_status["summary"])
+            for row in source_status["sources"]:
+                if row["normalized_usage_status"] == "used_in_public_claims":
+                    for field in (
+                        "can_prove",
+                        "cannot_prove",
+                        "latest_successful_run",
+                        "latest_fetched_at",
+                        "parser_status",
+                        "source_tier",
+                        "official_status",
+                    ):
+                        self.assertTrue(row[field], f"{row['source_id']} missing {field}")
             place_entries = [entry for entry in search_index["entries"] if entry["kind"] == "place"]
             source_entries = [entry for entry in search_index["entries"] if entry["kind"] == "source"]
             self.assertEqual(place_entries[0]["title"], "Bellandur")

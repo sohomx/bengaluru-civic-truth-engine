@@ -4,8 +4,10 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from civic_data.cli import main
+from civic_data.packet_eval import run_packet_eval
 
 
 class PacketEvalTests(unittest.TestCase):
@@ -151,3 +153,28 @@ class PacketEvalTests(unittest.TestCase):
         self.assertGreaterEqual(len(cases), 80)
         self.assertEqual(len({case["id"] for case in cases}), len(cases))
         self.assertTrue(all(case.get("query") for case in cases))
+
+    def test_freshness_disclosure_rate_is_hard_release_gate_when_required(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            suite = root / "packet_eval.jsonl"
+            suite.write_text(json.dumps({"id": "freshness-required", "query": "Bellandur issue", "requires_freshness_disclosure": True}) + "\n")
+            packet = {
+                "normalized_place": "bellandur",
+                "normalized_issue": "unknown",
+                "responsible_agency": {},
+                "jurisdiction": {},
+                "retrieval_trace": {"used_raw_scan": False},
+                "evidence_table": [],
+                "who_to_contact": [],
+                "limits": [],
+                "claims": [],
+                "audit": {"used_raw_scan": False},
+            }
+
+            with patch("civic_data.packet_eval.build_evidence_packet", return_value=packet):
+                payload = run_packet_eval(suite, warehouse_root=root / "normalized", raw_root=root / "raw")
+
+            self.assertEqual(payload["metrics"]["freshness_disclosure_rate"], 0.0)
+            self.assertEqual(payload["release_gate"]["status"], "failed")
+            self.assertIn("missing_freshness_disclosure", payload["results"][0]["failures"])

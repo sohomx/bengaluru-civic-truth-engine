@@ -1,22 +1,34 @@
 {
   "generated_at": "2026-06-13T17:14:07Z",
-  "source_snapshot_id": "7225a3693e4d71c7a5fdfdc9b97ef8c9805b014ffcc41b63ef1d181fcc4a3f4e",
+  "source_snapshot_id": "c1cdfcd310b81dd0b6de136b9c896164ce847cdcf362237c34cf2d55b53f7b83",
   "sources": [
     {
       "access_method": "opencity_ckan",
       "agency": "KSNDMC",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "stormwater_flooding",
       "enabled": true,
       "file_count": 3,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "AWS in Bengaluru Urban and Rural",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. Weather/rain gauge station locations.",
@@ -28,23 +40,36 @@
       "reliability_score": 0.9,
       "source_id": "aws_bengaluru_urban_rural",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/list-of-automated-weater-stations-aws-in-bengaluru-urban-rural-districts"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "swm",
       "enabled": true,
       "file_count": 3,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bangalore Garbage Dumps",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Garbage and solid waste.",
@@ -56,23 +81,36 @@
       "reliability_score": 0.9,
       "source_id": "bangalore_garbage_dumps",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bangalore-garbage-dumps"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "public_facilities",
       "enabled": true,
       "file_count": 6,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bangalore Parks and Playgrounds",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Parks, lakes, trees, public facilities.",
@@ -84,25 +122,38 @@
       "reliability_score": 0.9,
       "source_id": "bangalore_parks_and_playgrounds",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bangalore-parks-and-playgrounds"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "roads",
       "enabled": true,
       "file_count": 3,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-30-15Z",
       "latest_run": "2026-06-12T02-30-15Z",
       "latest_successful_run": "2026-06-12T02-30-15Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Arterial and Sub Arterial Roads List",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Roads, potholes, road rules.",
@@ -114,25 +165,38 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_arterial_and_sub_arterial_roads_list",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-arterial-and-sub-arterial-roads-list"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "budgets_governance",
       "enabled": true,
       "file_count": 9,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Budget 2023-24",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Budgets and governance.",
@@ -144,25 +208,38 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_budget_2023_24",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-budget-2023-24"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "budgets_governance",
       "enabled": true,
       "file_count": 9,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Budget 2024-25",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Budgets and governance.",
@@ -174,25 +251,38 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_budget_2024_25",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-budget-2024-25"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "budgets_governance",
       "enabled": true,
       "file_count": 9,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Budget 2025-26",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Budgets and governance.",
@@ -204,23 +294,36 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_budget_2025_26",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-budget-2025-26"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "budgets_governance",
       "enabled": true,
       "file_count": 5,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Expenditure and Receipts",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Budgets and governance.",
@@ -232,25 +335,38 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_expenditure_and_receipts",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-expenditure-receipts"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "budgets_governance",
       "enabled": true,
       "file_count": 6,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-44-59Z",
       "latest_run": "2026-06-12T02-44-59Z",
       "latest_successful_run": "2026-06-12T02-44-59Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Financial Sustainability Strategy",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Budgets and governance.",
@@ -262,23 +378,36 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_financial_sustainability_strategy",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bcg-bbmp-financial-sustainability-strategy"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "roads",
       "enabled": true,
       "file_count": 3,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-29-56Z",
       "latest_run": "2026-06-12T02-29-56Z",
       "latest_successful_run": "2026-06-12T02-29-56Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Fix My Street Data",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Roads, potholes, road rules.",
@@ -290,23 +419,36 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_fix_my_street_data",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-fix-my-street-data"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Complaint memory present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live complaint status, ground truth prevalence, or resolution quality."
+      ],
       "caveats": [],
-      "domain": "wards",
+      "claim_eligibility": "public_context",
+      "domain": "grievances",
       "enabled": true,
       "file_count": 7,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Historical complaint-memory context from the available archived records.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-02-56Z",
       "latest_run": "2026-06-12T02-02-56Z",
       "latest_successful_run": "2026-06-12T02-02-56Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Grievances Data",
       "normalized_usage_status": "used_in_public_claims",
       "notes": "Generated from Overview.md section: BBMP/GBA core. Also referenced as BBMP Grievances Data 2020-2025 in Complaints/grievances.",
@@ -318,25 +460,38 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_grievances_data",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-grievances-data"
     },
     {
       "access_method": "official_portal_scrape_later",
       "agency": "BBMP",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: portal_later."
       ],
+      "claim_eligibility": "public_context",
       "domain": "public_facilities",
       "enabled": true,
       "file_count": 1,
       "format": "html_portal",
       "freshness_label": "archive_available",
       "freshness_policy_days": 90,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Lake Monitoring System",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. Official lake monitoring dashboard surface.",
@@ -348,23 +503,36 @@
       "reliability_score": 0.7,
       "source_id": "bbmp_lake_monitoring_system",
       "source_tier": 3,
+      "summary_status": "usable",
       "url": "https://lms.bbmpgov.in/lake"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "public_facilities",
       "enabled": true,
       "file_count": 2,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Lakes",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Parks, lakes, trees, public facilities.",
@@ -376,23 +544,36 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_lakes",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-lakes"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "public_facilities",
       "enabled": true,
       "file_count": 12,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-41-12Z",
       "latest_run": "2026-06-12T02-41-12Z",
       "latest_successful_run": "2026-06-12T02-41-12Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Parks",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Parks, lakes, trees, public facilities.",
@@ -404,25 +585,38 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_parks",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-parks"
     },
     {
       "access_method": "official_portal_scrape_later",
       "agency": "BBMP",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: portal_later."
       ],
+      "claim_eligibility": "public_context",
       "domain": "roads",
       "enabled": true,
       "file_count": 1,
       "format": "html_portal",
       "freshness_label": "archive_available",
       "freshness_policy_days": 90,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Official BBMP Potholes Dashboard",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. Official pothole dashboard; archive as portal snapshot with freshness caveat.",
@@ -434,25 +628,38 @@
       "reliability_score": 0.7,
       "source_id": "bbmp_potholes_dashboard",
       "source_tier": 3,
+      "summary_status": "usable",
       "url": "https://webapps.bbmpgov.in/potholesdashboard/index.html"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "budgets_governance",
       "enabled": true,
       "file_count": 3,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Registered Contractors List",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Budgets and governance.",
@@ -464,25 +671,38 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_registered_contractors_list",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-registered-contractors-list"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "roads",
       "enabled": true,
       "file_count": 3,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Road Cutting Fixing Rules",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Roads, potholes, road rules.",
@@ -494,25 +714,38 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_road_cutting_fixing_rules",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-road-cutting-fixing-rules"
     },
     {
       "access_method": "official_portal_scrape_later",
       "agency": "BBMP",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: portal_later."
       ],
+      "claim_eligibility": "public_context",
       "domain": "roads",
       "enabled": true,
       "file_count": 1,
       "format": "html_portal",
       "freshness_label": "archive_available",
       "freshness_policy_days": 90,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Road History 2.0",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. Official BBMP Road History system.",
@@ -524,23 +757,36 @@
       "reliability_score": 0.7,
       "source_id": "bbmp_road_history_2_0",
       "source_tier": 3,
+      "summary_status": "usable",
       "url": "https://rh.bbmpgov.in/"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "roads",
       "enabled": true,
       "file_count": 2,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-08-45Z",
       "latest_run": "2026-06-12T02-08-45Z",
       "latest_successful_run": "2026-06-12T02-08-45Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Road Repair Data",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Roads, potholes, road rules.",
@@ -552,23 +798,36 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_road_repair_data",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-road-repair-data"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "roads",
       "enabled": true,
       "file_count": 2,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-24-50Z",
       "latest_run": "2026-06-12T02-24-50Z",
       "latest_successful_run": "2026-06-12T02-24-50Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Roads Centerline Map",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Roads, potholes, road rules.",
@@ -580,25 +839,38 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_roads_centerline_map",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-roads-centerline-map"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "roads",
       "enabled": true,
       "file_count": 2,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Roads Guidelines",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Roads, potholes, road rules.",
@@ -610,23 +882,36 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_roads_guidelines",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-roads-guidelines"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "swm",
       "enabled": true,
       "file_count": 8,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Solid Waste Management Data",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Garbage and solid waste.",
@@ -638,25 +923,38 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_solid_waste_management_data",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-solid-waste-management-data"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "swm",
       "enabled": true,
       "file_count": 218,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T03-12-33Z",
       "latest_run": "2026-06-12T03-12-33Z",
       "latest_successful_run": "2026-06-12T03-12-33Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Solid Waste Management Plans",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Garbage and solid waste.",
@@ -668,25 +966,38 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_solid_waste_management_plans",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-solid-waste-management-plans"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "swm",
       "enabled": true,
       "file_count": 2,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP SWM Fee Circular 2025",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Garbage and solid waste.",
@@ -698,23 +1009,36 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_swm_fee_circular_2025",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-swm-fee-circular-2025"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "swm",
       "enabled": true,
       "file_count": 3,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP SWM Infrastructure",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Garbage and solid waste.",
@@ -726,23 +1050,36 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_swm_infrastructure",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-swm-infrastructure"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public administrative work, payment, tender, or award rows exist in available records."
+      ],
+      "cannot_prove": [
+        "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+      ],
       "caveats": [],
+      "claim_eligibility": "historical_public_context",
       "domain": "works_payments_tenders",
       "enabled": true,
       "file_count": 6,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-08-45Z",
       "latest_run": "2026-06-12T02-08-45Z",
       "latest_successful_run": "2026-06-12T02-08-45Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Tenders",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Works, money, tenders.",
@@ -754,23 +1091,36 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_tenders",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-tenders"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "budgets_governance",
       "enabled": true,
       "file_count": 28,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Trade Licenses Data 2025",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. Constituency-level trade-license CSVs for civic economy/compliance context.",
@@ -782,23 +1132,36 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_trade_licenses_data_2025",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-trade-licenses-data-2025"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Ward, corporation, and jurisdiction context present in available public records."
+      ],
+      "cannot_prove": [
+        "Field condition, agency action, issue resolution, or current ground truth."
+      ],
       "caveats": [],
+      "claim_eligibility": "jurisdiction",
       "domain": "wards",
       "enabled": true,
       "file_count": 2,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Jurisdiction context from the available archived lookup; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-02-56Z",
       "latest_run": "2026-06-12T02-02-56Z",
       "latest_successful_run": "2026-06-12T02-02-56Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Ward Committee Meetings Data",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: BBMP/GBA core.",
@@ -810,23 +1173,36 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_ward_committee_meetings_data",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-ward-committee-meetings-data"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Ward, corporation, and jurisdiction context present in available public records."
+      ],
+      "cannot_prove": [
+        "Field condition, agency action, issue resolution, or current ground truth."
+      ],
       "caveats": [],
+      "claim_eligibility": "jurisdiction",
       "domain": "wards",
       "enabled": true,
       "file_count": 14,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Jurisdiction context from the available archived lookup; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-02-56Z",
       "latest_run": "2026-06-12T02-02-56Z",
       "latest_successful_run": "2026-06-12T02-02-56Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Ward Information",
       "normalized_usage_status": "used_in_public_claims",
       "notes": "Generated from Overview.md section: BBMP/GBA core.",
@@ -838,23 +1214,36 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_ward_information",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-ward-information"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Ward, corporation, and jurisdiction context present in available public records."
+      ],
+      "cannot_prove": [
+        "Field condition, agency action, issue resolution, or current ground truth."
+      ],
       "caveats": [],
+      "claim_eligibility": "jurisdiction",
       "domain": "wards",
       "enabled": true,
       "file_count": 2,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Jurisdiction context from the available archived lookup; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-02-56Z",
       "latest_run": "2026-06-12T02-02-56Z",
       "latest_successful_run": "2026-06-12T02-02-56Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Ward-wise Public Goods Data",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: BBMP/GBA core.",
@@ -866,25 +1255,38 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_ward_wise_public_goods_data",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-ward-wise-public-goods-data"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "swm",
       "enabled": true,
       "file_count": 2,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Waste List of Private Vendors",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Garbage and solid waste.",
@@ -896,25 +1298,38 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_waste_list_of_private_vendors",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-waste-list-of-private-vendors"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "swm",
       "enabled": true,
       "file_count": 2,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Waste Service Providers Scope of Services",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Garbage and solid waste.",
@@ -926,25 +1341,38 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_waste_service_providers_scope_of_services",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-waste-service-providers-scope-of-services"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "swm",
       "enabled": true,
       "file_count": 2,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Waste Tools and Equipment",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Garbage and solid waste.",
@@ -956,23 +1384,36 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_waste_tools_and_equipment",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-waste-tools-and-equipment"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "swm",
       "enabled": true,
       "file_count": 1,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Waste Vehicle at Ward Level",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Garbage and solid waste.",
@@ -984,23 +1425,36 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_waste_vehicle_at_ward_level",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-waste-vehicle-at-ward-level"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "swm",
       "enabled": true,
       "file_count": 1,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Waste Vehicle Manpower at Ward Level",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Garbage and solid waste.",
@@ -1012,25 +1466,38 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_waste_vehicle_manpower_at_ward_level",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-waste-vehicle-manpower-at-ward-level"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "swm",
       "enabled": true,
       "file_count": 2,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Waste Vehicle Requirements",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Garbage and solid waste.",
@@ -1042,23 +1509,36 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_waste_vehicle_requirements",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-waste-vehicle-requirements"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public administrative work, payment, tender, or award rows exist in available records."
+      ],
+      "cannot_prove": [
+        "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+      ],
       "caveats": [],
+      "claim_eligibility": "historical_public_context",
       "domain": "works_payments_tenders",
       "enabled": true,
       "file_count": 88,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-08-45Z",
       "latest_run": "2026-06-12T02-08-45Z",
       "latest_successful_run": "2026-06-12T02-08-45Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Work Orders and Bill Payment",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Works, money, tenders.",
@@ -1070,23 +1550,36 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_work_orders_and_bill_payment",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-work-orders-and-bill-payment"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public administrative work, payment, tender, or award rows exist in available records."
+      ],
+      "cannot_prove": [
+        "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+      ],
       "caveats": [],
+      "claim_eligibility": "historical_public_context",
       "domain": "works_payments_tenders",
       "enabled": true,
       "file_count": 4,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-02-56Z",
       "latest_run": "2026-06-12T02-02-56Z",
       "latest_successful_run": "2026-06-12T02-02-56Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Work Orders and Payments 2024-25",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Works, money, tenders.",
@@ -1098,23 +1591,36 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_work_orders_and_payments_2024_25",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-work-orders-and-payments-2024-25"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public administrative work, payment, tender, or award rows exist in available records."
+      ],
+      "cannot_prove": [
+        "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+      ],
       "caveats": [],
+      "claim_eligibility": "historical_public_context",
       "domain": "works_payments_tenders",
       "enabled": true,
       "file_count": 5,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-02-56Z",
       "latest_run": "2026-06-12T02-02-56Z",
       "latest_successful_run": "2026-06-12T02-02-56Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Work Orders and Payments 2025-26",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Works, money, tenders.",
@@ -1126,23 +1632,36 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_work_orders_and_payments_2025_26",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-work-orders-and-payments-2025-26"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public administrative work, payment, tender, or award rows exist in available records."
+      ],
+      "cannot_prove": [
+        "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+      ],
       "caveats": [],
+      "claim_eligibility": "historical_public_context",
       "domain": "works_payments_tenders",
       "enabled": true,
       "file_count": 199,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-02-56Z",
       "latest_run": "2026-06-12T02-02-56Z",
       "latest_successful_run": "2026-06-12T02-02-56Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Work Orders by Ward 2013-2022",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Works, money, tenders.",
@@ -1154,23 +1673,36 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_work_orders_by_ward_2013_2022",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-work-orders-by-ward-2013-2022"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public administrative work, payment, tender, or award rows exist in available records."
+      ],
+      "cannot_prove": [
+        "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+      ],
       "caveats": [],
+      "claim_eligibility": "historical_public_context",
       "domain": "works_payments_tenders",
       "enabled": true,
       "file_count": 5,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-02-56Z",
       "latest_run": "2026-06-12T02-02-56Z",
       "latest_successful_run": "2026-06-12T02-02-56Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Work Orders Categorised 2018-2023",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Works, money, tenders.",
@@ -1182,25 +1714,38 @@
       "reliability_score": 0.9,
       "source_id": "bbmp_work_orders_categorised_2018_2023",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bbmp-work-orders-categorised-2018-2023"
     },
     {
       "access_method": "official_portal_scrape_later",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public administrative work, payment, tender, or award rows exist in available records."
+      ],
+      "cannot_prove": [
+        "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+      ],
       "caveats": [
         "Parser status requires review: portal_later."
       ],
+      "claim_eligibility": "historical_public_context",
       "domain": "works_payments_tenders",
       "enabled": true,
       "file_count": 1,
       "format": "html_or_pdf",
       "freshness_label": "archive_available",
       "freshness_policy_days": 90,
+      "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-20-02Z",
       "latest_run": "2026-06-12T02-20-02Z",
       "latest_successful_run": "2026-06-12T02-20-02Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BBMP Works Bill Public View",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Works, money, tenders.",
@@ -1212,23 +1757,36 @@
       "reliability_score": 0.7,
       "source_id": "bbmp_works_bill_public_view",
       "source_tier": 3,
+      "summary_status": "usable",
       "url": "https://account.bbmpgov.in/PublicView/?l=1"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Ward, corporation, and jurisdiction context present in available public records."
+      ],
+      "cannot_prove": [
+        "Field condition, agency action, issue resolution, or current ground truth."
+      ],
       "caveats": [],
+      "claim_eligibility": "jurisdiction",
       "domain": "wards",
       "enabled": true,
       "file_count": 3,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Jurisdiction context from the available archived lookup; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru BBMP Ward details",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. Ward area, road length, and 2014 delimitation details.",
@@ -1240,25 +1798,38 @@
       "reliability_score": 0.9,
       "source_id": "bengaluru_bbmp_ward_details",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-bbmp-ward-details"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "rules",
       "enabled": true,
       "file_count": 2,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 90,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru Central City Corporation Dilapidated Buildings Committee",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. Building-safety governance committee document.",
@@ -1270,25 +1841,38 @@
       "reliability_score": 0.82,
       "source_id": "bengaluru_central_city_corporation_dilapidated_buildings_committee",
       "source_tier": 2,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-central-city-corporation-dilapidated-buildings-committee"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "roads",
       "enabled": true,
       "file_count": 2,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru Central City Corporation Pothole Filling Updates",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Roads, potholes, road rules.",
@@ -1300,25 +1884,38 @@
       "reliability_score": 0.9,
       "source_id": "bengaluru_central_city_corporation_pothole_filling_updates",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-central-city-corporation-pothole-filling-updates"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "rules",
       "enabled": true,
       "file_count": 6,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 90,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru City Corporations Bye-laws 2026",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. Draft building bye-laws for five GBA corporations.",
@@ -1330,25 +1927,38 @@
       "reliability_score": 0.82,
       "source_id": "bengaluru_city_corporations_bye_laws_2026",
       "source_tier": 2,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-city-corporations-bye-laws-2026"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BTP",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "traffic_mobility",
       "enabled": true,
       "file_count": 125,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 90,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru City Traffic Signal Data",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. Signal timings by junction.",
@@ -1360,25 +1970,38 @@
       "reliability_score": 0.82,
       "source_id": "bengaluru_city_traffic_signal_data",
       "source_tier": 2,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-city-traffic-signal-data"
     },
     {
       "access_method": "official_portal_scrape_later",
       "agency": "KSRSAC",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Ward, corporation, and jurisdiction context present in available public records."
+      ],
+      "cannot_prove": [
+        "Field condition, agency action, issue resolution, or current ground truth."
+      ],
       "caveats": [
         "Parser status requires review: portal_later."
       ],
+      "claim_eligibility": "jurisdiction",
       "domain": "wards",
       "enabled": true,
       "file_count": 1,
       "format": "html_portal",
       "freshness_label": "archive_available",
       "freshness_policy_days": 90,
+      "freshness_scope": "Jurisdiction context from the available archived lookup; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru GIS",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. Official Bengaluru GIS portal with spatial layers.",
@@ -1390,25 +2013,38 @@
       "reliability_score": 0.7,
       "source_id": "bengaluru_gis",
       "source_tier": 3,
+      "summary_status": "usable",
       "url": "https://kgis.ksrsac.in/bengalurugis/"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "public_facilities",
       "enabled": true,
       "file_count": 5,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru Hospitals",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Parks, lakes, trees, public facilities.",
@@ -1420,23 +2056,36 @@
       "reliability_score": 0.9,
       "source_id": "bengaluru_hospitals",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-hospitals"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "public_facilities",
       "enabled": true,
       "file_count": 3,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru Indira Canteens",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Parks, lakes, trees, public facilities.",
@@ -1448,25 +2097,38 @@
       "reliability_score": 0.9,
       "source_id": "bengaluru_indira_canteens",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-indira-canteens"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "public_facilities",
       "enabled": true,
       "file_count": 12,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-41-28Z",
       "latest_run": "2026-06-12T02-41-28Z",
       "latest_successful_run": "2026-06-12T02-41-28Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru Lakes Data and Reports",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Parks, lakes, trees, public facilities.",
@@ -1478,23 +2140,36 @@
       "reliability_score": 0.9,
       "source_id": "bengaluru_lakes_data_and_reports",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-lakes-data-and-reports"
     },
     {
       "access_method": "external_reference",
       "agency": "Community/Media",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Lead or contextual signal only."
+      ],
+      "cannot_prove": [
+        "Official claims, civic status, agency action, or current condition."
+      ],
       "caveats": [],
+      "claim_eligibility": "weak_context",
       "domain": "community_signal",
       "enabled": true,
       "file_count": 1,
       "format": "html",
       "freshness_label": "archive_available",
       "freshness_policy_days": 180,
+      "freshness_scope": "Unofficial context only; not a public-record proof source.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Check source terms before reuse",
+      "monitor_status": "usable",
       "name": "Bengaluru Live Pothole Map",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Civic/crowd/competitor references.",
@@ -1506,23 +2181,36 @@
       "reliability_score": 0.45,
       "source_id": "bengaluru_live_pothole_map",
       "source_tier": 4,
+      "summary_status": "usable",
       "url": "https://blr-potholes.pages.dev/"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "public_facilities",
       "enabled": true,
       "file_count": 3,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru Public Toilets",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Parks, lakes, trees, public facilities.",
@@ -1534,23 +2222,36 @@
       "reliability_score": 0.9,
       "source_id": "bengaluru_public_toilets",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-public-toilets"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "IMD",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "stormwater_flooding",
       "enabled": true,
       "file_count": 2,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru Rainfall from 1901",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. IMD monthly rainfall through 2025 for flooding context.",
@@ -1562,23 +2263,36 @@
       "reliability_score": 0.9,
       "source_id": "bengaluru_rainfall",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-rainfall"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BTP",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "traffic_mobility",
       "enabled": true,
       "file_count": 7,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru Road Crashes Data",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. Station-wise accidents/fatalities and road crashes through 2025.",
@@ -1590,23 +2304,36 @@
       "reliability_score": 0.9,
       "source_id": "bengaluru_road_crashes_data",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-road-crashes-data"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "roads",
       "enabled": true,
       "file_count": 2,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-29-47Z",
       "latest_run": "2026-06-12T02-29-47Z",
       "latest_successful_run": "2026-06-12T02-29-47Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru Road Width Map",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Roads, potholes, road rules.",
@@ -1618,23 +2345,36 @@
       "reliability_score": 0.9,
       "source_id": "bengaluru_road_width_map",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-road-width-map"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "public_facilities",
       "enabled": true,
       "file_count": 6,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-44-17Z",
       "latest_run": "2026-06-12T02-44-17Z",
       "latest_successful_run": "2026-06-12T02-44-17Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru Schools",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Parks, lakes, trees, public facilities.",
@@ -1646,25 +2386,38 @@
       "reliability_score": 0.9,
       "source_id": "bengaluru_schools",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-schools"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "stormwater_flooding",
       "enabled": true,
       "file_count": 14,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-37-36Z",
       "latest_run": "2026-06-12T02-37-36Z",
       "latest_successful_run": "2026-06-12T02-37-36Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru Stormwater Drains Maps",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Stormwater, drains, flooding.",
@@ -1676,25 +2429,38 @@
       "reliability_score": 0.9,
       "source_id": "bengaluru_stormwater_drains_maps",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-stormwater-drains-maps"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "stormwater_flooding",
       "enabled": true,
       "file_count": 3,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-38-23Z",
       "latest_run": "2026-06-12T02-38-23Z",
       "latest_successful_run": "2026-06-12T02-38-23Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru Stormwater Drains Master Plan 2010",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Stormwater, drains, flooding.",
@@ -1706,25 +2472,38 @@
       "reliability_score": 0.9,
       "source_id": "bengaluru_stormwater_drains_master_plan_2010",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-stormwater-drains-master-plan-2010"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "stormwater_flooding",
       "enabled": true,
       "file_count": 6,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-38-56Z",
       "latest_run": "2026-06-12T02-38-56Z",
       "latest_successful_run": "2026-06-12T02-38-56Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru Stormwater Drains Remodeling 2006-08",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Stormwater, drains, flooding.",
@@ -1736,23 +2515,36 @@
       "reliability_score": 0.9,
       "source_id": "bengaluru_stormwater_drains_remodeling_2006_08",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-stormwater-drains-remodeling-2006-08"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "streetlights",
       "enabled": true,
       "file_count": 5,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru Streetlights",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Streetlights and electrical civic assets.",
@@ -1764,23 +2556,36 @@
       "reliability_score": 0.9,
       "source_id": "bengaluru_streetlights",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-streetlights"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BTP",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "traffic_mobility",
       "enabled": true,
       "file_count": 3,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru Traffic Police Jurisdictions",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. KML jurisdiction maps for BTP station matching.",
@@ -1792,25 +2597,38 @@
       "reliability_score": 0.9,
       "source_id": "bengaluru_traffic_police_jurisdictions",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-traffic-police-jurisdictions"
     },
     {
       "access_method": "official_html",
       "agency": "BTP",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Route/contact metadata present in available public records."
+      ],
+      "cannot_prove": [
+        "Ownership for the exact incident, live ticket status, or current ground response."
+      ],
       "caveats": [
         "Parser status requires review: html_snapshot_only."
       ],
+      "claim_eligibility": "routing",
       "domain": "traffic_mobility",
       "enabled": true,
       "file_count": 1,
       "format": "html",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru Traffic Police official website",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Traffic and mobility.",
@@ -1822,23 +2640,36 @@
       "reliability_score": 0.9,
       "source_id": "bengaluru_traffic_police_official_website",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://btp.karnataka.gov.in/en"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BTP",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "traffic_mobility",
       "enabled": true,
       "file_count": 4,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru Traffic Violations Data",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. BTP cases/fines CSVs through 2025.",
@@ -1850,23 +2681,36 @@
       "reliability_score": 0.9,
       "source_id": "bengaluru_traffic_violations_data",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-traffic-violations-data"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "public_facilities",
       "enabled": true,
       "file_count": 18,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-41-43Z",
       "latest_run": "2026-06-12T02-41-43Z",
       "latest_successful_run": "2026-06-12T02-41-43Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru Tree Census Data",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Parks, lakes, trees, public facilities.",
@@ -1878,25 +2722,38 @@
       "reliability_score": 0.9,
       "source_id": "bengaluru_tree_census_data",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-tree-census-data"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "KSNDMC",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "stormwater_flooding",
       "enabled": true,
       "file_count": 13,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru Urban Annual Rainfall - Taluks and Hoblis",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. KSNDMC taluk/hobli rainfall and weather reports.",
@@ -1908,23 +2765,36 @@
       "reliability_score": 0.9,
       "source_id": "bengaluru_urban_annual_rainfall_taluks_hoblis",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-urban-annual-rainfall-taluks-and-hoblis"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "public_facilities",
       "enabled": true,
       "file_count": 4,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru Urban Public Health Centres",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Parks, lakes, trees, public facilities.",
@@ -1936,23 +2806,36 @@
       "reliability_score": 0.9,
       "source_id": "bengaluru_urban_public_health_centres",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-urban-public-health-centres"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "roads",
       "enabled": true,
       "file_count": 393,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-25-10Z",
       "latest_run": "2026-06-12T02-25-10Z",
       "latest_successful_run": "2026-06-12T02-25-10Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru Ward-wise Street Map",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Roads, potholes, road rules.",
@@ -1964,23 +2847,36 @@
       "reliability_score": 0.9,
       "source_id": "bengaluru_ward_wise_street_map",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-ward-wise-street-map"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "streetlights",
       "enabled": true,
       "file_count": 9,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-40-02Z",
       "latest_run": "2026-06-12T02-40-02Z",
       "latest_successful_run": "2026-06-12T02-40-02Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Bengaluru Zone-wise Streetlights",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Streetlights and electrical civic assets.",
@@ -1992,23 +2888,36 @@
       "reliability_score": 0.9,
       "source_id": "bengaluru_zone_wise_streetlights",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bengaluru-zone-wise-streetlights"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BESCOM",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "streetlights",
       "enabled": true,
       "file_count": 4,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BESCOM Boundary Maps",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. BESCOM division/section/subdivision KML boundaries.",
@@ -2020,25 +2929,38 @@
       "reliability_score": 0.9,
       "source_id": "bescom_boundary_maps",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bescom-boundary-maps"
     },
     {
       "access_method": "official_portal_scrape_later",
       "agency": "BESCOM",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Route/contact metadata present in available public records."
+      ],
+      "cannot_prove": [
+        "Ownership for the exact incident, live ticket status, or current ground response."
+      ],
       "caveats": [
         "Parser status requires review: portal_later."
       ],
+      "claim_eligibility": "routing",
       "domain": "streetlights",
       "enabled": true,
       "file_count": 1,
       "format": "html_portal",
       "freshness_label": "archive_available",
       "freshness_policy_days": 90,
+      "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BESCOM complaint tracking",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Streetlights and electrical civic assets.",
@@ -2050,23 +2972,36 @@
       "reliability_score": 0.7,
       "source_id": "bescom_complaint_tracking",
       "source_tier": 3,
+      "summary_status": "usable",
       "url": "https://www.bescom.co.in/bescom/dashboard/consumer-dashboard/track-service-request"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BESCOM",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "streetlights",
       "enabled": true,
       "file_count": 7,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BESCOM HT Lines Data",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. High tension infrastructure data.",
@@ -2078,23 +3013,36 @@
       "reliability_score": 0.9,
       "source_id": "bescom_high_tension_ht_lines_data",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bescom-high-tension-ht-lines-data"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BESCOM",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "streetlights",
       "enabled": true,
       "file_count": 7,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BESCOM LT Lines Data",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. Low tension infrastructure data.",
@@ -2106,25 +3054,38 @@
       "reliability_score": 0.9,
       "source_id": "bescom_low_tension_lt_lines_data",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bescom-low-tension-lt-lines-data"
     },
     {
       "access_method": "official_html",
       "agency": "BESCOM",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Route/contact metadata present in available public records."
+      ],
+      "cannot_prove": [
+        "Ownership for the exact incident, live ticket status, or current ground response."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "routing",
       "domain": "streetlights",
       "enabled": true,
       "file_count": 1,
       "format": "html_or_pdf",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BESCOM official contact/complaint channels",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Streetlights and electrical civic assets.",
@@ -2136,25 +3097,38 @@
       "reliability_score": 0.9,
       "source_id": "bescom_official_contact_complaint_channels",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://bescom.karnataka.gov.in/new-page/Contact%20Us/en"
     },
     {
       "access_method": "official_html",
       "agency": "BESCOM",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Route/contact metadata present in available public records."
+      ],
+      "cannot_prove": [
+        "Ownership for the exact incident, live ticket status, or current ground response."
+      ],
       "caveats": [
         "Parser status requires review: html_snapshot_only."
       ],
+      "claim_eligibility": "routing",
       "domain": "streetlights",
       "enabled": true,
       "file_count": 1,
       "format": "html",
       "freshness_label": "archive_available",
       "freshness_policy_days": 90,
+      "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BESCOM Planned Outages",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. Official planned outage and weekly outage report page.",
@@ -2166,23 +3140,36 @@
       "reliability_score": 0.7,
       "source_id": "bescom_planned_outages",
       "source_tier": 3,
+      "summary_status": "usable",
       "url": "https://bescom.karnataka.gov.in/new-page/Planned%20Outages%20-%20BESCOM%20Works/en"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BMTC",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "traffic_mobility",
       "enabled": true,
       "file_count": 58,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BMTC Bus Stops and Routes Map by Ward",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. Ward/division route-stop KML/CSV.",
@@ -2194,25 +3181,38 @@
       "reliability_score": 0.9,
       "source_id": "bmtc_bus_stops_and_routes_map_by_ward",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bus-stops-and-routes-map-by-ward"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BMTC",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "traffic_mobility",
       "enabled": true,
       "file_count": 5,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BMTC Operation and Performance Data",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. Fleet utilization and performance indicators.",
@@ -2224,25 +3224,38 @@
       "reliability_score": 0.9,
       "source_id": "bmtc_operation_performance_data",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bmtc-operation-performance-data"
     },
     {
       "access_method": "official_html",
       "agency": "BTP",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Route/contact metadata present in available public records."
+      ],
+      "cannot_prove": [
+        "Ownership for the exact incident, live ticket status, or current ground response."
+      ],
       "caveats": [
         "Parser status requires review: html_snapshot_only."
       ],
+      "claim_eligibility": "routing",
       "domain": "traffic_mobility",
       "enabled": true,
       "file_count": 1,
       "format": "html",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BTP Official Statistics",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. Official enforcement/statistics tables through recent years.",
@@ -2254,25 +3267,38 @@
       "reliability_score": 0.9,
       "source_id": "btp_official_statistics",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://btp.karnataka.gov.in/152/statistics/en"
     },
     {
       "access_method": "official_html",
       "agency": "BWSSB",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Route/contact metadata present in available public records."
+      ],
+      "cannot_prove": [
+        "Ownership for the exact incident, live ticket status, or current ground response."
+      ],
       "caveats": [
         "Parser status requires review: html_snapshot_only."
       ],
+      "claim_eligibility": "routing",
       "domain": "water_sewage",
       "enabled": true,
       "file_count": 1,
       "format": "html",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BWSSB about/responsibility page",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Water and sewage.",
@@ -2284,23 +3310,36 @@
       "reliability_score": 0.9,
       "source_id": "bwssb_about_responsibility_page",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://bwssb.karnataka.gov.in/info-1/About%2BBWSSB/en"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BWSSB",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "water_sewage",
       "enabled": true,
       "file_count": 4,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BWSSB Boundary Maps",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. Division/subdivision/service-station KML boundaries.",
@@ -2312,25 +3351,38 @@
       "reliability_score": 0.9,
       "source_id": "bwssb_boundary_maps",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bwssb-boundary-maps"
     },
     {
       "access_method": "official_portal_scrape_later",
       "agency": "BWSSB",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Route/contact metadata present in available public records."
+      ],
+      "cannot_prove": [
+        "Ownership for the exact incident, live ticket status, or current ground response."
+      ],
       "caveats": [
         "Parser status requires review: portal_later."
       ],
+      "claim_eligibility": "routing",
       "domain": "water_sewage",
       "enabled": true,
       "file_count": 1,
       "format": "html_portal",
       "freshness_label": "archive_available",
       "freshness_policy_days": 90,
+      "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BWSSB CRM Complaint Form",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. Official BWSSB complaint intake taxonomy/routing surface.",
@@ -2342,23 +3394,36 @@
       "reliability_score": 0.7,
       "source_id": "bwssb_crm_complaint_form",
       "source_tier": 3,
+      "summary_status": "usable",
       "url": "https://cms.bwssb.gov.in/module/complain/new_complaint"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BWSSB",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "water_sewage",
       "enabled": true,
       "file_count": 8,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BWSSB Data on OpenCity",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Water and sewage.",
@@ -2370,25 +3435,38 @@
       "reliability_score": 0.9,
       "source_id": "bwssb_data_on_opencity",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bwssb-data"
     },
     {
       "access_method": "official_portal_scrape_later",
       "agency": "BWSSB",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Route/contact metadata present in available public records."
+      ],
+      "cannot_prove": [
+        "Ownership for the exact incident, live ticket status, or current ground response."
+      ],
       "caveats": [
         "Parser status requires review: portal_later."
       ],
+      "claim_eligibility": "routing",
       "domain": "water_sewage",
       "enabled": true,
       "file_count": 1,
       "format": "html_portal",
       "freshness_label": "archive_available",
       "freshness_policy_days": 90,
+      "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BWSSB Kaveri on Wheels",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. Official tanker booking service surface.",
@@ -2400,25 +3478,38 @@
       "reliability_score": 0.7,
       "source_id": "bwssb_kaveri_on_wheels",
       "source_tier": 3,
+      "summary_status": "usable",
       "url": "https://kaverionwheels.bwssb.gov.in/"
     },
     {
       "access_method": "official_html",
       "agency": "BWSSB",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Route/contact metadata present in available public records."
+      ],
+      "cannot_prove": [
+        "Ownership for the exact incident, live ticket status, or current ground response."
+      ],
       "caveats": [
         "Parser status requires review: html_snapshot_only."
       ],
+      "claim_eligibility": "routing",
       "domain": "water_sewage",
       "enabled": true,
       "file_count": 1,
       "format": "html",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BWSSB official website",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Water and sewage.",
@@ -2430,25 +3521,38 @@
       "reliability_score": 0.9,
       "source_id": "bwssb_official_website",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://bwssb.karnataka.gov.in/english"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BWSSB",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "water_sewage",
       "enabled": true,
       "file_count": 4,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 90,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BWSSB Tariff",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. BWSSB tariff orders including 2025 tariff context.",
@@ -2460,25 +3564,38 @@
       "reliability_score": 0.82,
       "source_id": "bwssb_tariff",
       "source_tier": 2,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/bwssb-tariff"
     },
     {
       "access_method": "official_html",
       "agency": "BWSSB",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Route/contact metadata present in available public records."
+      ],
+      "cannot_prove": [
+        "Ownership for the exact incident, live ticket status, or current ground response."
+      ],
       "caveats": [
         "Parser status requires review: html_snapshot_only."
       ],
+      "claim_eligibility": "routing",
       "domain": "water_sewage",
       "enabled": true,
       "file_count": 1,
       "format": "html",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "BWSSB Water Consumption Monthly OGD Dec 2025",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. Ward-wise BWSSB water consumption public data portal page.",
@@ -2490,25 +3607,38 @@
       "reliability_score": 0.9,
       "source_id": "bwssb_water_consumption_december_2025",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://www.data.gov.in/resource/bwssb-water-consumption-data-month-december-25"
     },
     {
       "access_method": "official_html",
       "agency": "DULT",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Route/contact metadata present in available public records."
+      ],
+      "cannot_prove": [
+        "Ownership for the exact incident, live ticket status, or current ground response."
+      ],
       "caveats": [
         "Parser status requires review: html_snapshot_only."
       ],
+      "claim_eligibility": "routing",
       "domain": "traffic_mobility",
       "enabled": true,
       "file_count": 1,
       "format": "html",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "DULT TransitGIS",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Traffic and mobility.",
@@ -2520,23 +3650,36 @@
       "reliability_score": 0.9,
       "source_id": "dult_transitgis",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://dult.karnataka.gov.in/138/transit-gis/en"
     },
     {
       "access_method": "external_reference",
       "agency": "Community/Media",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Lead or contextual signal only."
+      ],
+      "cannot_prove": [
+        "Official claims, civic status, agency action, or current condition."
+      ],
       "caveats": [],
+      "claim_eligibility": "weak_context",
       "domain": "community_signal",
       "enabled": true,
       "file_count": 1,
       "format": "html",
       "freshness_label": "archive_available",
       "freshness_policy_days": 180,
+      "freshness_scope": "Unofficial context only; not a public-record proof source.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Check source terms before reuse",
+      "monitor_status": "usable",
       "name": "FixMyStreet reference model",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Civic/crowd/competitor references.",
@@ -2548,23 +3691,36 @@
       "reliability_score": 0.45,
       "source_id": "fixmystreet_reference_model",
       "source_tier": 4,
+      "summary_status": "usable",
       "url": "https://www.mysociety.org/category/community/fixmystreet/"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [],
+      "claim_eligibility": "public_context",
       "domain": "stormwater_flooding",
       "enabled": true,
       "file_count": 4,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Flooding Locations in Bengaluru Urban",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Stormwater, drains, flooding.",
@@ -2576,25 +3732,38 @@
       "reliability_score": 0.9,
       "source_id": "flooding_locations_in_bengaluru_urban",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/flooding-locations-in-bengaluru-urban"
     },
     {
       "access_method": "official_html",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Ward, corporation, and jurisdiction context present in available public records."
+      ],
+      "cannot_prove": [
+        "Field condition, agency action, issue resolution, or current ground truth."
+      ],
       "caveats": [
         "Parser status requires review: html_snapshot_only."
       ],
+      "claim_eligibility": "jurisdiction",
       "domain": "wards",
       "enabled": true,
       "file_count": 1,
       "format": "html",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Jurisdiction context from the available archived lookup; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-19-46Z",
       "latest_run": "2026-06-12T02-19-46Z",
       "latest_successful_run": "2026-06-12T02-19-46Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "GBA/BBMP official website",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: BBMP/GBA core. Also referenced as GBA/BBMP helpline reference from official site in Complaints/grievances.",
@@ -2606,25 +3775,38 @@
       "reliability_score": 0.9,
       "source_id": "gba_bbmp_official_website",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://bbmp.gov.in/"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "budgets_governance",
       "enabled": true,
       "file_count": 15,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-44-23Z",
       "latest_run": "2026-06-12T02-44-23Z",
       "latest_successful_run": "2026-06-12T02-44-23Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "GBA Corporation Budgets 2026-27",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Budgets and governance.",
@@ -2636,25 +3818,38 @@
       "reliability_score": 0.9,
       "source_id": "gba_corporation_budgets_2026_27",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/gba-corporation-budgets-2026-27"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "public_facilities",
       "enabled": true,
       "file_count": 4,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "GBA Forest Wing Contacts 2026",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. Ward-wise tree officers and forest contacts for escalation routing.",
@@ -2666,25 +3861,38 @@
       "reliability_score": 0.9,
       "source_id": "gba_forest_wing_contacts_2026",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/gba-forest-wing-contacts-2026"
     },
     {
       "access_method": "official_html",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Ward, corporation, and jurisdiction context present in available public records."
+      ],
+      "cannot_prove": [
+        "Field condition, agency action, issue resolution, or current ground truth."
+      ],
       "caveats": [
         "Parser status requires review: html_snapshot_only."
       ],
+      "claim_eligibility": "jurisdiction",
       "domain": "wards",
       "enabled": true,
       "file_count": 1,
       "format": "html",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Jurisdiction context from the available archived lookup; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-19-47Z",
       "latest_run": "2026-06-12T02-19-47Z",
       "latest_successful_run": "2026-06-12T02-19-47Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "GBA new corporation/ward lookup",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: BBMP/GBA core.",
@@ -2696,25 +3904,38 @@
       "reliability_score": 0.9,
       "source_id": "gba_new_corporation_ward_lookup",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://bbmp.gov.in/KnowYourNewCorporation/index.html"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Ward, corporation, and jurisdiction context present in available public records."
+      ],
+      "cannot_prove": [
+        "Field condition, agency action, issue resolution, or current ground truth."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "jurisdiction",
       "domain": "wards",
       "enabled": true,
       "file_count": 12,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Jurisdiction context from the available archived lookup; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-47-24Z",
       "latest_run": "2026-06-12T02-47-24Z",
       "latest_successful_run": "2026-06-12T02-47-24Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "GBA Ward-wise Reservations 2026",
       "normalized_usage_status": "registered_only",
       "notes": "Added from current-source sweep. Current post-GBA electoral/governance reservation layer.",
@@ -2726,23 +3947,36 @@
       "reliability_score": 0.9,
       "source_id": "gba_ward_wise_reservations_2026",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/gba-ward-wise-reservations-2026"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Ward, corporation, and jurisdiction context present in available public records."
+      ],
+      "cannot_prove": [
+        "Field condition, agency action, issue resolution, or current ground truth."
+      ],
       "caveats": [],
+      "claim_eligibility": "jurisdiction",
       "domain": "wards",
       "enabled": true,
       "file_count": 21,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Jurisdiction context from the available archived lookup; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-02-56Z",
       "latest_run": "2026-06-12T02-02-56Z",
       "latest_successful_run": "2026-06-12T02-02-56Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "GBA Wards Delimitation 2025",
       "normalized_usage_status": "used_in_public_claims",
       "notes": "Generated from Overview.md section: BBMP/GBA core.",
@@ -2754,25 +3988,38 @@
       "reliability_score": 0.9,
       "source_id": "gba_wards_delimitation_2025",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/gba-wards-delimitation-2025"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Ward, corporation, and jurisdiction context present in available public records."
+      ],
+      "cannot_prove": [
+        "Field condition, agency action, issue resolution, or current ground truth."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "jurisdiction",
       "domain": "wards",
       "enabled": true,
       "file_count": 6,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Jurisdiction context from the available archived lookup; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-02-56Z",
       "latest_run": "2026-06-12T02-02-56Z",
       "latest_successful_run": "2026-06-12T02-02-56Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Greater Bengaluru Governance Act / governance materials",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: BBMP/GBA core.",
@@ -2784,23 +4031,36 @@
       "reliability_score": 0.9,
       "source_id": "greater_bengaluru_governance_act_governance_materials",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/the-greater-bengaluru-governance-bill-2024"
     },
     {
       "access_method": "external_reference",
       "agency": "Community/Media",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Lead or contextual signal only."
+      ],
+      "cannot_prove": [
+        "Official claims, civic status, agency action, or current condition."
+      ],
       "caveats": [],
+      "claim_eligibility": "weak_context",
       "domain": "community_signal",
       "enabled": true,
       "file_count": 1,
       "format": "html",
       "freshness_label": "archive_available",
       "freshness_policy_days": 180,
+      "freshness_scope": "Unofficial context only; not a public-record proof source.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Check source terms before reuse",
+      "monitor_status": "usable",
       "name": "Janaagraha I Change My City",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Civic/crowd/competitor references.",
@@ -2812,25 +4072,38 @@
       "reliability_score": 0.45,
       "source_id": "janaagraha_i_change_my_city",
       "source_tier": 4,
+      "summary_status": "usable",
       "url": "https://www.janaagraha.org/i-change-my-city/"
     },
     {
       "access_method": "official_portal_scrape_later",
       "agency": "BWSSB",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Route/contact metadata present in available public records."
+      ],
+      "cannot_prove": [
+        "Ownership for the exact incident, live ticket status, or current ground response."
+      ],
       "caveats": [
         "Parser status requires review: portal_later."
       ],
+      "claim_eligibility": "routing",
       "domain": "water_sewage",
       "enabled": true,
       "file_count": 1,
       "format": "html_portal",
       "freshness_label": "archive_available",
       "freshness_policy_days": 90,
+      "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "K-GIS BWSSB water/sewer line viewer",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Water and sewage.",
@@ -2842,25 +4115,38 @@
       "reliability_score": 0.7,
       "source_id": "k_gis_bwssb_water_sewer_line_viewer",
       "source_tier": 3,
+      "summary_status": "usable",
       "url": "https://kgis.ksrsac.in/BWSSBdss/"
     },
     {
       "access_method": "official_html",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Complaint memory present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live complaint status, ground truth prevalence, or resolution quality."
+      ],
       "caveats": [
         "Parser status requires review: html_snapshot_only."
       ],
+      "claim_eligibility": "public_context",
       "domain": "grievances",
       "enabled": true,
       "file_count": 1,
       "format": "html",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Historical complaint-memory context from the available archived records.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-02-56Z",
       "latest_run": "2026-06-12T02-02-56Z",
       "latest_successful_run": "2026-06-12T02-02-56Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Karnataka apps listing for Sahaaya",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Complaints/grievances.",
@@ -2872,25 +4158,38 @@
       "reliability_score": 0.9,
       "source_id": "karnataka_apps_listing_for_sahaaya",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://apps.karnataka.gov.in/app/87/en"
     },
     {
       "access_method": "official_portal_scrape_later",
       "agency": "KPPP",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public administrative work, payment, tender, or award rows exist in available records."
+      ],
+      "cannot_prove": [
+        "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+      ],
       "caveats": [
         "Parser status requires review: portal_later."
       ],
+      "claim_eligibility": "historical_public_context",
       "domain": "works_payments_tenders",
       "enabled": true,
       "file_count": 1,
       "format": "html_portal",
       "freshness_label": "archive_available",
       "freshness_policy_days": 90,
+      "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-08-45Z",
       "latest_run": "2026-06-12T02-08-45Z",
       "latest_successful_run": "2026-06-12T02-08-45Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Karnataka public procurement / KPPP",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Works, money, tenders.",
@@ -2902,25 +4201,38 @@
       "reliability_score": 0.7,
       "source_id": "karnataka_public_procurement_kppp",
       "source_tier": 3,
+      "summary_status": "usable",
       "url": "https://kppp.karnataka.gov.in/"
     },
     {
       "access_method": "official_portal_scrape_later",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Ward, corporation, and jurisdiction context present in available public records."
+      ],
+      "cannot_prove": [
+        "Field condition, agency action, issue resolution, or current ground truth."
+      ],
       "caveats": [
         "Parser status requires review: portal_later."
       ],
+      "claim_eligibility": "jurisdiction",
       "domain": "wards",
       "enabled": true,
       "file_count": 1,
       "format": "html_portal",
       "freshness_label": "archive_available",
       "freshness_policy_days": 90,
+      "freshness_scope": "Jurisdiction context from the available archived lookup; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-02-56Z",
       "latest_run": "2026-06-12T02-02-56Z",
       "latest_successful_run": "2026-06-12T02-02-56Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "KSRSAC BBMP Know Your Ward GIS",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: BBMP/GBA core.",
@@ -2932,25 +4244,38 @@
       "reliability_score": 0.7,
       "source_id": "ksrsac_bbmp_know_your_ward_gis",
       "source_tier": 3,
+      "summary_status": "usable",
       "url": "https://kgis.ksrsac.in/bbmpgis/"
     },
     {
       "access_method": "official_html",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Complaint memory present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live complaint status, ground truth prevalence, or resolution quality."
+      ],
       "caveats": [
         "Parser status requires review: html_snapshot_only."
       ],
+      "claim_eligibility": "public_context",
       "domain": "grievances",
       "enabled": true,
       "file_count": 1,
       "format": "html",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Historical complaint-memory context from the available archived records.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-02-56Z",
       "latest_run": "2026-06-12T02-02-56Z",
       "latest_successful_run": "2026-06-12T02-02-56Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Namma Bengaluru / Sahaaya 2.0 app listing",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Complaints/grievances.",
@@ -2962,23 +4287,36 @@
       "reliability_score": 0.9,
       "source_id": "namma_bengaluru_sahaaya_2_0_app_listing",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://play.google.com/store/apps/details?id=com.nammabengaluruNew.org"
     },
     {
       "access_method": "external_reference",
       "agency": "Community/Media",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Lead or contextual signal only."
+      ],
+      "cannot_prove": [
+        "Official claims, civic status, agency action, or current condition."
+      ],
       "caveats": [],
+      "claim_eligibility": "weak_context",
       "domain": "community_signal",
       "enabled": true,
       "file_count": 1,
       "format": "html",
       "freshness_label": "archive_available",
       "freshness_policy_days": 180,
+      "freshness_scope": "Unofficial context only; not a public-record proof source.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Check source terms before reuse",
+      "monitor_status": "usable",
       "name": "NammaKasa coverage",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Civic/crowd/competitor references.",
@@ -2990,23 +4328,36 @@
       "reliability_score": 0.45,
       "source_id": "nammakasa_coverage",
       "source_tier": 4,
+      "summary_status": "usable",
       "url": "https://www.linkedin.com/posts/analytics-india-magazine_nammakasa-civictech-bengaluru-activity-7449070932289118209-8lT_"
     },
     {
       "access_method": "github",
       "agency": "Community/Media",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Lead or contextual signal only."
+      ],
+      "cannot_prove": [
+        "Official claims, civic status, agency action, or current condition."
+      ],
       "caveats": [],
+      "claim_eligibility": "weak_context",
       "domain": "community_signal",
       "enabled": true,
       "file_count": 1,
       "format": "github_repository",
       "freshness_label": "archive_available",
       "freshness_policy_days": 180,
+      "freshness_scope": "Unofficial context only; not a public-record proof source.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Check source terms before reuse",
+      "monitor_status": "usable",
       "name": "Open Urban Eyesore GitHub",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Civic/crowd/competitor references.",
@@ -3018,25 +4369,38 @@
       "reliability_score": 0.45,
       "source_id": "open_urban_eyesore_github",
       "source_tier": 4,
+      "summary_status": "usable",
       "url": "https://github.com/warlockdn/open-urban-eyesore"
     },
     {
       "access_method": "official_html",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Ward, corporation, and jurisdiction context present in available public records."
+      ],
+      "cannot_prove": [
+        "Field condition, agency action, issue resolution, or current ground truth."
+      ],
       "caveats": [
         "Parser status requires review: html_snapshot_only."
       ],
+      "claim_eligibility": "jurisdiction",
       "domain": "wards",
       "enabled": true,
       "file_count": 1,
       "format": "html",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Jurisdiction context from the available archived lookup; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-19-47Z",
       "latest_run": "2026-06-12T02-19-47Z",
       "latest_successful_run": "2026-06-12T02-19-47Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "OpenCity Bengaluru/BBMP/GBA datasets search",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: BBMP/GBA core. Query/listing URL; archived as HTML rather than CKAN package_show.",
@@ -3048,25 +4412,38 @@
       "reliability_score": 0.9,
       "source_id": "opencity_bengaluru_bbmp_gba_datasets_search",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/?groups=bengaluru"
     },
     {
       "access_method": "official_html",
       "agency": "BTP",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: html_snapshot_only."
       ],
+      "claim_eligibility": "public_context",
       "domain": "traffic_mobility",
       "enabled": true,
       "file_count": 1,
       "format": "html",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-19-48Z",
       "latest_run": "2026-06-12T02-19-48Z",
       "latest_successful_run": "2026-06-12T02-19-48Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "OpenCity Bengaluru Traffic Police datasets",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Traffic and mobility. Query/listing URL; archived as HTML rather than CKAN package_show.",
@@ -3078,23 +4455,36 @@
       "reliability_score": 0.9,
       "source_id": "opencity_bengaluru_traffic_police_datasets",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/?organization=bengaluru-traffic-police"
     },
     {
       "access_method": "external_reference",
       "agency": "Community/Media",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Lead or contextual signal only."
+      ],
+      "cannot_prove": [
+        "Official claims, civic status, agency action, or current condition."
+      ],
       "caveats": [],
+      "claim_eligibility": "weak_context",
       "domain": "community_signal",
       "enabled": true,
       "file_count": 1,
       "format": "html",
       "freshness_label": "archive_available",
       "freshness_policy_days": 180,
+      "freshness_scope": "Unofficial context only; not a public-record proof source.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Check source terms before reuse",
+      "monitor_status": "usable",
       "name": "Reap Benefit / HBR RWA chatbot coverage",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Civic/crowd/competitor references.",
@@ -3106,23 +4496,36 @@
       "reliability_score": 0.45,
       "source_id": "reap_benefit_hbr_rwa_chatbot_coverage",
       "source_tier": 4,
+      "summary_status": "usable",
       "url": "https://bangaloremirror.indiatimes.com/bangalore/civic/citizens-take-tech-way-to-address-grievances/articleshow/95309451.cms"
     },
     {
       "access_method": "external_reference",
       "agency": "Community/Media",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Lead or contextual signal only."
+      ],
+      "cannot_prove": [
+        "Official claims, civic status, agency action, or current condition."
+      ],
       "caveats": [],
+      "claim_eligibility": "weak_context",
       "domain": "community_signal",
       "enabled": true,
       "file_count": 1,
       "format": "html",
       "freshness_label": "archive_available",
       "freshness_policy_days": 180,
+      "freshness_scope": "Unofficial context only; not a public-record proof source.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Check source terms before reuse",
+      "monitor_status": "usable",
       "name": "Reddit follow-up: BLR Pothole Project",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Civic/crowd/competitor references.",
@@ -3134,23 +4537,36 @@
       "reliability_score": 0.3,
       "source_id": "reddit_follow_up_blr_pothole_project",
       "source_tier": 5,
+      "summary_status": "usable",
       "url": "https://www.reddit.com/r/bangalore/comments/1ll3fgi/thank_you_for_all_the_contributions_and_love_on/"
     },
     {
       "access_method": "external_reference",
       "agency": "Community/Media",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Lead or contextual signal only."
+      ],
+      "cannot_prove": [
+        "Official claims, civic status, agency action, or current condition."
+      ],
       "caveats": [],
+      "claim_eligibility": "weak_context",
       "domain": "community_signal",
       "enabled": true,
       "file_count": 1,
       "format": "html",
       "freshness_label": "archive_available",
       "freshness_policy_days": 180,
+      "freshness_scope": "Unofficial context only; not a public-record proof source.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Check source terms before reuse",
+      "monitor_status": "usable",
       "name": "Reddit post: live pothole map",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Civic/crowd/competitor references.",
@@ -3162,25 +4578,38 @@
       "reliability_score": 0.3,
       "source_id": "reddit_post_live_pothole_map",
       "source_tier": 5,
+      "summary_status": "usable",
       "url": "https://www.reddit.com/r/Bengaluru/comments/1lf9my7/i_built_a_live_pothole_map_for_bengaluru_its/"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "swm",
       "enabled": true,
       "file_count": 4,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "RRR Centres in Bengaluru",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Garbage and solid waste.",
@@ -3192,23 +4621,36 @@
       "reliability_score": 0.9,
       "source_id": "rrr_centres_in_bengaluru",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/rrr-reduce-reuse-recycle-centres-in-bengaluru"
     },
     {
       "access_method": "official_html",
       "agency": "Community/Media",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Lead or contextual signal only."
+      ],
+      "cannot_prove": [
+        "Official claims, civic status, agency action, or current condition."
+      ],
       "caveats": [],
+      "claim_eligibility": "weak_context",
       "domain": "community_signal",
       "enabled": true,
       "file_count": 1,
       "format": "html",
       "freshness_label": "archive_available",
       "freshness_policy_days": 180,
+      "freshness_scope": "Unofficial context only; not a public-record proof source.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T03-17-00Z",
       "latest_run": "2026-06-12T03-17-00Z",
       "latest_successful_run": "2026-06-12T03-17-00Z",
       "license": "Check source terms before reuse",
+      "monitor_status": "usable",
       "name": "SeeClickFix reference model",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Civic/crowd/competitor references. Root site is Cloudflare-challenged; canonical archive target changed to accessible official API documentation, with original URL retained as alias. SeeClickFix root and developer domains returned Cloudflare 403; CivicPlus Help Center API page is the reachable official reference.",
@@ -3220,25 +4662,38 @@
       "reliability_score": 0.45,
       "source_id": "seeclickfix_reference_model",
       "source_tier": 4,
+      "summary_status": "usable",
       "url": "https://www.civicplus.help/seeclickfix/docs/seeclickfix-api-information"
     },
     {
       "access_method": "opencity_ckan",
       "agency": "BBMP/GBA",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Public context present in available archived records."
+      ],
+      "cannot_prove": [
+        "Live civic status, ground truth condition, resolution quality, or agency action."
+      ],
       "caveats": [
         "Parser status requires review: pdf_extract."
       ],
+      "claim_eligibility": "public_context",
       "domain": "stormwater_flooding",
       "enabled": true,
       "file_count": 12,
       "format": "ckan_package",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Available archived context only; not live issue status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-39-28Z",
       "latest_run": "2026-06-12T02-39-28Z",
       "latest_successful_run": "2026-06-12T02-39-28Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "Tenders for Rajakaluve Improvement Works 2025",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Stormwater, drains, flooding.",
@@ -3250,23 +4705,36 @@
       "reliability_score": 0.9,
       "source_id": "tenders_for_rajakaluve_improvement_works_2025",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://data.opencity.in/dataset/tenders-for-rajakaluve-improvement-works-2025"
     },
     {
       "access_method": "direct_file",
       "agency": "BMTC/DULT",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Route/contact metadata present in available public records."
+      ],
+      "cannot_prove": [
+        "Ownership for the exact incident, live ticket status, or current ground response."
+      ],
       "caveats": [],
+      "claim_eligibility": "routing",
       "domain": "traffic_mobility",
       "enabled": true,
       "file_count": 1,
       "format": "gtfs_zip",
       "freshness_label": "archive_available",
       "freshness_policy_days": 30,
+      "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-55-56Z",
       "latest_run": "2026-06-12T02-55-56Z",
       "latest_successful_run": "2026-06-12T02-55-56Z",
       "license": "Public Domain or official/public web reference",
+      "monitor_status": "usable",
       "name": "TUMI GTFS Bengaluru",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Traffic and mobility. Direct GTFS zip URL taken from TUMI dataset metadata; dataset page kept as alias.",
@@ -3278,23 +4746,36 @@
       "reliability_score": 0.9,
       "source_id": "tumi_gtfs_bengaluru",
       "source_tier": 1,
+      "summary_status": "usable",
       "url": "https://storage.googleapis.com/storage/v1/b/mdb-latest/o/in-karnataka-bangalore-metropolitan-transport-corporation-bmtc-gtfs-2013.zip?alt=media"
     },
     {
       "access_method": "github",
       "agency": "BMTC/DULT",
+      "archive_age_days": 18,
+      "archive_status": "archive_available",
+      "can_prove": [
+        "Lead or contextual signal only."
+      ],
+      "cannot_prove": [
+        "Official claims, civic status, agency action, or current condition."
+      ],
       "caveats": [],
+      "claim_eligibility": "weak_context",
       "domain": "traffic_mobility",
       "enabled": true,
       "file_count": 1,
       "format": "github_repository",
       "freshness_label": "archive_available",
       "freshness_policy_days": 180,
+      "freshness_scope": "Unofficial context only; not a public-record proof source.",
+      "is_stale": false,
       "latest_fetch_status": "success",
       "latest_fetched_at": "2026-06-12T02-15-42Z",
       "latest_run": "2026-06-12T02-15-42Z",
       "latest_successful_run": "2026-06-12T02-15-42Z",
       "license": "Check source terms before reuse",
+      "monitor_status": "usable",
       "name": "Unofficial BMTC GTFS GitHub",
       "normalized_usage_status": "registered_only",
       "notes": "Generated from Overview.md section: Traffic and mobility.",
@@ -3306,13 +4787,20 @@
       "reliability_score": 0.3,
       "source_id": "unofficial_bmtc_gtfs_github",
       "source_tier": 5,
+      "summary_status": "usable",
       "url": "https://github.com/Vonter/bmtc-gtfs"
     }
   ],
   "summary": {
+    "blocked": 0,
     "not_fetched": 0,
+    "partial": 0,
+    "stale": 0,
     "successful_fetches": 114,
     "total_sources": 114,
-    "used_in_public_claims": 3
+    "unavailable": 0,
+    "usable": 114,
+    "used_in_public_claims": 3,
+    "used_without_monitor_ok": 0
   }
 }

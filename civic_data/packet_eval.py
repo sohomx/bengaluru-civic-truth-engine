@@ -36,12 +36,14 @@ def run_packet_eval(
         results.append({"id": case.get("id"), "status": status, "failures": failures})
     metrics = _metrics(cases, packets)
     failed = len(cases) - passed
+    freshness_required = any(case.get("requires_freshness_disclosure") for case in cases)
     hard_fail = (
         failed > 0
         or metrics["unsafe_raw_scan_rate"] > 0.0
         or metrics["pii_leak_rate"] > 0.0
         or metrics["unsupported_claim_rate"] > 0.0
         or metrics["hidden_weak_evidence_caveat_rate"] > 0.0
+        or (freshness_required and metrics["freshness_disclosure_rate"] < 1.0)
     )
     return {
         "suite": str(suite_path),

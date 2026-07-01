@@ -141,15 +141,24 @@ export type SourceStatusRow = {
   pii_risk: string;
   enabled: boolean;
   notes: string;
+  archive_status: string;
+  monitor_status: string;
   latest_fetch_status: string;
   latest_successful_run: string | null;
   latest_run: string | null;
   latest_fetched_at: string | null;
+  archive_age_days: number | null;
+  is_stale: boolean;
   file_count: number;
   parser_status: string;
   freshness_label: string;
   caveats: string[];
   normalized_usage_status: string;
+  claim_eligibility: string;
+  can_prove: string[];
+  cannot_prove: string[];
+  freshness_scope: string;
+  summary_status: string;
 };
 
 export type SourceStatus = {
@@ -160,6 +169,12 @@ export type SourceStatus = {
     successful_fetches: number;
     not_fetched: number;
     used_in_public_claims: number;
+    usable: number;
+    partial: number;
+    stale: number;
+    unavailable: number;
+    blocked: number;
+    used_without_monitor_ok: number;
   };
   sources: SourceStatusRow[];
 };

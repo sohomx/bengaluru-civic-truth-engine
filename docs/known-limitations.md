@@ -31,5 +31,8 @@ system.
   recorded as `skipped_missing_key`, not as release blockers.
 - Some official portals are dynamic, account-linked, OTP-protected, or unsafe for
   public scraping and are intentionally excluded.
+- The source monitor is archive-first. It can say when a source was last
+  archived, whether that archive is usable, and what the source can support; it
+  does not probe live publisher availability or prove current civic status.
 - The legacy RAG retriever can inspect broader retrieval data, but it is not the
   trusted packet fact path.

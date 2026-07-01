@@ -83,6 +83,9 @@ type CivicPacket = {
       record_date?: string;
       freshness_status?: string;
       publishable?: boolean;
+      can_prove?: string[];
+      cannot_prove?: string[];
+      freshness_scope?: string;
     }[];
   };
   limits?: string[];
@@ -133,6 +136,13 @@ type LegacyEvidenceRow = {
   source?: string;
   match_strength?: string;
   match_reason?: string;
+};
+
+type ProofBoundary = {
+  source_id: string;
+  can_prove: string[];
+  cannot_prove: string[];
+  freshness_scope: string;
 };
 
 const EXAMPLE_QUERIES = [
@@ -365,6 +375,7 @@ function PacketCaseDesk({
   const placeLabel = formatPlace(packet);
   const owner = packet.responsibility?.primary_agency?.name ?? "Ownership unresolved";
   const evidenceRows = useMemo(() => normalizedEvidenceRows(packet), [packet]);
+  const proofBoundaries = useMemo(() => sourceProofBoundaries(packet), [packet]);
   const notToClaim = packet.action?.what_not_to_claim?.length ? packet.action.what_not_to_claim : packet.limits ?? [];
   const [showMoreEvidence, setShowMoreEvidence] = useState(false);
 
@@ -460,6 +471,25 @@ function PacketCaseDesk({
           onToggleExpanded={() => setShowMoreEvidence((value) => !value)}
         />
       </section>
+
+      {proofBoundaries.length ? (
+        <>
+          <Divider />
+          <section>
+            <h2 className="section-title">Source proof boundaries</h2>
+            <div className="mt-3 grid gap-4 lg:grid-cols-2">
+              {proofBoundaries.slice(0, 4).map((boundary) => (
+                <div key={boundary.source_id} className="border-l border-line pl-4">
+                  <p className="text-xs font-medium uppercase text-muted">{formatPublicSource(boundary.source_id)}</p>
+                  <p className="mt-1 text-sm leading-6 text-ink">{boundary.can_prove[0]}</p>
+                  <p className="mt-1 text-xs leading-5 text-muted">Cannot prove: {boundary.cannot_prove[0]}</p>
+                  <p className="mt-1 text-xs leading-5 text-muted">{boundary.freshness_scope}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </>
+      ) : null}
 
       <Divider />
 
@@ -619,6 +649,24 @@ function normalizedEvidenceRows(packet: CivicPacket): EvidenceRow[] {
     claim_class: row.match_strength,
     match_method: row.match_reason
   }));
+}
+
+function sourceProofBoundaries(packet: CivicPacket): ProofBoundary[] {
+  const records = packet.provenance?.evidence_records ?? [];
+  const bySource = new Map<string, ProofBoundary>();
+  for (const record of records) {
+    if (!record.source_id || bySource.has(record.source_id)) continue;
+    const canProve = record.can_prove?.filter(Boolean) ?? [];
+    const cannotProve = record.cannot_prove?.filter(Boolean) ?? [];
+    if (!canProve.length && !cannotProve.length && !record.freshness_scope) continue;
+    bySource.set(record.source_id, {
+      source_id: record.source_id,
+      can_prove: canProve.length ? canProve : ["Public context present in the packet evidence."],
+      cannot_prove: cannotProve.length ? cannotProve : ["Live civic status or current ground truth."],
+      freshness_scope: record.freshness_scope ?? "Available packet evidence only; not live issue status."
+    });
+  }
+  return Array.from(bySource.values());
 }
 
 function formatIssue(packet: CivicPacket) {

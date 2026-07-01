@@ -21,8 +21,8 @@ export default function SourcesPage() {
 
       <section className="mb-8 grid gap-5 border-y border-line py-5 md:grid-cols-4">
         <Metric label="Sources" value={formatNumber(status.summary.total_sources)} />
-        <Metric label="Archived" value={formatNumber(status.summary.successful_fetches)} />
-        <Metric label="Not fetched" value={formatNumber(status.summary.not_fetched)} />
+        <Metric label="Usable archive" value={formatNumber(status.summary.usable)} />
+        <Metric label="Needs attention" value={formatNumber(status.summary.partial + status.summary.stale + status.summary.unavailable + status.summary.blocked)} />
         <Metric label="Used in claims" value={formatNumber(status.summary.used_in_public_claims)} />
       </section>
 

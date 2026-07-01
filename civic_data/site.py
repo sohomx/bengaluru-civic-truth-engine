@@ -10,6 +10,7 @@ from civic_data import __version__
 from civic_data.dossier import render_dossier
 from civic_data.profile import profile_archives
 from civic_data.registry import load_sources, registry_hash, validate_registry
+from civic_data.source_monitor import build_source_monitor_report
 from civic_data.truth import build_place_truth
 
 
@@ -56,7 +57,7 @@ def build_site_data(
     dossier_root.mkdir(parents=True, exist_ok=True)
 
     profiles = profile_archives(sources=sources, raw_root=raw_root, export_root=web_data_root / "profile")
-    source_status_rows = _source_status_rows(sources, profiles, raw_root)
+    source_status_rows = build_source_monitor_report(sources, raw_root, profiles=profiles)["sources"]
 
     payload_count = 0
     all_known_gaps = _source_known_gaps(source_status_rows)
@@ -117,14 +118,12 @@ def build_site_data(
             search_entries.append(_place_search_entry(place_name, slug, all_payload))
         place_summaries.append({"name": place_name, "slug": slug, "lenses": lens_summaries})
 
+    source_monitor = build_source_monitor_report(sources, raw_root, profiles=profiles, used_sources=used_sources)
     source_status = {
         "generated_at": generated_at,
         "source_snapshot_id": snapshot_id,
-        "summary": _source_summary(source_status_rows, used_sources),
-        "sources": [
-            _with_usage_status(row, used_sources)
-            for row in sorted(source_status_rows, key=lambda item: item["source_id"])
-        ],
+        "summary": source_monitor["summary"],
+        "sources": sorted(source_monitor["sources"], key=lambda item: item["source_id"]),
     }
     _write_json(web_data_root / "source_status.json", source_status)
     _write_json(web_data_root / "places.json", {"generated_at": generated_at, "places": place_summaries})

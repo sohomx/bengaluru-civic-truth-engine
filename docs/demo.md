@@ -153,6 +153,46 @@ packet chunks.
 To use Anthropic instead, set `CIVIC_LLM_PROVIDER=anthropic`,
 `ANTHROPIC_API_KEY`, and `ANTHROPIC_MODEL=claude-haiku-4-5-20251001`.
 
+## Source monitor
+
+```bash
+python3 -m civic_data sources monitor \
+  --registry registry/sources.yaml \
+  --raw-root data/raw \
+  --source bbmp_grievances_data \
+  --format json
+```
+
+Expected output shape:
+
+```json
+{
+  "summary": {
+    "usable": 0,
+    "partial": 0,
+    "stale": 0,
+    "unavailable": 1,
+    "blocked": 0,
+    "used_without_monitor_ok": 0
+  },
+  "sources": [
+    {
+      "source_id": "bbmp_grievances_data",
+      "archive_status": "not_fetched",
+      "monitor_status": "unavailable",
+      "latest_fetched_at": null,
+      "can_prove": ["Complaint memory present in available archived records."],
+      "cannot_prove": ["Live complaint status, ground truth prevalence, or resolution quality."],
+      "freshness_scope": "Historical complaint-memory context from the available archived records."
+    }
+  ]
+}
+```
+
+If the local `data/raw` archive contains a successful run, the same command
+reports `archive_available`, a `latest_successful_run`, and the archive age. It
+still does not prove live complaint status.
+
 ## Release gate
 
 ```bash
