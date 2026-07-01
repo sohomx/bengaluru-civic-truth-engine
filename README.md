@@ -36,7 +36,7 @@ action packet that says:
 - which claims the records do not support;
 - when the source archive was last checked.
 
-## System Shape
+## Design Architecture
 
 ```text
                          Bengaluru civic question
@@ -83,6 +83,9 @@ packet, but it is not allowed to discover new civic facts from raw files.
 
 ## Project Tour
 
+- [System design](docs/system-design.md): how the problem was framed, why the
+  packet abstraction exists, how sources were tiered, and how proof boundaries
+  shape the product.
 - [Project showcase](docs/project-showcase.md): product contract, build
   sequence, architecture decisions, tradeoffs, and evaluation gates.
 - [Architecture](docs/architecture.md): packet pipeline, resolver order, trace

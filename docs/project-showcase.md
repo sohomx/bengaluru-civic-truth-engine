@@ -10,6 +10,10 @@ smaller question with stronger guarantees:
 
 That boundary drives the architecture.
 
+For the deeper design narrative, read [System Design](system-design.md). That
+document explains the source strategy, evidence taxonomy, packet abstraction,
+claim boundaries, and evaluation model.
+
 ## Product Contract
 
 The system accepts a query such as:
@@ -235,26 +239,6 @@ The tests are not just unit tests around functions. They encode product claims:
 - packet-only RAG behavior;
 - retrieval precision/recall on qrels fixtures;
 - GitHub Pages and public-launch readiness.
-
-## Public Surface
-
-```text
-GitHub repository
-   |
-   +-- source code, tests, docs
-   |
-   +-- GitHub Pages
-   |     static site, source explorer, sample packets
-   |
-   +-- GitHub Container Registry
-   |     ghcr.io/sohomx/bengaluru-civic-truth-engine-api:latest
-   |
-   `-- Render/Fly/Railway/VPS
-         live FastAPI runtime for arbitrary packet generation
-```
-
-GitHub Pages can host the frontend. It cannot run FastAPI. The backend image is
-published to GHCR and can run on Render or another container host.
 
 ## What A Reviewer Should Notice
 

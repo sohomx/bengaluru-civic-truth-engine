@@ -16,6 +16,7 @@ class PublicLaunchReadinessTests(unittest.TestCase):
             ".dockerignore",
             "render.yaml",
             "docs/public-launch.md",
+            "docs/system-design.md",
             "docs/project-showcase.md",
             "docs/deployment.md",
             "web/public/.nojekyll",
@@ -57,6 +58,7 @@ class PublicLaunchReadinessTests(unittest.TestCase):
     def test_readme_points_to_showcase_and_deployment_docs(self):
         readme = (ROOT / "README.md").read_text()
 
+        self.assertIn("docs/system-design.md", readme)
         self.assertIn("docs/project-showcase.md", readme)
         self.assertIn("docs/deployment.md", readme)
         self.assertIn("CivicActionPacket", readme)
