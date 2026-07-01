@@ -20,6 +20,52 @@ Public demo: https://sohomx.github.io/bengaluru-civic-truth-engine/
 The GitHub Pages demo is static and uses prebuilt sample packets. Arbitrary
 packet generation is available through the CLI or local/API deployment.
 
+## Why This Exists
+
+Most civic tools answer too much from too little evidence. A pothole work order
+does not prove the pothole was fixed. A complaint portal route does not prove an
+agency accepted responsibility for one incident. A ward lookup does not prove a
+field condition.
+
+This project treats those limits as product behavior. It builds a public-safe
+action packet that says:
+
+- where the issue probably belongs;
+- who the citizen should contact first;
+- which public records can be cited;
+- which claims the records do not support;
+- when the source archive was last checked.
+
+## System Shape
+
+```text
+                         Bengaluru civic question
+                                  |
+                                  v
+  +-------------------+    +-------------------+    +-------------------+
+  | issue routing     |    | jurisdiction      |    | evidence matcher  |
+  | policy JSON       |    | resolver          |    | public rows only  |
+  +---------+---------+    +---------+---------+    +---------+---------+
+            \                    |                    /
+             \                   |                   /
+              v                  v                  v
+            +------------------------------------------+
+            |          CivicActionPacket               |
+            |  owner, place, evidence, caveats, trace  |
+            +-------------------+----------------------+
+                                |
+                +---------------+---------------+
+                |                               |
+                v                               v
+      +-------------------+           +----------------------+
+      | deterministic UI  |           | packet-only RAG      |
+      | and CLI output    |           | explanation layer    |
+      +-------------------+           +----------------------+
+```
+
+The packet is the source of truth. The explanation layer may summarize the
+packet, but it is not allowed to discover new civic facts from raw files.
+
 ## What It Does
 
 - Resolves jurisdiction from official `xyinfo` lat/lng lookup when available,
@@ -34,6 +80,21 @@ packet generation is available through the CLI or local/API deployment.
   auditability.
 - Monitors source archives and states what each source can and cannot currently
   prove.
+
+## Project Tour
+
+- [Project showcase](docs/project-showcase.md): product contract, build
+  sequence, architecture decisions, tradeoffs, and evaluation gates.
+- [Architecture](docs/architecture.md): packet pipeline, resolver order, trace
+  flow, and debugging commands.
+- [Source policy](docs/source-policy.md): source tiers, proof contracts, and
+  archive-first source monitoring.
+- [Evaluation](docs/evaluation.md): packet, RAG, retrieval, safety, and
+  freshness gates.
+- [Deployment](docs/deployment.md): GitHub Pages frontend, Render API, GHCR
+  image, and environment variables.
+- [Public launch checklist](docs/public-launch.md): public-safety checks before
+  publishing.
 
 ## Quick Demo
 
@@ -158,6 +219,8 @@ After deploying that image or the Render Blueprint to a live API host, set the
 repository Actions variable `CIVIC_API_BASE` to the API origin, then rerun the
 GitHub Pages workflow. The public UI will call `/packets/build` on that API
 instead of staying in prebuilt static-demo mode.
+
+Detailed steps live in [docs/deployment.md](docs/deployment.md).
 
 ## Data Policy
 

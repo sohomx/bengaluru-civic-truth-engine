@@ -43,6 +43,12 @@ python3 -m uvicorn api.app:app --host 127.0.0.1 --port 8017
 cd web && npm run dev
 ```
 
+When a live API host exists, set the repository Actions variable
+`CIVIC_API_BASE` to that origin and rerun the Pages workflow. The static export
+will then call `/packets/build` on the deployed API.
+
+Deployment details live in [`deployment.md`](deployment.md).
+
 ## Public Claim Boundary
 
 The public demo may say:

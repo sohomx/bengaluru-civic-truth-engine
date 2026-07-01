@@ -16,6 +16,8 @@ class PublicLaunchReadinessTests(unittest.TestCase):
             ".dockerignore",
             "render.yaml",
             "docs/public-launch.md",
+            "docs/project-showcase.md",
+            "docs/deployment.md",
             "web/public/.nojekyll",
             ".github/workflows/pages.yml",
             ".github/workflows/backend-image.yml",
@@ -51,6 +53,14 @@ class PublicLaunchReadinessTests(unittest.TestCase):
         self.assertIn("NEXT_PUBLIC_STATIC_DEMO", workflow)
         self.assertIn("path: web/out", workflow)
         self.assertIn("npm run build", workflow)
+
+    def test_readme_points_to_showcase_and_deployment_docs(self):
+        readme = (ROOT / "README.md").read_text()
+
+        self.assertIn("docs/project-showcase.md", readme)
+        self.assertIn("docs/deployment.md", readme)
+        self.assertIn("CivicActionPacket", readme)
+        self.assertIn("packet-only", readme)
 
     def test_backend_deployment_contract_is_configured(self):
         dockerfile = (ROOT / "Dockerfile").read_text()

@@ -1,6 +1,51 @@
 # Architecture
 
-The system builds a packet from normalized public civic records, then explains only that packet. RAG and LLMs never become the source of civic facts.
+The system builds a packet from normalized public civic records, then explains
+only that packet. RAG and LLMs never become the source of civic facts.
+
+```text
+Query + optional lat/lng
+          |
+          v
+  +----------------+
+  | CLI / FastAPI  |
+  +-------+--------+
+          |
+          v
+  +--------------------------+
+  | packet_builder.build     |
+  +------------+-------------+
+               |
+    +----------+----------+------------------+
+    |                     |                  |
+    v                     v                  v
++-----------+     +---------------+   +---------------+
+| resolver  |     | issue router  |   | evidence      |
+| xyinfo -> |     | policy JSON   |   | matcher       |
+| boundary  |     +-------+-------+   +-------+-------+
+| -> alias  |             |                   |
++-----+-----+             |                   |
+      |                   |                   |
+      +-------------------+-------------------+
+                          |
+                          v
+             +---------------------------+
+             | claims, provenance,       |
+             | freshness, trace          |
+             +-------------+-------------+
+                           |
+                           v
+             +---------------------------+
+             | CivicActionPacket         |
+             +-------------+-------------+
+                           |
+             +-------------+-------------+
+             |                           |
+             v                           v
+   +--------------------+      +-----------------------+
+   | UI / markdown CLI  |      | packet-only explain   |
+   +--------------------+      +-----------------------+
+```
 
 ```mermaid
 flowchart LR
