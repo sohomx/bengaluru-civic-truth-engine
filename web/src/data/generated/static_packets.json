@@ -1,0 +1,3844 @@
+{
+  "generated_at": "2026-07-01T04:22:06Z",
+  "mode": "prebuilt_demo_packets",
+  "note": "GitHub Pages is a static demo. These packets are prebuilt examples; arbitrary packet generation requires the API or CLI.",
+  "packets": [
+    {
+      "aliases": [
+        "Bellandur streetlight not working",
+        "Bellandur streetlight public rows"
+      ],
+      "id": "bellandur-streetlight",
+      "packet": {
+        "action": {
+          "escalation_action": "If there is no response, follow up with the official complaint/reference number and the same evidence packet. Start with: Use GBA/BBMP local corporation channels for streetlight maintenance; use BESCOM if wording indicates outage, wires, transformer, or power-distribution failure.",
+          "evidence_to_attach": [
+            "pole number",
+            "photo",
+            "landmark or pin",
+            "whether multiple lights are affected"
+          ],
+          "legal_or_rti_action": "For a persistent unresolved issue, ask the department for written status, responsible office, and related work/order records for Bellanduru. Use RTI only for official records; do not include private account details outside official workflows.",
+          "message_draft": "Hello, I want to report a streetlight issue at Bellanduru. Ward/corporation: 45 Bellanduru / East. I can share photos, pin/landmark, date/time, and recurrence details. For public context: I found public work/payment rows that may help frame the issue; they are not proof of field resolution. Please route this to Greater Bengaluru Authority / local city corporation and share the official complaint/reference number.",
+          "primary_action": "File a civic streetlight maintenance complaint for Bellanduru; include pole number, photo, and landmark or pin.",
+          "what_not_to_claim": [
+            "private phone numbers",
+            "claims that a listed work proves the light is fixed",
+            "Streetlight ownership may split between civic electrical maintenance and BESCOM power distribution.",
+            "Public work/payment rows are administrative context only; they are not proof of current field condition or field resolution.",
+            "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.",
+            "Freshness: Historical public record, Recent public record. Not live status."
+          ],
+          "what_to_send": [
+            "File through: Use GBA/BBMP local corporation channels for streetlight maintenance; use BESCOM if wording indicates outage, wires, transformer, or power-distribution failure.",
+            "Mention ward/corporation context: Bellanduru / East.",
+            "Attach or mention: pole number, photo, landmark or pin, whether multiple lights are affected."
+          ],
+          "who_to_contact": [
+            "Use GBA/BBMP local corporation channels for streetlight maintenance; use BESCOM if wording indicates outage, wires, transformer, or power-distribution failure.",
+            "BESCOM complaint/contact channel: https://bescom.karnataka.gov.in/new-page/Contact%20Us/en",
+            "BESCOM 1912",
+            "BESCOM official WhatsApp channel"
+          ]
+        },
+        "answer_type": "structured_civic_case",
+        "audit": {
+          "compatibility_inputs": {
+            "index_path": "",
+            "note": "Packet generation reads normalized public data only; raw and RAG index inputs are compatibility parameters.",
+            "raw_root": "data/raw",
+            "used_for_fact_generation": false
+          },
+          "contract_validation_failures": [],
+          "legacy_rag_status": "not_used_for_fact_generation",
+          "matcher_versions": {
+            "evidence_matcher": "v3",
+            "issue_router": "routing-v3"
+          },
+          "persisted_trace_id": "packet-d5aec6add803be4a",
+          "query_hash": "d5aec6add803be4a523d9eedfb3e4dc40394075a59d5ac8fff412f9178bc1a46",
+          "resolver_source": "offline_normalized_wards",
+          "routing_policy_id": "bengaluru-civic-routing",
+          "routing_policy_version": "routing-v3",
+          "routing_rule_ids": [
+            "streetlight.primary"
+          ],
+          "source_of_truth": "packet_structured_data",
+          "source_snapshot_id": "source-snapshot-d153b9114615252c",
+          "total_evidence_matches": 9,
+          "used_rag": false,
+          "used_raw_scan": false
+        },
+        "citations": [
+          {
+            "id": "jurisdiction-1",
+            "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+            "row_number": 112,
+            "run_id": "2026-06-30T08-48-51Z",
+            "source_id": "gba_wards_delimitation_2025"
+          },
+          {
+            "id": "evidence-1",
+            "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+            "row_number": 265,
+            "run_id": "2026-06-30T08-49-46Z",
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "id": "evidence-2",
+            "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+            "row_number": 3787,
+            "run_id": "2026-06-30T08-49-46Z",
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "id": "evidence-3",
+            "raw_file": "original/7a6907c2-6efd-43d6-99ac-1d10f67b3f85.csv",
+            "row_number": 2102,
+            "run_id": "2026-06-30T08-48-51Z",
+            "source_id": "bbmp_work_orders_and_payments_2025_26"
+          },
+          {
+            "id": "evidence-4",
+            "raw_file": "original/7a6907c2-6efd-43d6-99ac-1d10f67b3f85.csv",
+            "row_number": 2211,
+            "run_id": "2026-06-30T08-48-51Z",
+            "source_id": "bbmp_work_orders_and_payments_2025_26"
+          },
+          {
+            "id": "evidence-5",
+            "raw_file": "original/7a6907c2-6efd-43d6-99ac-1d10f67b3f85.csv",
+            "row_number": 1446,
+            "run_id": "2026-06-30T08-48-51Z",
+            "source_id": "bbmp_work_orders_and_payments_2025_26"
+          },
+          {
+            "id": "evidence-6",
+            "raw_file": "original/3e784947-b321-4cba-bedb-69de53450a83.csv",
+            "row_number": 200,
+            "run_id": "2026-06-30T08-48-51Z",
+            "source_id": "bbmp_work_orders_and_payments_2025_26"
+          },
+          {
+            "id": "evidence-7",
+            "raw_file": "original/3e784947-b321-4cba-bedb-69de53450a83.csv",
+            "row_number": 425,
+            "run_id": "2026-06-30T08-48-51Z",
+            "source_id": "bbmp_work_orders_and_payments_2025_26"
+          },
+          {
+            "id": "evidence-8",
+            "raw_file": "original/3e784947-b321-4cba-bedb-69de53450a83.csv",
+            "row_number": 1042,
+            "run_id": "2026-06-30T08-48-51Z",
+            "source_id": "bbmp_work_orders_and_payments_2025_26"
+          },
+          {
+            "id": "evidence-9",
+            "raw_file": "original/3e784947-b321-4cba-bedb-69de53450a83.csv",
+            "row_number": 1049,
+            "run_id": "2026-06-30T08-48-51Z",
+            "source_id": "bbmp_work_orders_and_payments_2025_26"
+          },
+          {
+            "id": "channel-1",
+            "raw_file": "original/snapshot.html",
+            "row_number": 1,
+            "run_id": "2026-06-30T08-49-34Z",
+            "source_id": "bescom_official_contact_complaint_channels"
+          },
+          {
+            "id": "contact-1",
+            "raw_file": "original/snapshot.html",
+            "row_number": 1,
+            "run_id": "2026-06-30T08-49-34Z",
+            "source_id": "bescom_official_contact_complaint_channels"
+          },
+          {
+            "id": "contact-2",
+            "raw_file": "original/snapshot.html",
+            "row_number": 1,
+            "run_id": "2026-06-30T08-49-34Z",
+            "source_id": "bescom_official_contact_complaint_channels"
+          }
+        ],
+        "claims": [
+          {
+            "citation_ids": [
+              "jurisdiction-1"
+            ],
+            "claim_type": "jurisdiction",
+            "text": "Offline ward data matched Bellanduru."
+          },
+          {
+            "citation_ids": [
+              "evidence-1",
+              "evidence-2",
+              "evidence-3",
+              "evidence-4",
+              "evidence-5",
+              "evidence-6",
+              "evidence-7",
+              "evidence-8",
+              "evidence-9"
+            ],
+            "claim_type": "public_work_or_payment",
+            "text": "Normalized public work/payment rows matched this question."
+          },
+          {
+            "citation_ids": [
+              "channel-1",
+              "contact-1",
+              "contact-2"
+            ],
+            "claim_type": "contact",
+            "text": "Official complaint/contact channel metadata is available."
+          }
+        ],
+        "compatibility_schema_version": 2,
+        "confidence_label": "high",
+        "contract": {
+          "compatibility_schema_version": 2,
+          "name": "CivicActionPacket",
+          "source_of_truth": "packet_structured_data",
+          "version": "3.0"
+        },
+        "coverage_gaps": [
+          "Streetlight ownership may split between civic electrical maintenance and BESCOM power distribution.",
+          "Public work/payment rows are administrative context only; they are not proof of current field condition or field resolution.",
+          "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.",
+          "Freshness: Historical public record, Recent public record. Not live status."
+        ],
+        "evidence": [
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "Providing Energy saving street light system with timer control in Bellanduru Ward No.150",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "Providing Energy saving street light system with timer control in Bellanduru Ward No.150",
+            "entity_type": "work",
+            "evidence_id": "ev_work_c99e522dead79710",
+            "legacy_evidence_id": "evidence-1",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Streetlight work",
+            "row_number": 265,
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "Providing Additional Street lights in Bellandur ward No.150",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "Providing Additional Street lights in Bellandur ward No.150",
+            "entity_type": "work",
+            "evidence_id": "ev_work_ca91045d23a1f91d",
+            "legacy_evidence_id": "evidence-2",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Streetlight work",
+            "row_number": 3787,
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "054-21-000019 Providing improvements to street lights in important junctions and roads of Varthuru and Bellandur and near by areas hoodi and doddnekundi areas ward no 54 and 85",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "054-21-000019 Providing improvements to street lights in important junctions and roads of Varthuru and Bellandur and near by areas hoodi and doddnekundi areas ward no 54 and 85",
+            "entity_type": "work",
+            "evidence_id": "ev_work_7906250b2a149073",
+            "legacy_evidence_id": "evidence-3",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Streetlight work",
+            "row_number": 2102,
+            "source_id": "bbmp_work_orders_and_payments_2025_26"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "086-22-000011 Providing street lights in Dark streches and installation of missing street lights in Marathalli, Bellandur ward no-86,150",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "086-22-000011 Providing street lights in Dark streches and installation of missing street lights in Marathalli, Bellandur ward no-86,150",
+            "entity_type": "work",
+            "evidence_id": "ev_work_66f29b6a124eb38b",
+            "legacy_evidence_id": "evidence-4",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Streetlight work",
+            "row_number": 2211,
+            "source_id": "bbmp_work_orders_and_payments_2025_26"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "150-22-000009 Operation and maintenance of street light fittings in ward no 150 of bellanduru of mahadevapura zone (M01)",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "150-22-000009 Operation and maintenance of street light fittings in ward no 150 of bellanduru of mahadevapura zone (M01)",
+            "entity_type": "work",
+            "evidence_id": "ev_work_2e6877272ce925b1",
+            "legacy_evidence_id": "evidence-5",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Streetlight work",
+            "row_number": 1446,
+            "source_id": "bbmp_work_orders_and_payments_2025_26"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months",
+            "entity_type": "work",
+            "evidence_id": "ev_work_6631677a0f8b7361",
+            "legacy_evidence_id": "evidence-6",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Streetlight work",
+            "row_number": 200,
+            "source_id": "bbmp_work_orders_and_payments_2025_26"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months",
+            "entity_type": "work",
+            "evidence_id": "ev_work_1a4b8f450295e978",
+            "legacy_evidence_id": "evidence-7",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Streetlight work",
+            "row_number": 425,
+            "source_id": "bbmp_work_orders_and_payments_2025_26"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months",
+            "entity_type": "work",
+            "evidence_id": "ev_work_5bd9a5c4c3c3aee1",
+            "legacy_evidence_id": "evidence-8",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Streetlight work",
+            "row_number": 1042,
+            "source_id": "bbmp_work_orders_and_payments_2025_26"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months",
+            "entity_type": "work",
+            "evidence_id": "ev_work_2ca79161aac98c0d",
+            "legacy_evidence_id": "evidence-9",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Streetlight work",
+            "row_number": 1049,
+            "source_id": "bbmp_work_orders_and_payments_2025_26"
+          }
+        ],
+        "evidence_strength": "public_row",
+        "evidence_summary": {
+          "hidden_count": 6,
+          "shown_count": 3,
+          "specificity": "direct",
+          "total_matches": 9
+        },
+        "evidence_table": [
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "Providing Energy saving street light system with timer control in Bellanduru Ward No.150; amount 169813",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Streetlight work",
+            "row_number": "265",
+            "source_id": "bbmp_work_orders_and_bill_payment",
+            "text": "Providing Energy saving street light system with timer control in Bellanduru Ward No.150; amount 169813"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "Providing Additional Street lights in Bellandur ward No.150; amount 161720",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Streetlight work",
+            "row_number": "3787",
+            "source_id": "bbmp_work_orders_and_bill_payment",
+            "text": "Providing Additional Street lights in Bellandur ward No.150; amount 161720"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "054-21-000019 Providing improvements to street lights in important junctions and roads of Varthuru and Bellandur and near by areas hoodi and doddnekundi areas ward no 54 and 85;...",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Streetlight work",
+            "row_number": "2102",
+            "source_id": "bbmp_work_orders_and_payments_2025_26",
+            "text": "054-21-000019 Providing improvements to street lights in important junctions and roads of Varthuru and Bellandur and near by areas hoodi and doddnekundi areas ward no 54 and 85; amount 3822532"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "086-22-000011 Providing street lights in Dark streches and installation of missing street lights in Marathalli, Bellandur ward no-86,150; amount 10695766",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Streetlight work",
+            "row_number": "2211",
+            "source_id": "bbmp_work_orders_and_payments_2025_26",
+            "text": "086-22-000011 Providing street lights in Dark streches and installation of missing street lights in Marathalli, Bellandur ward no-86,150; amount 10695766"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "150-22-000009 Operation and maintenance of street light fittings in ward no 150 of bellanduru of mahadevapura zone (M01); amount 1608731",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Streetlight work",
+            "row_number": "1446",
+            "source_id": "bbmp_work_orders_and_payments_2025_26",
+            "text": "150-22-000009 Operation and maintenance of street light fittings in ward no 150 of bellanduru of mahadevapura zone (M01); amount 1608731"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months; amount 709758",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Streetlight work",
+            "row_number": "200",
+            "source_id": "bbmp_work_orders_and_payments_2025_26",
+            "text": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months; amount 709758"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months; amount 473173",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Streetlight work",
+            "row_number": "425",
+            "source_id": "bbmp_work_orders_and_payments_2025_26",
+            "text": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months; amount 473173"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months; amount 473175",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Streetlight work",
+            "row_number": "1042",
+            "source_id": "bbmp_work_orders_and_payments_2025_26",
+            "text": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months; amount 473175"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months; amount 473156",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Streetlight work",
+            "row_number": "1049",
+            "source_id": "bbmp_work_orders_and_payments_2025_26",
+            "text": "107-25-000009 Operation and Maintenance of street light fittings in Ward No. 107 Bellanduru of Mahadevapura zone (M13). 7 Months; amount 473156"
+          }
+        ],
+        "freshness": {
+          "basis": "normalized_public_records",
+          "citizen_labels": [
+            "Historical public record",
+            "Recent public record"
+          ],
+          "fetched_at_values": [
+            "2026-06-30T08-48-51Z",
+            "2026-06-30T08-49-34Z",
+            "2026-06-30T08-49-46Z"
+          ],
+          "latest_fetched_at": "2026-06-30T08-49-46Z",
+          "latest_record_date": "",
+          "policy_version": "freshness-v1",
+          "record_date_values": [],
+          "source_policies": [
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_payments_2025_26"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_payments_2025_26"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_payments_2025_26"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_payments_2025_26"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_payments_2025_26"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_payments_2025_26"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_payments_2025_26"
+            },
+            {
+              "claim_eligibility": "routing",
+              "expected_update_cadence_days": 30,
+              "source_authority": "official_reference",
+              "source_id": "bescom_official_contact_complaint_channels"
+            },
+            {
+              "claim_eligibility": "routing",
+              "expected_update_cadence_days": 30,
+              "source_authority": "official_reference",
+              "source_id": "bescom_official_contact_complaint_channels"
+            },
+            {
+              "claim_eligibility": "routing",
+              "expected_update_cadence_days": 30,
+              "source_authority": "official_reference",
+              "source_id": "bescom_official_contact_complaint_channels"
+            }
+          ],
+          "staleness_statuses": [
+            "fresh",
+            "historical_only"
+          ],
+          "staleness_warning": "Matched work/payment rows are historical public records, not live status.",
+          "undated_record_count": 0
+        },
+        "input": {
+          "lat": null,
+          "lng": null,
+          "query": "Bellandur streetlight public rows"
+        },
+        "issue": {
+          "description": "Bellandur streetlight public rows",
+          "display_type": "streetlight issue",
+          "matched_terms": [
+            "electrical",
+            "light",
+            "lights",
+            "street",
+            "streetlight",
+            "streetlights"
+          ],
+          "type": "streetlight",
+          "urgency": "unknown"
+        },
+        "jurisdiction": {
+          "assembly_constituency": "Mahadevapura",
+          "caveat": "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.",
+          "confidence": 0.95,
+          "corporation": "East",
+          "evidence": {
+            "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+            "row_number": 112,
+            "run_id": "2026-06-30T08-48-51Z",
+            "source_id": "gba_wards_delimitation_2025"
+          },
+          "normalized_ward_name": "bellanduru",
+          "official_endpoint_pattern": "https://gisapi.bbmpgov.in/xyinfo/{lng}/{lat}",
+          "source": "offline_normalized_wards",
+          "source_authority": "mirrored_official",
+          "source_id": "gba_wards_delimitation_2025",
+          "source_url": "https://bbmp.gov.in/KnowYourNewCorporation/index.html",
+          "ward_name": "Bellanduru",
+          "ward_number": "45",
+          "ward_regime": "368_or_369",
+          "zone": ""
+        },
+        "legacy_packet_type": "civic_evidence_packet",
+        "limits": [
+          "Streetlight ownership may split between civic electrical maintenance and BESCOM power distribution.",
+          "Public work/payment rows are administrative context only; they are not proof of current field condition or field resolution.",
+          "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.",
+          "Freshness: Historical public record, Recent public record. Not live status."
+        ],
+        "normalized_issue": "streetlight",
+        "normalized_place": "bellanduru",
+        "packet_status": "ready",
+        "packet_type": "civic_action_packet",
+        "place": {
+          "caveat": "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.",
+          "confidence": 0.95,
+          "corporation": "East",
+          "normalized_place": "bellanduru",
+          "source": "offline_normalized_wards",
+          "ward_name": "Bellanduru",
+          "ward_number": "45",
+          "zone": ""
+        },
+        "provenance": {
+          "entities": {
+            "activity": "fetch, normalize, resolve, route, match, packet_build",
+            "agent": "source publisher plus civic action packet builder",
+            "source_record": "raw public record, row, page, or official API response"
+          },
+          "evidence_records": [
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-49-46Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+              "record_date": "",
+              "row_or_page_id": "265",
+              "run_id": "2026-06-30T08-49-46Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-49-46Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+              "record_date": "",
+              "row_or_page_id": "3787",
+              "run_id": "2026-06-30T08-49-46Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-48-51Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/7a6907c2-6efd-43d6-99ac-1d10f67b3f85.csv",
+              "record_date": "",
+              "row_or_page_id": "2102",
+              "run_id": "2026-06-30T08-48-51Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_payments_2025_26",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-48-51Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/7a6907c2-6efd-43d6-99ac-1d10f67b3f85.csv",
+              "record_date": "",
+              "row_or_page_id": "2211",
+              "run_id": "2026-06-30T08-48-51Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_payments_2025_26",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-48-51Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/7a6907c2-6efd-43d6-99ac-1d10f67b3f85.csv",
+              "record_date": "",
+              "row_or_page_id": "1446",
+              "run_id": "2026-06-30T08-48-51Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_payments_2025_26",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-48-51Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/3e784947-b321-4cba-bedb-69de53450a83.csv",
+              "record_date": "",
+              "row_or_page_id": "200",
+              "run_id": "2026-06-30T08-48-51Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_payments_2025_26",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-48-51Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/3e784947-b321-4cba-bedb-69de53450a83.csv",
+              "record_date": "",
+              "row_or_page_id": "425",
+              "run_id": "2026-06-30T08-48-51Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_payments_2025_26",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-48-51Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/3e784947-b321-4cba-bedb-69de53450a83.csv",
+              "record_date": "",
+              "row_or_page_id": "1042",
+              "run_id": "2026-06-30T08-48-51Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_payments_2025_26",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-48-51Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/3e784947-b321-4cba-bedb-69de53450a83.csv",
+              "record_date": "",
+              "row_or_page_id": "1049",
+              "run_id": "2026-06-30T08-48-51Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_payments_2025_26",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Route/contact metadata present in available public records."
+              ],
+              "cannot_prove": [
+                "Ownership for the exact incident, live ticket status, or current ground response."
+              ],
+              "claim_eligibility": "routing",
+              "fetched_at": "2026-06-30T08-49-34Z",
+              "freshness_label": "Recent public record",
+              "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+              "freshness_status": "fresh",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "channels_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/snapshot.html",
+              "record_date": "",
+              "row_or_page_id": "1",
+              "run_id": "2026-06-30T08-49-34Z",
+              "source_authority": "official_reference",
+              "source_id": "bescom_official_contact_complaint_channels",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Route/contact metadata present in available public records."
+              ],
+              "cannot_prove": [
+                "Ownership for the exact incident, live ticket status, or current ground response."
+              ],
+              "claim_eligibility": "routing",
+              "fetched_at": "2026-06-30T08-49-34Z",
+              "freshness_label": "Recent public record",
+              "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+              "freshness_status": "fresh",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "channels_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/snapshot.html",
+              "record_date": "",
+              "row_or_page_id": "1",
+              "run_id": "2026-06-30T08-49-34Z",
+              "source_authority": "official_reference",
+              "source_id": "bescom_official_contact_complaint_channels",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Route/contact metadata present in available public records."
+              ],
+              "cannot_prove": [
+                "Ownership for the exact incident, live ticket status, or current ground response."
+              ],
+              "claim_eligibility": "routing",
+              "fetched_at": "2026-06-30T08-49-34Z",
+              "freshness_label": "Recent public record",
+              "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+              "freshness_status": "fresh",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "channels_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/snapshot.html",
+              "record_date": "",
+              "row_or_page_id": "1",
+              "run_id": "2026-06-30T08-49-34Z",
+              "source_authority": "official_reference",
+              "source_id": "bescom_official_contact_complaint_channels",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Ward, corporation, and jurisdiction context present in available public records."
+              ],
+              "cannot_prove": [
+                "Field condition, agency action, issue resolution, or current ground truth."
+              ],
+              "claim_eligibility": "jurisdiction",
+              "fetched_at": "",
+              "freshness_label": "Public ward data",
+              "freshness_scope": "Jurisdiction context from the available archived lookup; not live issue status.",
+              "freshness_status": "undated",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "jurisdiction-v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+              "record_date": "",
+              "row_or_page_id": "112",
+              "run_id": "2026-06-30T08-48-51Z",
+              "source_authority": "mirrored_official",
+              "source_id": "gba_wards_delimitation_2025",
+              "source_tier": "tier_1"
+            }
+          ],
+          "model": "w3c-prov-lite"
+        },
+        "question": "Bellandur streetlight public rows",
+        "records_show": [
+          "Providing Energy saving street light system with timer control in Bellanduru Ward No.150; amount 169813",
+          "Providing Additional Street lights in Bellandur ward No.150; amount 161720",
+          "054-21-000019 Providing improvements to street lights in important junctions and roads of Varthuru and Bellandur and near by areas hoodi and doddnekundi areas ward no 54 and 85;..."
+        ],
+        "related_works": [
+          "Providing Energy saving street light system with timer control in Bellanduru Ward No.150; amount 169813",
+          "Providing Additional Street lights in Bellandur ward No.150; amount 161720",
+          "054-21-000019 Providing improvements to street lights in important junctions and roads of Varthuru and Bellandur and near by areas hoodi and doddnekundi areas ward no 54 and 85;...",
+          "086-22-000011 Providing street lights in Dark streches and installation of missing street lights in Marathalli, Bellandur ward no-86,150; amount 10695766"
+        ],
+        "responsibility": {
+          "dual_path_caveat": "",
+          "fallback_agency": {
+            "agency_id": "gba",
+            "name": "Greater Bengaluru Authority / local city corporation"
+          },
+          "ownership_caveat": "Streetlight ownership may split between civic electrical maintenance and BESCOM power distribution.",
+          "primary_agency": {
+            "agency_id": "gba",
+            "name": "Greater Bengaluru Authority / local city corporation"
+          },
+          "routing_decision": {
+            "policy_id": "bengaluru-civic-routing",
+            "policy_version": "routing-v3",
+            "rule_ids": [
+              "streetlight.primary"
+            ]
+          },
+          "secondary_agencies": []
+        },
+        "responsible_agency": {
+          "agency_id": "gba",
+          "name": "Greater Bengaluru Authority / local city corporation"
+        },
+        "retrieval_trace": {
+          "backend": "normalized_civic_case",
+          "channels_considered": 3,
+          "payments_considered": 0,
+          "routing_rule_ids": [
+            "streetlight.primary"
+          ],
+          "trace_id": "packet-d5aec6add803be4a",
+          "used_rag": false,
+          "used_raw_scan": false,
+          "works_considered": 9
+        },
+        "schema_version": 3,
+        "service_request": {
+          "do_not_include": [
+            "private phone numbers",
+            "claims that a listed work proves the light is fixed"
+          ],
+          "filing_guidance": "Use GBA/BBMP local corporation channels for streetlight maintenance; use BESCOM if wording indicates outage, wires, transformer, or power-distribution failure.",
+          "open311_like_service_type": "streetlight_maintenance",
+          "required_fields": [
+            "pole number",
+            "photo",
+            "landmark or pin",
+            "whether multiple lights are affected"
+          ],
+          "status_policy": "Official closure is a source claim, not verified ground resolution."
+        },
+        "short_answer": "This looks like a streetlight issue around Bellanduru. Likely owner: Greater Bengaluru Authority / local city corporation. I found normalized public evidence rows to cite.",
+        "trace": {
+          "candidate_counts": {
+            "channels_selected": 1,
+            "contacts_selected": 2,
+            "evidence_selected": 9
+          },
+          "matcher_versions": {
+            "evidence_matcher": "v3",
+            "issue_router": "routing-v3"
+          },
+          "persisted_trace_path": ".context/traces/packets.jsonl",
+          "query_hash": "d5aec6add803be4a523d9eedfb3e4dc40394075a59d5ac8fff412f9178bc1a46",
+          "resolver_confidence": 0.95,
+          "resolver_source": "offline_normalized_wards",
+          "retrieval_snapshot_id": "json-warehouse-current",
+          "routing_policy_id": "bengaluru-civic-routing",
+          "routing_policy_version": "routing-v3",
+          "routing_rule_ids": [
+            "streetlight.primary"
+          ],
+          "source_snapshot_id": "source-snapshot-d153b9114615252c",
+          "stages": {
+            "matcher": {
+              "selected_channel_ids": [
+                "channel-1"
+              ],
+              "selected_contact_ids": [
+                "contact-1",
+                "contact-2"
+              ],
+              "selected_evidence_ids": [
+                "evidence-1",
+                "evidence-2",
+                "evidence-3",
+                "evidence-4",
+                "evidence-5",
+                "evidence-6",
+                "evidence-7",
+                "evidence-8",
+                "evidence-9"
+              ]
+            },
+            "resolver": {
+              "confidence": 0.95,
+              "source": "offline_normalized_wards"
+            },
+            "router": {
+              "issue_type": "streetlight",
+              "primary_agency_id": "gba",
+              "secondary_agency_ids": []
+            }
+          },
+          "trace_id": "packet-d5aec6add803be4a",
+          "warnings": [
+            "Streetlight ownership may split between civic electrical maintenance and BESCOM power distribution."
+          ]
+        },
+        "what_to_cite": [
+          "Providing Energy saving street light system with timer control in Bellanduru Ward No.150; amount 169813",
+          "Providing Additional Street lights in Bellandur ward No.150; amount 161720",
+          "054-21-000019 Providing improvements to street lights in important junctions and roads of Varthuru and Bellandur and near by areas hoodi and doddnekundi areas ward no 54 and 85;..."
+        ],
+        "what_to_do_next": [
+          "File through: Use GBA/BBMP local corporation channels for streetlight maintenance; use BESCOM if wording indicates outage, wires, transformer, or power-distribution failure.",
+          "Mention ward/corporation context: Bellanduru / East.",
+          "Attach or mention: pole number, photo, landmark or pin, whether multiple lights are affected."
+        ],
+        "who_to_contact": [
+          "Use GBA/BBMP local corporation channels for streetlight maintenance; use BESCOM if wording indicates outage, wires, transformer, or power-distribution failure.",
+          "BESCOM complaint/contact channel: https://bescom.karnataka.gov.in/new-page/Contact%20Us/en",
+          "BESCOM 1912",
+          "BESCOM official WhatsApp channel"
+        ]
+      },
+      "query": "Bellandur streetlight public rows"
+    },
+    {
+      "aliases": [
+        "Kadubeesanahalli sewage overflow",
+        "Kadubeesanahalli sewage overflowing"
+      ],
+      "id": "kadubeesanahalli-sewage",
+      "packet": {
+        "action": {
+          "escalation_action": "If there is no response, follow up with the official complaint/reference number and the same evidence packet. Start with: Use BWSSB complaint channels for water, sewage, manholes, billing, or tanker issues.",
+          "evidence_to_attach": [
+            "photo/video if safe",
+            "address or pin",
+            "RR/account number only in the official BWSSB form"
+          ],
+          "legal_or_rti_action": "For a persistent unresolved issue, ask the department for written status, responsible office, and related work/order records for Bellanduru. Use RTI only for official records; do not include private account details outside official workflows.",
+          "message_draft": "Hello, I want to report a sewage/water issue at Bellanduru. Ward/corporation: 45 Bellanduru / East. I can share photos, pin/landmark, date/time, and recurrence details. I did not find matching public work/payment rows for this exact issue yet. I will share account or private details only inside the official form, not in public messages. Please route this to Bengaluru Water Supply and Sewerage Board and share the official complaint/reference number.",
+          "primary_action": "File a BWSSB complaint for Bellanduru; include a photo/video if safe and use account details only inside the official form.",
+          "what_not_to_claim": [
+            "RR/account number outside the official BWSSB form",
+            "private complaint tracking details",
+            "Do not expose account-linked complaint or tracking details.",
+            "No normalized work/payment evidence matched this question.",
+            "Text-only locality alias match; this is a confidence hint, not filing-critical proof. Confirm with the official lat/lng lookup before filing.",
+            "Freshness: Recent public record. Not live status."
+          ],
+          "what_to_send": [
+            "File through: Use BWSSB complaint channels for water, sewage, manholes, billing, or tanker issues.",
+            "Mention ward/corporation context: Bellanduru / East.",
+            "Attach or mention: photo/video if safe, address or pin, RR/account number only in the official BWSSB form."
+          ],
+          "who_to_contact": [
+            "Use BWSSB complaint channels for water, sewage, manholes, billing, or tanker issues.",
+            "BWSSB complaint channel: https://cms.bwssb.gov.in/module/complain/new_complaint",
+            "BWSSB 1916",
+            "BWSSB official call-center email"
+          ]
+        },
+        "answer_type": "structured_civic_case",
+        "audit": {
+          "compatibility_inputs": {
+            "index_path": "",
+            "note": "Packet generation reads normalized public data only; raw and RAG index inputs are compatibility parameters.",
+            "raw_root": "data/raw",
+            "used_for_fact_generation": false
+          },
+          "contract_validation_failures": [],
+          "legacy_rag_status": "not_used_for_fact_generation",
+          "matcher_versions": {
+            "evidence_matcher": "v3",
+            "issue_router": "routing-v3"
+          },
+          "persisted_trace_id": "packet-27a2cac59b283daf",
+          "query_hash": "27a2cac59b283dafef10c6998b96106030f441d436718ce6479f11b9fa537fe1",
+          "resolver_source": "locality_alias",
+          "routing_policy_id": "bengaluru-civic-routing",
+          "routing_policy_version": "routing-v3",
+          "routing_rule_ids": [
+            "water_sewage.primary"
+          ],
+          "source_of_truth": "packet_structured_data",
+          "source_snapshot_id": "source-snapshot-e81e7ea2ddcf444b",
+          "total_evidence_matches": 0,
+          "used_rag": false,
+          "used_raw_scan": false
+        },
+        "citations": [
+          {
+            "id": "jurisdiction-1",
+            "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+            "row_number": 112,
+            "run_id": "2026-06-30T08-48-51Z",
+            "source_id": "gba_wards_delimitation_2025"
+          },
+          {
+            "id": "channel-1",
+            "raw_file": "metadata/portal_snapshot.html",
+            "row_number": 1,
+            "run_id": "2026-06-30T08-49-34Z",
+            "source_id": "bwssb_crm_complaint_form"
+          },
+          {
+            "id": "contact-1",
+            "raw_file": "metadata/portal_snapshot.html",
+            "row_number": 1,
+            "run_id": "2026-06-30T08-49-34Z",
+            "source_id": "bwssb_crm_complaint_form"
+          },
+          {
+            "id": "contact-2",
+            "raw_file": "metadata/portal_snapshot.html",
+            "row_number": 1,
+            "run_id": "2026-06-30T08-49-34Z",
+            "source_id": "bwssb_crm_complaint_form"
+          }
+        ],
+        "claims": [
+          {
+            "citation_ids": [
+              "jurisdiction-1"
+            ],
+            "claim_type": "jurisdiction",
+            "text": "Text locality alias kadubeesanahalli points to Bellanduru as a confidence hint."
+          },
+          {
+            "citation_ids": [
+              "channel-1",
+              "contact-1",
+              "contact-2"
+            ],
+            "claim_type": "contact",
+            "text": "Official complaint/contact channel metadata is available."
+          }
+        ],
+        "compatibility_schema_version": 2,
+        "confidence_label": "medium",
+        "contract": {
+          "compatibility_schema_version": 2,
+          "name": "CivicActionPacket",
+          "source_of_truth": "packet_structured_data",
+          "version": "3.0"
+        },
+        "coverage_gaps": [
+          "Do not expose account-linked complaint or tracking details.",
+          "No normalized work/payment evidence matched this question.",
+          "Text-only locality alias match; this is a confidence hint, not filing-critical proof. Confirm with the official lat/lng lookup before filing.",
+          "Freshness: Recent public record. Not live status."
+        ],
+        "evidence": [],
+        "evidence_strength": "weak",
+        "evidence_summary": {
+          "hidden_count": 0,
+          "shown_count": 0,
+          "specificity": "none",
+          "total_matches": 0
+        },
+        "evidence_table": [],
+        "freshness": {
+          "basis": "normalized_public_records",
+          "citizen_labels": [
+            "Recent public record"
+          ],
+          "fetched_at_values": [
+            "2026-06-30T08-49-34Z"
+          ],
+          "latest_fetched_at": "2026-06-30T08-49-34Z",
+          "latest_record_date": "",
+          "policy_version": "freshness-v1",
+          "record_date_values": [],
+          "source_policies": [
+            {
+              "claim_eligibility": "routing",
+              "expected_update_cadence_days": 90,
+              "source_authority": "official",
+              "source_id": "bwssb_crm_complaint_form"
+            },
+            {
+              "claim_eligibility": "routing",
+              "expected_update_cadence_days": 90,
+              "source_authority": "official",
+              "source_id": "bwssb_crm_complaint_form"
+            },
+            {
+              "claim_eligibility": "routing",
+              "expected_update_cadence_days": 90,
+              "source_authority": "official",
+              "source_id": "bwssb_crm_complaint_form"
+            }
+          ],
+          "staleness_statuses": [
+            "fresh"
+          ],
+          "staleness_warning": "",
+          "undated_record_count": 0
+        },
+        "input": {
+          "lat": null,
+          "lng": null,
+          "query": "Kadubeesanahalli sewage overflow"
+        },
+        "issue": {
+          "description": "Kadubeesanahalli sewage overflow",
+          "display_type": "sewage/water issue",
+          "matched_terms": [
+            "drain",
+            "manhole",
+            "overflow",
+            "sewage",
+            "sewer",
+            "water"
+          ],
+          "type": "water_sewage",
+          "urgency": "unknown"
+        },
+        "jurisdiction": {
+          "assembly_constituency": "Mahadevapura",
+          "caveat": "Text-only locality alias match; this is a confidence hint, not filing-critical proof. Confirm with the official lat/lng lookup before filing.",
+          "confidence": 0.72,
+          "corporation": "East",
+          "evidence": {
+            "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+            "row_number": 112,
+            "run_id": "2026-06-30T08-48-51Z",
+            "source_id": "gba_wards_delimitation_2025"
+          },
+          "locality_alias_basis": "Common locality near Bellandur/ORR; text-only seed pending authoritative geometry.",
+          "locality_alias_target": "bellanduru",
+          "matched_alias": "kadubeesanahalli",
+          "normalized_ward_name": "bellanduru",
+          "official_endpoint_pattern": "https://gisapi.bbmpgov.in/xyinfo/{lng}/{lat}",
+          "source": "locality_alias",
+          "source_authority": "mirrored_official",
+          "source_id": "gba_wards_delimitation_2025",
+          "source_url": "https://bbmp.gov.in/KnowYourNewCorporation/index.html",
+          "ward_name": "Bellanduru",
+          "ward_number": "45",
+          "ward_regime": "368_or_369",
+          "zone": ""
+        },
+        "legacy_packet_type": "civic_evidence_packet",
+        "limits": [
+          "Do not expose account-linked complaint or tracking details.",
+          "No normalized work/payment evidence matched this question.",
+          "Text-only locality alias match; this is a confidence hint, not filing-critical proof. Confirm with the official lat/lng lookup before filing.",
+          "Freshness: Recent public record. Not live status."
+        ],
+        "normalized_issue": "water_sewage",
+        "normalized_place": "bellanduru",
+        "packet_status": "ready",
+        "packet_type": "civic_action_packet",
+        "place": {
+          "caveat": "Text-only locality alias match; this is a confidence hint, not filing-critical proof. Confirm with the official lat/lng lookup before filing.",
+          "confidence": 0.72,
+          "corporation": "East",
+          "normalized_place": "bellanduru",
+          "source": "locality_alias",
+          "ward_name": "Bellanduru",
+          "ward_number": "45",
+          "zone": ""
+        },
+        "provenance": {
+          "entities": {
+            "activity": "fetch, normalize, resolve, route, match, packet_build",
+            "agent": "source publisher plus civic action packet builder",
+            "source_record": "raw public record, row, page, or official API response"
+          },
+          "evidence_records": [
+            {
+              "can_prove": [
+                "Route/contact metadata present in available public records."
+              ],
+              "cannot_prove": [
+                "Ownership for the exact incident, live ticket status, or current ground response."
+              ],
+              "claim_eligibility": "routing",
+              "fetched_at": "2026-06-30T08-49-34Z",
+              "freshness_label": "Recent public record",
+              "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+              "freshness_status": "fresh",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "channels_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "metadata/portal_snapshot.html",
+              "record_date": "",
+              "row_or_page_id": "1",
+              "run_id": "2026-06-30T08-49-34Z",
+              "source_authority": "official",
+              "source_id": "bwssb_crm_complaint_form",
+              "source_tier": "tier_3"
+            },
+            {
+              "can_prove": [
+                "Route/contact metadata present in available public records."
+              ],
+              "cannot_prove": [
+                "Ownership for the exact incident, live ticket status, or current ground response."
+              ],
+              "claim_eligibility": "routing",
+              "fetched_at": "2026-06-30T08-49-34Z",
+              "freshness_label": "Recent public record",
+              "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+              "freshness_status": "fresh",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "channels_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "metadata/portal_snapshot.html",
+              "record_date": "",
+              "row_or_page_id": "1",
+              "run_id": "2026-06-30T08-49-34Z",
+              "source_authority": "official",
+              "source_id": "bwssb_crm_complaint_form",
+              "source_tier": "tier_3"
+            },
+            {
+              "can_prove": [
+                "Route/contact metadata present in available public records."
+              ],
+              "cannot_prove": [
+                "Ownership for the exact incident, live ticket status, or current ground response."
+              ],
+              "claim_eligibility": "routing",
+              "fetched_at": "2026-06-30T08-49-34Z",
+              "freshness_label": "Recent public record",
+              "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+              "freshness_status": "fresh",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "channels_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "metadata/portal_snapshot.html",
+              "record_date": "",
+              "row_or_page_id": "1",
+              "run_id": "2026-06-30T08-49-34Z",
+              "source_authority": "official",
+              "source_id": "bwssb_crm_complaint_form",
+              "source_tier": "tier_3"
+            },
+            {
+              "can_prove": [
+                "Ward, corporation, and jurisdiction context present in available public records."
+              ],
+              "cannot_prove": [
+                "Field condition, agency action, issue resolution, or current ground truth."
+              ],
+              "claim_eligibility": "jurisdiction",
+              "fetched_at": "",
+              "freshness_label": "Public ward data",
+              "freshness_scope": "Jurisdiction context from the available archived lookup; not live issue status.",
+              "freshness_status": "undated",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "jurisdiction-v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+              "record_date": "",
+              "row_or_page_id": "112",
+              "run_id": "2026-06-30T08-48-51Z",
+              "source_authority": "mirrored_official",
+              "source_id": "gba_wards_delimitation_2025",
+              "source_tier": "tier_1"
+            }
+          ],
+          "model": "w3c-prov-lite"
+        },
+        "question": "Kadubeesanahalli sewage overflow",
+        "records_show": [
+          "No normalized record proves the reported sewage/water issue condition yet."
+        ],
+        "related_works": [
+          "No matching normalized work/payment rows were found."
+        ],
+        "responsibility": {
+          "dual_path_caveat": "",
+          "fallback_agency": null,
+          "ownership_caveat": "Do not expose account-linked complaint or tracking details.",
+          "primary_agency": {
+            "agency_id": "bwssb",
+            "name": "Bengaluru Water Supply and Sewerage Board"
+          },
+          "routing_decision": {
+            "policy_id": "bengaluru-civic-routing",
+            "policy_version": "routing-v3",
+            "rule_ids": [
+              "water_sewage.primary"
+            ]
+          },
+          "secondary_agencies": []
+        },
+        "responsible_agency": {
+          "agency_id": "bwssb",
+          "name": "Bengaluru Water Supply and Sewerage Board"
+        },
+        "retrieval_trace": {
+          "backend": "normalized_civic_case",
+          "channels_considered": 3,
+          "payments_considered": 0,
+          "routing_rule_ids": [
+            "water_sewage.primary"
+          ],
+          "trace_id": "packet-27a2cac59b283daf",
+          "used_rag": false,
+          "used_raw_scan": false,
+          "works_considered": 0
+        },
+        "schema_version": 3,
+        "service_request": {
+          "do_not_include": [
+            "RR/account number outside the official BWSSB form",
+            "private complaint tracking details"
+          ],
+          "filing_guidance": "Use BWSSB complaint channels for water, sewage, manholes, billing, or tanker issues.",
+          "open311_like_service_type": "water_or_sewer_service_request",
+          "required_fields": [
+            "photo/video if safe",
+            "address or pin",
+            "RR/account number only in the official BWSSB form"
+          ],
+          "status_policy": "Official closure is a source claim, not verified ground resolution."
+        },
+        "short_answer": "This looks like a sewage/water issue around Bellanduru. Likely owner: Bengaluru Water Supply and Sewerage Board. I did not find matching normalized work/payment rows yet.",
+        "trace": {
+          "candidate_counts": {
+            "channels_selected": 1,
+            "contacts_selected": 2,
+            "evidence_selected": 0
+          },
+          "matcher_versions": {
+            "evidence_matcher": "v3",
+            "issue_router": "routing-v3"
+          },
+          "persisted_trace_path": ".context/traces/packets.jsonl",
+          "query_hash": "27a2cac59b283dafef10c6998b96106030f441d436718ce6479f11b9fa537fe1",
+          "resolver_confidence": 0.72,
+          "resolver_source": "locality_alias",
+          "retrieval_snapshot_id": "json-warehouse-current",
+          "routing_policy_id": "bengaluru-civic-routing",
+          "routing_policy_version": "routing-v3",
+          "routing_rule_ids": [
+            "water_sewage.primary"
+          ],
+          "source_snapshot_id": "source-snapshot-e81e7ea2ddcf444b",
+          "stages": {
+            "matcher": {
+              "selected_channel_ids": [
+                "channel-1"
+              ],
+              "selected_contact_ids": [
+                "contact-1",
+                "contact-2"
+              ],
+              "selected_evidence_ids": []
+            },
+            "resolver": {
+              "confidence": 0.72,
+              "source": "locality_alias"
+            },
+            "router": {
+              "issue_type": "water_sewage",
+              "primary_agency_id": "bwssb",
+              "secondary_agency_ids": []
+            }
+          },
+          "trace_id": "packet-27a2cac59b283daf",
+          "warnings": [
+            "Do not expose account-linked complaint or tracking details."
+          ]
+        },
+        "what_to_cite": [
+          "Use the jurisdiction and official filing channel; no row-level work/payment evidence matched yet."
+        ],
+        "what_to_do_next": [
+          "File through: Use BWSSB complaint channels for water, sewage, manholes, billing, or tanker issues.",
+          "Mention ward/corporation context: Bellanduru / East.",
+          "Attach or mention: photo/video if safe, address or pin, RR/account number only in the official BWSSB form."
+        ],
+        "who_to_contact": [
+          "Use BWSSB complaint channels for water, sewage, manholes, billing, or tanker issues.",
+          "BWSSB complaint channel: https://cms.bwssb.gov.in/module/complain/new_complaint",
+          "BWSSB 1916",
+          "BWSSB official call-center email"
+        ]
+      },
+      "query": "Kadubeesanahalli sewage overflow"
+    },
+    {
+      "aliases": [
+        "Whitefield pothole at ITPL back gate public rows",
+        "Whitefield recurring pothole"
+      ],
+      "id": "whitefield-pothole",
+      "packet": {
+        "action": {
+          "escalation_action": "If there is no response, follow up with the official complaint/reference number and the same evidence packet. Start with: Use GBA/BBMP local corporation channels or Namma Bengaluru/Sahaaya for local civic issues.",
+          "evidence_to_attach": [
+            "photo",
+            "landmark or pin",
+            "date/time",
+            "recurrence details"
+          ],
+          "legal_or_rti_action": "For a persistent unresolved issue, ask the department for written status, responsible office, and related work/order records for Whitefield. Use RTI only for official records; do not include private account details outside official workflows.",
+          "message_draft": "Hello, I want to report a road or footpath issue at Whitefield. Ward/corporation: 29 Whitefield / East. I can share photos, pin/landmark, date/time, and recurrence details. For public context: I found public work/payment rows that may help frame the issue; they are not proof of field resolution. Please route this to Greater Bengaluru Authority / local city corporation and share the official complaint/reference number.",
+          "primary_action": "File through the relevant GBA/BBMP civic channel for Whitefield; include photo, pin, date/time, and recurrence details.",
+          "what_not_to_claim": [
+            "private phone numbers",
+            "uncited claims of official responsibility",
+            "Routing is an inference until an official complaint channel or record confirms ownership.",
+            "Public work/payment rows are administrative context only; they are not proof of current field condition or field resolution.",
+            "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.",
+            "Freshness: Historical public record. Not live status."
+          ],
+          "what_to_send": [
+            "File through: Use GBA/BBMP local corporation channels or Namma Bengaluru/Sahaaya for local civic issues.",
+            "Mention ward/corporation context: Whitefield / East.",
+            "Attach or mention: photo, landmark or pin, date/time, recurrence details."
+          ],
+          "who_to_contact": [
+            "Use GBA/BBMP local corporation channels or Namma Bengaluru/Sahaaya for local civic issues."
+          ]
+        },
+        "answer_type": "structured_civic_case",
+        "audit": {
+          "compatibility_inputs": {
+            "index_path": "",
+            "note": "Packet generation reads normalized public data only; raw and RAG index inputs are compatibility parameters.",
+            "raw_root": "data/raw",
+            "used_for_fact_generation": false
+          },
+          "contract_validation_failures": [],
+          "legacy_rag_status": "not_used_for_fact_generation",
+          "matcher_versions": {
+            "evidence_matcher": "v3",
+            "issue_router": "routing-v3"
+          },
+          "persisted_trace_id": "packet-d6d3f2ff789af32d",
+          "query_hash": "d6d3f2ff789af32d207b2993f325d9b2d34d439191b6ad325efcd624aa8d9358",
+          "resolver_source": "offline_normalized_wards",
+          "routing_policy_id": "bengaluru-civic-routing",
+          "routing_policy_version": "routing-v3",
+          "routing_rule_ids": [
+            "road.primary"
+          ],
+          "source_of_truth": "packet_structured_data",
+          "source_snapshot_id": "source-snapshot-b1dbc5f9921b423d",
+          "total_evidence_matches": 20,
+          "used_rag": false,
+          "used_raw_scan": false
+        },
+        "citations": [
+          {
+            "id": "jurisdiction-1",
+            "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+            "row_number": 100,
+            "run_id": "2026-06-30T08-48-51Z",
+            "source_id": "gba_wards_delimitation_2025"
+          },
+          {
+            "id": "evidence-1",
+            "raw_file": "original/73a2ea75-a5c6-40c5-a947-e4be1698102c.csv",
+            "row_number": 1257,
+            "run_id": "2026-06-30T08-49-46Z",
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "id": "evidence-2",
+            "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+            "row_number": 249,
+            "run_id": "2026-06-30T08-49-46Z",
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "id": "evidence-3",
+            "raw_file": "original/73a2ea75-a5c6-40c5-a947-e4be1698102c.csv",
+            "row_number": 479,
+            "run_id": "2026-06-30T08-49-46Z",
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "id": "evidence-4",
+            "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+            "row_number": 1987,
+            "run_id": "2026-06-30T08-49-46Z",
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "id": "evidence-5",
+            "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+            "row_number": 3248,
+            "run_id": "2026-06-30T08-49-46Z",
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "id": "evidence-6",
+            "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+            "row_number": 1775,
+            "run_id": "2026-06-30T08-49-46Z",
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "id": "evidence-7",
+            "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+            "row_number": 1774,
+            "run_id": "2026-06-30T08-49-46Z",
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "id": "evidence-8",
+            "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+            "row_number": 1772,
+            "run_id": "2026-06-30T08-49-46Z",
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "id": "evidence-9",
+            "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+            "row_number": 5969,
+            "run_id": "2026-06-30T08-49-46Z",
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "id": "evidence-10",
+            "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+            "row_number": 5966,
+            "run_id": "2026-06-30T08-49-46Z",
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "id": "evidence-11",
+            "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+            "row_number": 6918,
+            "run_id": "2026-06-30T08-49-46Z",
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "id": "evidence-12",
+            "raw_file": "original/73a2ea75-a5c6-40c5-a947-e4be1698102c.csv",
+            "row_number": 1070,
+            "run_id": "2026-06-30T08-49-46Z",
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "id": "evidence-13",
+            "raw_file": "original/73a2ea75-a5c6-40c5-a947-e4be1698102c.csv",
+            "row_number": 1645,
+            "run_id": "2026-06-30T08-49-46Z",
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "id": "evidence-14",
+            "raw_file": "original/73a2ea75-a5c6-40c5-a947-e4be1698102c.csv",
+            "row_number": 1643,
+            "run_id": "2026-06-30T08-49-46Z",
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "id": "evidence-15",
+            "raw_file": "original/73a2ea75-a5c6-40c5-a947-e4be1698102c.csv",
+            "row_number": 1644,
+            "run_id": "2026-06-30T08-49-46Z",
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "id": "evidence-16",
+            "raw_file": "original/73a2ea75-a5c6-40c5-a947-e4be1698102c.csv",
+            "row_number": 1583,
+            "run_id": "2026-06-30T08-49-46Z",
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "id": "evidence-17",
+            "raw_file": "original/c1dad862-1ea3-4e1e-9728-991988e09da0.csv",
+            "row_number": 5517,
+            "run_id": "2026-06-30T08-49-46Z",
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "id": "evidence-18",
+            "raw_file": "original/7a6907c2-6efd-43d6-99ac-1d10f67b3f85.csv",
+            "row_number": 140,
+            "run_id": "2026-06-30T08-48-51Z",
+            "source_id": "bbmp_work_orders_and_payments_2025_26"
+          },
+          {
+            "id": "evidence-19",
+            "raw_file": "original/71b93422-3d64-4de6-a823-468517f441e3.csv",
+            "row_number": 587,
+            "run_id": "2026-06-30T08-48-51Z",
+            "source_id": "bbmp_work_orders_and_payments_2025_26"
+          },
+          {
+            "id": "evidence-20",
+            "raw_file": "original/71b93422-3d64-4de6-a823-468517f441e3.csv",
+            "row_number": 1158,
+            "run_id": "2026-06-30T08-48-51Z",
+            "source_id": "bbmp_work_orders_and_payments_2025_26"
+          }
+        ],
+        "claims": [
+          {
+            "citation_ids": [
+              "jurisdiction-1"
+            ],
+            "claim_type": "jurisdiction",
+            "text": "Offline ward data matched Whitefield."
+          },
+          {
+            "citation_ids": [
+              "evidence-1",
+              "evidence-2",
+              "evidence-3",
+              "evidence-4",
+              "evidence-5",
+              "evidence-6",
+              "evidence-7",
+              "evidence-8",
+              "evidence-9",
+              "evidence-10",
+              "evidence-11",
+              "evidence-12",
+              "evidence-13",
+              "evidence-14",
+              "evidence-15",
+              "evidence-16",
+              "evidence-17",
+              "evidence-18",
+              "evidence-19",
+              "evidence-20"
+            ],
+            "claim_type": "public_work_or_payment",
+            "text": "Normalized public work/payment rows matched this question."
+          }
+        ],
+        "compatibility_schema_version": 2,
+        "confidence_label": "high",
+        "contract": {
+          "compatibility_schema_version": 2,
+          "name": "CivicActionPacket",
+          "source_of_truth": "packet_structured_data",
+          "version": "3.0"
+        },
+        "coverage_gaps": [
+          "Routing is an inference until an official complaint channel or record confirms ownership.",
+          "Public work/payment rows are administrative context only; they are not proof of current field condition or field resolution.",
+          "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.",
+          "Freshness: Historical public record. Not live status."
+        ],
+        "evidence": [
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "Filling of Portholes and Bad reaches in Whitefield main road ITPL Back gate road Pattanduru agrahara main road RHB colony to Garudacharpalya road, Maheshwarinagara and Lakshmisagara roads in ward no 82",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "Filling of Portholes and Bad reaches in Whitefield main road ITPL Back gate road Pattanduru agrahara main road RHB colony to Garudacharpalya road, Maheshwarinagara and Lakshmisa...",
+            "entity_type": "work",
+            "evidence_id": "ev_work_f95600518609cd96",
+            "legacy_evidence_id": "evidence-1",
+            "match_confidence": 0.88,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Direct pothole/road work",
+            "row_number": 1257,
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "Filling up of pot holes in Whitefield roads and surrounding roads in Ward No 84",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "Filling up of pot holes in Whitefield roads and surrounding roads in Ward No 84",
+            "entity_type": "work",
+            "evidence_id": "ev_work_e8e83801ae353172",
+            "legacy_evidence_id": "evidence-2",
+            "match_confidence": 0.88,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Direct pothole/road work",
+            "row_number": 249,
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "Filling up of Pot holes in Whitefield Inner Circle Outer Circle and Layouts at Ward No 84 Hagaduru",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "Filling up of Pot holes in Whitefield Inner Circle Outer Circle and Layouts at Ward No 84 Hagaduru",
+            "entity_type": "work",
+            "evidence_id": "ev_work_960c4ce84863c04f",
+            "legacy_evidence_id": "evidence-3",
+            "match_confidence": 0.88,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Direct pothole/road work",
+            "row_number": 479,
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "Construction of RCC drain and asphalting at Whitefield main road to Prashanth layout in Kadugudi ward no:83",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "Construction of RCC drain and asphalting at Whitefield main road to Prashanth layout in Kadugudi ward no:83",
+            "entity_type": "work",
+            "evidence_id": "ev_work_6fca46b2499644e6",
+            "legacy_evidence_id": "evidence-4",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": 1987,
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "Construction of RCC drain with covering slabs one side from Bhagini Hotel to Muzhab house in Brookbond and laying of RCC Slabs on existing drain in Bhuvaneshwari road Whitefield in Ward No84",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "Construction of RCC drain with covering slabs one side from Bhagini Hotel to Muzhab house in Brookbond and laying of RCC Slabs on existing drain in Bhuvaneshwari road Whitefield...",
+            "entity_type": "work",
+            "evidence_id": "ev_work_54cbb2488156aa6b",
+            "legacy_evidence_id": "evidence-5",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": 3248,
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "Providing and Laying Asphalting from Whitefield Main road to KEB Office Gandhipura in Hagaduru Ward No 84",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "Providing and Laying Asphalting from Whitefield Main road to KEB Office Gandhipura in Hagaduru Ward No 84",
+            "entity_type": "work",
+            "evidence_id": "ev_work_bf8de219af60c5fe",
+            "legacy_evidence_id": "evidence-6",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": 1775,
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "Providing and Laying Asphalting from Karumariyamma temple to Whitefield Main road in Hagaduru Ward No 84",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "Providing and Laying Asphalting from Karumariyamma temple to Whitefield Main road in Hagaduru Ward No 84",
+            "entity_type": "work",
+            "evidence_id": "ev_work_a26412416755e5f0",
+            "legacy_evidence_id": "evidence-7",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": 1774,
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "Providing and Laying Asphalting to Whitefield Main road HLRC Beside road towards R Narayanapura in Hagaduru Ward No 84",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "Providing and Laying Asphalting to Whitefield Main road HLRC Beside road towards R Narayanapura in Hagaduru Ward No 84",
+            "entity_type": "work",
+            "evidence_id": "ev_work_c191399c4aa4f139",
+            "legacy_evidence_id": "evidence-8",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": 1772,
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "Improvements of drain and road in Shanthi Avenue behind Post office Whitefield at w no 84",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "Improvements of drain and road in Shanthi Avenue behind Post office Whitefield at w no 84",
+            "entity_type": "work",
+            "evidence_id": "ev_work_3bbe570898956c8a",
+            "legacy_evidence_id": "evidence-9",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": 5969,
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "Improvements of drain in Karumariyamma temple road upto Chowdappa house in Whitefield w no 84",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "Improvements of drain in Karumariyamma temple road upto Chowdappa house in Whitefield w no 84",
+            "entity_type": "work",
+            "evidence_id": "ev_work_1fa20cf6079d0b60",
+            "legacy_evidence_id": "evidence-10",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": 5966,
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "Improvements to drains and Providing slabs in Brookbond cross roads, Narayanappa garden roads and Bhuvaneshwari road in Whitefield at Ward No.84",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "Improvements to drains and Providing slabs in Brookbond cross roads, Narayanappa garden roads and Bhuvaneshwari road in Whitefield at Ward No.84",
+            "entity_type": "work",
+            "evidence_id": "ev_work_80c28696edcfe4d1",
+            "legacy_evidence_id": "evidence-11",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": 6918,
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "Improvements of roads in Narayanappa garden at Whitefield in ward no 84",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "Improvements of roads in Narayanappa garden at Whitefield in ward no 84",
+            "entity_type": "work",
+            "evidence_id": "ev_work_a7bf0a46a9c37f91",
+            "legacy_evidence_id": "evidence-12",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": 1070,
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "Improvements of 1st to 4th cross roads and drains at Doctor s Layout at Whitefield in Ward No.84",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "Improvements of 1st to 4th cross roads and drains at Doctor s Layout at Whitefield in Ward No.84",
+            "entity_type": "work",
+            "evidence_id": "ev_work_443334279e90c31a",
+            "legacy_evidence_id": "evidence-13",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": 1645,
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "Improvements of 1st to 4th cross roads and drains at Byrappa Layout at Whitefield in Ward No.84",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "Improvements of 1st to 4th cross roads and drains at Byrappa Layout at Whitefield in Ward No.84",
+            "entity_type": "work",
+            "evidence_id": "ev_work_7e179a425c78bde6",
+            "legacy_evidence_id": "evidence-14",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": 1643,
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "Improvements of road and drains near Subbarao Compound road at Whitefield in Ward No. 84",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "Improvements of road and drains near Subbarao Compound road at Whitefield in Ward No. 84",
+            "entity_type": "work",
+            "evidence_id": "ev_work_ac7a0148eab61c69",
+            "legacy_evidence_id": "evidence-15",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": 1644,
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "Development of Whitefield Outer circle cross road in Ward No.84 (Hagaduru)",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "Development of Whitefield Outer circle cross road in Ward No.84 (Hagaduru)",
+            "entity_type": "work",
+            "evidence_id": "ev_work_11acc395fb33b625",
+            "legacy_evidence_id": "evidence-16",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": 1583,
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "Providing Project Management Consultancy Services for the work of Improvements, strengthening and asphalting to internal roads and construction of underpass at EPIP zone, whitefield Bangalore Phase-11",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "Providing Project Management Consultancy Services for the work of Improvements, strengthening and asphalting to internal roads and construction of underpass at EPIP zone, whitef...",
+            "entity_type": "work",
+            "evidence_id": "ev_work_d1f3a0b25f48ac8a",
+            "legacy_evidence_id": "evidence-17",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": 5517,
+            "source_id": "bbmp_work_orders_and_bill_payment"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "084-19-000040 Improvements to roads and drains at Vinayaka Layout - Whitefield in Hagadur ward No.84",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "084-19-000040 Improvements to roads and drains at Vinayaka Layout - Whitefield in Hagadur ward No.84",
+            "entity_type": "work",
+            "evidence_id": "ev_work_6290a7f00ab09280",
+            "legacy_evidence_id": "evidence-18",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": 140,
+            "source_id": "bbmp_work_orders_and_payments_2025_26"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "304-20-000242 Comprehensive Development and Improvement to the Roads Connecting to ITPL Area Whitefield in RI Mahadevapura Division Package-2",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "304-20-000242 Comprehensive Development and Improvement to the Roads Connecting to ITPL Area Whitefield in RI Mahadevapura Division Package-2",
+            "entity_type": "work",
+            "evidence_id": "ev_work_1dc2e3c4118ecd4e",
+            "legacy_evidence_id": "evidence-19",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": 587,
+            "source_id": "bbmp_work_orders_and_payments_2025_26"
+          },
+          {
+            "allowed_claims": [
+              "A public work/payment source row exists with these fields."
+            ],
+            "claim": "304-20-000242 Comprehensive Development and Improvement to the Roads Connecting to ITPL Area Whitefield in RI Mahadevapura Division Package-2",
+            "claim_class": "proof_with_mirror_caveat",
+            "disallowed_claims": [
+              "Does not prove field completion, repair quality, corruption, or contractor fault."
+            ],
+            "display_claim": "304-20-000242 Comprehensive Development and Improvement to the Roads Connecting to ITPL Area Whitefield in RI Mahadevapura Division Package-2",
+            "entity_type": "work",
+            "evidence_id": "ev_work_d101be528220281a",
+            "legacy_evidence_id": "evidence-20",
+            "match_confidence": 0.82,
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": 1158,
+            "source_id": "bbmp_work_orders_and_payments_2025_26"
+          }
+        ],
+        "evidence_strength": "public_row",
+        "evidence_summary": {
+          "hidden_count": 17,
+          "shown_count": 3,
+          "specificity": "direct",
+          "total_matches": 20
+        },
+        "evidence_table": [
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "Filling of Portholes and Bad reaches in Whitefield main road ITPL Back gate road Pattanduru agrahara main road RHB colony to Garudacharpalya road, Maheshwarinagara and Lakshmisa...",
+            "entity_type": "work",
+            "match_confidence": "0.88",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Direct pothole/road work",
+            "row_number": "1257",
+            "source_id": "bbmp_work_orders_and_bill_payment",
+            "text": "Filling of Portholes and Bad reaches in Whitefield main road ITPL Back gate road Pattanduru agrahara main road RHB colony to Garudacharpalya road, Maheshwarinagara and Lakshmisagara roads in ward no 82; amount 1444184"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "Filling up of pot holes in Whitefield roads and surrounding roads in Ward No 84; amount 470944",
+            "entity_type": "work",
+            "match_confidence": "0.88",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Direct pothole/road work",
+            "row_number": "249",
+            "source_id": "bbmp_work_orders_and_bill_payment",
+            "text": "Filling up of pot holes in Whitefield roads and surrounding roads in Ward No 84; amount 470944"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "Filling up of Pot holes in Whitefield Inner Circle Outer Circle and Layouts at Ward No 84 Hagaduru; amount 313784",
+            "entity_type": "work",
+            "match_confidence": "0.88",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Direct pothole/road work",
+            "row_number": "479",
+            "source_id": "bbmp_work_orders_and_bill_payment",
+            "text": "Filling up of Pot holes in Whitefield Inner Circle Outer Circle and Layouts at Ward No 84 Hagaduru; amount 313784"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "Construction of RCC drain and asphalting at Whitefield main road to Prashanth layout in Kadugudi ward no:83; amount 12738753",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": "1987",
+            "source_id": "bbmp_work_orders_and_bill_payment",
+            "text": "Construction of RCC drain and asphalting at Whitefield main road to Prashanth layout in Kadugudi ward no:83; amount 12738753"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "Construction of RCC drain with covering slabs one side from Bhagini Hotel to Muzhab house in Brookbond and laying of RCC Slabs on existing drain in Bhuvaneshwari road Whitefield...",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": "3248",
+            "source_id": "bbmp_work_orders_and_bill_payment",
+            "text": "Construction of RCC drain with covering slabs one side from Bhagini Hotel to Muzhab house in Brookbond and laying of RCC Slabs on existing drain in Bhuvaneshwari road Whitefield in Ward No84; amount 1266585"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "Providing and Laying Asphalting from Whitefield Main road to KEB Office Gandhipura in Hagaduru Ward No 84; amount 292229",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": "1775",
+            "source_id": "bbmp_work_orders_and_bill_payment",
+            "text": "Providing and Laying Asphalting from Whitefield Main road to KEB Office Gandhipura in Hagaduru Ward No 84; amount 292229"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "Providing and Laying Asphalting from Karumariyamma temple to Whitefield Main road in Hagaduru Ward No 84; amount 477633",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": "1774",
+            "source_id": "bbmp_work_orders_and_bill_payment",
+            "text": "Providing and Laying Asphalting from Karumariyamma temple to Whitefield Main road in Hagaduru Ward No 84; amount 477633"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "Providing and Laying Asphalting to Whitefield Main road HLRC Beside road towards R Narayanapura in Hagaduru Ward No 84; amount 390426",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": "1772",
+            "source_id": "bbmp_work_orders_and_bill_payment",
+            "text": "Providing and Laying Asphalting to Whitefield Main road HLRC Beside road towards R Narayanapura in Hagaduru Ward No 84; amount 390426"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "Improvements of drain and road in Shanthi Avenue behind Post office Whitefield at w no 84; amount 994047",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": "5969",
+            "source_id": "bbmp_work_orders_and_bill_payment",
+            "text": "Improvements of drain and road in Shanthi Avenue behind Post office Whitefield at w no 84; amount 994047"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "Improvements of drain in Karumariyamma temple road upto Chowdappa house in Whitefield w no 84; amount 1494199",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": "5966",
+            "source_id": "bbmp_work_orders_and_bill_payment",
+            "text": "Improvements of drain in Karumariyamma temple road upto Chowdappa house in Whitefield w no 84; amount 1494199"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "Improvements to drains and Providing slabs in Brookbond cross roads, Narayanappa garden roads and Bhuvaneshwari road in Whitefield at Ward No.84; amount 499209",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": "6918",
+            "source_id": "bbmp_work_orders_and_bill_payment",
+            "text": "Improvements to drains and Providing slabs in Brookbond cross roads, Narayanappa garden roads and Bhuvaneshwari road in Whitefield at Ward No.84; amount 499209"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "Improvements of roads in Narayanappa garden at Whitefield in ward no 84; amount 2591770",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": "1070",
+            "source_id": "bbmp_work_orders_and_bill_payment",
+            "text": "Improvements of roads in Narayanappa garden at Whitefield in ward no 84; amount 2591770"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "Improvements of 1st to 4th cross roads and drains at Doctor s Layout at Whitefield in Ward No.84; amount 1960169",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": "1645",
+            "source_id": "bbmp_work_orders_and_bill_payment",
+            "text": "Improvements of 1st to 4th cross roads and drains at Doctor s Layout at Whitefield in Ward No.84; amount 1960169"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "Improvements of 1st to 4th cross roads and drains at Byrappa Layout at Whitefield in Ward No.84; amount 2475224",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": "1643",
+            "source_id": "bbmp_work_orders_and_bill_payment",
+            "text": "Improvements of 1st to 4th cross roads and drains at Byrappa Layout at Whitefield in Ward No.84; amount 2475224"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "Improvements of road and drains near Subbarao Compound road at Whitefield in Ward No. 84; amount 1490843",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": "1644",
+            "source_id": "bbmp_work_orders_and_bill_payment",
+            "text": "Improvements of road and drains near Subbarao Compound road at Whitefield in Ward No. 84; amount 1490843"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "Development of Whitefield Outer circle cross road in Ward No.84 (Hagaduru); amount 487078",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": "1583",
+            "source_id": "bbmp_work_orders_and_bill_payment",
+            "text": "Development of Whitefield Outer circle cross road in Ward No.84 (Hagaduru); amount 487078"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "Providing Project Management Consultancy Services for the work of Improvements, strengthening and asphalting to internal roads and construction of underpass at EPIP zone, whitef...",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": "5517",
+            "source_id": "bbmp_work_orders_and_bill_payment",
+            "text": "Providing Project Management Consultancy Services for the work of Improvements, strengthening and asphalting to internal roads and construction of underpass at EPIP zone, whitefield Bangalore Phase-11; amount 91338799"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "084-19-000040 Improvements to roads and drains at Vinayaka Layout - Whitefield in Hagadur ward No.84; amount 3306387",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": "140",
+            "source_id": "bbmp_work_orders_and_payments_2025_26",
+            "text": "084-19-000040 Improvements to roads and drains at Vinayaka Layout - Whitefield in Hagadur ward No.84; amount 3306387"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "304-20-000242 Comprehensive Development and Improvement to the Roads Connecting to ITPL Area Whitefield in RI Mahadevapura Division Package-2; amount 30151951",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": "587",
+            "source_id": "bbmp_work_orders_and_payments_2025_26",
+            "text": "304-20-000242 Comprehensive Development and Improvement to the Roads Connecting to ITPL Area Whitefield in RI Mahadevapura Division Package-2; amount 30151951"
+          },
+          {
+            "claim_class": "proof_with_mirror_caveat",
+            "display_claim": "304-20-000242 Comprehensive Development and Improvement to the Roads Connecting to ITPL Area Whitefield in RI Mahadevapura Division Package-2; amount 8130200",
+            "entity_type": "work",
+            "match_confidence": "0.82",
+            "match_method": "place_text_and_issue_terms",
+            "proof_note": "Public row; not proof of field resolution.",
+            "relevance_label": "Related road work",
+            "row_number": "1158",
+            "source_id": "bbmp_work_orders_and_payments_2025_26",
+            "text": "304-20-000242 Comprehensive Development and Improvement to the Roads Connecting to ITPL Area Whitefield in RI Mahadevapura Division Package-2; amount 8130200"
+          }
+        ],
+        "freshness": {
+          "basis": "normalized_public_records",
+          "citizen_labels": [
+            "Historical public record"
+          ],
+          "fetched_at_values": [
+            "2026-06-30T08-48-51Z",
+            "2026-06-30T08-49-46Z"
+          ],
+          "latest_fetched_at": "2026-06-30T08-49-46Z",
+          "latest_record_date": "",
+          "policy_version": "freshness-v1",
+          "record_date_values": [],
+          "source_policies": [
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_payments_2025_26"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_payments_2025_26"
+            },
+            {
+              "claim_eligibility": "historical_public_context",
+              "expected_update_cadence_days": 30,
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_payments_2025_26"
+            }
+          ],
+          "staleness_statuses": [
+            "historical_only"
+          ],
+          "staleness_warning": "Matched work/payment rows are historical public records, not live status.",
+          "undated_record_count": 0
+        },
+        "input": {
+          "lat": null,
+          "lng": null,
+          "query": "Whitefield pothole at ITPL back gate public rows"
+        },
+        "issue": {
+          "description": "Whitefield pothole at ITPL back gate public rows",
+          "display_type": "road or footpath issue",
+          "matched_terms": [
+            "asphalt",
+            "drain",
+            "footpath",
+            "maintenance",
+            "pothole",
+            "potholes",
+            "road",
+            "roads"
+          ],
+          "type": "road",
+          "urgency": "unknown"
+        },
+        "jurisdiction": {
+          "assembly_constituency": "Mahadevapura",
+          "caveat": "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.",
+          "confidence": 0.95,
+          "corporation": "East",
+          "evidence": {
+            "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+            "row_number": 100,
+            "run_id": "2026-06-30T08-48-51Z",
+            "source_id": "gba_wards_delimitation_2025"
+          },
+          "normalized_ward_name": "whitefield",
+          "official_endpoint_pattern": "https://gisapi.bbmpgov.in/xyinfo/{lng}/{lat}",
+          "source": "offline_normalized_wards",
+          "source_authority": "mirrored_official",
+          "source_id": "gba_wards_delimitation_2025",
+          "source_url": "https://bbmp.gov.in/KnowYourNewCorporation/index.html",
+          "ward_name": "Whitefield",
+          "ward_number": "29",
+          "ward_regime": "368_or_369",
+          "zone": ""
+        },
+        "legacy_packet_type": "civic_evidence_packet",
+        "limits": [
+          "Routing is an inference until an official complaint channel or record confirms ownership.",
+          "Public work/payment rows are administrative context only; they are not proof of current field condition or field resolution.",
+          "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.",
+          "Freshness: Historical public record. Not live status."
+        ],
+        "normalized_issue": "road",
+        "normalized_place": "whitefield",
+        "packet_status": "ready",
+        "packet_type": "civic_action_packet",
+        "place": {
+          "caveat": "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.",
+          "confidence": 0.95,
+          "corporation": "East",
+          "normalized_place": "whitefield",
+          "source": "offline_normalized_wards",
+          "ward_name": "Whitefield",
+          "ward_number": "29",
+          "zone": ""
+        },
+        "provenance": {
+          "entities": {
+            "activity": "fetch, normalize, resolve, route, match, packet_build",
+            "agent": "source publisher plus civic action packet builder",
+            "source_record": "raw public record, row, page, or official API response"
+          },
+          "evidence_records": [
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-49-46Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/73a2ea75-a5c6-40c5-a947-e4be1698102c.csv",
+              "record_date": "",
+              "row_or_page_id": "1257",
+              "run_id": "2026-06-30T08-49-46Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-49-46Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+              "record_date": "",
+              "row_or_page_id": "249",
+              "run_id": "2026-06-30T08-49-46Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-49-46Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/73a2ea75-a5c6-40c5-a947-e4be1698102c.csv",
+              "record_date": "",
+              "row_or_page_id": "479",
+              "run_id": "2026-06-30T08-49-46Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-49-46Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+              "record_date": "",
+              "row_or_page_id": "1987",
+              "run_id": "2026-06-30T08-49-46Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-49-46Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+              "record_date": "",
+              "row_or_page_id": "3248",
+              "run_id": "2026-06-30T08-49-46Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-49-46Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+              "record_date": "",
+              "row_or_page_id": "1775",
+              "run_id": "2026-06-30T08-49-46Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-49-46Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+              "record_date": "",
+              "row_or_page_id": "1774",
+              "run_id": "2026-06-30T08-49-46Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-49-46Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+              "record_date": "",
+              "row_or_page_id": "1772",
+              "run_id": "2026-06-30T08-49-46Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-49-46Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+              "record_date": "",
+              "row_or_page_id": "5969",
+              "run_id": "2026-06-30T08-49-46Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-49-46Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+              "record_date": "",
+              "row_or_page_id": "5966",
+              "run_id": "2026-06-30T08-49-46Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-49-46Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/e879776d-da33-4055-83fa-3d6a4ba0a344.csv",
+              "record_date": "",
+              "row_or_page_id": "6918",
+              "run_id": "2026-06-30T08-49-46Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-49-46Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/73a2ea75-a5c6-40c5-a947-e4be1698102c.csv",
+              "record_date": "",
+              "row_or_page_id": "1070",
+              "run_id": "2026-06-30T08-49-46Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-49-46Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/73a2ea75-a5c6-40c5-a947-e4be1698102c.csv",
+              "record_date": "",
+              "row_or_page_id": "1645",
+              "run_id": "2026-06-30T08-49-46Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-49-46Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/73a2ea75-a5c6-40c5-a947-e4be1698102c.csv",
+              "record_date": "",
+              "row_or_page_id": "1643",
+              "run_id": "2026-06-30T08-49-46Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-49-46Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/73a2ea75-a5c6-40c5-a947-e4be1698102c.csv",
+              "record_date": "",
+              "row_or_page_id": "1644",
+              "run_id": "2026-06-30T08-49-46Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-49-46Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/73a2ea75-a5c6-40c5-a947-e4be1698102c.csv",
+              "record_date": "",
+              "row_or_page_id": "1583",
+              "run_id": "2026-06-30T08-49-46Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-49-46Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/c1dad862-1ea3-4e1e-9728-991988e09da0.csv",
+              "record_date": "",
+              "row_or_page_id": "5517",
+              "run_id": "2026-06-30T08-49-46Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_bill_payment",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-48-51Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/7a6907c2-6efd-43d6-99ac-1d10f67b3f85.csv",
+              "record_date": "",
+              "row_or_page_id": "140",
+              "run_id": "2026-06-30T08-48-51Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_payments_2025_26",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-48-51Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/71b93422-3d64-4de6-a823-468517f441e3.csv",
+              "record_date": "",
+              "row_or_page_id": "587",
+              "run_id": "2026-06-30T08-48-51Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_payments_2025_26",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Public administrative work, payment, tender, or award rows exist in available records."
+              ],
+              "cannot_prove": [
+                "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+              ],
+              "claim_eligibility": "historical_public_context",
+              "fetched_at": "2026-06-30T08-48-51Z",
+              "freshness_label": "Historical public record",
+              "freshness_scope": "Historical/admin context from the available archive; not live field status.",
+              "freshness_status": "historical_only",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "works_payments_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/71b93422-3d64-4de6-a823-468517f441e3.csv",
+              "record_date": "",
+              "row_or_page_id": "1158",
+              "run_id": "2026-06-30T08-48-51Z",
+              "source_authority": "mirrored_official",
+              "source_id": "bbmp_work_orders_and_payments_2025_26",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Ward, corporation, and jurisdiction context present in available public records."
+              ],
+              "cannot_prove": [
+                "Field condition, agency action, issue resolution, or current ground truth."
+              ],
+              "claim_eligibility": "jurisdiction",
+              "fetched_at": "",
+              "freshness_label": "Public ward data",
+              "freshness_scope": "Jurisdiction context from the available archived lookup; not live issue status.",
+              "freshness_status": "undated",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "jurisdiction-v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+              "record_date": "",
+              "row_or_page_id": "100",
+              "run_id": "2026-06-30T08-48-51Z",
+              "source_authority": "mirrored_official",
+              "source_id": "gba_wards_delimitation_2025",
+              "source_tier": "tier_1"
+            }
+          ],
+          "model": "w3c-prov-lite"
+        },
+        "question": "Whitefield pothole at ITPL back gate public rows",
+        "records_show": [
+          "Filling of Portholes and Bad reaches in Whitefield main road ITPL Back gate road Pattanduru agrahara main road RHB colony to Garudacharpalya road, Maheshwarinagara and Lakshmisa...",
+          "Filling up of pot holes in Whitefield roads and surrounding roads in Ward No 84; amount 470944",
+          "Filling up of Pot holes in Whitefield Inner Circle Outer Circle and Layouts at Ward No 84 Hagaduru; amount 313784"
+        ],
+        "related_works": [
+          "Filling of Portholes and Bad reaches in Whitefield main road ITPL Back gate road Pattanduru agrahara main road RHB colony to Garudacharpalya road, Maheshwarinagara and Lakshmisa...",
+          "Filling up of pot holes in Whitefield roads and surrounding roads in Ward No 84; amount 470944",
+          "Filling up of Pot holes in Whitefield Inner Circle Outer Circle and Layouts at Ward No 84 Hagaduru; amount 313784",
+          "Construction of RCC drain and asphalting at Whitefield main road to Prashanth layout in Kadugudi ward no:83; amount 12738753"
+        ],
+        "responsibility": {
+          "dual_path_caveat": "",
+          "fallback_agency": null,
+          "ownership_caveat": "Routing is an inference until an official complaint channel or record confirms ownership.",
+          "primary_agency": {
+            "agency_id": "gba",
+            "name": "Greater Bengaluru Authority / local city corporation"
+          },
+          "routing_decision": {
+            "policy_id": "bengaluru-civic-routing",
+            "policy_version": "routing-v3",
+            "rule_ids": [
+              "road.primary"
+            ]
+          },
+          "secondary_agencies": []
+        },
+        "responsible_agency": {
+          "agency_id": "gba",
+          "name": "Greater Bengaluru Authority / local city corporation"
+        },
+        "retrieval_trace": {
+          "backend": "normalized_civic_case",
+          "channels_considered": 0,
+          "payments_considered": 0,
+          "routing_rule_ids": [
+            "road.primary"
+          ],
+          "trace_id": "packet-d6d3f2ff789af32d",
+          "used_rag": false,
+          "used_raw_scan": false,
+          "works_considered": 20
+        },
+        "schema_version": 3,
+        "service_request": {
+          "do_not_include": [
+            "private phone numbers",
+            "uncited claims of official responsibility"
+          ],
+          "filing_guidance": "Use GBA/BBMP local corporation channels or Namma Bengaluru/Sahaaya for local civic issues.",
+          "open311_like_service_type": "local_civic_issue",
+          "required_fields": [
+            "photo",
+            "landmark or pin",
+            "date/time",
+            "recurrence details"
+          ],
+          "status_policy": "Official closure is a source claim, not verified ground resolution."
+        },
+        "short_answer": "This looks like a road or footpath issue around Whitefield. Likely owner: Greater Bengaluru Authority / local city corporation. I found normalized public evidence rows to cite.",
+        "trace": {
+          "candidate_counts": {
+            "channels_selected": 0,
+            "contacts_selected": 0,
+            "evidence_selected": 20
+          },
+          "matcher_versions": {
+            "evidence_matcher": "v3",
+            "issue_router": "routing-v3"
+          },
+          "persisted_trace_path": ".context/traces/packets.jsonl",
+          "query_hash": "d6d3f2ff789af32d207b2993f325d9b2d34d439191b6ad325efcd624aa8d9358",
+          "resolver_confidence": 0.95,
+          "resolver_source": "offline_normalized_wards",
+          "retrieval_snapshot_id": "json-warehouse-current",
+          "routing_policy_id": "bengaluru-civic-routing",
+          "routing_policy_version": "routing-v3",
+          "routing_rule_ids": [
+            "road.primary"
+          ],
+          "source_snapshot_id": "source-snapshot-b1dbc5f9921b423d",
+          "stages": {
+            "matcher": {
+              "selected_channel_ids": [],
+              "selected_contact_ids": [],
+              "selected_evidence_ids": [
+                "evidence-1",
+                "evidence-2",
+                "evidence-3",
+                "evidence-4",
+                "evidence-5",
+                "evidence-6",
+                "evidence-7",
+                "evidence-8",
+                "evidence-9",
+                "evidence-10",
+                "evidence-11",
+                "evidence-12",
+                "evidence-13",
+                "evidence-14",
+                "evidence-15",
+                "evidence-16",
+                "evidence-17",
+                "evidence-18",
+                "evidence-19",
+                "evidence-20"
+              ]
+            },
+            "resolver": {
+              "confidence": 0.95,
+              "source": "offline_normalized_wards"
+            },
+            "router": {
+              "issue_type": "road",
+              "primary_agency_id": "gba",
+              "secondary_agency_ids": []
+            }
+          },
+          "trace_id": "packet-d6d3f2ff789af32d",
+          "warnings": [
+            "Routing is an inference until an official complaint channel or record confirms ownership."
+          ]
+        },
+        "what_to_cite": [
+          "Filling of Portholes and Bad reaches in Whitefield main road ITPL Back gate road Pattanduru agrahara main road RHB colony to Garudacharpalya road, Maheshwarinagara and Lakshmisa...",
+          "Filling up of pot holes in Whitefield roads and surrounding roads in Ward No 84; amount 470944",
+          "Filling up of Pot holes in Whitefield Inner Circle Outer Circle and Layouts at Ward No 84 Hagaduru; amount 313784"
+        ],
+        "what_to_do_next": [
+          "File through: Use GBA/BBMP local corporation channels or Namma Bengaluru/Sahaaya for local civic issues.",
+          "Mention ward/corporation context: Whitefield / East.",
+          "Attach or mention: photo, landmark or pin, date/time, recurrence details."
+        ],
+        "who_to_contact": [
+          "Use GBA/BBMP local corporation channels or Namma Bengaluru/Sahaaya for local civic issues."
+        ]
+      },
+      "query": "Whitefield pothole at ITPL back gate public rows"
+    },
+    {
+      "aliases": [
+        "Bellandur power outage",
+        "Bellandur power outage sparks"
+      ],
+      "id": "bellandur-power",
+      "packet": {
+        "action": {
+          "escalation_action": "If there is no response, follow up with the official complaint/reference number and the same evidence packet. Start with: Use BESCOM 1912, BESCOM online channels, or official WhatsApp channels for outages and electrical safety.",
+          "evidence_to_attach": [
+            "photo if safe",
+            "pole/transformer identifier if visible",
+            "address or pin"
+          ],
+          "legal_or_rti_action": "For a persistent unresolved issue, ask the department for written status, responsible office, and related work/order records for Bellanduru. Use RTI only for official records; do not include private account details outside official workflows.",
+          "message_draft": "Hello, I want to report a power issue at Bellanduru. Ward/corporation: 45 Bellanduru / East. I can share photos, pin/landmark, date/time, and recurrence details. I did not find matching public work/payment rows for this exact issue yet. I will share account or private details only inside the official form, not in public messages. Please route this to Bengaluru Electricity Supply Company and share the official complaint/reference number.",
+          "primary_action": "Contact BESCOM for Bellanduru; treat sparking wires, transformer issues, or shock risk as an electrical safety issue.",
+          "what_not_to_claim": [
+            "private phone numbers",
+            "account numbers outside official BESCOM workflows",
+            "BESCOM contact guidance does not prove current outage status.",
+            "No normalized work/payment evidence matched this question.",
+            "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.",
+            "Freshness: Recent public record. Not live status."
+          ],
+          "what_to_send": [
+            "File through: Use BESCOM 1912, BESCOM online channels, or official WhatsApp channels for outages and electrical safety.",
+            "Mention ward/corporation context: Bellanduru / East.",
+            "Attach or mention: photo if safe, pole/transformer identifier if visible, address or pin."
+          ],
+          "who_to_contact": [
+            "Use BESCOM 1912, BESCOM online channels, or official WhatsApp channels for outages and electrical safety.",
+            "BESCOM complaint/contact channel: https://bescom.karnataka.gov.in/new-page/Contact%20Us/en",
+            "BESCOM 1912",
+            "BESCOM official WhatsApp channel"
+          ]
+        },
+        "answer_type": "structured_civic_case",
+        "audit": {
+          "compatibility_inputs": {
+            "index_path": "",
+            "note": "Packet generation reads normalized public data only; raw and RAG index inputs are compatibility parameters.",
+            "raw_root": "data/raw",
+            "used_for_fact_generation": false
+          },
+          "contract_validation_failures": [],
+          "legacy_rag_status": "not_used_for_fact_generation",
+          "matcher_versions": {
+            "evidence_matcher": "v3",
+            "issue_router": "routing-v3"
+          },
+          "persisted_trace_id": "packet-5f4e10c64e74bc44",
+          "query_hash": "5f4e10c64e74bc442b6792d610508226aa301d30e294472c60e1899ac6de8f91",
+          "resolver_source": "offline_normalized_wards",
+          "routing_policy_id": "bengaluru-civic-routing",
+          "routing_policy_version": "routing-v3",
+          "routing_rule_ids": [
+            "power.primary"
+          ],
+          "source_of_truth": "packet_structured_data",
+          "source_snapshot_id": "source-snapshot-7cd29d2573703590",
+          "total_evidence_matches": 0,
+          "used_rag": false,
+          "used_raw_scan": false
+        },
+        "citations": [
+          {
+            "id": "jurisdiction-1",
+            "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+            "row_number": 112,
+            "run_id": "2026-06-30T08-48-51Z",
+            "source_id": "gba_wards_delimitation_2025"
+          },
+          {
+            "id": "channel-1",
+            "raw_file": "original/snapshot.html",
+            "row_number": 1,
+            "run_id": "2026-06-30T08-49-34Z",
+            "source_id": "bescom_official_contact_complaint_channels"
+          },
+          {
+            "id": "contact-1",
+            "raw_file": "original/snapshot.html",
+            "row_number": 1,
+            "run_id": "2026-06-30T08-49-34Z",
+            "source_id": "bescom_official_contact_complaint_channels"
+          },
+          {
+            "id": "contact-2",
+            "raw_file": "original/snapshot.html",
+            "row_number": 1,
+            "run_id": "2026-06-30T08-49-34Z",
+            "source_id": "bescom_official_contact_complaint_channels"
+          }
+        ],
+        "claims": [
+          {
+            "citation_ids": [
+              "jurisdiction-1"
+            ],
+            "claim_type": "jurisdiction",
+            "text": "Offline ward data matched Bellanduru."
+          },
+          {
+            "citation_ids": [
+              "channel-1",
+              "contact-1",
+              "contact-2"
+            ],
+            "claim_type": "contact",
+            "text": "Official complaint/contact channel metadata is available."
+          }
+        ],
+        "compatibility_schema_version": 2,
+        "confidence_label": "high",
+        "contract": {
+          "compatibility_schema_version": 2,
+          "name": "CivicActionPacket",
+          "source_of_truth": "packet_structured_data",
+          "version": "3.0"
+        },
+        "coverage_gaps": [
+          "BESCOM contact guidance does not prove current outage status.",
+          "No normalized work/payment evidence matched this question.",
+          "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.",
+          "Freshness: Recent public record. Not live status."
+        ],
+        "evidence": [],
+        "evidence_strength": "none",
+        "evidence_summary": {
+          "hidden_count": 0,
+          "shown_count": 0,
+          "specificity": "none",
+          "total_matches": 0
+        },
+        "evidence_table": [],
+        "freshness": {
+          "basis": "normalized_public_records",
+          "citizen_labels": [
+            "Recent public record"
+          ],
+          "fetched_at_values": [
+            "2026-06-30T08-49-34Z"
+          ],
+          "latest_fetched_at": "2026-06-30T08-49-34Z",
+          "latest_record_date": "",
+          "policy_version": "freshness-v1",
+          "record_date_values": [],
+          "source_policies": [
+            {
+              "claim_eligibility": "routing",
+              "expected_update_cadence_days": 30,
+              "source_authority": "official_reference",
+              "source_id": "bescom_official_contact_complaint_channels"
+            },
+            {
+              "claim_eligibility": "routing",
+              "expected_update_cadence_days": 30,
+              "source_authority": "official_reference",
+              "source_id": "bescom_official_contact_complaint_channels"
+            },
+            {
+              "claim_eligibility": "routing",
+              "expected_update_cadence_days": 30,
+              "source_authority": "official_reference",
+              "source_id": "bescom_official_contact_complaint_channels"
+            }
+          ],
+          "staleness_statuses": [
+            "fresh"
+          ],
+          "staleness_warning": "",
+          "undated_record_count": 0
+        },
+        "input": {
+          "lat": null,
+          "lng": null,
+          "query": "Bellandur power outage sparks"
+        },
+        "issue": {
+          "description": "Bellandur power outage sparks",
+          "display_type": "power issue",
+          "matched_terms": [
+            "electrical",
+            "outage",
+            "power",
+            "spark",
+            "sparks",
+            "transformer",
+            "wire",
+            "wires"
+          ],
+          "type": "power",
+          "urgency": "safety"
+        },
+        "jurisdiction": {
+          "assembly_constituency": "Mahadevapura",
+          "caveat": "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.",
+          "confidence": 0.95,
+          "corporation": "East",
+          "evidence": {
+            "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+            "row_number": 112,
+            "run_id": "2026-06-30T08-48-51Z",
+            "source_id": "gba_wards_delimitation_2025"
+          },
+          "normalized_ward_name": "bellanduru",
+          "official_endpoint_pattern": "https://gisapi.bbmpgov.in/xyinfo/{lng}/{lat}",
+          "source": "offline_normalized_wards",
+          "source_authority": "mirrored_official",
+          "source_id": "gba_wards_delimitation_2025",
+          "source_url": "https://bbmp.gov.in/KnowYourNewCorporation/index.html",
+          "ward_name": "Bellanduru",
+          "ward_number": "45",
+          "ward_regime": "368_or_369",
+          "zone": ""
+        },
+        "legacy_packet_type": "civic_evidence_packet",
+        "limits": [
+          "BESCOM contact guidance does not prove current outage status.",
+          "No normalized work/payment evidence matched this question.",
+          "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.",
+          "Freshness: Recent public record. Not live status."
+        ],
+        "normalized_issue": "power",
+        "normalized_place": "bellanduru",
+        "packet_status": "ready",
+        "packet_type": "civic_action_packet",
+        "place": {
+          "caveat": "Offline ward match. Confirm exact lat/lng against the official GBA/BBMP lookup for filing-critical routing.",
+          "confidence": 0.95,
+          "corporation": "East",
+          "normalized_place": "bellanduru",
+          "source": "offline_normalized_wards",
+          "ward_name": "Bellanduru",
+          "ward_number": "45",
+          "zone": ""
+        },
+        "provenance": {
+          "entities": {
+            "activity": "fetch, normalize, resolve, route, match, packet_build",
+            "agent": "source publisher plus civic action packet builder",
+            "source_record": "raw public record, row, page, or official API response"
+          },
+          "evidence_records": [
+            {
+              "can_prove": [
+                "Route/contact metadata present in available public records."
+              ],
+              "cannot_prove": [
+                "Ownership for the exact incident, live ticket status, or current ground response."
+              ],
+              "claim_eligibility": "routing",
+              "fetched_at": "2026-06-30T08-49-34Z",
+              "freshness_label": "Recent public record",
+              "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+              "freshness_status": "fresh",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "channels_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/snapshot.html",
+              "record_date": "",
+              "row_or_page_id": "1",
+              "run_id": "2026-06-30T08-49-34Z",
+              "source_authority": "official_reference",
+              "source_id": "bescom_official_contact_complaint_channels",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Route/contact metadata present in available public records."
+              ],
+              "cannot_prove": [
+                "Ownership for the exact incident, live ticket status, or current ground response."
+              ],
+              "claim_eligibility": "routing",
+              "fetched_at": "2026-06-30T08-49-34Z",
+              "freshness_label": "Recent public record",
+              "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+              "freshness_status": "fresh",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "channels_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/snapshot.html",
+              "record_date": "",
+              "row_or_page_id": "1",
+              "run_id": "2026-06-30T08-49-34Z",
+              "source_authority": "official_reference",
+              "source_id": "bescom_official_contact_complaint_channels",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Route/contact metadata present in available public records."
+              ],
+              "cannot_prove": [
+                "Ownership for the exact incident, live ticket status, or current ground response."
+              ],
+              "claim_eligibility": "routing",
+              "fetched_at": "2026-06-30T08-49-34Z",
+              "freshness_label": "Recent public record",
+              "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+              "freshness_status": "fresh",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "channels_v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/snapshot.html",
+              "record_date": "",
+              "row_or_page_id": "1",
+              "run_id": "2026-06-30T08-49-34Z",
+              "source_authority": "official_reference",
+              "source_id": "bescom_official_contact_complaint_channels",
+              "source_tier": "tier_1"
+            },
+            {
+              "can_prove": [
+                "Ward, corporation, and jurisdiction context present in available public records."
+              ],
+              "cannot_prove": [
+                "Field condition, agency action, issue resolution, or current ground truth."
+              ],
+              "claim_eligibility": "jurisdiction",
+              "fetched_at": "",
+              "freshness_label": "Public ward data",
+              "freshness_scope": "Jurisdiction context from the available archived lookup; not live issue status.",
+              "freshness_status": "undated",
+              "license": "Public Domain or official/public web reference",
+              "parser_version": "jurisdiction-v1",
+              "pii_status": "redacted_or_absent",
+              "publishable": true,
+              "raw_file": "original/51304220-abfd-4f4b-adc5-580ec1e15bc0.csv",
+              "record_date": "",
+              "row_or_page_id": "112",
+              "run_id": "2026-06-30T08-48-51Z",
+              "source_authority": "mirrored_official",
+              "source_id": "gba_wards_delimitation_2025",
+              "source_tier": "tier_1"
+            }
+          ],
+          "model": "w3c-prov-lite"
+        },
+        "question": "Bellandur power outage sparks",
+        "records_show": [
+          "No normalized record proves the reported power issue condition yet."
+        ],
+        "related_works": [
+          "No matching normalized work/payment rows were found."
+        ],
+        "responsibility": {
+          "dual_path_caveat": "",
+          "fallback_agency": null,
+          "ownership_caveat": "BESCOM contact guidance does not prove current outage status.",
+          "primary_agency": {
+            "agency_id": "bescom",
+            "name": "Bengaluru Electricity Supply Company"
+          },
+          "routing_decision": {
+            "policy_id": "bengaluru-civic-routing",
+            "policy_version": "routing-v3",
+            "rule_ids": [
+              "power.primary"
+            ]
+          },
+          "secondary_agencies": []
+        },
+        "responsible_agency": {
+          "agency_id": "bescom",
+          "name": "Bengaluru Electricity Supply Company"
+        },
+        "retrieval_trace": {
+          "backend": "normalized_civic_case",
+          "channels_considered": 3,
+          "payments_considered": 0,
+          "routing_rule_ids": [
+            "power.primary"
+          ],
+          "trace_id": "packet-5f4e10c64e74bc44",
+          "used_rag": false,
+          "used_raw_scan": false,
+          "works_considered": 0
+        },
+        "schema_version": 3,
+        "service_request": {
+          "do_not_include": [
+            "private phone numbers",
+            "account numbers outside official BESCOM workflows"
+          ],
+          "filing_guidance": "Use BESCOM 1912, BESCOM online channels, or official WhatsApp channels for outages and electrical safety.",
+          "open311_like_service_type": "electricity_distribution_safety_or_outage",
+          "required_fields": [
+            "photo if safe",
+            "pole/transformer identifier if visible",
+            "address or pin"
+          ],
+          "status_policy": "Official closure is a source claim, not verified ground resolution."
+        },
+        "short_answer": "This looks like a power issue around Bellanduru. Likely owner: Bengaluru Electricity Supply Company. I did not find matching normalized work/payment rows yet.",
+        "trace": {
+          "candidate_counts": {
+            "channels_selected": 1,
+            "contacts_selected": 2,
+            "evidence_selected": 0
+          },
+          "matcher_versions": {
+            "evidence_matcher": "v3",
+            "issue_router": "routing-v3"
+          },
+          "persisted_trace_path": ".context/traces/packets.jsonl",
+          "query_hash": "5f4e10c64e74bc442b6792d610508226aa301d30e294472c60e1899ac6de8f91",
+          "resolver_confidence": 0.95,
+          "resolver_source": "offline_normalized_wards",
+          "retrieval_snapshot_id": "json-warehouse-current",
+          "routing_policy_id": "bengaluru-civic-routing",
+          "routing_policy_version": "routing-v3",
+          "routing_rule_ids": [
+            "power.primary"
+          ],
+          "source_snapshot_id": "source-snapshot-7cd29d2573703590",
+          "stages": {
+            "matcher": {
+              "selected_channel_ids": [
+                "channel-1"
+              ],
+              "selected_contact_ids": [
+                "contact-1",
+                "contact-2"
+              ],
+              "selected_evidence_ids": []
+            },
+            "resolver": {
+              "confidence": 0.95,
+              "source": "offline_normalized_wards"
+            },
+            "router": {
+              "issue_type": "power",
+              "primary_agency_id": "bescom",
+              "secondary_agency_ids": []
+            }
+          },
+          "trace_id": "packet-5f4e10c64e74bc44",
+          "warnings": [
+            "BESCOM contact guidance does not prove current outage status."
+          ]
+        },
+        "what_to_cite": [
+          "Use the jurisdiction and official filing channel; no row-level work/payment evidence matched yet."
+        ],
+        "what_to_do_next": [
+          "File through: Use BESCOM 1912, BESCOM online channels, or official WhatsApp channels for outages and electrical safety.",
+          "Mention ward/corporation context: Bellanduru / East.",
+          "Attach or mention: photo if safe, pole/transformer identifier if visible, address or pin."
+        ],
+        "who_to_contact": [
+          "Use BESCOM 1912, BESCOM online channels, or official WhatsApp channels for outages and electrical safety.",
+          "BESCOM complaint/contact channel: https://bescom.karnataka.gov.in/new-page/Contact%20Us/en",
+          "BESCOM 1912",
+          "BESCOM official WhatsApp channel"
+        ]
+      },
+      "query": "Bellandur power outage sparks"
+    }
+  ],
+  "queries": {
+    "bellandur power outage": "bellandur-power",
+    "bellandur power outage sparks": "bellandur-power",
+    "bellandur streetlight not working": "bellandur-streetlight",
+    "bellandur streetlight public rows": "bellandur-streetlight",
+    "kadubeesanahalli sewage overflow": "kadubeesanahalli-sewage",
+    "kadubeesanahalli sewage overflowing": "kadubeesanahalli-sewage",
+    "whitefield pothole at itpl back gate public rows": "whitefield-pothole",
+    "whitefield recurring pothole": "whitefield-pothole"
+  }
+}

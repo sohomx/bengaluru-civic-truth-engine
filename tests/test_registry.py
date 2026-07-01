@@ -5,9 +5,7 @@ from pathlib import Path
 from civic_data.registry import load_sources, registry_url_report, validate_registry
 
 
-OVERVIEW = Path(
-    "/Users/sohom/Documents/Desktop Archive/2026-05-22-desktop-sweep/Projects/second-brain/personal/Projects/Bengaluru-Civic-Truth-Engine/Overview.md"
-)
+OVERVIEW = Path("tests/fixtures/registry/overview_sample.md")
 
 
 class RegistryTests(unittest.TestCase):

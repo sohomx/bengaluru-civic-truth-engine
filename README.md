@@ -1,5 +1,9 @@
 # Bengaluru Civic Truth Engine
 
+[![CI](https://github.com/sohomx/bengaluru-civic-truth-engine/actions/workflows/ci.yml/badge.svg)](https://github.com/sohomx/bengaluru-civic-truth-engine/actions/workflows/ci.yml)
+[![GitHub Pages](https://github.com/sohomx/bengaluru-civic-truth-engine/actions/workflows/pages.yml/badge.svg)](https://github.com/sohomx/bengaluru-civic-truth-engine/actions/workflows/pages.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 An open-source civic action engine for Bengaluru.
 
 The core product is a provenance-backed `CivicActionPacket`: given a citizen issue,
@@ -10,6 +14,11 @@ next action.
 This is not a generic chatbot over scraped data. Packet generation is structured
 and deterministic. RAG is limited to explaining an existing packet and must not
 discover civic facts from raw files.
+
+Public demo: https://sohomx.github.io/bengaluru-civic-truth-engine/
+
+The GitHub Pages demo is static and uses prebuilt sample packets. Arbitrary
+packet generation is available through the CLI or local/API deployment.
 
 ## What It Does
 
@@ -23,6 +32,8 @@ discover civic facts from raw files.
   field condition, corruption, or official resolution.
 - Records provenance, freshness, routing policy IDs, and packet traces for
   auditability.
+- Monitors source archives and states what each source can and cannot currently
+  prove.
 
 ## Quick Demo
 
@@ -38,6 +49,11 @@ python3 -m civic_data packets build \
 python3 -m civic_data packets explain \
   --packet examples/packets/bellandur-streetlight.json \
   --q "What should I do next?"
+
+python3 -m civic_data sources monitor \
+  --registry registry/sources.yaml \
+  --raw-root data/raw \
+  --format json
 ```
 
 The trusted public path is:
@@ -96,6 +112,8 @@ python3 -m civic_data eval packet-rag \
   --mode deterministic
 
 cd web && npm run build
+
+cd web && GITHUB_PAGES=true NEXT_PUBLIC_STATIC_DEMO=true npm run build
 ```
 
 The packet eval report includes release-gate metrics for agency accuracy,
@@ -116,6 +134,9 @@ examples.
 Official public sources and mirrored official datasets outrank community or
 news sources. Private complaint tracking, OTP/login flows, account-linked forms,
 and automated complaint filing are intentionally out of scope.
+
+Public launch and GitHub Pages notes live in
+[`docs/public-launch.md`](docs/public-launch.md).
 
 ## Architecture
 

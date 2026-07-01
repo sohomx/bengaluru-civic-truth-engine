@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { Clipboard, FileText, Loader2, LocateFixed, Search, ShieldCheck } from "lucide-react";
+import staticPackets from "@/data/generated/static_packets.json";
 
 type CivicPacket = {
   contract?: {
@@ -145,6 +146,20 @@ type ProofBoundary = {
   freshness_scope: string;
 };
 
+type StaticPacketBundle = {
+  mode?: string;
+  note?: string;
+  queries?: Record<string, string>;
+  packets?: {
+    id?: string;
+    query?: string;
+    aliases?: string[];
+    packet?: CivicPacket;
+  }[];
+};
+
+const STATIC_PACKET_BUNDLE = staticPackets as StaticPacketBundle;
+
 const EXAMPLE_QUERIES = [
   "Bellandur streetlight not working",
   "Kadubeesanahalli sewage overflowing",
@@ -174,6 +189,7 @@ export function AskCivicRecord({
   const apiBase =
     process.env.NEXT_PUBLIC_CIVIC_API_BASE ??
     (process.env.NODE_ENV === "development" ? "http://127.0.0.1:8017" : "");
+  const staticDemoMode = process.env.NEXT_PUBLIC_STATIC_DEMO === "true" && !apiBase;
 
   async function buildPacket(nextQuery: string) {
     const q = nextQuery.trim();
@@ -184,6 +200,17 @@ export function AskCivicRecord({
     setExplanationError("");
     setCopied(false);
     try {
+      if (staticDemoMode) {
+        const demoPacket = findStaticDemoPacket(q);
+        if (!demoPacket) {
+          throw new Error(
+            "This public demo uses prebuilt packets for the sample queries. Run the API locally for arbitrary packet generation."
+          );
+        }
+        setPacket(demoPacket);
+        setSubmittedQuery(q);
+        return;
+      }
       const params = new URLSearchParams({ q });
       if (location) {
         params.set("lat", String(location.lat));
@@ -206,10 +233,14 @@ export function AskCivicRecord({
   }
 
   useEffect(() => {
-    if (initialQuery.trim()) {
-      void buildPacket(initialQuery);
+    const queryFromUrl =
+      typeof window === "undefined" ? "" : new URLSearchParams(window.location.search).get("q") ?? "";
+    const nextQuery = initialQuery.trim() || queryFromUrl.trim();
+    if (nextQuery) {
+      setQuery(nextQuery);
+      void buildPacket(nextQuery);
     }
-  }, [initialQuery]);
+  }, []);
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -247,6 +278,10 @@ export function AskCivicRecord({
     setIsExplaining(true);
     setExplanationError("");
     try {
+      if (staticDemoMode) {
+        setExplanation(staticPacketExplanation(packet));
+        return;
+      }
       const response = await fetch(`${apiBase}/packets/explain`, {
         method: "POST",
         headers: {
@@ -280,7 +315,7 @@ export function AskCivicRecord({
           </div>
           <div className="flex items-center gap-2 text-xs text-muted">
             <ShieldCheck aria-hidden className="h-4 w-4 text-civic" />
-            <span>Public-safe</span>
+            <span>{staticDemoMode ? "Static public demo" : "Public-safe"}</span>
           </div>
         </div>
 
@@ -331,6 +366,12 @@ export function AskCivicRecord({
             ))}
           </div>
 
+          {staticDemoMode ? (
+            <p className="mt-3 text-xs leading-5 text-muted">
+              GitHub Pages is serving prebuilt demo packets. Local/API mode supports arbitrary packet generation.
+            </p>
+          ) : null}
+
           {locationStatus ? <p className="mt-2 text-xs text-muted">{locationStatus}</p> : null}
         </form>
 
@@ -353,6 +394,42 @@ export function AskCivicRecord({
       </div>
     </section>
   );
+}
+
+function findStaticDemoPacket(query: string): CivicPacket | null {
+  const normalized = normalizeDemoQuery(query);
+  const packetId = STATIC_PACKET_BUNDLE.queries?.[normalized];
+  const packet = STATIC_PACKET_BUNDLE.packets?.find((candidate) => candidate.id === packetId)?.packet;
+  return packet ? (packet as CivicPacket) : null;
+}
+
+function normalizeDemoQuery(query: string) {
+  return query.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+}
+
+function staticPacketExplanation(packet: CivicPacket): PacketExplanation {
+  const issue = packet.issue?.type?.replaceAll("_", " ") || "this issue";
+  const agency = packet.responsibility?.primary_agency?.name || "the routed public body";
+  const evidenceCount = packet.evidence_summary?.shown_count ?? packet.evidence?.length ?? 0;
+  const proofBoundaries = sourceProofBoundaries(packet);
+  const firstBoundary = proofBoundaries[0];
+  return {
+    what_the_packet_says: `This packet routes ${issue} to ${agency} using the structured packet data and public-safe provenance.`,
+    why_this_agency: `The agency comes from the routing policy and place resolver, not from a live complaint lookup.`,
+    what_to_cite:
+      evidenceCount > 0
+        ? ["Cite the shown public evidence rows as administrative or historical context."]
+        : ["No matching public work/payment row was found for this exact question."],
+    what_not_to_claim: [
+      ...(firstBoundary?.cannot_prove ?? []),
+      "Do not claim live issue status, field verification, or resolution from this static packet."
+    ],
+    audit: {
+      used_packet_only: true,
+      used_raw_scan: false,
+      used_private_data: false
+    }
+  };
 }
 
 function PacketCaseDesk({

@@ -1,6 +1,7 @@
 __pycache__/
 *.py[cod]
 *.egg-info/
+.context/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
@@ -16,12 +17,15 @@ data/exports/
 data/eval_runs/
 data/normalized/
 data/warehouse/
+dossiers/
 *.sqlite
 *.db
 *.dump
 
 node_modules/
 .next/
+out/
+web/out/
 dist/
 build/
 *.tsbuildinfo

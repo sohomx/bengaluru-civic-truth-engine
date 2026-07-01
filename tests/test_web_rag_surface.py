@@ -83,9 +83,14 @@ class WebRagSurfaceTests(unittest.TestCase):
     def test_static_client_side_rag_helper_is_removed(self):
         self.assertFalse((ROOT / "web" / "src" / "lib" / "rag.ts").exists())
 
-    def test_next_rewrites_packet_and_rag_paths_to_backend(self):
+    def test_next_config_supports_local_backend_and_github_pages_export(self):
         config = (ROOT / "web" / "next.config.mjs").read_text()
 
+        self.assertIn("GITHUB_PAGES", config)
+        self.assertIn('output: "export"', config)
+        self.assertIn("basePath", config)
+        self.assertIn("assetPrefix", config)
+        self.assertIn("unoptimized: true", config)
         self.assertIn("async rewrites()", config)
         self.assertIn("/rag/:path*", config)
         self.assertIn("/diagnostics/:path*", config)

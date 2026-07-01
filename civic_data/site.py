@@ -27,6 +27,29 @@ LENSES = [
     ("y2025", 2025, 2025, "2025 only"),
 ]
 
+STATIC_PACKET_DEMOS = [
+    (
+        "bellandur-streetlight",
+        "bellandur-streetlight.json",
+        ["Bellandur streetlight not working"],
+    ),
+    (
+        "kadubeesanahalli-sewage",
+        "kadubeesanahalli-sewage.json",
+        ["Kadubeesanahalli sewage overflowing"],
+    ),
+    (
+        "whitefield-pothole",
+        "whitefield-pothole.json",
+        ["Whitefield recurring pothole"],
+    ),
+    (
+        "bellandur-power",
+        "bellandur-power.json",
+        ["Bellandur power outage"],
+    ),
+]
+
 
 @dataclass(frozen=True)
 class SiteBuildResult:
@@ -136,6 +159,7 @@ def build_site_data(
             "entries": search_entries,
         },
     )
+    _write_json(web_data_root / "static_packets.json", _static_packet_bundle(generated_at))
     deduped_gaps = sorted(set(all_known_gaps))
     report = {
         "generated_at": generated_at,
@@ -484,6 +508,46 @@ def _build_warnings(places: list[tuple[str, str]], web_data_root: Path) -> list[
                 "Varthur and Whitefield all-year complaint summaries match; verify whether shared ward/source matching explains this."
             )
     return warnings
+
+
+def _static_packet_bundle(generated_at: str) -> dict[str, Any]:
+    packet_root = Path("examples") / "packets"
+    packets = []
+    query_map: dict[str, str] = {}
+    for packet_id, filename, aliases in STATIC_PACKET_DEMOS:
+        path = packet_root / filename
+        if not path.exists():
+            continue
+        packet = json.loads(path.read_text())
+        query = str(packet.get("input", {}).get("query") or "")
+        packet_aliases = [query, *aliases]
+        packets.append(
+            {
+                "id": packet_id,
+                "query": query,
+                "aliases": sorted({alias for alias in packet_aliases if alias}),
+                "packet": packet,
+            }
+        )
+        for alias in packet_aliases:
+            if alias:
+                query_map[_normalize_demo_query(alias)] = packet_id
+    return {
+        "mode": "prebuilt_demo_packets",
+        "generated_at": generated_at,
+        "note": (
+            "GitHub Pages is a static demo. These packets are prebuilt examples; "
+            "arbitrary packet generation requires the API or CLI."
+        ),
+        "queries": query_map,
+        "packets": packets,
+    }
+
+
+def _normalize_demo_query(query: str) -> str:
+    import re
+
+    return re.sub(r"[^a-z0-9]+", " ", query.lower()).strip()
 
 
 def _parser_status(profile: dict[str, str]) -> str:

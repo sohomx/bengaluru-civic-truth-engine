@@ -15,7 +15,8 @@
       "claims that a listed work proves the light is fixed",
       "Streetlight ownership may split between civic electrical maintenance and BESCOM power distribution.",
       "No normalized work/payment evidence matched this question.",
-      "Official xyinfo lookup from lat/lng. TLS verification failed in local Python CA store; fetched with endpoint-scoped TLS fallback."
+      "Official xyinfo lookup from lat/lng. TLS verification failed in local Python CA store; fetched with endpoint-scoped TLS fallback.",
+      "Freshness: Recent public record. Not live status."
     ],
     "what_to_send": [
       "File through: Use GBA/BBMP local corporation channels for streetlight maintenance; use BESCOM if wording indicates outage, wires, transformer, or power-distribution failure.",
@@ -43,6 +44,7 @@
       "evidence_matcher": "v3",
       "issue_router": "routing-v3"
     },
+    "persisted_trace_id": "packet-fd1d65479cd43930",
     "query_hash": "fd1d65479cd4393078b6cfce5295fc0cdb5d7dd39cce5abdc233c07237404cb7",
     "resolver_source": "official_xyinfo",
     "routing_policy_id": "bengaluru-civic-routing",
@@ -51,16 +53,17 @@
       "streetlight.primary"
     ],
     "source_of_truth": "packet_structured_data",
+    "source_snapshot_id": "source-snapshot-b374bb56130d09d6",
     "total_evidence_matches": 0,
     "used_rag": false,
     "used_raw_scan": false
   },
   "citations": [
     {
-      "endpoint": "https://gisapi.bbmpgov.in/xyinfo/77.678/12.9352",
+      "endpoint": "https://gisapi.bbmpgov.in/xyinfo/77.68/12.939",
       "id": "jurisdiction-1",
-      "lat": 12.9352,
-      "lng": 77.678,
+      "lat": 12.939,
+      "lng": 77.68,
       "source_id": "gba_new_corporation_ward_lookup"
     },
     {
@@ -114,7 +117,8 @@
   "coverage_gaps": [
     "Streetlight ownership may split between civic electrical maintenance and BESCOM power distribution.",
     "No normalized work/payment evidence matched this question.",
-    "Official xyinfo lookup from lat/lng. TLS verification failed in local Python CA store; fetched with endpoint-scoped TLS fallback."
+    "Official xyinfo lookup from lat/lng. TLS verification failed in local Python CA store; fetched with endpoint-scoped TLS fallback.",
+    "Freshness: Recent public record. Not live status."
   ],
   "evidence": [],
   "evidence_strength": "official_lookup",
@@ -127,6 +131,9 @@
   "evidence_table": [],
   "freshness": {
     "basis": "normalized_public_records",
+    "citizen_labels": [
+      "Recent public record"
+    ],
     "fetched_at_values": [
       "2026-06-30T08-49-34Z"
     ],
@@ -134,12 +141,35 @@
     "latest_record_date": "",
     "policy_version": "freshness-v1",
     "record_date_values": [],
+    "source_policies": [
+      {
+        "claim_eligibility": "routing",
+        "expected_update_cadence_days": 30,
+        "source_authority": "official_reference",
+        "source_id": "bescom_official_contact_complaint_channels"
+      },
+      {
+        "claim_eligibility": "routing",
+        "expected_update_cadence_days": 30,
+        "source_authority": "official_reference",
+        "source_id": "bescom_official_contact_complaint_channels"
+      },
+      {
+        "claim_eligibility": "routing",
+        "expected_update_cadence_days": 30,
+        "source_authority": "official_reference",
+        "source_id": "bescom_official_contact_complaint_channels"
+      }
+    ],
+    "staleness_statuses": [
+      "fresh"
+    ],
     "staleness_warning": "",
     "undated_record_count": 0
   },
   "input": {
-    "lat": 12.9352,
-    "lng": 77.678,
+    "lat": 12.939,
+    "lng": 77.68,
     "query": "streetlight not working near this pin"
   },
   "issue": {
@@ -164,9 +194,9 @@
     "confidence": 1.0,
     "corporation": "East",
     "evidence": {
-      "endpoint": "https://gisapi.bbmpgov.in/xyinfo/77.678/12.9352",
-      "lat": 12.9352,
-      "lng": 77.678,
+      "endpoint": "https://gisapi.bbmpgov.in/xyinfo/77.68/12.939",
+      "lat": 12.939,
+      "lng": 77.68,
       "source_id": "gba_new_corporation_ward_lookup"
     },
     "normalized_ward_name": "yamalur",
@@ -177,7 +207,7 @@
     "source": "official_xyinfo",
     "source_authority": "official",
     "source_id": "gba_new_corporation_ward_lookup",
-    "source_url": "https://gisapi.bbmpgov.in/xyinfo/77.678/12.9352",
+    "source_url": "https://gisapi.bbmpgov.in/xyinfo/77.68/12.939",
     "ward_name": "Yamalur",
     "ward_number": "46",
     "ward_regime": "live_gba_xyinfo",
@@ -187,7 +217,8 @@
   "limits": [
     "Streetlight ownership may split between civic electrical maintenance and BESCOM power distribution.",
     "No normalized work/payment evidence matched this question.",
-    "Official xyinfo lookup from lat/lng. TLS verification failed in local Python CA store; fetched with endpoint-scoped TLS fallback."
+    "Official xyinfo lookup from lat/lng. TLS verification failed in local Python CA store; fetched with endpoint-scoped TLS fallback.",
+    "Freshness: Recent public record. Not live status."
   ],
   "normalized_issue": "streetlight",
   "normalized_place": "yamalur",
@@ -211,9 +242,18 @@
     },
     "evidence_records": [
       {
+        "can_prove": [
+          "Route/contact metadata present in available public records."
+        ],
+        "cannot_prove": [
+          "Ownership for the exact incident, live ticket status, or current ground response."
+        ],
+        "claim_eligibility": "routing",
         "fetched_at": "2026-06-30T08-49-34Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Recent public record",
+        "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+        "freshness_status": "fresh",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "channels_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -221,13 +261,23 @@
         "record_date": "",
         "row_or_page_id": "1",
         "run_id": "2026-06-30T08-49-34Z",
+        "source_authority": "official_reference",
         "source_id": "bescom_official_contact_complaint_channels",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Route/contact metadata present in available public records."
+        ],
+        "cannot_prove": [
+          "Ownership for the exact incident, live ticket status, or current ground response."
+        ],
+        "claim_eligibility": "routing",
         "fetched_at": "2026-06-30T08-49-34Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Recent public record",
+        "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+        "freshness_status": "fresh",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "channels_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -235,13 +285,23 @@
         "record_date": "",
         "row_or_page_id": "1",
         "run_id": "2026-06-30T08-49-34Z",
+        "source_authority": "official_reference",
         "source_id": "bescom_official_contact_complaint_channels",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Route/contact metadata present in available public records."
+        ],
+        "cannot_prove": [
+          "Ownership for the exact incident, live ticket status, or current ground response."
+        ],
+        "claim_eligibility": "routing",
         "fetched_at": "2026-06-30T08-49-34Z",
-        "freshness_status": "timestamped",
-        "license": "unknown",
+        "freshness_label": "Recent public record",
+        "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
+        "freshness_status": "fresh",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "channels_v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
@@ -249,22 +309,33 @@
         "record_date": "",
         "row_or_page_id": "1",
         "run_id": "2026-06-30T08-49-34Z",
+        "source_authority": "official_reference",
         "source_id": "bescom_official_contact_complaint_channels",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Ward, corporation, and jurisdiction context present in available public records."
+        ],
+        "cannot_prove": [
+          "Field condition, agency action, issue resolution, or current ground truth."
+        ],
+        "claim_eligibility": "jurisdiction",
         "fetched_at": "",
-        "freshness_status": "undated_public_record",
-        "license": "unknown",
+        "freshness_label": "Public ward data",
+        "freshness_scope": "Jurisdiction context from the available archived lookup; not live issue status.",
+        "freshness_status": "undated",
+        "license": "Public Domain or official/public web reference",
         "parser_version": "jurisdiction-v1",
         "pii_status": "redacted_or_absent",
         "publishable": true,
-        "raw_file": "https://gisapi.bbmpgov.in/xyinfo/77.678/12.9352",
+        "raw_file": "https://gisapi.bbmpgov.in/xyinfo/77.68/12.939",
         "record_date": "",
-        "row_or_page_id": "12.9352",
+        "row_or_page_id": "12.939",
         "run_id": "",
+        "source_authority": "official_reference",
         "source_id": "gba_new_corporation_ward_lookup",
-        "source_tier": "tier_1_official_or_mirror"
+        "source_tier": "tier_1"
       }
     ],
     "model": "w3c-prov-lite"
@@ -339,6 +410,7 @@
       "evidence_matcher": "v3",
       "issue_router": "routing-v3"
     },
+    "persisted_trace_path": ".context/traces/packets.jsonl",
     "query_hash": "fd1d65479cd4393078b6cfce5295fc0cdb5d7dd39cce5abdc233c07237404cb7",
     "resolver_confidence": 1.0,
     "resolver_source": "official_xyinfo",
@@ -348,7 +420,7 @@
     "routing_rule_ids": [
       "streetlight.primary"
     ],
-    "source_snapshot_id": "normalized-json-current",
+    "source_snapshot_id": "source-snapshot-b374bb56130d09d6",
     "stages": {
       "matcher": {
         "selected_channel_ids": [

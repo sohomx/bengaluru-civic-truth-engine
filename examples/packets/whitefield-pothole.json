@@ -50,7 +50,7 @@
       "road.primary"
     ],
     "source_of_truth": "packet_structured_data",
-    "source_snapshot_id": "source-snapshot-a4112641b884c04d",
+    "source_snapshot_id": "source-snapshot-b1dbc5f9921b423d",
     "total_evidence_matches": 20,
     "used_rag": false,
     "used_raw_scan": false
@@ -1117,9 +1117,16 @@
     },
     "evidence_records": [
       {
+        "can_prove": [
+          "Public administrative work, payment, tender, or award rows exist in available records."
+        ],
+        "cannot_prove": [
+          "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+        ],
         "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
         "freshness_label": "Historical public record",
+        "freshness_scope": "Historical/admin context from the available archive; not live field status.",
         "freshness_status": "historical_only",
         "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
@@ -1134,9 +1141,16 @@
         "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Public administrative work, payment, tender, or award rows exist in available records."
+        ],
+        "cannot_prove": [
+          "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+        ],
         "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
         "freshness_label": "Historical public record",
+        "freshness_scope": "Historical/admin context from the available archive; not live field status.",
         "freshness_status": "historical_only",
         "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
@@ -1151,9 +1165,16 @@
         "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Public administrative work, payment, tender, or award rows exist in available records."
+        ],
+        "cannot_prove": [
+          "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+        ],
         "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
         "freshness_label": "Historical public record",
+        "freshness_scope": "Historical/admin context from the available archive; not live field status.",
         "freshness_status": "historical_only",
         "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
@@ -1168,9 +1189,16 @@
         "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Public administrative work, payment, tender, or award rows exist in available records."
+        ],
+        "cannot_prove": [
+          "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+        ],
         "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
         "freshness_label": "Historical public record",
+        "freshness_scope": "Historical/admin context from the available archive; not live field status.",
         "freshness_status": "historical_only",
         "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
@@ -1185,9 +1213,16 @@
         "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Public administrative work, payment, tender, or award rows exist in available records."
+        ],
+        "cannot_prove": [
+          "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+        ],
         "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
         "freshness_label": "Historical public record",
+        "freshness_scope": "Historical/admin context from the available archive; not live field status.",
         "freshness_status": "historical_only",
         "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
@@ -1202,9 +1237,16 @@
         "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Public administrative work, payment, tender, or award rows exist in available records."
+        ],
+        "cannot_prove": [
+          "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+        ],
         "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
         "freshness_label": "Historical public record",
+        "freshness_scope": "Historical/admin context from the available archive; not live field status.",
         "freshness_status": "historical_only",
         "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
@@ -1219,9 +1261,16 @@
         "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Public administrative work, payment, tender, or award rows exist in available records."
+        ],
+        "cannot_prove": [
+          "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+        ],
         "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
         "freshness_label": "Historical public record",
+        "freshness_scope": "Historical/admin context from the available archive; not live field status.",
         "freshness_status": "historical_only",
         "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
@@ -1236,9 +1285,16 @@
         "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Public administrative work, payment, tender, or award rows exist in available records."
+        ],
+        "cannot_prove": [
+          "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+        ],
         "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
         "freshness_label": "Historical public record",
+        "freshness_scope": "Historical/admin context from the available archive; not live field status.",
         "freshness_status": "historical_only",
         "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
@@ -1253,9 +1309,16 @@
         "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Public administrative work, payment, tender, or award rows exist in available records."
+        ],
+        "cannot_prove": [
+          "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+        ],
         "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
         "freshness_label": "Historical public record",
+        "freshness_scope": "Historical/admin context from the available archive; not live field status.",
         "freshness_status": "historical_only",
         "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
@@ -1270,9 +1333,16 @@
         "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Public administrative work, payment, tender, or award rows exist in available records."
+        ],
+        "cannot_prove": [
+          "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+        ],
         "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
         "freshness_label": "Historical public record",
+        "freshness_scope": "Historical/admin context from the available archive; not live field status.",
         "freshness_status": "historical_only",
         "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
@@ -1287,9 +1357,16 @@
         "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Public administrative work, payment, tender, or award rows exist in available records."
+        ],
+        "cannot_prove": [
+          "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+        ],
         "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
         "freshness_label": "Historical public record",
+        "freshness_scope": "Historical/admin context from the available archive; not live field status.",
         "freshness_status": "historical_only",
         "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
@@ -1304,9 +1381,16 @@
         "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Public administrative work, payment, tender, or award rows exist in available records."
+        ],
+        "cannot_prove": [
+          "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+        ],
         "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
         "freshness_label": "Historical public record",
+        "freshness_scope": "Historical/admin context from the available archive; not live field status.",
         "freshness_status": "historical_only",
         "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
@@ -1321,9 +1405,16 @@
         "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Public administrative work, payment, tender, or award rows exist in available records."
+        ],
+        "cannot_prove": [
+          "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+        ],
         "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
         "freshness_label": "Historical public record",
+        "freshness_scope": "Historical/admin context from the available archive; not live field status.",
         "freshness_status": "historical_only",
         "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
@@ -1338,9 +1429,16 @@
         "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Public administrative work, payment, tender, or award rows exist in available records."
+        ],
+        "cannot_prove": [
+          "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+        ],
         "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
         "freshness_label": "Historical public record",
+        "freshness_scope": "Historical/admin context from the available archive; not live field status.",
         "freshness_status": "historical_only",
         "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
@@ -1355,9 +1453,16 @@
         "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Public administrative work, payment, tender, or award rows exist in available records."
+        ],
+        "cannot_prove": [
+          "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+        ],
         "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
         "freshness_label": "Historical public record",
+        "freshness_scope": "Historical/admin context from the available archive; not live field status.",
         "freshness_status": "historical_only",
         "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
@@ -1372,9 +1477,16 @@
         "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Public administrative work, payment, tender, or award rows exist in available records."
+        ],
+        "cannot_prove": [
+          "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+        ],
         "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
         "freshness_label": "Historical public record",
+        "freshness_scope": "Historical/admin context from the available archive; not live field status.",
         "freshness_status": "historical_only",
         "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
@@ -1389,9 +1501,16 @@
         "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Public administrative work, payment, tender, or award rows exist in available records."
+        ],
+        "cannot_prove": [
+          "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+        ],
         "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-49-46Z",
         "freshness_label": "Historical public record",
+        "freshness_scope": "Historical/admin context from the available archive; not live field status.",
         "freshness_status": "historical_only",
         "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
@@ -1406,9 +1525,16 @@
         "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Public administrative work, payment, tender, or award rows exist in available records."
+        ],
+        "cannot_prove": [
+          "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+        ],
         "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-48-51Z",
         "freshness_label": "Historical public record",
+        "freshness_scope": "Historical/admin context from the available archive; not live field status.",
         "freshness_status": "historical_only",
         "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
@@ -1423,9 +1549,16 @@
         "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Public administrative work, payment, tender, or award rows exist in available records."
+        ],
+        "cannot_prove": [
+          "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+        ],
         "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-48-51Z",
         "freshness_label": "Historical public record",
+        "freshness_scope": "Historical/admin context from the available archive; not live field status.",
         "freshness_status": "historical_only",
         "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
@@ -1440,9 +1573,16 @@
         "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Public administrative work, payment, tender, or award rows exist in available records."
+        ],
+        "cannot_prove": [
+          "Field completion, work quality, corruption, negligence, issue resolution, or current condition."
+        ],
         "claim_eligibility": "historical_public_context",
         "fetched_at": "2026-06-30T08-48-51Z",
         "freshness_label": "Historical public record",
+        "freshness_scope": "Historical/admin context from the available archive; not live field status.",
         "freshness_status": "historical_only",
         "license": "Public Domain or official/public web reference",
         "parser_version": "works_payments_v1",
@@ -1457,9 +1597,16 @@
         "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Ward, corporation, and jurisdiction context present in available public records."
+        ],
+        "cannot_prove": [
+          "Field condition, agency action, issue resolution, or current ground truth."
+        ],
         "claim_eligibility": "jurisdiction",
         "fetched_at": "",
         "freshness_label": "Public ward data",
+        "freshness_scope": "Jurisdiction context from the available archived lookup; not live issue status.",
         "freshness_status": "undated",
         "license": "Public Domain or official/public web reference",
         "parser_version": "jurisdiction-v1",
@@ -1558,7 +1705,7 @@
     "routing_rule_ids": [
       "road.primary"
     ],
-    "source_snapshot_id": "source-snapshot-a4112641b884c04d",
+    "source_snapshot_id": "source-snapshot-b1dbc5f9921b423d",
     "stages": {
       "matcher": {
         "selected_channel_ids": [],

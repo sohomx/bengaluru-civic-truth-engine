@@ -52,7 +52,7 @@
       "power.primary"
     ],
     "source_of_truth": "packet_structured_data",
-    "source_snapshot_id": "source-snapshot-300a0f725bfdce37",
+    "source_snapshot_id": "source-snapshot-7cd29d2573703590",
     "total_evidence_matches": 0,
     "used_rag": false,
     "used_raw_scan": false
@@ -238,9 +238,16 @@
     },
     "evidence_records": [
       {
+        "can_prove": [
+          "Route/contact metadata present in available public records."
+        ],
+        "cannot_prove": [
+          "Ownership for the exact incident, live ticket status, or current ground response."
+        ],
         "claim_eligibility": "routing",
         "fetched_at": "2026-06-30T08-49-34Z",
         "freshness_label": "Recent public record",
+        "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
         "freshness_status": "fresh",
         "license": "Public Domain or official/public web reference",
         "parser_version": "channels_v1",
@@ -255,9 +262,16 @@
         "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Route/contact metadata present in available public records."
+        ],
+        "cannot_prove": [
+          "Ownership for the exact incident, live ticket status, or current ground response."
+        ],
         "claim_eligibility": "routing",
         "fetched_at": "2026-06-30T08-49-34Z",
         "freshness_label": "Recent public record",
+        "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
         "freshness_status": "fresh",
         "license": "Public Domain or official/public web reference",
         "parser_version": "channels_v1",
@@ -272,9 +286,16 @@
         "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Route/contact metadata present in available public records."
+        ],
+        "cannot_prove": [
+          "Ownership for the exact incident, live ticket status, or current ground response."
+        ],
         "claim_eligibility": "routing",
         "fetched_at": "2026-06-30T08-49-34Z",
         "freshness_label": "Recent public record",
+        "freshness_scope": "Archived routing/contact context; verify before treating as current operational status.",
         "freshness_status": "fresh",
         "license": "Public Domain or official/public web reference",
         "parser_version": "channels_v1",
@@ -289,9 +310,16 @@
         "source_tier": "tier_1"
       },
       {
+        "can_prove": [
+          "Ward, corporation, and jurisdiction context present in available public records."
+        ],
+        "cannot_prove": [
+          "Field condition, agency action, issue resolution, or current ground truth."
+        ],
         "claim_eligibility": "jurisdiction",
         "fetched_at": "",
         "freshness_label": "Public ward data",
+        "freshness_scope": "Jurisdiction context from the available archived lookup; not live issue status.",
         "freshness_status": "undated",
         "license": "Public Domain or official/public web reference",
         "parser_version": "jurisdiction-v1",
@@ -384,7 +412,7 @@
     "routing_rule_ids": [
       "power.primary"
     ],
-    "source_snapshot_id": "source-snapshot-300a0f725bfdce37",
+    "source_snapshot_id": "source-snapshot-7cd29d2573703590",
     "stages": {
       "matcher": {
         "selected_channel_ids": [

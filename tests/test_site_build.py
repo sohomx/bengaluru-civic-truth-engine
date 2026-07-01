@@ -199,6 +199,7 @@ class SiteBuildTests(unittest.TestCase):
             truth = json.loads((web_data / "truth" / "bellandur" / "all.json").read_text())
             source_status = json.loads((web_data / "source_status.json").read_text())
             search_index = json.loads((web_data / "search_index.json").read_text())
+            static_packets = json.loads((web_data / "static_packets.json").read_text())
             report = json.loads((web_data / "build_report.json").read_text())
 
             self.assertIn("build_metadata", truth)
@@ -247,6 +248,9 @@ class SiteBuildTests(unittest.TestCase):
             self.assertIn("reported", grievance_entry["keywords"])
             self.assertGreaterEqual(report["counts"]["truth_payloads"], 3)
             self.assertTrue((dossiers / "dossier-bellandur.md").exists())
+            self.assertEqual(static_packets["mode"], "prebuilt_demo_packets")
+            self.assertIn("packets", static_packets)
+            self.assertIn("queries", static_packets)
 
     def test_site_build_tags_money_trail_sources_for_query_retrieval(self):
         with tempfile.TemporaryDirectory() as tmp:
