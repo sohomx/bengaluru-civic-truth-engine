@@ -9,6 +9,15 @@ __pycache__/
 venv/
 env/
 .env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+credentials.json
+token.json
 
 data/raw/
 data/parsed/
